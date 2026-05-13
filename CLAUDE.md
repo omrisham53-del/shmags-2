@@ -60,11 +60,11 @@ Claude Code maintains persistent memory across conversations. As work continues:
 
 Don't delete old work. Move it to @archives/ when done.
 
-## Skills
+## Agents
 
-Active skills Claude can invoke. Each skill has a `SKILL.md` with full usage instructions.
+Sub-agents are specialized Claude instances living in `.claude/agents/`. Each has its own model and instructions.
 
-- **research** -- `.claude/skills/research/SKILL.md` -- Calls Groq API (free) to research job market, academic, or D&D topics. Returns structured summaries with key findings, sources, and next steps.
+- **research** — `.claude/agents/research.md` — Haiku-powered research assistant for job market, academic, and D&D queries. Automatically saves reports to `research/<context>/`.
 
 ## Skills to Build (Backlog)
 
