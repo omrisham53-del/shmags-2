@@ -9,6 +9,7 @@ import argparse
 import os
 import sys
 from pathlib import Path
+from datetime import datetime
 
 # Load .env from the project root (three levels up from this file:
 # skills/research/ -> skills/ -> .claude/ -> project root)
@@ -159,7 +160,32 @@ def main():
         sys.exit(1)
 
     result = response.choices[0].message.content
+
+    # Save to file
+    research_dir = SCRIPT_DIR.parent.parent.parent / "projects" / "research"
+    research_dir.mkdir(parents=True, exist_ok=True)
+
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    context_name = context.capitalize()
+    # Sanitize query for filename (first 30 chars, remove special chars)
+    safe_query = "".join(c if c.isalnum() or c in " -_" else "" for c in args.query[:30])
+    safe_query = safe_query.strip().replace(" ", "_")
+
+    filename = f"{timestamp}_{context_name}_{safe_query}.md"
+    filepath = research_dir / filename
+
+    with open(filepath, "w", encoding="utf-8") as f:
+        f.write(f"# Research Report\n\n")
+        f.write(f"**Context:** {context_name}\n")
+        f.write(f"**Query:** {args.query}\n")
+        f.write(f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+        f.write(f"**Model:** {args.model}\n\n")
+        f.write(f"---\n\n")
+        f.write(result)
+
     print(result)
+    print(f"\n\nReport saved to: {filepath}")
+
 
 
 if __name__ == "__main__":
