@@ -46,7 +46,8 @@ Claude Code maintains persistent memory across conversations. As work continues:
 
 ## References
 
-@references/ — Standard operating procedures, examples, style guides. Build as needed.
+@references/ — Standard operating procedures, examples, style guides, and assets.
+- @references/brand-assets/ — Fonts, images, icons, and other recurring design materials for consistent branding
 
 ## Archives
 
