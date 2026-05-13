@@ -1,6 +1,6 @@
 ---
 name: research
-description: Research assistant that calls GPT-4.5 with context-appropriate system prompts for job market, academic, or D&D queries. Returns structured bullet-point summaries with key findings, sources, and next steps.
+description: Research assistant that calls GPT-5.5 with context-appropriate system prompts for job market, academic, or D&D queries. Returns structured bullet-point summaries with key findings, sources, and next steps.
 ---
 
 ## When to Use This Skill

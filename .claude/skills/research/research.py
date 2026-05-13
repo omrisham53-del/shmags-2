@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 Research skill for Omri's second brain.
+Uses GPT-5.5 for research across job market, academic, and D&D contexts.
 Usage: python research.py --context <job|academic|dnd> --query "<query string>"
 """
 
@@ -97,7 +98,7 @@ CONTEXT_ALIASES = {
 
 
 def parse_args():
-    parser = argparse.ArgumentParser(description="Research skill powered by GPT-4.5")
+    parser = argparse.ArgumentParser(description="Research skill powered by GPT-5.5")
     parser.add_argument(
         "--context",
         required=True,
@@ -110,8 +111,8 @@ def parse_args():
     )
     parser.add_argument(
         "--model",
-        default="gpt-4.5-preview",
-        help="OpenAI model to use (default: gpt-4.5-preview)",
+        default="gpt-5.5",
+        help="OpenAI model to use (default: gpt-5.5)",
     )
     return parser.parse_args()
 
@@ -146,7 +147,7 @@ def main():
 
     try:
         response = client.chat.completions.create(
-            model=args.model,
+            model="gpt-5.5",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": args.query},
