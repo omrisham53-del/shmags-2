@@ -111,8 +111,8 @@ def parse_args():
     )
     parser.add_argument(
         "--model",
-        default="llama-3.1-70b-versatile",
-        help="Groq model to use (default: llama-3.1-70b-versatile)",
+        default="llama-3.3-70b-versatile",
+        help="Groq model to use (default: llama-3.3-70b-versatile)",
     )
     return parser.parse_args()
 
