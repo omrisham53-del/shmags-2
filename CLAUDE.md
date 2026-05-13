@@ -57,7 +57,7 @@ Don't delete old work. Move it to @archives/ when done.
 
 Active skills Claude can invoke. Each skill has a `SKILL.md` with full usage instructions.
 
-- **research** -- `.claude/skills/research/SKILL.md` -- Calls GPT-5.5 to research job market, academic, or D&D topics. Returns structured summaries with key findings, sources, and next steps.
+- **research** -- `.claude/skills/research/SKILL.md` -- Calls Groq API (free) to research job market, academic, or D&D topics. Returns structured summaries with key findings, sources, and next steps.
 
 ## Skills to Build (Backlog)
 

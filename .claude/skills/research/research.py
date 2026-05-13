@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Research skill for Omri's second brain.
-Uses GPT-5.5 for research across job market, academic, and D&D contexts.
+Uses Groq API (free tier) for research across job market, academic, and D&D contexts.
 Usage: python research.py --context <job|academic|dnd> --query "<query string>"
 """
 
@@ -24,9 +24,9 @@ ROOT_ENV = SCRIPT_DIR.parent.parent.parent / ".env"
 load_dotenv(dotenv_path=ROOT_ENV)
 
 try:
-    from openai import OpenAI, OpenAIError
+    from groq import Groq, APIError
 except ImportError:
-    print("ERROR: openai package is not installed. Run: pip install -r requirements.txt", file=sys.stderr)
+    print("ERROR: groq package is not installed. Run: pip install -r requirements.txt", file=sys.stderr)
     sys.exit(1)
 
 # --- System prompts per context ---
@@ -133,29 +133,29 @@ def main():
     args = parse_args()
     context = resolve_context(args.context)
 
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key or api_key == "your-openai-key-here":
+    api_key = os.getenv("GROQ_API_KEY")
+    if not api_key or api_key == "your-groq-api-key-here":
         print(
-            "ERROR: OPENAI_API_KEY is missing or not set. "
-            f"Edit {ROOT_ENV} and add your key.",
+            "ERROR: GROQ_API_KEY is missing or not set. "
+            f"Edit {ROOT_ENV} and add your key from console.groq.com",
             file=sys.stderr,
         )
         sys.exit(1)
 
-    client = OpenAI(api_key=api_key)
+    client = Groq(api_key=api_key)
     system_prompt = SYSTEM_PROMPTS[context]
 
     try:
         response = client.chat.completions.create(
-            model="gpt-5.5",
+            model=args.model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": args.query},
             ],
             temperature=0.4,  # Factual but not robotic
         )
-    except OpenAIError as e:
-        print(f"ERROR: OpenAI API call failed: {e}", file=sys.stderr)
+    except APIError as e:
+        print(f"ERROR: Groq API call failed: {e}", file=sys.stderr)
         sys.exit(1)
 
     result = response.choices[0].message.content
