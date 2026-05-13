@@ -1,1 +1,7 @@
-{}
+{
+  "permissions": {
+    "allow": [
+      "Bash(python \"c:\\עמרי\\Shmags 2\\.claude\\skills\\research\\research.py\" *)"
+    ]
+  }
+}
