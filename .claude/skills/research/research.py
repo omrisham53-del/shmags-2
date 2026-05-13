@@ -111,8 +111,8 @@ def parse_args():
     )
     parser.add_argument(
         "--model",
-        default="mixtral-8x7b-32768",
-        help="Groq model to use (default: mixtral-8x7b-32768)",
+        default="llama-3.1-70b-versatile",
+        help="Groq model to use (default: llama-3.1-70b-versatile)",
     )
     return parser.parse_args()
 
