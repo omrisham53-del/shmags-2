@@ -111,8 +111,8 @@ def parse_args():
     )
     parser.add_argument(
         "--model",
-        default="gpt-5.5",
-        help="OpenAI model to use (default: gpt-5.5)",
+        default="mixtral-8x7b-32768",
+        help="Groq model to use (default: mixtral-8x7b-32768)",
     )
     return parser.parse_args()
 
