@@ -161,8 +161,8 @@ def main():
 
     result = response.choices[0].message.content
 
-    # Save to file
-    research_dir = SCRIPT_DIR.parent.parent.parent / "projects" / "research"
+    # Save to file in research folder organized by context
+    research_dir = SCRIPT_DIR.parent.parent.parent / "research" / context
     research_dir.mkdir(parents=True, exist_ok=True)
 
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")

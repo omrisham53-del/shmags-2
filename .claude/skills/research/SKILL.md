@@ -47,6 +47,6 @@ Pass the user's complete original question as the `--query` value, enclosed in d
 
 The script prints structured Markdown to stdout and automatically saves it to a file. Present the output to the user exactly as-is, without wrapping it in another layer of bullets or commentary. You may add a brief one-sentence intro like "Here is what I found:" but keep it minimal. 
 
-Each research report is automatically saved to `projects/research/` with a filename like `20260513_145230_Job_data_analyst.md`. Let the user know the file was saved and show them the filename.
+Each research report is automatically saved to `research/<context>/` (e.g., `research/job-market/20260513_145230_data_analyst.md`). Let the user know the file was saved and show them the filename.
 
 If the script exits with an error (any output to stderr or non-zero exit), report the error message clearly and do not invent a fallback answer.

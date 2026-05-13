@@ -44,6 +44,13 @@ Claude Code maintains persistent memory across conversations. As work continues:
 
 @projects/ — Active workstreams live here. Each project has its own folder with README describing status and deadlines.
 
+## Research
+
+@research/ — Timestamped research reports organized by context:
+- `research/job-market/` — Job market research and career opportunity analysis
+- `research/academic/` — Academic research, concepts, methodologies
+- `research/dnd/` — D&D campaign research, mechanics, ideas
+
 ## References
 
 @references/ — Standard operating procedures, examples, style guides, and assets.
