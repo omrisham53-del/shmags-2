@@ -6,7 +6,7 @@
 **Location:** Israel  
 
 **What I Do:**  
-Third-year student at [University TBD], working part-time as a policy analyst at EcoTraders. I analyze techno-economic policies for government decision-makers, specializing in energy efficiency and market impact assessment.
+Third-year student at [Reichman University], working part-time as a policy analyst at EcoTraders. I analyze techno-economic policies for government decision-makers, specializing in energy efficiency and market impact assessment.
 
 **My #1 Priority:**  
 Make my student life more efficient while building my personal brand and analytical skills. I want to grow as an analyst and strategically position myself for a better role post-graduation.

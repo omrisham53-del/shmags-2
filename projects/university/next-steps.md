@@ -2,16 +2,19 @@
 
 **Priority Order**
 
-1. [ ] Complete HW #2 (Functional Unit and System Boundary) - due May 18
-2. [ ] Submit HW #2
-3. [ ] Identify other upcoming assignments
+1. [x] Complete HW #2 (Functional Unit and System Boundary) - due May 18
+2. [x] Submit HW #2 with AI disclosure
+3. [ ] Identify upcoming assignments and deadlines
 4. [ ] Continue networking with professors/peers
 5. [ ] Build portfolio pieces for job search
 
-**This Week (by May 18):**
-- [ ] Complete HW #2
-- [ ] Review and submit
+**For All Future Assignments:**
+- Review `RESEARCH_GUIDELINES.md` before starting any assignment requiring sourcing
+- Use the research workflow: identify claims → source research → verify data → cite as you write
+- Create AI disclosure if using Claude for any aspect (use template in TEMPLATES/)
+- Keep assignments in notes/ folder with bibliography
 
 **Notes:**
-- Add other assignment deadlines as they're announced
+- Add assignment deadlines as announced
 - Document networking conversations in notes/
+- Use research guidelines for all coursework requiring citations

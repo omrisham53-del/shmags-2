@@ -1,4 +1,16 @@
 {
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$d = (Get-Date).ToString('yyyy-MM-dd'); $f = 'c:\\עמרי\\Shmags 2\\today.md'; if (Test-Path $f) { ((Get-Content $f -Raw) -replace '^# Today - [\\d\\-]+', \"# Today - $d\") | Set-Content $f -Encoding utf8 }"
+          }
+        ]
+      }
+    ]
+  },
   "permissions": {
     "allow": [
       "Bash(python \"c:\\עמרי\\Shmags 2\\.claude\\skills\\research\\research.py\" *)"

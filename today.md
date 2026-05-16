@@ -1,4 +1,4 @@
-# Today's Focus
+# Today - May 20, 2026
 
 **Date:** 2026-05-20
 **Updated:** 2026-05-20
@@ -32,4 +32,21 @@
 - University: [projects/university](projects/university/)
 - D&D: [projects/dnd-campaign](projects/dnd-campaign/)
 
-**Note:** Update this at the start of each day or when priorities shift.
+**Work Projects:**
+- [Energy Program](projects/energy-program/)
+- [Job Search](projects/job-search/)
+- [University](projects/university/)
+- [D&D Campaign](projects/dnd-campaign/)
+
+**Workflows & References:**
+- [Daily Routine](routine.md) - Follow this for structure
+- [Assignment Tracker](projects/university/tracker.md) - All coursework deadlines
+- [Current Priorities](context/current-priorities.md) - Quarter focus
+- [Academic Guidelines](context/academic_integrity_framework.md) - Research & sourcing
+
+---
+
+**Update this file:**
+- At the start of each session (auto-updates date)
+- When priorities shift
+- At end of day to track what got done
