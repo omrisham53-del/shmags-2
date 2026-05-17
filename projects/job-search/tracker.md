@@ -3,7 +3,7 @@
 Running log of every job surfaced by the Job Opportunity Tracker. Updated automatically after each run.
 
 ## Summary
-- Total jobs found: 33
+- Total jobs found: 34
 - Applied: 2
 - In review: 2
 - Rejected: 0
@@ -48,6 +48,7 @@ Running log of every job surfaced by the Job Opportunity Tracker. Updated automa
 | 2026-05-14 | Data Scientist | Merck Healthcare | Yavne, Center District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/data-scientist-at-merck-healthcare-4414607220) | Low | Found | Candidate is a 3rd year economics student with policy analysis experience, lacki |
 | 2026-05-14 | טכנולוג/ית קו במבה | Nestlé | Kiryat Gat, South District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/%D7%98%D7%9B%D7%A0%D7%95%D7%9C%D7%95%D7%92-%D7%99%D7%AA-%D7%A7%D7%95-%D7%91%D7%9E%D7%91%D7%94-at-nestl%C3%A9-4414218521) | Low | Found | The candidate is a third-year economics student with policy analysis experience, |
 | 2026-05-14 | C# Developer | mPrest | Karmiel, North District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/c%23-developer-at-mprest-4410157540) | Low | Found | The candidate is a 3rd year student with an economics and policy analysis backgr |
+| 2026-05-17 | [Role TBD] | Empire Economic Consulting | Jerusalem, Israel | [Link TBD] | High | Found | Manually found. Jerusalem location is ideal. Strong fit given economics/policy analysis background. Add job title and link when available. |
 
 ---
 
