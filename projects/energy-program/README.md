@@ -4,7 +4,8 @@
 
 **Client:** Ministry of Energy (via EcoTraders)  
 **Status:** Active  
-**Manager:** Daniel
+**Manager:** Daniel  
+**Collaborator:** Omri (co-working on the grants model specifically)
 
 **Key Dates:**
 - **Deadline:** June 30, 2026

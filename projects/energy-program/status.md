@@ -1,18 +1,19 @@
 # Energy Program - Status
 
-**Last Updated:** 2026-05-14
+**Last Updated:** 2026-05-17
 **Owner:** Daniel (Manager)
+**Collaborator:** Omri (grants model)
 **Deadline:** June 30, 2026
 
 ## Current Status
-In progress. Excel analysis and supporting documents underway.
+Grants model Excel sent to Daniel. Awaiting feedback. Starting grants chapter next.
 
 ## What's Complete
-- (Add as you progress)
+- Grants model Excel analysis (sent to Daniel 2026-05-17)
 
 ## What's In Progress
-- Techno-economic analysis in Excel
-- Supporting documents
+- Grants chapter in national plan document (first version, matching format)
+- Awaiting Daniel's feedback on Excel model
 
 ## What's Next
 - (See next-steps.md)
