@@ -12,6 +12,7 @@
 - [ ] Follow up on any pending conversations
 - [ ] Research 5+ new companies/roles
 - [ ] Add to tracker and next steps
+- [ ] Research Empire Economic Consulting (Jerusalem) before applying - what they do, clients, culture, open roles
 
 **Notes:**
 - Use preferences.md to filter opportunities
