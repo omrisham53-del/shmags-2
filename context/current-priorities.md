@@ -8,8 +8,8 @@ Excel analysis of government funding for the national energy efficiency program.
 **Owner:** EcoTraders (Manager: Daniel)
 
 **This week's tasks (in order):**
-1. Finish Excel analysis for national plan - grants for energy efficiency (adjustments nearly done)
-2. Write first version of the grants chapter in the national plan document (match existing format for consistency)
+1. ~~Finish Excel analysis for national plan - grants for energy efficiency~~ DONE - sent to Daniel 2026-05-17, awaiting feedback
+2. Write first version of the grants chapter in the national plan document (match existing format for consistency) - IN PROGRESS
 
 ## Priority 2: Job Search
 Finding a data analyst or adjacent role, initially in gaming but exploring other sectors. Building connections and networking on LinkedIn.  
