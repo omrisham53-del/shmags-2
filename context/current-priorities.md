@@ -1,11 +1,15 @@
 # Current Priorities
 
-*Last updated: 2026-05-13*
+*Last updated: 2026-05-17*
 
 ## Priority 1: Energy Program (Work)
 Excel analysis of government funding for the national energy efficiency program. Related documents in progress.  
 **Deadline:** End of June 2026  
 **Owner:** EcoTraders (Manager: Daniel)
+
+**This week's tasks (in order):**
+1. Finish Excel analysis for national plan - grants for energy efficiency (adjustments nearly done)
+2. Write first version of the grants chapter in the national plan document (match existing format for consistency)
 
 ## Priority 2: Job Search
 Finding a data analyst or adjacent role, initially in gaming but exploring other sectors. Building connections and networking on LinkedIn.  
