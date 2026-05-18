@@ -1,19 +1,19 @@
 # Today's Focus
 
-**Date:** 2026-05-14
-**Updated:** [auto-update when priorities shift]
+**Date:** 2026-05-18
+**Updated:** 2026-05-18
 
 ## Current Priority
-- Birthday party prep (May 15) - COMPLETE: Playlist created
+- Writing energy program chapter (plan document)
 
 ## This Week's Focus
-1. **Energy Program** - Continue Excel analysis, check in with Daniel
-2. **Job Search** - LinkedIn outreach, research opportunities
-3. **University** - HW #2 due May 18 (Functional Unit and System Boundary)
+1. **Energy Program** - Excel grants analysis: DONE. Now writing the chapter for the plan itself.
+2. **Job Search** - MoonActive: TBD (asking them today about latest available start date). Continue LinkedIn outreach.
+3. **University** - HW #2 (Functional Unit and System Boundary): SUBMITTED
 4. **D&D** - Session prep for weekly
 
 ## Blockers / Questions
-- (None currently)
+- MoonActive: they flagged October full-time as a concern. Clarifying latest start date today.
 
 ## Quick Links
 - Energy Program: [projects/energy-program](projects/energy-program/)

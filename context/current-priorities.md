@@ -3,7 +3,7 @@
 *Last updated: 2026-05-13*
 
 ## Priority 1: Energy Program (Work)
-Excel analysis of government funding for the national energy efficiency program. Related documents in progress.  
+Grants Excel analysis: DONE. Now writing the chapter for the plan document.  
 **Deadline:** End of June 2026  
 **Owner:** EcoTraders (Manager: Daniel)
 
@@ -13,8 +13,8 @@ Finding a data analyst or adjacent role, initially in gaming but exploring other
 **Key activities:** LinkedIn outreach, research, conversations
 
 ## Priority 3: University Projects
-Complete coursework and assignments. Current immediate: HW #2 – Functional Unit and System Boundary.  
-**Deadline:** May 18, 2026 (HW #2)  
+Complete coursework and assignments. HW #2 (Functional Unit and System Boundary) submitted May 18.  
+**Status:** HW #2 DONE  
 **Ongoing:** Networking with interesting people in the field
 
 ## Priority 4: D&D Campaign
