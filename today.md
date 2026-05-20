@@ -1,21 +1,32 @@
 # Today's Focus
 
-**Date:** 2026-05-18
-**Updated:** 2026-05-18
+**Date:** 2026-05-20
+**Updated:** 2026-05-20
 
-## Current Priority
-- Writing energy program chapter (plan document)
+## Top 3 Priorities
 
-## This Week's Focus
-1. **Energy Program** - Excel grants analysis: DONE. Now writing the chapter for the plan itself.
-2. **Job Search** - MoonActive: TBD (asking them today about latest available start date). Continue LinkedIn outreach.
-3. **University** - HW #2 (Functional Unit and System Boundary): SUBMITTED
-4. **D&D** - Session prep for weekly
+1. **Energy Program** - Writing the chapter for the plan document. Keep daily momentum. Deadline: end of June.
+2. **Job Search** - MoonActive response pending (asked about start date May 18). Follow up today if no reply. 4 high-fit jobs in tracker worth reviewing.
+3. **University** - HW #2 done. No hard deadlines this week, stay on top of coursework.
+
+## This Week's Deadlines
+
+- MoonActive: Chase response on start date - today if no reply yet
+- Energy program chapter: No hard weekly cutoff, but block daily time
+- No other hard deadlines this week
+
+## First Focus Block
+
+1. Check WhatsApp/email for MoonActive reply, send follow-up if nothing
+2. Energy program chapter: 60-90 minute writing block
+3. Scan high-fit jobs (Scopely Senior DA, Experis Junior DA, TELUS Digital) and decide next application
 
 ## Blockers / Questions
-- MoonActive: they flagged October full-time as a concern. Clarifying latest start date today.
+
+- MoonActive: waiting on their answer re: October full-time start
 
 ## Quick Links
+
 - Energy Program: [projects/energy-program](projects/energy-program/)
 - Job Search: [projects/job-search](projects/job-search/)
 - University: [projects/university](projects/university/)
