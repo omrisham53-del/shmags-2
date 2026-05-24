@@ -3,10 +3,10 @@
 Running log of every job surfaced by the Job Opportunity Tracker. Updated automatically after each run.
 
 ## Summary
-- Total jobs found: 33
-- Applied: 2
-- In review: 2
-- Rejected: 0
+- Total jobs found: 35
+- Applied: 4
+- In review: 3
+- Rejected: 1
 - Offer: 0
 
 ---
@@ -15,6 +15,9 @@ Running log of every job surfaced by the Job Opportunity Tracker. Updated automa
 
 | Date Found | Job Title | Company | Location | Link | Fit | Status | Notes |
 |------------|-----------|---------|----------|------|-----|--------|-------|
+| 2026-05-24 | Junior Business Analyst | Primis | Tel Aviv-Yafo, Israel | | High | Applied | Applied 2026-05-24. AdTech company, collaborate with stakeholders on data needs. Awaiting response. |
+| 2026-05-20 | Product Analyst (Facetune) | Lightricks | Jerusalem, Israel | [Careers](https://careers.lightricks.com/position?gh_jid=7793701002) | High | In Review | PM replied 2026-05-22 - flagged it's a senior role. Omri preparing for call. Research done: company split into Facetune (consumer) and LTX (AI video), ~50M monthly users, strong data/A/B testing culture. Next: reply to PM and schedule call. |
+| 2026-05-20 | בקר/ית נתונים - יחידת שוק ההון, אגף סטטיסטיקה | Bank of Israel | Tel Aviv, Israel | | High | In Review | Online filmed interview completed 2026-05-20. Position in the Capital Markets Unit, Statistics Dept, Information and Statistics Division. Response expected within a few days (by ~2026-05-23). |
 | 2026-05-13 | Senior Data Analyst (Stumble Guys) | Scopely | Tel Aviv, Israel | [LinkedIn](https://www.linkedin.com/jobs/search/?currentJobId=3179432396&geoId=104243116&keywords=scopely&location=Tel+Aviv,+Israel&refresh=true) | High | Found | Strong match. Research shows Scopely actively hiring. Need to learn SQL before applying. |
 | 2026-05-13 | DATA ANALYST | Aqurate Data | Shoham, Center District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/data-analyst-at-aqurate-data-4411637869) | Medium | Found | Omri Shamgar has relevant experience as a policy analyst and is familiar with da |
 | 2026-05-13 | Data Analyst | Investing.com | Tel Aviv District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/data-analyst-at-investing-com-4383135669) | Low | Found | The candidate lacks experience in paid marketing and user acquisition, and their |
@@ -33,8 +36,8 @@ Running log of every job surfaced by the Job Opportunity Tracker. Updated automa
 | 2026-05-14 | Analytics Engineer | Similarweb | Tel Aviv-Yafo, Tel Aviv District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/analytics-engineer-at-similarweb-4370147267) | Unknown | Found |  |
 | 2026-05-14 | Model Developer JB-26661 | Cal (Israel Credit Cards) | Bnei Brak, Tel Aviv District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/model-developer-jb-26661-at-cal-israel-credit-cards-4399748645) | Unknown | Found |  |
 | 2026-05-14 | Product Analyst | Similarweb | Tel Aviv-Yafo, Tel Aviv District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/product-analyst-at-similarweb-4364671319) | Unknown | Found |  |
-| 2026-05-14 | Game Economy Manager | MoonActive | Tel Aviv, Israel | [MoonActive](https://moonactive.com) | High | In Review | APPLIED 2026-05-14. Company flagged October full-time start as concern. Asking them 2026-05-18 about latest available start date. |
-| 2026-05-14 | Junior Acquisition Manager | MoonActive | Tel Aviv, Israel | [MoonActive](https://moonactive.com) | High | In Review | APPLIED 2026-05-14. Company flagged October full-time start as concern. Asking them 2026-05-18 about latest available start date. |
+| 2026-05-14 | Game Economy Manager | MoonActive | Tel Aviv, Israel | [MoonActive](https://moonactive.com) | High | Rejected | Rejected 2026-05-17 - looking for more experienced candidate. |
+| 2026-05-14 | Junior Acquisition Manager | MoonActive | Tel Aviv, Israel | [MoonActive](https://moonactive.com) | High | In Review | Called 2026-05-17. October too late for full-time. Omri offered August start. Did NOT ask what their required start date is. Next step: follow up to ask what timeframe works for them. |
 | 2026-05-14 | Data Engineer & AI | Elbit Systems Israel | Haifa District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/data-engineer-ai-at-elbit-systems-israel-4410176812) | Unknown | Found |  |
 | 2026-05-14 | Client Solutions Data Specialist | Vinesight | Tel Aviv District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/client-solutions-data-specialist-at-vinesight-4412926559) | Unknown | Found |  |
 | 2026-05-14 | Data Engineer | SQLink Group | Holon, Tel Aviv District, Israel | [LinkedIn](https://il.linkedin.com/jobs/view/data-engineer-at-sqlink-group-4410384973) | Unknown | Found |  |
