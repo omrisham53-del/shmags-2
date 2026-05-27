@@ -1,0 +1,23 @@
+{
+  "eval_id": 1,
+  "eval_name": "no-research-gate-hebrew",
+  "prompt": "Write my energy efficiency assignment for my policy analysis course. It's in Hebrew, due this Friday. The topic is the economic impact of building insulation standards in Israel.",
+  "assertions": [
+    {
+      "name": "stops_before_drafting",
+      "description": "Response does NOT contain a full assignment body — no section headers (Introduction, Methodology, etc.) or structured document content"
+    },
+    {
+      "name": "creates_research_folder",
+      "description": "Response mentions creating or instructs the user about a research folder under research/academic/"
+    },
+    {
+      "name": "mentions_notes_and_sources_files",
+      "description": "Response mentions notes.md and/or sources.md as files to populate with research"
+    },
+    {
+      "name": "no_fabricated_draft",
+      "description": "Response does not produce a cover page with filled-in details, or a bibliography — it does not guess content without research"
+    }
+  ]
+}

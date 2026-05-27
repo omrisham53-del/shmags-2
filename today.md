@@ -1,36 +1,43 @@
-# Today - May 20, 2026
+# Today - May 26, 2026
 
-**Date:** 2026-05-20
-**Updated:** 2026-05-20
+**Date:** 2026-05-26
+**Updated:** 2026-05-26
 
-## Top 3 Priorities
+---
 
-1. **Energy Program** - Writing the chapter for the plan document. Keep daily momentum. Deadline: end of June.
-2. **Job Search** - MoonActive response pending (asked about start date May 18). Follow up today if no reply. 4 high-fit jobs in tracker worth reviewing.
-3. **University** - HW #2 done. No hard deadlines this week, stay on top of coursework.
+## Current Priority
 
-## This Week's Deadlines
+- Job search: pipeline cleared, need fresh applications
+- Energy program chapter (writing)
 
-- MoonActive: Chase response on start date - today if no reply yet
-- Energy program chapter: No hard weekly cutoff, but block daily time
-- No other hard deadlines this week
+---
 
-## First Focus Block
+## Today's Completed ✅
 
-1. Check WhatsApp/email for MoonActive reply, send follow-up if nothing
-2. Energy program chapter: 60-90 minute writing block
-3. Scan high-fit jobs (Scopely Senior DA, Experis Junior DA, TELUS Digital) and decide next application
+1. **Job tracker cleanup** - Updated 4 application statuses (Lightricks, Bank of Israel, MoonActive x2 → all Rejected)
+2. **Tracker restructure** - Archived 30 stale Found jobs to tracker-archive.md; main tracker now lean
+3. **preferences.md rewrite** - Accurate current sectors, locations, exclusions, timeline
+4. **Skills overhauled** - Added YAML frontmatter to job-tracker + save-context skills; rewrote job-tracker logic
+5. **skill-creator added** - Installed to .claude/skills/skill-creator/
+6. **Research agent fix** - Discovered WebSearch via subagent_type doesn't work; job tracker now runs searches inline
+7. **assignment skill built** - Two-phase university assignment writer; extracted academic style guide from 3 real assignments; 100% pass rate vs 52% baseline in evals
+8. **Urban Analytics Session 3 lab** - Completed all 5 stages: fetched Tel Aviv fitness center open data via API, ran correlation + insight analysis, wrote 3 PIER policy memos, generated polished PDF report
 
-## Blockers / Questions
+---
 
-- MoonActive: waiting on their answer re: October full-time start
+## This Week's Focus
+
+1. **Job Search** - Full pipeline cleared. Only Primis (Applied) still active. Need new applications - Taboola, Similarweb, Riskified, MyHeritage (junior roles).
+2. **Energy Program** - Writing the chapter for the plan document
+3. **University** - HW #2 submitted, monitor for grade
+
+## Active Applications
+
+- **Primis** (Junior Business Analyst) - Applied 2026-05-24, awaiting response
+
+---
 
 ## Quick Links
-
-- Energy Program: [projects/energy-program](projects/energy-program/)
-- Job Search: [projects/job-search](projects/job-search/)
-- University: [projects/university](projects/university/)
-- D&D: [projects/dnd-campaign](projects/dnd-campaign/)
 
 **Work Projects:**
 - [Energy Program](projects/energy-program/)
@@ -39,14 +46,7 @@
 - [D&D Campaign](projects/dnd-campaign/)
 
 **Workflows & References:**
-- [Daily Routine](routine.md) - Follow this for structure
-- [Assignment Tracker](projects/university/tracker.md) - All coursework deadlines
-- [Current Priorities](context/current-priorities.md) - Quarter focus
-- [Academic Guidelines](context/academic_integrity_framework.md) - Research & sourcing
-
----
-
-**Update this file:**
-- At the start of each session (auto-updates date)
-- When priorities shift
-- At end of day to track what got done
+- [Daily Routine](routine.md)
+- [Assignment Tracker](projects/university/tracker.md)
+- [Current Priorities](context/current-priorities.md)
+- [Job Tracker](projects/job-search/tracker.md)

@@ -1,6 +1,6 @@
 # University Assignments Tracker
 
-**Last Updated:** May 16, 2026
+**Last Updated:** May 26, 2026
 **Term:** Spring 2026
 **Total Assignments:** Track all coursework, deadlines, and status
 
@@ -15,12 +15,12 @@
 | **Course** | [Environmental Science/Engineering] |
 | **Assigned** | May 14, 2026 |
 | **Due** | May 18, 2026 |
-| **Status** | ✅ COMPLETE |
-| **Submission** | .docx file ready + AI disclosure PDF |
+| **Status** | In Progress (draft written 2026-05-26) |
+| **Submission** | Draft at `.claude/skills/assignment-workspace/iteration-1/full-draft-english-lca/with_skill/outputs/draft.md` |
 | **Files** | `/projects/university/notes/HW2_Functional_Unit_and_System_Boundary.docx` |
 | **Research** | `/research/academic/hw2-lca-milk-production/` |
 | **Grade** | Pending |
-| **Notes** | Properly sourced with 4 peer-reviewed citations. System boundary diagram included. |
+| **Notes** | LCA comparison dairy vs. soy milk. Draft complete. 3 of 4 references need full citation details before submission. 2 SOURCE NEEDED flags in Discussion. |
 
 ---
 

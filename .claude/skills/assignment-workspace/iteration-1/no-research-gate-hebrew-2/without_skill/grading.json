@@ -1,0 +1,24 @@
+{
+  "expectations": [
+    {
+      "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+      "passed": true,
+      "evidence": "Baseline asked clarifying questions only. No assignment body."
+    },
+    {
+      "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+      "passed": false,
+      "evidence": "Baseline asked clarifying questions but did not create a folder or reference the project's research folder structure."
+    },
+    {
+      "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+      "passed": false,
+      "evidence": "Baseline asked for course name, assignment prompt, length, format, bibliography requirements. No mention of notes.md/sources.md."
+    },
+    {
+      "text": "no_fabricated_draft: No Hebrew section headers, bibliography, or cover page",
+      "passed": true,
+      "evidence": "No draft content produced."
+    }
+  ]
+}

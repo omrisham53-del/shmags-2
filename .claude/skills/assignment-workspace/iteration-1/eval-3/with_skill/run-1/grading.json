@@ -1,0 +1,25 @@
+{
+  "summary": {"pass_rate": 1.0, "passed": 4, "failed": 0, "total": 4},
+  "expectations": [
+    {
+      "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+      "passed": true,
+      "evidence": "Response only asks for brief and due date, creates folder, and stops. No assignment content."
+    },
+    {
+      "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+      "passed": true,
+      "evidence": "\"I've created one at: research/academic/urban-green-spaces-ecological-thinning/\""
+    },
+    {
+      "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+      "passed": true,
+      "evidence": "\"With empty notes.md and sources.md files inside.\""
+    },
+    {
+      "text": "no_fabricated_draft: No Hebrew section headers, bibliography, or cover page with filled-in details",
+      "passed": true,
+      "evidence": "No Hebrew content produced. Clean stop with folder creation and instructions."
+    }
+  ]
+}

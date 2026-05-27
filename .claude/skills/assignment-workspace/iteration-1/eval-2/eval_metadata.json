@@ -1,0 +1,35 @@
+{
+  "eval_id": 2,
+  "eval_name": "full-draft-english-lca",
+  "prompt": "Write my LCA comparison assignment. I have my research notes ready.",
+  "assertions": [
+    {
+      "name": "has_introduction_section",
+      "description": "Draft contains a clearly marked Introduction or Abstract section"
+    },
+    {
+      "name": "has_limitations_section",
+      "description": "Draft contains a clearly marked Limitations section"
+    },
+    {
+      "name": "has_apa_references_section",
+      "description": "Draft ends with a References section containing APA-formatted entries with DOI links"
+    },
+    {
+      "name": "uses_parenthetical_citations",
+      "description": "Draft uses (Author, Year) parenthetical citation format, not footnotes"
+    },
+    {
+      "name": "no_em_dashes",
+      "description": "Draft text does not contain em dashes (—)"
+    },
+    {
+      "name": "cites_poore_nemecek_2018",
+      "description": "Draft cites Poore & Nemecek (2018) — the primary source present in research notes"
+    },
+    {
+      "name": "mentions_tracker_update",
+      "description": "Output mentions updating the university tracker or notes the tracker was updated"
+    }
+  ]
+}

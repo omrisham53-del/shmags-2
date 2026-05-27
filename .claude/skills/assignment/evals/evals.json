@@ -1,0 +1,23 @@
+{
+  "skill_name": "assignment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write my energy efficiency assignment for my policy analysis course. It's in Hebrew, due this Friday. The topic is the economic impact of building insulation standards in Israel.",
+      "expected_output": "Should detect no research folder exists, create research/academic/energy-efficiency-assignment/ with notes.md and sources.md, and stop with clear instructions to add research before proceeding. Should NOT produce a draft.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Write my LCA comparison assignment. I have my research notes ready.",
+      "expected_output": "Should read research/academic/hw2-lca-milk-production/ (the existing research folder from HW2), detect English language from the notes, produce a full structured English draft with inline parenthetical citations from sources.md, include a Limitations section, and update projects/university/tracker.md. Bibliography in single APA list.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Draft my university assignment on urban green spaces and ecological thinning. This is a Hebrew assignment.",
+      "expected_output": "Should detect no research folder exists for this assignment, create the folder, and pause with instructions. If research were present: would produce Hebrew RTL draft with bold+underlined headers, footnote citations, split bibliography (Hebrew sources / English Sources), cover page template, and Word RTL setup checklist. Should NOT draft without notes.",
+      "files": []
+    }
+  ]
+}

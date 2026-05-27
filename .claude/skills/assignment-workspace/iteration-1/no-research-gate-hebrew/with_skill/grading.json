@@ -1,0 +1,24 @@
+{
+  "expectations": [
+    {
+      "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+      "passed": true,
+      "evidence": "Response only creates folder and lists what notes to add. No section headers, no assignment body, no structured document."
+    },
+    {
+      "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+      "passed": true,
+      "evidence": "\"Research folder created at research/academic/building-insulation-economic-impact/\""
+    },
+    {
+      "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+      "passed": true,
+      "evidence": "\"The folder has two empty files ready: notes.md ... sources.md\""
+    },
+    {
+      "text": "no_fabricated_draft: No cover page, bibliography, or drafted content without research",
+      "passed": true,
+      "evidence": "No draft content. Only folder creation confirmation and guidance on what to add."
+    }
+  ]
+}

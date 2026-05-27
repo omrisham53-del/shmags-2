@@ -1,0 +1,1 @@
+[Full text not captured — agent was blocked from writing file. Summary: agent asked clarifying questions before drafting: course name, assignment instructions (length, format, bibliography requirements), whether there's a specific research question, and any provided reading materials. Did NOT produce a draft.]

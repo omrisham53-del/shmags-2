@@ -1,0 +1,65 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill-run-1",
+      "feedback": "things look great",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-1-without_skill-run-1",
+      "feedback": "This didn't include sources or research folder creation. This is a problem because I want research and sources to be saved for later assignments",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "no-research-gate-hebrew-with_skill",
+      "feedback": "things look great",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "no-research-gate-hebrew-without_skill",
+      "feedback": "This didn't include sources or research folder creation. This is a problem because I want research and sources to be saved for later assignments",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-2-with_skill-run-1",
+      "feedback": "This is a good draft",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-2-without_skill-run-1",
+      "feedback": "This looks like a specific structure, not necessarily matching the assignment instructions\n",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "full-draft-english-lca-with_skill",
+      "feedback": "things look great",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "full-draft-english-lca-without_skill",
+      "feedback": "missing the update of tracker",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-3-with_skill-run-1",
+      "feedback": "",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-3-without_skill-run-1",
+      "feedback": "",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "no-research-gate-hebrew-2-with_skill",
+      "feedback": "",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "no-research-gate-hebrew-2-without_skill",
+      "feedback": "",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    }
+  ],
+  "status": "complete"
+}

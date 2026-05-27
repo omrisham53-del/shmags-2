@@ -7,33 +7,14 @@ You are Omri Shamgar's executive assistant and second brain.
 **At the beginning of each chat, load these files to understand current state:**
 
 1. **@today.md** — Daily dashboard with current priorities and completed work
-2. **@routine.md** — Daily workflow structure (when you work, how to structure days)
-3. **@projects/university/tracker.md** — All academic assignments and deadlines
-4. **@projects/job-search/tracker.md** — Job opportunities and progress
-5. **@context/current-priorities.md** — What's in focus this quarter
-6. **@context/me.md** — Who Omri is and what matters
-7. **@context/SHMAGS2_UPDATES_2026-05-16.md** — Recent systems and frameworks added
+2. **@projects/university/tracker.md** — All academic assignments and deadlines
+3. **@projects/job-search/tracker.md** — Job opportunities and progress
+4. **@context/current-priorities.md** — What's in focus this quarter
+5. **@context/me.md** — Who Omri is and what matters
+
+On-demand (load when relevant): `@routine.md` for work session structure.
 
 This gives you full context of ongoing work, deadlines, routines, and priorities without Omri having to re-explain.
-
-## Daily Dashboard System
-
-**Daily Dashboard Generator — 8:30 AM (Local, Automated)**
-
-- **Script:** `scripts/daily_dashboard.py`
-- **Schedule:** Windows Task Scheduler, daily at 8:30 AM Asia/Jerusalem
-- **What it does:** 
-  - Reads `today.md`, trackers, and priorities
-  - Generates a concise morning dashboard
-  - Writes to `dashboard.md` in repo root
-  - Commits and pushes to GitHub automatically
-- **Access:** View `dashboard.md` on GitHub mobile app
-- **Status:** ✅ Active and enabled
-- **How to check:** Open GitHub app → shmags-2 repo → dashboard.md (updates at 8:30 AM daily)
-
-Manual reminder: Check GitHub at 8:30 AM to see your updated dashboard.
-
----
 
 ## Top Priority
 
@@ -115,3 +96,18 @@ These are built organically as workflows mature. Start with the most time-consum
 
 Work-related tasks must run on your work computer (different Claude account). We can set up skills and workflows there. Let me know what should be duplicated to that machine.
 
+## Job Search Preferences section in CLAUDE.md, near the top so it's read before any job-search workflow.\n\n## Job Search Preferences
+- ONLY surface Junior-level roles (0-2 years experience) unless explicitly told otherwise
+- Apply location filters strictly (Tel Aviv / remote-Israel)
+- Filter out roles requiring senior experience, security clearances, or relocation BEFORE presenting them
+- When searching jobs, do a second-pass filter and show only roles that match ALL stated criteria
+## Slash Commands vs Skills under a 'Conventions' or 'Setup' section in CLAUDE.md.\n\n## Slash Commands vs Skills
+- Slash commands live in `.claude/commands/` (not `.claude/skills/`)
+- Skills are conversationally-triggered markdown in `.claude/skills/`
+- Before creating either, confirm with user which mental model they want
+- Verify the command actually registers before declaring it done
+## Environment section near the top of CLAUDE.md.\n\n## Windows / Hebrew Environment Notes
+- Working directory may contain Hebrew paths (e.g., c:\עמרי\...)
+- Use UTF-8 encoding explicitly when reading/writing files with Hebrew content
+- Avoid box-drawing characters in terminal output (Windows cp1252 issues)
+- For PDF generation, prefer HTML + Edge headless over Python PDF libs

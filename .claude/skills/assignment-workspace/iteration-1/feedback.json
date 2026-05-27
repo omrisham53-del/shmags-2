@@ -1,0 +1,35 @@
+{
+  "reviews": [
+    {
+      "run_id": "eval-1-with_skill-run-1",
+      "feedback": "things look great",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-1-without_skill-run-1",
+      "feedback": "This didn't include sources or research folder creation. This is a problem because I want research and sources to be saved for later assignments",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-2-with_skill-run-1",
+      "feedback": "This is a good draft",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-2-without_skill-run-1",
+      "feedback": "This looks like a specific structure, not necessarily matching the assignment instructions",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-3-with_skill-run-1",
+      "feedback": "",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    },
+    {
+      "run_id": "eval-3-without_skill-run-1",
+      "feedback": "",
+      "timestamp": "2026-05-26T13:06:17.577Z"
+    }
+  ],
+  "status": "complete"
+}

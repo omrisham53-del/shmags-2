@@ -1,0 +1,23 @@
+{
+  "eval_id": 3,
+  "eval_name": "no-research-gate-hebrew-2",
+  "prompt": "Draft my university assignment on urban green spaces and ecological thinning. This is a Hebrew assignment.",
+  "assertions": [
+    {
+      "name": "stops_before_drafting",
+      "description": "Response does NOT contain a full assignment body — no section headers (Introduction, Methodology, etc.) or structured document content"
+    },
+    {
+      "name": "creates_research_folder",
+      "description": "Response mentions creating or instructs the user about a research folder under research/academic/"
+    },
+    {
+      "name": "mentions_notes_and_sources_files",
+      "description": "Response mentions notes.md and/or sources.md as files to populate with research"
+    },
+    {
+      "name": "no_fabricated_draft",
+      "description": "Response does not produce Hebrew section headers, bibliography, or cover page with filled-in details"
+    }
+  ]
+}

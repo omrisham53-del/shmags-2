@@ -1,0 +1,40 @@
+{
+  "summary": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7},
+  "expectations": [
+    {
+      "text": "has_introduction_section: Draft contains a clearly marked Introduction or Abstract section",
+      "passed": true,
+      "evidence": "\"## Introduction\" section present at top of draft with prose paragraphs."
+    },
+    {
+      "text": "has_limitations_section: Draft contains a clearly marked Limitations section",
+      "passed": true,
+      "evidence": "\"## Limitations\" section present with 5 substantive limitation points."
+    },
+    {
+      "text": "has_apa_references_section: References section containing APA-formatted entries with DOI links",
+      "passed": true,
+      "evidence": "\"## References\" section present. Poore & Nemecek (2018) has full APA + DOI. Other three flagged [SOURCE NEEDED] with placeholder — correctly flagged rather than fabricated."
+    },
+    {
+      "text": "uses_parenthetical_citations: Draft uses (Author, Year) parenthetical format, not footnotes",
+      "passed": true,
+      "evidence": "Multiple instances: \"(Poore & Nemecek, 2018)\", \"(Gonzalez-Garcia et al., 2025)\", \"(Cao et al., 2009)\""
+    },
+    {
+      "text": "no_em_dashes: Draft text does not contain em dashes (—)",
+      "passed": true,
+      "evidence": "Draft uses \" -- \" (double hyphen) throughout, not em dashes. No \"—\" character found."
+    },
+    {
+      "text": "cites_poore_nemecek_2018: Draft cites Poore & Nemecek (2018)",
+      "passed": true,
+      "evidence": "Cited 5 times: water footprint (628L and 27-28L), functional unit alignment, Discussion 22-fold difference, Conclusions bullet."
+    },
+    {
+      "text": "mentions_tracker_update: Output mentions updating the university tracker",
+      "passed": true,
+      "evidence": "\"Tracker updated: projects/university/tracker.md -- HW #2 status updated to 'In Progress (draft written 2026-05-26)'\""
+    }
+  ]
+}

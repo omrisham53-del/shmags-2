@@ -1,148 +1,74 @@
-# Job Opportunity Tracker Skill
-
-## What This Does
-
-The `/job-tracker` slash command runs a daily automated job search pipeline:
-
-1. **Research** — For each area of interest in `projects/job-search/preferences.md`, run a research pass through the research agent to gather market intelligence (trending companies, valued skills, market signals)
-2. **Search** — Use that research to inform targeted searches on LinkedIn and company career pages
-3. **Score** — For each job found, generate a fit summary based on Omri's profile and the job's requirements
-4. **Generate** — Create tailored application answers for common screening questions, customized to this specific role
-5. **Log** — Append all new jobs to the tracker; update statuses based on what Omri applied to
-6. **Report** — Save a timestamped report to `research/job-market/` and print a summary
-
-## Usage
-
-### Manual Run
-```
-/job-tracker
-```
-Runs once immediately. Useful for testing or running on-demand.
-
-### Automated Daily
-```
-/loop 24h /job-tracker
-```
-Runs automatically every 24 hours. Stop with Ctrl+C.
-
+---
+name: job-tracker
+description: Run a job search pipeline for Omri's data analyst job search. Trigger when the user says /job-tracker, "run job tracker", "find new jobs", "search for jobs", or "run a job search". Searches LinkedIn and company career pages, filters for junior roles only, scores fit, and updates the tracker.
 ---
 
-## Implementation Notes
+# Job Tracker
 
-### Files Used
-- **Read:** 
-  - `projects/job-search/preferences.md` (areas of interest, target roles, companies, salary range, skills)
-  - `context/me.md` (Omri's profile for fit scoring and answer generation)
-  - `projects/job-search/tracker.md` (existing jobs to avoid duplicates)
+Runs a targeted job search pipeline and updates the tracker with new findings.
 
-- **Write:**
-  - `research/job-market/YYYYMMDD_job-tracker.md` (main report)
-  - `research/job-market/YYYYMMDD_[area].md` (research on each area of interest)
-  - `projects/job-search/tracker.md` (update status for new jobs)
+## Files
 
-### Flow
+- **Read:** `projects/job-search/preferences.md` — all search criteria, target companies, exclusions
+- **Read:** `projects/job-search/tracker.md` — active applications (avoid duplicates)
+- **Read:** `projects/job-search/tracker-archive.md` — previously found jobs (avoid duplicates)
+- **Write:** `projects/job-search/tracker-archive.md` — append new Found jobs here
+- **Write:** `research/job-market/YYYYMMDD_job-tracker.md` — full timestamped report
 
-1. **Read preferences.md** → Extract areas of interest
-2. **For each area:**
-   - Call research agent (delegated sub-task) to gather market intelligence on this area
-   - Save research output to `research/job-market/YYYYMMDD_[area].md`
-3. **Synthesize research** → Extract: trending companies, valued keywords, market trends, hiring signals
-4. **Search LinkedIn:**
-   - For each role in preferences, run WebSearch: `site:linkedin.com/jobs [role] [location] [keywords from research]`
-   - Dedup results
-5. **Search company pages:**
-   - WebFetch targeted company career pages listed in preferences + surfaced by research
-6. **Dedup:**
-   - Skip any job URL already in `tracker.md` (by exact URL match)
-7. **For each new job found:**
-   - Extract: title, company, location, posted date, key requirements, link
-   - Generate fit summary: score (High/Medium/Low) + 2-3 sentence explanation tied to Omri's profile and research
-   - Generate tailored application answers:
-     - "Why are you interested in this role?" (use Omri's motivation + job context)
-     - "Describe your relevant experience" (use Omri's background + job requirements)
-     - "What are your salary expectations?" (use salary range from preferences)
-     - Any other common screening questions for this role/industry
-8. **Compile report:**
-   - Save timestamped report to `research/job-market/YYYYMMDD_job-tracker.md`
-   - Format: job title, company, location, link, fit summary, tailored answers
-9. **Update tracker:**
-   - Append all new jobs to `projects/job-search/tracker.md` with status: "Found"
-10. **Ask for feedback:**
-    - "Did you apply to any of these? Reply with job numbers (e.g., '1, 3') or 'none'."
-    - Parse response
-    - Update statuses in tracker to "Applied" for selected jobs
-11. **Print summary:**
-    - X new jobs found
-    - Y total jobs tracked
-    - Z applied in this session
-    - Top 3 recommendations
+## Flow
 
----
+### 1. Read preferences
+Load `preferences.md`. Extract: target roles, sectors, locations, excluded companies, companies of interest.
 
-## Example Output
+### 2. Search for jobs
+Run WebSearch queries targeting LinkedIn and company career pages directly. Do not delegate to a sub-agent — run searches inline.
 
+Good search patterns:
+- `site:il.linkedin.com/jobs "junior" OR "entry level" [role] [company or sector] Israel`
+- `site:il.linkedin.com/jobs "[company name]" analyst`
+- `[company] careers data analyst Tel Aviv 2026`
+
+Search the high-priority companies list directly. Run 6-8 searches covering different sectors.
+
+### 3. Filter hard
+Before scoring anything, drop any job that:
+- Requires 3+ years experience
+- Is located in an excluded city (Petah Tikva, Beer Sheva, Haifa, etc.)
+- Is at an excluded company (Playtika, Wix, monday.com, MoonActive)
+- Is senior, lead, or staff level
+- Is part-time or freelance only
+- Is in an excluded sector (FinTech, HealthTech, Defense, B2G)
+
+### 4. Deduplicate
+Skip any job whose URL already appears in `tracker.md` or `tracker-archive.md`.
+
+### 5. Score each job
+For each job that passes filtering, generate:
+- **Fit:** High / Medium / Low
+- **Reason:** 1-2 sentences tied to Omri's profile (economics student, policy analyst background, analytical skills, target sector)
+
+### 6. Update tracker-archive.md
+Append new jobs as Found rows. Do NOT add to the main `tracker.md` — that's only for jobs Omri actively pursues.
+
+Format:
 ```
-# Job Report — 2026-05-14
-**5 new jobs found | 12 total tracked | 2 applied this session**
-
----
-
-## 1. Data Analyst — Playtika
-Location: Herzliya, Israel
-Link: https://linkedin.com/jobs/view/12345
-Fit: High | Why: Playtika is a top gaming studio hiring analysts (per market research), role emphasizes Python + data visualization which align with your background and growth interests.
-
-**Application answers (tailored to this role):**
-- **Why are you interested in this role?** → "I'm interested in Playtika because you're a leading global gaming studio with strong analytical infrastructure. Data analyst roles here offer the chance to directly impact player experience and business metrics at scale — exactly the high-velocity analytics environment I'm looking for to grow my skills."
-- **Describe your relevant experience:** → "I've built Excel-based analyses for policy impact assessment at EcoTraders, working with large datasets and translating findings into recommendations for decision-makers. This analytical foundation, combined with my Python knowledge, positions me well to move into data-driven product analytics."
-- **What are your salary expectations?** → "For a junior data analyst role, I'm looking at a range of 18,000-22,000 ILS/month, depending on role scope and growth potential."
-
----
-
-## 2. Business Analyst — Scopely
-...
-
----
-
-Did you apply to any of these? Reply with job numbers (e.g., "1, 3") or "none".
+| [date] | [title] | [company] | [location] | [link] | [fit] | [1-line reason] |
 ```
 
----
+### 7. Print summary
+Show a clean list of new jobs found:
+- Title, Company, Location, Link, Fit score, Reason
+- Group by sector
 
-## Preferences Format
+Then ask: "Did you apply to any of these, or want to move any to the active tracker?"
 
-The skill reads `projects/job-search/preferences.md` which is user-editable. Structure:
-- **Areas of Interest** — Topics to research; drives both research and search queries
-- **Target Roles** — Job titles to search for
-- **Industries** — Sectors to focus on
-- **Location** — Geographic constraints
-- **Skills to highlight** — Used in fit summaries and answer generation
-- **Companies of interest** — Specific targets for WebFetch
+### 8. Save report
+Write full results to `research/job-market/YYYYMMDD_job-tracker.md`.
 
 ---
 
-## Error Handling
+## Quality bar
 
-- If `preferences.md` is missing → Print error and stop
-- If research agent fails → Skip that area, continue with others
-- If no jobs found in a search → Still print report (0 jobs found section)
-- If tracker.md is malformed → Append jobs anyway (don't overwrite)
-
----
-
-## Rate Limiting
-
-- WebSearch: ~5 searches per run (1 per area of interest + role-based searches)
-- WebFetch: ~10 fetches per run (company career pages)
-- Research agent calls: 1 per area of interest per run
-
-Space these out to avoid hitting API limits.
-
----
-
-## Future Enhancements
-
-- Filter jobs by salary range (read from preferences, auto-reject outliers)
-- Integration with email: send daily digest to omrisham53@gmail.com
-- Resume parsing: auto-extract relevant accomplishments for answer generation
-- Application tracking: click-through links that open application form + pre-fill answers
+- Every job must have a direct link (LinkedIn URL or careers page URL)
+- Junior/entry-level only — when in doubt, skip it
+- If a role doesn't have a clear link, note it but don't add it to the tracker

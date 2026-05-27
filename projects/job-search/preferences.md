@@ -1,129 +1,114 @@
 # Job Search Preferences
 
-Central config for the Job Opportunity Tracker. Edit this to define areas you want to research deeper and track jobs in.
+Central config for the Job Opportunity Tracker. Edit this to define search criteria.
 
-## Areas of Interest (Research + Job Search)
-
-These areas drive both market research and job search queries. The tracker researches each area, then uses those insights to find relevant jobs.
-
-### Area 1: Data Analytics in Gaming
-- Role keywords: Data Analyst, Business Analyst, Analytics Engineer, Product Analyst
-- Industries: Gaming, Game Publishing, Gaming Tech
-- Why it matters: Gaming has high-velocity analytics needs; Israeli scene is strong
-- Research focus: Which gaming studios are hiring analysts? What skills do they value? Market trends?
-
-### Area 2: Economic Policy & Analysis
-- Role keywords: Policy Analyst, Economic Analyst, Research Analyst, Strategy Analyst
-- Industries: Government (Tech Ministry, Energy Ministry), Think Tanks, Policy Tech, International Organizations
-- Why it matters: Fits your academic background and EcoTraders experience
-- Research focus: Openings in Israeli government tech/policy. What skills are valued? Career progression?
-
-### Area 3: Business Intelligence & Strategy
-- Role keywords: BI Analyst, Strategy Analyst, Market Analyst, Business Operations
-- Industries: Tech, Finance, Corporate Strategy, Consulting
-- Why it matters: Complements data analytics with strategic thinking
-- Research focus: BI tools and approaches gaining traction. Which companies are hiring?
+**Last Updated:** 2026-05-26
 
 ---
 
-## Target Job Criteria
+## Target Roles (ordered by interest)
 
-### Roles (ordered by interest)
-1. Data Analyst
-2. Business Analyst
-3. Economic Analyst / Policy Analyst
-4. Analytics Engineer
-5. Product Analyst
+1. Data Analyst (Junior)
+2. Product Analyst (Junior)
+3. Business Analyst (Junior, data-heavy)
+4. Growth Analyst (Junior)
+5. BI Analyst (Junior)
 
-### Industries (ordered by interest)
-1. Gaming / Game Publishing
-2. Israeli Tech
-3. Government / Policy Tech
-4. Finance / FinTech
-5. Consulting
-
-### Location
-- Primary: Israel (Tel Aviv, Jerusalem, Herzliya)
-- Secondary: Remote 
-
-### Experience Level
-- Target: Entry-level to mid-level (0-3 years, or recent grad roles)
-- Willing to consider roles expecting 3-5 years if high growth potential
-
-### Compensation Range
-- Acceptable: 14,000-22,000 ILS/month (junior), 22,000-28,000 ILS/month (mid)
-- Negotiable based on: growth potential, equity, remote flexibility, role impact
+**Level:** Junior / Entry-level only. Max 1-2 years experience required. Do NOT surface senior, mid-level, or roles requiring 3+ years.
 
 ---
 
-## Companies of Interest
+## Target Sectors (ordered by interest)
 
-### Gaming Studios
+1. Gaming at scale (Scopely, Overwolf)
+2. AdTech / MarTech (Taboola, AppsFlyer, Outbrain/Teads)
+3. Consumer Tech / SaaS (Fiverr, Elementor)
+4. Market Intelligence (Similarweb)
+5. SportsTech / Sports media (WSC Sports, Pixellot)
+6. E-commerce / Marketplaces (Riskified, eBay Israel)
+7. FoodTech / Consumer insights (Tastewise, Optimove)
+
+**Excluded sectors:**
+- FinTech / Banking (hard no)
+- HealthTech / Medical
+- Defense / Security / Military
+- B2G / Government clients
+- HR Tech
+
+---
+
+## Location
+
+- **Yes:** Tel Aviv, Ramat Gan, Tel Aviv-Yafo, Herzliya, Or Yehuda
+- **No:** Petah Tikva, Or Yehuda, Beer Sheva, Haifa, Kiryat Gat, Karmiel, Nazareth
+
+Remote roles: consider if the company is otherwise a strong fit.
+
+---
+
+## Timeline
+
+- **Available from:** August 2026
+- **September 2026:** Traveling — unavailable
+- **Available again:** October 8, 2026
+- Start date options: August OR October 8+. Disclose September gap when relevant.
+
+---
+
+## Compensation
+
+- Junior: 16,000-22,000 ILS/month
+- Negotiable based on growth potential, company quality, and equity
+
+---
+
+## Excluded Companies
+
+Do NOT surface these regardless of fit:
 - Playtika
-- Wix Game Studio
-- Scopely
-- Playkot
-- Outplay
-- MoonActive
-
-### Tech & Analytics
-- Payoneer
-- JFrog
-- SolarWinds (Israel R&D)
-- Nice Systems
-- WalkMe
-
-### Government & Policy
-- Israel Tech Ministry
-- Energy Ministry (ongoing relationship)
-- Israel Innovation Authority
-- Bank of Israel (Research)
-
-### Other
-- Add as you discover during research
+- Wix
+- monday.com
+- MoonActive (currently in contact, follow-up October)
 
 ---
 
-## Skills to Highlight
+## Companies of Interest (search these directly)
 
-### Technical
-- Excel (advanced: pivot tables, VLOOKUP, data visualization)
-- SQL (basic queries, joins, aggregation)
-- Python (data analysis libraries: pandas, NumPy)
-- Data visualization (Tableau, Power BI, or matplotlib/seaborn)
+### High priority
+- Scopely (Tel Aviv)
+- Taboola (Ramat Gan)
+- AppsFlyer (Herzliya)
+- Similarweb (Tel Aviv)
+- Riskified (Tel Aviv)
+- WSC Sports (Ramat Gan)
+- Fiverr (Tel Aviv)
+- Overwolf (Ramat Gan)
 
-### Analytical
-- Economic policy analysis
-- Market impact assessment
-- Data-driven decision making
-- Quantitative research design
-
-### Domain
-- Energy efficiency markets
-- Tech policy
-- Government decision-making processes
-- Hebrew language (native)
-
----
-
-## Application Preferences
-
-### Openness
-- Yes: Startup environment, high-growth potential, opportunity to build something new
-- Flexible: Remote, part-time during studies (if applicable), contract roles
-- No: Legacy organizations, heavily bureaucratic processes
-
-### Red Flags to Watch For
-- No Python/SQL tooling requirement (unless exceptional growth opportunity)
-- Roles requiring 5+ years experience for a junior position
-- Red flags: Aggressive travel, extreme hours, non-negotiable salary far below range
+### Worth checking
+- Tastewise (Tel Aviv)
+- Optimove (Tel Aviv)
+- Yotpo (Tel Aviv)
+- Teads / Outbrain (Tel Aviv)
+- Pixellot (check if Petah Tikva — skip if so)
+- IronSource / Unity (Tel Aviv)
 
 ---
 
-## Last Updated
-2026-05-13
+## Skills to Highlight in Fit Summaries
 
-Update this file whenever:
-- You want to add a new area of interest
-- You discover a new company worth tracking
-- Your preferences shift (location, role type, industry focus)
+- Economic policy analysis, market research, quantitative reasoning
+- Excel (advanced), Python (pandas/NumPy basics), SQL (learning)
+- Data visualization
+- Hebrew (native), English (fluent)
+- 3rd year Economics student, Reichman University
+- Part-time Policy Analyst at EcoTraders (energy efficiency market analysis)
+
+---
+
+## Red Flags (auto-downgrade fit score)
+
+- Requires 3+ years experience
+- Located in excluded cities
+- Senior/Lead title
+- Defense, medical, or government client focus
+- Part-time or freelance only

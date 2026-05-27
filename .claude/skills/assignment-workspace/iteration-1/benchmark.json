@@ -1,0 +1,323 @@
+{
+  "metadata": {
+    "skill_name": "assignment",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-05-26T12:29:42Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 73.6,
+        "tokens": 28429,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+          "passed": true,
+          "evidence": "Response only creates folder and lists what notes to add. No section headers, no assignment body, no structured document."
+        },
+        {
+          "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+          "passed": true,
+          "evidence": "\"Research folder created at research/academic/building-insulation-economic-impact/\""
+        },
+        {
+          "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+          "passed": true,
+          "evidence": "\"The folder has two empty files ready: notes.md ... sources.md\""
+        },
+        {
+          "text": "no_fabricated_draft: No cover page, bibliography, or drafted content without research",
+          "passed": true,
+          "evidence": "No draft content. Only folder creation confirmation and guidance on what to add."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 325.0,
+        "tokens": 45950,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "has_introduction_section: Draft contains a clearly marked Introduction or Abstract section",
+          "passed": true,
+          "evidence": "\"## Introduction\" section present at top of draft with prose paragraphs."
+        },
+        {
+          "text": "has_limitations_section: Draft contains a clearly marked Limitations section",
+          "passed": true,
+          "evidence": "\"## Limitations\" section present with 5 substantive limitation points."
+        },
+        {
+          "text": "has_apa_references_section: References section containing APA-formatted entries with DOI links",
+          "passed": true,
+          "evidence": "\"## References\" section present. Poore & Nemecek (2018) has full APA + DOI. Other three flagged [SOURCE NEEDED] with placeholder \u05d2\u20ac\u201d correctly flagged rather than fabricated."
+        },
+        {
+          "text": "uses_parenthetical_citations: Draft uses (Author, Year) parenthetical format, not footnotes",
+          "passed": true,
+          "evidence": "Multiple instances: \"(Poore & Nemecek, 2018)\", \"(Gonzalez-Garcia et al., 2025)\", \"(Cao et al., 2009)\""
+        },
+        {
+          "text": "no_em_dashes: Draft text does not contain em dashes (\u05d2\u20ac\u201d)",
+          "passed": true,
+          "evidence": "Draft uses \" -- \" (double hyphen) throughout, not em dashes. No \"\u05d2\u20ac\u201d\" character found."
+        },
+        {
+          "text": "cites_poore_nemecek_2018: Draft cites Poore & Nemecek (2018)",
+          "passed": true,
+          "evidence": "Cited 5 times: water footprint (628L and 27-28L), functional unit alignment, Discussion 22-fold difference, Conclusions bullet."
+        },
+        {
+          "text": "mentions_tracker_update: Output mentions updating the university tracker",
+          "passed": true,
+          "evidence": "\"Tracker updated: projects/university/tracker.md -- HW #2 status updated to 'In Progress (draft written 2026-05-26)'\""
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 4,
+        "failed": 0,
+        "total": 4,
+        "time_seconds": 46.9,
+        "tokens": 27158,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+          "passed": true,
+          "evidence": "Response only asks for brief and due date, creates folder, and stops. No assignment content."
+        },
+        {
+          "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+          "passed": true,
+          "evidence": "\"I've created one at: research/academic/urban-green-spaces-ecological-thinning/\""
+        },
+        {
+          "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+          "passed": true,
+          "evidence": "\"With empty notes.md and sources.md files inside.\""
+        },
+        {
+          "text": "no_fabricated_draft: No Hebrew section headers, bibliography, or cover page with filled-in details",
+          "passed": true,
+          "evidence": "No Hebrew content produced. Clean stop with folder creation and instructions."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 55.2,
+        "tokens": 25183,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+          "passed": true,
+          "evidence": "Baseline asked clarifying questions only. No draft body produced."
+        },
+        {
+          "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+          "passed": false,
+          "evidence": "Baseline mentioned 'I don't see a research folder for this assignment yet' but did not create one or instruct where to create it."
+        },
+        {
+          "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+          "passed": false,
+          "evidence": "Baseline suggested finding sources (government reports, journals) but never mentioned notes.md or sources.md as specific files to populate."
+        },
+        {
+          "text": "no_fabricated_draft: No cover page, bibliography, or drafted content without research",
+          "passed": true,
+          "evidence": "No draft content produced. Asked questions instead."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.571,
+        "passed": 4,
+        "failed": 3,
+        "total": 7,
+        "time_seconds": 94.9,
+        "tokens": 29890,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "has_introduction_section: Draft contains a clearly marked Introduction or Abstract section",
+          "passed": false,
+          "evidence": "Baseline structured draft around question numbers (Q1, Q2, Q3, Q4) matching the original assignment prompt. No section titled 'Introduction' or 'Abstract'."
+        },
+        {
+          "text": "has_limitations_section: Draft contains a clearly marked Limitations section",
+          "passed": false,
+          "evidence": "No Limitations section anywhere in the baseline draft."
+        },
+        {
+          "text": "has_apa_references_section: References section containing APA-formatted entries with DOI links",
+          "passed": true,
+          "evidence": "\"## References\" section present with 4 fully-formatted APA entries including DOIs for all sources."
+        },
+        {
+          "text": "uses_parenthetical_citations: Draft uses (Author, Year) parenthetical format, not footnotes",
+          "passed": true,
+          "evidence": "Multiple instances: \"(Poore & Nemecek, 2018)\", \"(Cao et al., 2009)\", \"(Gonz\u05b3\u00a1lez-Garc\u05b3\u00ada et al., 2025)\""
+        },
+        {
+          "text": "no_em_dashes: Draft text does not contain em dashes (\u05d2\u20ac\u201d)",
+          "passed": true,
+          "evidence": "Uses \" -- \" throughout, no em dash character found."
+        },
+        {
+          "text": "cites_poore_nemecek_2018: Draft cites Poore & Nemecek (2018)",
+          "passed": true,
+          "evidence": "Cited multiple times throughout analysis sections."
+        },
+        {
+          "text": "mentions_tracker_update: Output mentions updating the university tracker",
+          "passed": false,
+          "evidence": "No mention of tracker. Baseline focused only on producing the draft."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.5,
+        "passed": 2,
+        "failed": 2,
+        "total": 4,
+        "time_seconds": 45.2,
+        "tokens": 24706,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+          "passed": true,
+          "evidence": "Baseline asked clarifying questions only. No assignment body."
+        },
+        {
+          "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+          "passed": false,
+          "evidence": "Baseline asked clarifying questions but did not create a folder or reference the project's research folder structure."
+        },
+        {
+          "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+          "passed": false,
+          "evidence": "Baseline asked for course name, assignment prompt, length, format, bibliography requirements. No mention of notes.md/sources.md."
+        },
+        {
+          "text": "no_fabricated_draft: No Hebrew section headers, bibliography, or cover page",
+          "passed": true,
+          "evidence": "No draft content produced."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 148.5,
+        "stddev": 153.4354,
+        "min": 46.9,
+        "max": 325.0
+      },
+      "tokens": {
+        "mean": 33845.6667,
+        "stddev": 10501.9057,
+        "min": 27158,
+        "max": 45950
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.5237,
+        "stddev": 0.041,
+        "min": 0.5,
+        "max": 0.571
+      },
+      "time_seconds": {
+        "mean": 65.1,
+        "stddev": 26.2874,
+        "min": 45.2,
+        "max": 94.9
+      },
+      "tokens": {
+        "mean": 26593.0,
+        "stddev": 2865.2293,
+        "min": 24706,
+        "max": 29890
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.48",
+      "time_seconds": "+83.4",
+      "tokens": "+7253"
+    }
+  },
+  "notes": []
+}

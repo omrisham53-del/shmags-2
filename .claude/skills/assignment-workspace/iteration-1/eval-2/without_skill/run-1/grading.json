@@ -1,0 +1,40 @@
+{
+  "summary": {"pass_rate": 0.571, "passed": 4, "failed": 3, "total": 7},
+  "expectations": [
+    {
+      "text": "has_introduction_section: Draft contains a clearly marked Introduction or Abstract section",
+      "passed": false,
+      "evidence": "Baseline structured draft around question numbers (Q1, Q2, Q3, Q4) matching the original assignment prompt. No section titled 'Introduction' or 'Abstract'."
+    },
+    {
+      "text": "has_limitations_section: Draft contains a clearly marked Limitations section",
+      "passed": false,
+      "evidence": "No Limitations section anywhere in the baseline draft."
+    },
+    {
+      "text": "has_apa_references_section: References section containing APA-formatted entries with DOI links",
+      "passed": true,
+      "evidence": "\"## References\" section present with 4 fully-formatted APA entries including DOIs for all sources."
+    },
+    {
+      "text": "uses_parenthetical_citations: Draft uses (Author, Year) parenthetical format, not footnotes",
+      "passed": true,
+      "evidence": "Multiple instances: \"(Poore & Nemecek, 2018)\", \"(Cao et al., 2009)\", \"(González-García et al., 2025)\""
+    },
+    {
+      "text": "no_em_dashes: Draft text does not contain em dashes (—)",
+      "passed": true,
+      "evidence": "Uses \" -- \" throughout, no em dash character found."
+    },
+    {
+      "text": "cites_poore_nemecek_2018: Draft cites Poore & Nemecek (2018)",
+      "passed": true,
+      "evidence": "Cited multiple times throughout analysis sections."
+    },
+    {
+      "text": "mentions_tracker_update: Output mentions updating the university tracker",
+      "passed": false,
+      "evidence": "No mention of tracker. Baseline focused only on producing the draft."
+    }
+  ]
+}

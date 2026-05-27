@@ -1,0 +1,25 @@
+{
+  "summary": {"pass_rate": 0.5, "passed": 2, "failed": 2, "total": 4},
+  "expectations": [
+    {
+      "text": "stops_before_drafting: Response does NOT contain a full assignment body",
+      "passed": true,
+      "evidence": "Baseline asked clarifying questions only. No draft body produced."
+    },
+    {
+      "text": "creates_research_folder: Response mentions creating a research folder under research/academic/",
+      "passed": false,
+      "evidence": "Baseline mentioned 'I don't see a research folder for this assignment yet' but did not create one or instruct where to create it."
+    },
+    {
+      "text": "mentions_notes_and_sources_files: Response mentions notes.md and/or sources.md",
+      "passed": false,
+      "evidence": "Baseline suggested finding sources (government reports, journals) but never mentioned notes.md or sources.md as specific files to populate."
+    },
+    {
+      "text": "no_fabricated_draft: No cover page, bibliography, or drafted content without research",
+      "passed": true,
+      "evidence": "No draft content produced. Asked questions instead."
+    }
+  ]
+}
