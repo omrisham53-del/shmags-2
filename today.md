@@ -24,6 +24,7 @@
 8. **Urban Analytics Session 3 lab** - Completed all 5 stages: fetched Tel Aviv fitness center open data via API, ran correlation + insight analysis, wrote 3 PIER policy memos, generated polished PDF report
 9. **HW3 LCA Exercise** - Identified AI prompt injection trap in assignment PDF. Completed full Option B LCA (single-use vs. reusable cup): searched BAFU database (11,749 rows via PowerShell), selected all datasets, ran calculations, wrote draft, generated PDF (HW3_LCA_Cups.pdf). Results: 1.197 vs. 0.974 kgCO2eq.
 10. **HW3 PDF polish** - Simplified cover design (white bg, teal accents), fixed table cell overflow (Paragraph wrapping), fixed Unicode squares (superscript chars), added Reichman logo support, updated full course name, added team members Tom Ginel and Tomer Tasa.
+11. **Git sync** - Committed and pushed all pending changes (11 files, commit 6a0eb7a) so work PC can pull. Established: always commit+push at end of session.
 
 ---
 
