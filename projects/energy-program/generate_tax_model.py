@@ -156,13 +156,15 @@ def scenario_label_row(ws, row, label, fill, col_end=None):
     c.alignment = A_R
 
 
-def set_col_widths(ws, include_year_cols=False):
+def set_col_widths(ws, include_year_cols=False, extra_tech_cols=0):
     ws.column_dimensions['A'].width = 4
     ws.column_dimensions['B'].width = 42
     ws.column_dimensions['C'].width = 14
     ws.column_dimensions['D'].width = 18
     ws.column_dimensions['E'].width = 30
     ws.column_dimensions['F'].width = 18
+    for i in range(1, extra_tech_cols + 1):
+        ws.column_dimensions[get_column_letter(6 + i)].width = 18
     if include_year_cols:
         for i in range(1, MAX_YRS + 1):
             ws.column_dimensions[get_column_letter(6 + i)].width = 13
@@ -200,14 +202,15 @@ def pbk_formula(row_cumul):
 # ─── SHEET 1: GLOBAL ASSUMPTIONS ──────────────────────────────────────────────
 
 def build_global_sheet(wb):
+    """Build the assumptions sheet. Returns tech_refs: list of per-tech cell ref dicts."""
     ws = wb.active
     ws.title = GLOBAL_SHEET
     ws.sheet_view.rightToLeft = True
-    set_col_widths(ws)
+    set_col_widths(ws, extra_tech_cols=len(TECHS))   # F + one col per tech
     color_legend(ws, row=1)
 
-    # Section 1: Financial Parameters
-    section_hdr(ws, 9, "פרמטרים פיננסיים", number=1)
+    # ── Section 1: Financial Parameters ──
+    section_hdr(ws, 9, "פרמטרים פיננסיים", number=1, col_end=6 + len(TECHS))
     fin_rows = [
         (10, "שיעור מס חברות",           "%",          "רשות המסים",
              "", 0.23, F_CONTROL, FMT_PCT),
@@ -224,8 +227,9 @@ def build_global_sheet(wb):
         sc(ws, r, 5, notes,  align=A_R)
         sc(ws, r, 6, val,    fill=fill, fmt=fmt, align=A_C)
 
-    # Section 2: Depreciation Multiplier
-    section_hdr(ws, 14, "פרמטר תמריץ — מכפיל פחת (פחת מואץ)", number=2)
+    # ── Section 2: Depreciation Multiplier ──
+    section_hdr(ws, 14, "פרמטר תמריץ — מכפיל פחת (פחת מואץ)", number=2,
+                col_end=6 + len(TECHS))
     sc(ws, 15, 2,
        "מכפיל שיעור הפחת  ←  פרמטר המדיניות המרכזי",
        fill=F_POLICY,
@@ -251,10 +255,12 @@ def build_global_sheet(wb):
     ]:
         ws.cell(row=r, column=2).value = txt
         ws.cell(row=r, column=2).font = FONT_SM
-        ws.merge_cells(f'B{r}:F{r}')
+        ws.merge_cells(start_row=r, start_column=2,
+                       end_row=r, end_column=6 + len(TECHS))
 
-    # Section 3: Standard Depreciation Rates
-    section_hdr(ws, 19, "שיעורי פחת סטנדרטיים — תקנות מס הכנסה", number=3)
+    # ── Section 3: Standard Depreciation Rates ──
+    section_hdr(ws, 19, "שיעורי פחת סטנדרטיים — תקנות מס הכנסה", number=3,
+                col_end=6 + len(TECHS))
     for r, label, val in [
         (20, "משאבות חום",           0.10),
         (21, "צ'ילרים",              0.10),
@@ -267,14 +273,133 @@ def build_global_sheet(wb):
         sc(ws, r, 5, "ציוד מכני", align=A_R)
         sc(ws, r, 6, val, fmt=FMT_PCT, align=A_C)
 
-    ws.cell(row=25, column=2).value = \
-        "* שיעורי הפחת הם הנחות עבודה — יש לוודא מול יועץ מס לפני הגשה"
-    ws.cell(row=25, column=2).font = FONT_SM
+    sc(ws, 25, 2,
+       "* שיעורי הפחת הם הנחות עבודה — יש לוודא מול יועץ מס לפני הגשה",
+       font=FONT_SM)
+
+    # ── Section 4: Technology Assumptions Table ──
+    # One row per parameter, one column per technology (F, G, H, I for 4 techs)
+    T_START_COL = 6   # column F = first tech column (same as the single-value cols above)
+    T_END_COL   = T_START_COL + len(TECHS) - 1
+
+    section_hdr(ws, 27, "הנחות לפי טכנולוגיה — כל הנתונים לעדכון בטבלה זו", number=4,
+                col_end=T_END_COL)
+
+    # Tech name headers
+    sc(ws, 28, 2, "פרמטר",   fill=F_SUBHEAD, font=FONT_SH, align=A_C)
+    sc(ws, 28, 3, "יחידות",  fill=F_SUBHEAD, font=FONT_SH, align=A_C)
+    sc(ws, 28, 4, "מקור",    fill=F_SUBHEAD, font=FONT_SH, align=A_C)
+    sc(ws, 28, 5, "הערות",   fill=F_SUBHEAD, font=FONT_SH, align=A_C)
+    for i, tech in enumerate(TECHS):
+        sc(ws, 28, T_START_COL + i, tech['name_efficient'],
+           fill=PatternFill("solid", fgColor="1F4E79"),
+           font=Font(name="Arial", bold=True, color="FFFFFF", size=10), align=A_C)
+        sc(ws, 29, T_START_COL + i, f"vs. {tech['name_baseline']}",
+           font=FONT_SM, align=A_C)
+
+    # Parameter rows — row numbers must stay stable (refs used in analysis sheet)
+    # Row 30: CapEx baseline
+    # Row 31: CapEx efficient
+    # Row 32: ΔCapEx (computed)
+    # Row 33: Lifetime baseline
+    # Row 34: Lifetime efficient
+    # Row 35: kWh/yr baseline
+    # Row 36: Energy savings %
+    # Row 37: kWh/yr efficient (computed)
+    # Row 38: Degradation rate
+    # Row 39: Other OPEX baseline (maintenance)
+    # Row 40: Other OPEX efficient
+    # Row 41: OPEX energy baseline ₪/yr (computed from kWh × price)
+    # Row 42: OPEX energy efficient ₪/yr (computed)
+
+    param_meta = [
+        (30, "CapEx — ציוד קיים (בסיסי)",              "₪",          "נתוני רפי",      F_INPUT),
+        (31, "CapEx — ציוד יעיל",                       "₪",          "נתוני רפי",      F_INPUT),
+        (32, "ΔCapEx = יעיל − בסיסי",                   "₪",          "חישוב",           F_NONE),
+        (33, "אורך חיים — ציוד בסיסי",                  "שנים",       "ממצאי הנדסה",    F_CONTROL),
+        (34, "אורך חיים — ציוד יעיל",                   "שנים",       "ממצאי הנדסה",    F_CONTROL),
+        (35, 'צריכת חשמל שנתית — בסיסי',               'קוט"ש/שנה',  "נתוני רפי",      F_INPUT),
+        (36, "חיסכון אנרגטי",                           "% מצריכה",   "ממצאי הנדסה",    F_CONTROL),
+        (37, 'צריכת חשמל שנתית — יעיל',                'קוט"ש/שנה',  "חישוב",           F_NONE),
+        (38, "גורם שחיקת ביצועים",                      "%/שנה",      "הנחת עבודה",     F_INPUT),
+        (39, "OPEX אחר — בסיסי (תחזוקה, חלפים...)",    "₪/שנה",      "נתוני רפי",      F_INPUT),
+        (40, "OPEX אחר — יעיל (תחזוקה, חלפים...)",     "₪/שנה",      "נתוני רפי",      F_INPUT),
+        (41, "OPEX אנרגיה שנה 1 — בסיסי",              "₪/שנה",      "חישוב",           F_NONE),
+        (42, "OPEX אנרגיה שנה 1 — יעיל",               "₪/שנה",      "חישוב",           F_NONE),
+    ]
+    for row, label, units, source, fill in param_meta:
+        sc(ws, row, 2, label,  font=FONT_N, align=A_R)
+        sc(ws, row, 3, units,  align=A_R)
+        sc(ws, row, 4, source, align=A_R)
+
+    # Per-technology values
+    notes_row = {
+        30: "⚠ ממתין לנתוני רפי",
+        31: "⚠ ממתין לנתוני רפי",
+        35: "⚠ ממתין לנתוני רפי",
+        39: "⚠ ממתין | תחזוקה, חלפים, ביטוח",
+        40: "⚠ ממתין | תחזוקה, חלפים, ביטוח",
+    }
+    for row, _, _, _, _ in param_meta:
+        if row in notes_row:
+            sc(ws, row, 5, notes_row[row], font=FONT_P, align=A_R)
+
+    for i, tech in enumerate(TECHS):
+        col = T_START_COL + i
+        cl  = get_column_letter(col)
+
+        sc(ws, 30, col, "PENDING", fill=F_INPUT,  font=FONT_P, fmt=FMT_NIS, align=A_C)
+        sc(ws, 31, col, "PENDING", fill=F_INPUT,  font=FONT_P, fmt=FMT_NIS, align=A_C)
+        sc(ws, 32, col,
+           f"=IF(ISNUMBER({cl}31)*ISNUMBER({cl}30),{cl}31-{cl}30,\"PENDING\")",
+           fmt=FMT_NIS, align=A_C)
+        sc(ws, 33, col, tech['lifetime_baseline'],   fill=F_CONTROL, fmt=FMT_YR,  align=A_C)
+        sc(ws, 34, col, tech['lifetime_efficient'],  fill=F_CONTROL, fmt=FMT_YR,  align=A_C)
+        sc(ws, 35, col, "PENDING", fill=F_INPUT,  font=FONT_P, fmt=FMT_NUM, align=A_C)
+        sc(ws, 36, col, tech['savings_pct'],         fill=F_CONTROL, fmt=FMT_PCT, align=A_C)
+        sc(ws, 37, col,
+           f"=IF(ISNUMBER({cl}35),{cl}35*(1-{cl}36),\"PENDING\")",
+           fmt=FMT_NUM, align=A_C)
+        sc(ws, 38, col, 0.005, fill=F_INPUT, fmt=FMT_PCT, align=A_C)
+        sc(ws, 39, col, "PENDING", fill=F_INPUT, font=FONT_P, fmt=FMT_NIS, align=A_C)
+        sc(ws, 40, col, "PENDING", fill=F_INPUT, font=FONT_P, fmt=FMT_NIS, align=A_C)
+        sc(ws, 41, col,
+           f"=IF(ISNUMBER({cl}35),{cl}35*$F$12/100,\"PENDING\")",
+           fmt=FMT_NIS, align=A_C)
+        sc(ws, 42, col,
+           f"=IF(ISNUMBER({cl}37),{cl}37*$F$12/100,\"PENDING\")",
+           fmt=FMT_NIS, align=A_C)
+
+    sc(ws, 44, 2,
+       "* CapEx, kWh ו-OPEX אחר — ממתינים לנתוני רפי. שאר הנתונים הם הנחות עבודה לאישור.",
+       font=FONT_SM)
+
+    # Build and return cell reference dict for each tech (used by analysis sheet)
+    tech_refs = []
+    for i, tech in enumerate(TECHS):
+        cl = get_column_letter(T_START_COL + i)
+        s  = GLOBAL_SHEET
+        tech_refs.append({
+            'capex_b':  f"'{s}'!${cl}$30",
+            'capex_e':  f"'{s}'!${cl}$31",
+            'dcapex':   f"'{s}'!${cl}$32",
+            'life_b':   f"'{s}'!${cl}$33",
+            'life_e':   f"'{s}'!${cl}$34",
+            'kwh_b':    f"'{s}'!${cl}$35",
+            'svpct':    f"'{s}'!${cl}$36",
+            'kwh_e':    f"'{s}'!${cl}$37",
+            'degrad':   f"'{s}'!${cl}$38",
+            'opex_o_b': f"'{s}'!${cl}$39",
+            'opex_o_e': f"'{s}'!${cl}$40",
+            'opex_e_b': f"'{s}'!${cl}$41",
+            'opex_e_e': f"'{s}'!${cl}$42",
+        })
+    return tech_refs
 
 
 # ─── SHEET 2: ANALYSIS ────────────────────────────────────────────────────────
 
-def build_analysis_sheet(wb):
+def build_analysis_sheet(wb, tech_refs):
     ws = wb.create_sheet(ANALYSIS_SHEET)
     ws.sheet_view.rightToLeft = True
     set_col_widths(ws, include_year_cols=True)
@@ -325,8 +450,8 @@ def build_analysis_sheet(wb):
 
     R = 21
     tech_results = []
-    for tech in TECHS:
-        R, rmap = _tech_block(ws, tech, R)
+    for idx, tech in enumerate(TECHS):
+        R, rmap = _tech_block(ws, tech, R, tech_refs[idx])
         tech_results.append((tech, rmap))
         R += 2  # separator
 
@@ -334,7 +459,8 @@ def build_analysis_sheet(wb):
     _summary_block(ws, tech_results, R)
 
 
-def _tech_block(ws, tech, R_start):
+def _tech_block(ws, tech, R_start, refs):
+    """refs: dict of cell references pointing into the global assumptions table (Sheet 1)."""
     R = R_start
     tech_end_col = 6 + MAX_YRS
 
@@ -347,7 +473,9 @@ def _tech_block(ws, tech, R_start):
     R += 1
     ws.merge_cells(start_row=R, start_column=2,
                    end_row=R, end_column=tech_end_col)
-    sc(ws, R, 2, f"* {tech['notes']}", font=FONT_SM, align=A_R)
+    sc(ws, R, 2,
+       f"* {tech['notes']} | כל הנתונים: גיליון '{GLOBAL_SHEET}' — סעיף 4",
+       font=FONT_SM, align=A_R)
     R += 1
 
     std_r   = tech['std_depr_pct']
@@ -355,108 +483,15 @@ def _tech_block(ws, tech, R_start):
     life_e  = tech['lifetime_efficient']
     life_b  = tech['lifetime_baseline']
 
-    # ── A: Investment & Equipment Inputs ──────────────────────────────────────
-    ws.merge_cells(start_row=R, start_column=2,
-                   end_row=R, end_column=tech_end_col)
-    sc(ws, R, 2, "א. נתוני השקעה וציוד",
-       fill=F_SUBHEAD, font=FONT_SH, align=A_R)
-    R += 1
-
-    def pending(row, label, units, source, notes):
-        sc(ws, row, 2, label,  font=FONT_N, align=A_R)
-        sc(ws, row, 3, units,  align=A_R)
-        sc(ws, row, 4, source, align=A_R)
-        sc(ws, row, 5, notes,  font=FONT_P, align=A_R)
-        sc(ws, row, 6, "PENDING", fill=F_INPUT, font=FONT_P, align=A_C)
-
-    def param(row, label, units, source, notes, val, fill, fmt):
-        sc(ws, row, 2, label,  font=FONT_N, align=A_R)
-        sc(ws, row, 3, units,  align=A_R)
-        sc(ws, row, 4, source, align=A_R)
-        sc(ws, row, 5, notes,  align=A_R)
-        sc(ws, row, 6, val,    fill=fill, fmt=fmt, align=A_C)
-
-    R_CAPEX_B  = R;  R += 1   # CapEx baseline
-    R_CAPEX_E  = R;  R += 1   # CapEx efficient
-    R_DCAPEX   = R;  R += 1   # ΔCapEx = efficient − baseline
-    R_LIFE_B   = R;  R += 1   # lifetime baseline
-    R_LIFE_E   = R;  R += 1   # lifetime efficient
-    R_KWH      = R;  R += 1   # annual kWh (baseline consumption)
-    R_SVPCT    = R;  R += 1   # energy savings %
-    R_KWH_E    = R;  R += 1   # annual kWh efficient = kWh × (1 − savings_pct)
-    R_DEGRAD   = R;  R += 1   # degradation rate (%/yr)
-    R_EPRICE   = R;  R += 1   # electricity price (₪/kWh)
-    R_OPEX_E_B = R;  R += 1   # energy OPEX baseline (annual, year 1)
-    R_OPEX_E_E = R;  R += 1   # energy OPEX efficient (annual, year 1)
-    R_OPEX_O_B = R;  R += 1   # other OPEX baseline (maintenance etc.)
-    R_OPEX_O_E = R;  R += 1   # other OPEX efficient
-
-    pending(R_CAPEX_B, f"CapEx — {tech['name_baseline']}", "₪",
-            "נתוני רפי", "⚠ ממתין")
-    pending(R_CAPEX_E, f"CapEx — {tech['name_efficient']}", "₪",
-            "נתוני רפי", "⚠ ממתין")
-
-    sc(ws, R_DCAPEX, 2, "ΔCapEx — השקעה נוספת", font=FONT_N, align=A_R)
-    sc(ws, R_DCAPEX, 3, "₪",         align=A_R)
-    sc(ws, R_DCAPEX, 4, "חישוב",     align=A_R)
-    sc(ws, R_DCAPEX, 5, f"= CapEx יעיל − CapEx בסיסי", align=A_R)
-    sc(ws, R_DCAPEX, 6,
-       f"=IF(ISNUMBER($F${R_CAPEX_E})*ISNUMBER($F${R_CAPEX_B}),"
-       f"$F${R_CAPEX_E}-$F${R_CAPEX_B},\"PENDING\")",
-       fmt=FMT_NIS, align=A_C)
-
-    param(R_LIFE_B, f"אורך חיי ציוד — {tech['name_baseline']}", "שנים",
-          "ממצאי הנדסה", f"ברירת מחדל: {life_b} שנה — לאשר מול רפי",
-          life_b, F_CONTROL, FMT_YR)
-    param(R_LIFE_E, f"אורך חיי ציוד — {tech['name_efficient']}", "שנים",
-          "ממצאי הנדסה", f"ברירת מחדל: {life_e} שנה — לאשר מול רפי",
-          life_e, F_CONTROL, FMT_YR)
-
-    pending(R_KWH, "צריכת אנרגיה שנתית (ציוד בסיסי)", 'קוט"ש/שנה',
-            "נתוני רפי", "⚠ ממתין")
-
-    param(R_SVPCT, "חיסכון אנרגטי", "% מצריכה בסיסית", "ממצאי הנדסה", "",
-          tech['savings_pct'], F_CONTROL, FMT_PCT)
-
-    sc(ws, R_KWH_E, 2, 'צריכת אנרגיה שנתית (ציוד יעיל)', font=FONT_N, align=A_R)
-    sc(ws, R_KWH_E, 3, 'קוט"ש/שנה',  align=A_R)
-    sc(ws, R_KWH_E, 4, "חישוב",       align=A_R)
-    sc(ws, R_KWH_E, 5, "= צריכה בסיסית × (1 − חיסכון)", align=A_R)
-    sc(ws, R_KWH_E, 6,
-       f"=IF(ISNUMBER($F${R_KWH}),$F${R_KWH}*(1-$F${R_SVPCT}),\"PENDING\")",
-       fmt=FMT_NUM, align=A_C)
-
-    param(R_DEGRAD, "גורם שחיקת ביצועים", "% לשנה", "הנחת עבודה",
-          "ירידה שנתית בחיסכון האנרגטי | 0.5%-1.0%/שנה — לאשר מול רפי",
-          0.005, F_INPUT, FMT_PCT)
-
-    sc(ws, R_EPRICE, 2, 'מחיר חשמל',    font=FONT_N, align=A_R)
-    sc(ws, R_EPRICE, 3, '₪/קוט"ש',      align=A_R)
-    sc(ws, R_EPRICE, 4, "גיליון הנחות", align=A_R)
-    sc(ws, R_EPRICE, 6, f"={ELEC_REF}/100", fmt='#,##0.000', align=A_C)
-
-    sc(ws, R_OPEX_E_B, 2, 'OPEX אנרגיה — בסיסי (שנה 1)', font=FONT_N, align=A_R)
-    sc(ws, R_OPEX_E_B, 3, '₪/שנה',  align=A_R)
-    sc(ws, R_OPEX_E_B, 4, "חישוב",  align=A_R)
-    sc(ws, R_OPEX_E_B, 5, "= kWh בסיסי × מחיר חשמל", align=A_R)
-    sc(ws, R_OPEX_E_B, 6,
-       f"=IF(ISNUMBER($F${R_KWH}),$F${R_KWH}*$F${R_EPRICE},\"PENDING\")",
-       fmt=FMT_NIS, align=A_C)
-
-    sc(ws, R_OPEX_E_E, 2, 'OPEX אנרגיה — יעיל (שנה 1)', font=FONT_N, align=A_R)
-    sc(ws, R_OPEX_E_E, 3, '₪/שנה',  align=A_R)
-    sc(ws, R_OPEX_E_E, 4, "חישוב",  align=A_R)
-    sc(ws, R_OPEX_E_E, 5, "= kWh יעיל × מחיר חשמל", align=A_R)
-    sc(ws, R_OPEX_E_E, 6,
-       f"=IF(ISNUMBER($F${R_KWH_E}),$F${R_KWH_E}*$F${R_EPRICE},\"PENDING\")",
-       fmt=FMT_NIS, align=A_C)
-
-    pending(R_OPEX_O_B, f"OPEX אחר — בסיסי (תחזוקה, חלקים וכו')", "₪/שנה",
-            "נתוני רפי", "⚠ ממתין — תחזוקה, חלפים, ביטוח")
-    pending(R_OPEX_O_E, f"OPEX אחר — יעיל (תחזוקה, חלקים וכו')", "₪/שנה",
-            "נתוני רפי", "⚠ ממתין — תחזוקה, חלפים, ביטוח")
-
-    R += 1  # blank row
+    # All inputs reference the consolidated assumptions table on Sheet 1
+    capex_b  = refs['capex_b']
+    capex_e  = refs['capex_e']
+    opex_e_b = refs['opex_e_b']   # energy OPEX baseline (₪/yr, year 1)
+    opex_e_e = refs['opex_e_e']   # energy OPEX efficient (₪/yr, year 1)
+    opex_o_b = refs['opex_o_b']   # other OPEX baseline
+    opex_o_e = refs['opex_o_e']   # other OPEX efficient
+    degrad   = refs['degrad']
+    dcapex   = refs['dcapex']
 
     # ── B: Depreciation Schedules ──────────────────────────────────────────────
     ws.merge_cells(start_row=R, start_column=2,
@@ -495,9 +530,6 @@ def _tech_block(ws, tech, R_start):
     sc(ws, R_ST_E, 5, "= פחת × שיעור מס", align=A_R)
     sc(ws, R_AD_E, 5, "= CapEx יעיל × (פחת סטנדרטי × מכפיל) | תקופה = 1 ÷ שיעור מואץ", align=A_R)
     sc(ws, R_AT_E, 5, "= פחת מואץ × שיעור מס", align=A_R)
-
-    capex_b = f"$F${R_CAPEX_B}"
-    capex_e = f"$F${R_CAPEX_E}"
 
     for i in range(1, MAX_YRS + 1):
         col = 6 + i
@@ -571,12 +603,6 @@ def _tech_block(ws, tech, R_start):
     sc(ws, R_A_NET,  6, f"=F{R_A_INV}",   fill=F_RESULT, fmt=FMT_NIS, align=A_C)
     sc(ws, R_A_DISC, 6, f"=F{R_A_NET}",   fill=F_RESULT, fmt=FMT_NIS, align=A_C)
     sc(ws, R_A_CUM,  6, f"=F{R_A_DISC}",  fill=F_RESULT, fmt=FMT_NIS, align=A_C)
-
-    opex_o_b = f"$F${R_OPEX_O_B}"
-    opex_e_b = f"$F${R_OPEX_E_B}"
-    opex_e_e = f"$F${R_OPEX_E_E}"
-    opex_o_e = f"$F${R_OPEX_O_E}"
-    degrad   = f"$F${R_DEGRAD}"
 
     for i in range(1, MAX_YRS + 1):
         col = 6 + i
@@ -821,12 +847,12 @@ def _tech_block(ws, tech, R_start):
     sc(ws, R_DCC, 3, "₪", align=A_R)
     sc(ws, R_DCC, 4, "חישוב", align=A_R)
 
-    # Year 0: ΔCapEx = -CapEx_efficient - (-CapEx_baseline) = CapEx_baseline - CapEx_efficient
+    # Year 0: −ΔCapEx (the extra investment for upgrading)
     sc(ws, R_DCB, 6,
-       f"=IF(ISNUMBER($F${R_DCAPEX}),-$F${R_DCAPEX},\"PENDING\")",
+       f"=IF(ISNUMBER({dcapex}),-{dcapex},\"PENDING\")",
        fill=F_INPUT, fmt=FMT_NIS, align=A_C)
     sc(ws, R_DCC, 6,
-       f"=IF(ISNUMBER($F${R_DCAPEX}),-$F${R_DCAPEX},\"PENDING\")",
+       f"=IF(ISNUMBER({dcapex}),-{dcapex},\"PENDING\")",
        fill=F_POLICY, fmt=FMT_NIS, align=A_C)
 
     for i in range(1, MAX_YRS + 1):
@@ -918,8 +944,8 @@ def _summary_block(ws, tech_results, R_start):
 
 def main():
     wb = openpyxl.Workbook()
-    build_global_sheet(wb)
-    build_analysis_sheet(wb)
+    tech_refs = build_global_sheet(wb)
+    build_analysis_sheet(wb, tech_refs)
 
     out = "/home/user/shmags-2/projects/energy-program/tax_incentive_model.xlsx"
     wb.save(out)
