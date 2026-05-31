@@ -3,7 +3,7 @@
 Running log of active applications. Found/unactioned jobs are in [tracker-archive.md](tracker-archive.md).
 
 ## Summary
-- Applied: 2
+- Applied: 4
 - In review: 1
 - Rejected: 3
 - Offer: 0
@@ -14,6 +14,8 @@ Running log of active applications. Found/unactioned jobs are in [tracker-archiv
 
 | Date Found | Job Title | Company | Location | Link | Fit | Status | Notes |
 |------------|-----------|---------|----------|------|-----|--------|-------|
+| 2026-05-31 | Global Share Plans Analyst | Mobileye | Jerusalem | | High | Applied | Applied 2026-05-31. Awaiting response. |
+| 2026-05-28 | Business Strategy Analyst | Realplay | Tel Aviv | | High | Applied | Applied 2026-05-28. Awaiting response. |
 | 2026-05-27 | Junior Revenue Operations Manager | Nexxen | Tel Aviv | | High | Applied | Applied 2026-05-27. Messaged Itamar Bilu (Director of Publisher Operations) on LinkedIn. Awaiting response. |
 | 2026-05-24 | Junior Business Analyst | Primis | Tel Aviv-Yafo | | High | Applied | Applied 2026-05-24. AdTech company, collaborate with stakeholders on data needs. Awaiting response. |
 | 2026-05-20 | Product Analyst (Facetune) | Lightricks | Jerusalem | [Careers](https://careers.lightricks.com/position?gh_jid=7793701002) | High | Rejected | Call happened 2026-05-26. Contact didn't cooperate. Off the table. |

@@ -32,7 +32,7 @@ Each automation should have an entry in the table below. Keep this up to date.
 | Name | Schedule | Trigger | What it does | Source file | Status |
 |------|----------|---------|--------------|-------------|--------|
 | Daily Job Tracker Sync | Daily, 10:00 AM (Asia/Jerusalem) | Scheduled task (Claude) | Reads `projects/job-search/tracker.md`, compares against Notion DB, pushes new rows, refreshes the job-tracker artifact | *(inline prompt in scheduled task)* | ✅ Active |
-| Daily Morning Rundown | Daily, 8:30 AM (local) | Scheduled task (Claude) | Scans all SHMAGS 2 project files for open tasks, picks a daily focus, refreshes the `daily-rundown` Cowork artifact | `routines/daily-rundown.md` | ✅ Active |
+| Daily Morning Rundown | Daily, 8:30 AM (local) | Scheduled task (Claude) | Scans all SHMAGS 2 project files for open tasks, picks a daily focus, refreshes the `daily-rundown` Cowork artifact | `routines/daily-rundown.md` | ⏸ Disabled (2026-05-30) |
 
 > When you add a new routine, add a row here AND document it in its own section below.
 

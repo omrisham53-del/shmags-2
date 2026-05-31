@@ -8,6 +8,21 @@
 
 ## Active Assignments
 
+### HW #3: LCA Exercise – Single-Use vs. Reusable Cup
+
+| Field | Value |
+|-------|-------|
+| **Course** | LCA / Environmental Science |
+| **Assigned** | ~May 28, 2026 |
+| **Due** | ~June 18, 2026 |
+| **Status** | In Progress (draft complete 2026-05-30) |
+| **Draft** | `research/academic/hw3-lca-cups/draft.md` |
+| **Research** | `research/academic/hw3-lca-cups/` |
+| **Grade** | Pending |
+| **Notes** | Option B: 20 single-use cups vs. 1 reusable steel cup. Results: 1.197 vs. 0.974 kgCO2eq. Biggest contributors: PS (Product A), Steel (Product B). All BAFU datasets selected. Needs: conversion to Word/PDF, system boundary diagrams polished, AI disclosure PDF. |
+
+---
+
 ### HW #2: Functional Unit and System Boundary
 
 | Field | Value |
