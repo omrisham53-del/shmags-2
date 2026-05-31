@@ -740,9 +740,6 @@ def _tech_block(ws, tech, R_start):
     R_ROI_B  = R;  R += 1
     R_ROI_C  = R;  R += 1
     R += 1
-    R_PBK_A  = R;  R += 1   # payback A (recover baseline CapEx from its own net CF)
-    R_PBK_B  = R;  R += 1   # payback B (recover efficient CapEx)
-    R_PBK_C  = R;  R += 1   # payback C (recover efficient CapEx with incentive)
     R_PBK_D  = R;  R += 1   # payback ΔCapEx under B (incremental investment payback)
     R_PBK_E  = R;  R += 1   # payback ΔCapEx under C
 
@@ -778,13 +775,6 @@ def _tech_block(ws, tech, R_start):
                    f"(SUM({YR0}{row_disc}:{MAX_COL_LTR}{row_disc})+{cx})/{cx},"
                    f"\"PENDING\")",
                    FMT_PCT, fill)
-
-    result_row(ws, R_PBK_A, f"תקופת החזר A (NPV)",
-               pbk_formula(R_A_CUM), FMT_YR, F_RESULT)
-    result_row(ws, R_PBK_B, f"תקופת החזר B — CapEx יעיל (NPV)",
-               pbk_formula(R_B_CUM), FMT_YR, F_SCN_B)
-    result_row(ws, R_PBK_C, f"תקופת החזר C — CapEx יעיל + תמריץ (NPV)",
-               pbk_formula(R_C_CUM), FMT_YR, F_SCN_C)
 
     # Incremental payback: time to recover ΔCapEx from the differential cash flows (B−A)
     # We need a ΔCF cumulative row — build it inline using a note
@@ -868,7 +858,6 @@ def _tech_block(ws, tech, R_start):
         npv_a=R_NPV_A, npv_b=R_NPV_B, npv_c=R_NPV_C,
         d_npv=R_DINPV, p_npv=R_DPNPV,
         roi_a=R_ROI_A, roi_b=R_ROI_B, roi_c=R_ROI_C,
-        pbk_a=R_PBK_A, pbk_b=R_PBK_B, pbk_c=R_PBK_C,
         pbk_d=R_PBK_D, pbk_e=R_PBK_E,
     )
 
@@ -895,10 +884,8 @@ def _summary_block(ws, tech_results, R_start):
         (8, "ROI A"),
         (9, "ROI B"),
         (10, "ROI C"),
-        (11, "החזר B (שנים)"),
-        (12, "החזר C (שנים)"),
-        (13, "החזר ΔCapEx B−A"),
-        (14, "החזר ΔCapEx C−A"),
+        (11, "החזר ΔCapEx B−A (שנים)"),
+        (12, "החזר ΔCapEx C−A (שנים)"),
     ]
     for col, lbl in hdrs:
         sc(ws, R, col, lbl, fill=F_SUBHEAD, font=FONT_SH, align=A_C)
@@ -915,10 +902,8 @@ def _summary_block(ws, tech_results, R_start):
             (8,  'roi_a',  FMT_PCT, F_RESULT),
             (9,  'roi_b',  FMT_PCT, F_SCN_B),
             (10, 'roi_c',  FMT_PCT, F_SCN_C),
-            (11, 'pbk_b',  FMT_YR,  F_SCN_B),
-            (12, 'pbk_c',  FMT_YR,  F_SCN_C),
-            (13, 'pbk_d',  FMT_YR,  F_INPUT),
-            (14, 'pbk_e',  FMT_YR,  F_POLICY),
+            (11, 'pbk_d',  FMT_YR,  F_INPUT),
+            (12, 'pbk_e',  FMT_YR,  F_POLICY),
         ]:
             sc(ws, R, col, f"=$F${rmap[key]}",
                fill=fill, fmt=fmt, align=A_C)
