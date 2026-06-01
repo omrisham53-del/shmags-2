@@ -162,7 +162,9 @@ def discover_grant_files(root, wanted_ids):
     wanted = set(wanted_ids)
     candidates = defaultdict(list)   # id -> [paths]
 
-    for dirpath, _dirs, files in os.walk(root):
+    # followlinks=True is required: on SharePoint/OneDrive the request subfolders
+    # are reparse points, which os.walk skips by default.
+    for dirpath, _dirs, files in os.walk(root, followlinks=True):
         for fn in files:
             if not fn.lower().endswith(".xlsx") or fn.startswith("~$"):
                 continue
