@@ -48,14 +48,21 @@ When a request folder has several Excel files, the script picks one in this orde
 Temp files (`~$...`) and non-grant-form files are skipped automatically. Every
 choice is logged in `capex_file_selection.csv` so it can be audited.
 
-### Outputs (written into the round folder)
+### Output (written into the round folder)
 | File | What it contains |
 |---|---|
-| `capex_lineitems.csv` | Every line item, with technology tag and core/support flag |
-| `capex_by_request.csv` | Per request per technology: core equipment cost + full site total |
-| `capex_averages.csv` | Average, median, min, max per technology — feeds the model |
-| `capex_file_selection.csv` | Which file was chosen per request, and the rejected candidates |
-| `capex_coverage.txt` | ID match coverage and sum-validation warnings |
+| `capex_lineitems.csv` | Every extracted line item, with a *suggested* technology tag and core-equipment flag (both hints only), plus the source file each row came from |
+
+That is the only file produced. Coverage (how many requests matched a file) and
+any extraction warnings are printed to the console, not saved.
+
+### Why no averages file
+The classifier only guesses, and many extracted rows are irrelevant (piping,
+controls, infrastructure). Rather than auto-average and bake in wrong tags, the
+pipeline hands you one CSV to review:
+1. Open `capex_lineitems.csv` in Excel.
+2. Filter/sort on `suggested_technology` and `component`; delete junk rows, fix any wrong tags.
+3. Total the survivors with `AVERAGEIF` per technology — those are the model numbers.
 
 ### 4 model technologies and their source categories
 | Model technology | Category (col F in CSV) |
@@ -69,8 +76,8 @@ choice is logged in `capex_file_selection.csv` so it can be audited.
 Point the script at a single round folder (e.g. `...\בקשות לבדיקה` for 2017). The category CSV filter applies regardless of which round.
 
 ### First two things to check after running
-1. `capex_coverage.txt` — how many request IDs matched a file. A low match rate means the IDs in the table don't line up with the folder names.
-2. `capex_file_selection.csv` — spot-check that the chosen file per request is the right one (the latest/reviewed version), not an older draft.
+1. The console "Matched X / unmatched Y" line — a low match rate means the IDs in the table don't line up with the folder names. Unmatched requests from other rounds are expected.
+2. The `source_file` column in `capex_lineitems.csv` — spot-check that the file pulled per request is the right one (the latest/reviewed version), not an older draft.
 
 ### What this does NOT cover
 - `CapEx — ציוד קיים (בסיסי)` (model row 30): grant files only have the efficient equipment cost. Baseline needs Rafi's data.

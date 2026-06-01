@@ -15,11 +15,14 @@ Steps:
   4. Classify each line item to one of the 4 model technologies by keyword.
   5. Aggregate per request per technology and compute averages.
 
-Outputs (written next to the grant files):
-  - capex_lineitems.csv       every extracted line item, with technology tag
-  - capex_by_request.csv      per request per technology: core-equipment sum + full-site total
-  - capex_averages.csv        average cost per installation per technology (core-only and full)
-  - capex_coverage.txt        ID/file match coverage and validation warnings
+Output (written next to the grant files):
+  - capex_lineitems.csv   every extracted line item, with a SUGGESTED technology
+                          tag and a core-equipment flag (both hints only)
+
+The averaging is intentionally NOT done here. Many extracted rows are irrelevant
+(piping, controls, infrastructure), and the classifier only guesses. Open the CSV
+in Excel, filter out the junk, fix any wrong tags, then total with AVERAGEIF.
+Coverage and any extraction warnings are printed to the console.
 
 Usage:
     python capex_pipeline.py <category_csv> <folder_with_grant_xlsx>
@@ -222,127 +225,63 @@ def main():
     print(f"Matched {len(matches)} request IDs to files "
           f"({len(selected) - len(matches)} unmatched).")
 
-    # Write the file-selection log so the chosen file per request can be audited
-    sel_path = os.path.join(folder, "capex_file_selection.csv")
-    with open(sel_path, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.DictWriter(f, fieldnames=["request_id", "chosen", "n_candidates", "others"])
-        w.writeheader()
-        w.writerows(sorted(selection_log, key=lambda r: r["request_id"]))
-
-    lineitems = []           # every line item with tech tag
-    coverage_notes = []
-    # per (request, tech): core sum; per request: full total
-    core_by_req_tech = defaultdict(float)
-    full_by_req = defaultdict(float)
-    req_category = {}
+    lineitems = []      # every line item, with a suggested tech tag
+    warn_notes = []     # extraction warnings (sum mismatch, missing structure)
 
     for req_id, fp in sorted(matches.items()):
         info = selected[req_id]
-        req_category[req_id] = info["category"]
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             try:
                 wb = openpyxl.load_workbook(fp, data_only=True)
             except Exception as e:
-                coverage_notes.append(f"{req_id}: failed to open — {e}")
+                warn_notes.append(f"{req_id}: failed to open — {e}")
                 continue
 
         company, tax_id = extract_any_identity(wb)
-
         items, warn = extract_all_items(wb)
-        coverage_notes.extend([f"{req_id} / {w.strip()}" for w in warn])
+        warn_notes.extend([f"{req_id} / {w.strip()}" for w in warn])
+
         for it in items:
             tech, is_core = classify_line_item(it["system"], it["component"])
             lineitems.append({
                 "request_id": req_id,
+                "suggested_technology": tech,
+                "is_core_equipment": is_core,
                 "category": info["category"],
-                "tax_id": tax_id,
+                "system": it["system"],
+                "component": it["component"],
+                "cost_ils": it["cost_ils"],
+                "site_name": it["site_name"],
                 "company_name": company,
-                "technology": tech,
-                "is_core": is_core,
-                **it,
+                "tax_id": tax_id,
+                "notes": it["notes"],
+                "source_file": os.path.basename(fp),
             })
-            full_by_req[req_id] += it["cost_ils"]
-            if is_core:
-                core_by_req_tech[(req_id, tech)] += it["cost_ils"]
 
-        # Cross-check against category-table total investment
-        inv = info["total_inv"]
-        if inv is not None and full_by_req.get(req_id):
-            if inv > 0 and abs(full_by_req[req_id] - inv) / inv > 0.5:
-                coverage_notes.append(
-                    f"{req_id}: extracted line-item total {full_by_req[req_id]:,.0f} "
-                    f"differs >50% from table total investment {inv:,.0f} "
-                    f"(grant file may include only part of project, or vice versa)"
-                )
-
-    # --- Write line items ---
+    # --- Write the single output CSV ---
     li_path = os.path.join(folder, "capex_lineitems.csv")
-    li_fields = ["request_id", "category", "tax_id", "company_name", "technology",
-                 "is_core", "site_sheet", "site_name", "system", "component",
-                 "cost_ils", "notes"]
+    li_fields = ["request_id", "suggested_technology", "is_core_equipment",
+                 "category", "system", "component", "cost_ils", "site_name",
+                 "company_name", "tax_id", "notes", "source_file"]
     with open(li_path, "w", newline="", encoding="utf-8-sig") as f:
         w = csv.DictWriter(f, fieldnames=li_fields)
         w.writeheader()
         w.writerows(lineitems)
 
-    # --- Per request per technology ---
-    br_path = os.path.join(folder, "capex_by_request.csv")
-    with open(br_path, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.writer(f)
-        w.writerow(["request_id", "category", "technology",
-                    "core_equipment_cost", "full_site_total"])
-        for (req_id, tech), core in sorted(core_by_req_tech.items()):
-            w.writerow([req_id, req_category.get(req_id, ""), tech,
-                        f"{core:.0f}", f"{full_by_req.get(req_id, 0):.0f}"])
+    print(f"\nWrote {len(lineitems)} line items to:\n  {li_path}")
 
-    # --- Averages per technology ---
-    # Average is over the set of requests that had a core item for that tech.
-    by_tech_costs = defaultdict(list)
-    for (req_id, tech), core in core_by_req_tech.items():
-        if tech in [t for t, _ in TECH_KEYWORDS]:
-            by_tech_costs[tech].append(core)
-
-    avg_path = os.path.join(folder, "capex_averages.csv")
-    with open(avg_path, "w", newline="", encoding="utf-8-sig") as f:
-        w = csv.writer(f)
-        w.writerow(["technology", "n_installations",
-                    "avg_core_equipment_cost", "median_core_equipment_cost",
-                    "min", "max"])
-        for tech, _ in TECH_KEYWORDS:
-            costs = sorted(by_tech_costs.get(tech, []))
-            if not costs:
-                w.writerow([tech, 0, "", "", "", ""])
-                continue
-            n = len(costs)
-            avg = sum(costs) / n
-            median = costs[n // 2] if n % 2 else (costs[n // 2 - 1] + costs[n // 2]) / 2
-            w.writerow([tech, n, f"{avg:.0f}", f"{median:.0f}",
-                        f"{costs[0]:.0f}", f"{costs[-1]:.0f}"])
-
-    # --- Coverage / warnings ---
-    cov_path = os.path.join(folder, "capex_coverage.txt")
-    with open(cov_path, "w", encoding="utf-8") as f:
-        f.write(f"Selected requests: {len(selected)}\n")
-        f.write(f"Matched to files: {len(matches)}\n")
-        f.write(f"Unmatched IDs: {len(selected) - len(matches)}\n\n")
-        no_valid = [s["request_id"] for s in selection_log if s["chosen"] == "(none valid)"]
-        if no_valid:
-            f.write("FOUND FOLDER BUT NO VALID GRANT FORM:\n  " + ", ".join(sorted(no_valid)) + "\n\n")
-        unmatched = sorted(set(selected) - set(matches))
-        if unmatched:
-            f.write("UNMATCHED IDs (no file found):\n  " + ", ".join(unmatched) + "\n\n")
-        if coverage_notes:
-            f.write("NOTES / VALIDATION:\n")
-            for n in coverage_notes:
-                f.write(f"  {n}\n")
-
-    print(f"\nDone.")
-    print(f"  Line items:     {li_path}  ({len(lineitems)} rows)")
-    print(f"  By request/tech:{br_path}")
-    print(f"  Averages:       {avg_path}")
-    print(f"  File selection: {sel_path}")
-    print(f"  Coverage:       {cov_path}")
+    # --- Coverage + warnings to console (no extra files) ---
+    unmatched = sorted(set(selected) - set(matches))
+    if unmatched:
+        print(f"\n{len(unmatched)} selected requests had no file in this folder "
+              "(expected for requests that belong to other rounds).")
+    if warn_notes:
+        print(f"\n{len(warn_notes)} extraction warnings:")
+        for n in warn_notes[:15]:
+            print(f"  {n}")
+        if len(warn_notes) > 15:
+            print(f"  ... and {len(warn_notes) - 15} more")
 
 
 if __name__ == "__main__":
