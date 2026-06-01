@@ -260,7 +260,10 @@ def main():
             })
 
     # --- Write the single output CSV ---
-    li_path = os.path.join(folder, "capex_lineitems.csv")
+    # Name includes the round year if detectable from the folder path (e.g. 2017, 2019).
+    year_match = re.search(r"20\d{2}", folder)
+    round_suffix = f"_{year_match.group()}" if year_match else ""
+    li_path = os.path.join(folder, f"capex_lineitems{round_suffix}.csv")
     li_fields = ["request_id", "suggested_technology", "is_core_equipment",
                  "category", "system", "component", "cost_ils", "site_name",
                  "company_name", "tax_id", "notes", "source_file"]
