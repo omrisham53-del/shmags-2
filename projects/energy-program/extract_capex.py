@@ -25,6 +25,11 @@ TOTAL_MARKER = 'סה"כ'
 COMPANY_NAME_LABEL = "שם רשמי של החברה"
 TAX_ID_LABEL = 'מספר ח.פ'
 
+# 2017-era form: costs are in one flat table in the general-details sheet
+FORM_2017_COST_SHEET = "1. פרטים כלליים ועלויות"
+COMPANY_NAME_LABEL_2017 = "שם היזם"
+TAX_ID_LABEL_2017 = "ח.פ"   # 2017 label is "ח.פ/ מספר רישום..." vs 2025 "מספר ח.פ"
+
 
 def find_cell_by_label(ws, label):
     """Return the first cell whose string value contains `label`."""
@@ -145,6 +150,142 @@ def extract_site_items(ws, site_name):
             )
 
     return items, warn
+
+
+def detect_form_version(wb):
+    """Return '2025', '2017', or 'unknown' based on sheet names."""
+    sheets = wb.sheetnames
+    if any(s in sheets for s in ["אתר 1", "סיכום ובקשת המענק"]):
+        return "2025"
+    if FORM_2017_COST_SHEET in sheets:
+        return "2017"
+    return "unknown"
+
+
+def extract_2017_identity(wb):
+    """Pull company name and ח.פ from the 2017-format general/costs sheet."""
+    ws = wb[FORM_2017_COST_SHEET] if FORM_2017_COST_SHEET in wb.sheetnames else None
+    if ws is None:
+        return "", ""
+
+    company_name = ""
+    tax_id = ""
+
+    for row in ws.iter_rows():
+        for cell in row:
+            if not isinstance(cell.value, str):
+                continue
+            v = cell.value
+            if not company_name and COMPANY_NAME_LABEL_2017 in v:
+                neighbor = ws.cell(row=cell.row, column=cell.column + 1)
+                if neighbor.value:
+                    company_name = str(neighbor.value).strip()
+            if not tax_id and TAX_ID_LABEL_2017 in v:
+                neighbor = ws.cell(row=cell.row, column=cell.column + 1)
+                if neighbor.value:
+                    tax_id = str(neighbor.value).strip()
+        if company_name and tax_id:
+            break
+
+    return company_name, tax_id
+
+
+def extract_2017_items(wb):
+    """Extract investment line items from a 2017-format grant file.
+
+    Reads the flat equipment table in '1. פרטים כלליים ועלויות':
+      col C = equipment description (component)
+      col D = technology category (system)
+      col E = cost in ILS
+      col F = site name
+    Header row is located dynamically by searching for COST_HEADER_MARKER.
+    Returns (items, warnings) with the same field structure as extract_site_items().
+    """
+    items = []
+    warn = []
+    sheet_name = FORM_2017_COST_SHEET
+    ws = wb[sheet_name] if sheet_name in wb.sheetnames else None
+    if ws is None:
+        warn.append(f"  {sheet_name}: sheet not found")
+        return items, warn
+
+    header_cell = None
+    for row in ws.iter_rows():
+        for cell in row:
+            if isinstance(cell.value, str) and COST_HEADER_MARKER in cell.value:
+                header_cell = cell
+                break
+        if header_cell:
+            break
+
+    if header_cell is None:
+        warn.append(f"  {sheet_name}: cost table header not found")
+        return items, warn
+
+    header_row = header_cell.row
+    cost_col = header_cell.column  # col E (5)
+    component_col = cost_col - 2   # col C (3): equipment description
+    system_col = cost_col - 1      # col D (4): technology category
+    site_col = cost_col + 1        # col F (6): site address
+
+    reported_total = None
+
+    for r in range(header_row + 1, ws.max_row + 1):
+        system_val = ws.cell(row=r, column=system_col).value
+        cost_val = ws.cell(row=r, column=cost_col).value
+
+        if isinstance(system_val, str) and TOTAL_MARKER in system_val:
+            if isinstance(cost_val, (int, float)):
+                reported_total = cost_val
+            break
+
+        if not isinstance(cost_val, (int, float)) or cost_val == 0:
+            continue
+
+        component = str(ws.cell(row=r, column=component_col).value or "").strip()
+        system = str(system_val or "").strip()
+        site_name = str(ws.cell(row=r, column=site_col).value or "").strip()
+
+        items.append({
+            "site_sheet": sheet_name,
+            "site_name": site_name,
+            "system": system,
+            "component": component,
+            "cost_ils": cost_val,
+            "notes": "",
+        })
+
+    if reported_total is not None and items:
+        extracted_sum = sum(it["cost_ils"] for it in items)
+        if abs(extracted_sum - reported_total) > 1:
+            warn.append(
+                f"  {sheet_name}: sum mismatch — extracted {extracted_sum:,.0f} "
+                f"vs reported total {reported_total:,.0f}"
+            )
+
+    return items, warn
+
+
+def extract_any_identity(wb):
+    """Pull company identity from either the 2025 or 2017 form format."""
+    if detect_form_version(wb) == "2017":
+        return extract_2017_identity(wb)
+    return extract_identity(wb)
+
+
+def extract_all_items(wb):
+    """Extract all line items from either 2025 or 2017 format.
+    Returns (items, warnings)."""
+    if detect_form_version(wb) == "2017":
+        return extract_2017_items(wb)
+    all_items, all_warn = [], []
+    for site in SITE_SHEETS:
+        if site not in wb.sheetnames:
+            continue
+        items, warn = extract_site_items(wb[site], site)
+        all_items.extend(items)
+        all_warn.extend(warn)
+    return all_items, all_warn
 
 
 def process_file(filepath):

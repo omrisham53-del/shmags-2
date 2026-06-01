@@ -31,7 +31,7 @@ import re
 import csv
 from collections import defaultdict
 
-from extract_capex import extract_site_items, extract_identity
+from extract_capex import extract_all_items, extract_any_identity
 import openpyxl
 import warnings
 
@@ -143,12 +143,16 @@ def file_priority(path):
 
 
 def is_grant_form(path):
-    """True if the workbook has the grant-form structure (a site or summary sheet)."""
+    """True if the workbook is a grant form (2025 site-tab format or 2017 tech-tab format)."""
     try:
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
-        ok = any(s in wb.sheetnames for s in ["אתר 1", "סיכום ובקשת המענק", "אתר 2", "אתר 3"])
+        sheets = wb.sheetnames
+        ok = (
+            any(s in sheets for s in ["אתר 1", "סיכום ובקשת המענק", "אתר 2", "אתר 3"])
+            or "1. פרטים כלליים ועלויות" in sheets
+        )
         wb.close()
         return ok
     except Exception:
@@ -243,27 +247,24 @@ def main():
                 coverage_notes.append(f"{req_id}: failed to open — {e}")
                 continue
 
-        company, tax_id = extract_identity(wb)
+        company, tax_id = extract_any_identity(wb)
 
-        for site in ["אתר 1", "אתר 2", "אתר 3"]:
-            if site not in wb.sheetnames:
-                continue
-            items, warn = extract_site_items(wb[site], site)
-            coverage_notes.extend([f"{req_id} / {w.strip()}" for w in warn])
-            for it in items:
-                tech, is_core = classify_line_item(it["system"], it["component"])
-                lineitems.append({
-                    "request_id": req_id,
-                    "category": info["category"],
-                    "tax_id": tax_id,
-                    "company_name": company,
-                    "technology": tech,
-                    "is_core": is_core,
-                    **it,
-                })
-                full_by_req[req_id] += it["cost_ils"]
-                if is_core:
-                    core_by_req_tech[(req_id, tech)] += it["cost_ils"]
+        items, warn = extract_all_items(wb)
+        coverage_notes.extend([f"{req_id} / {w.strip()}" for w in warn])
+        for it in items:
+            tech, is_core = classify_line_item(it["system"], it["component"])
+            lineitems.append({
+                "request_id": req_id,
+                "category": info["category"],
+                "tax_id": tax_id,
+                "company_name": company,
+                "technology": tech,
+                "is_core": is_core,
+                **it,
+            })
+            full_by_req[req_id] += it["cost_ils"]
+            if is_core:
+                core_by_req_tech[(req_id, tech)] += it["cost_ils"]
 
         # Cross-check against category-table total investment
         inv = info["total_inv"]
