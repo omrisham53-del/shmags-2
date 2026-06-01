@@ -221,6 +221,10 @@ def main():
     selected = load_selected_requests(csv_path)
     print(f"Selected {len(selected)} requests from category table.")
 
+    # Round label from the folder path (e.g. 2017); used in row tags and filename.
+    year_match = re.search(r"20\d{2}", folder)
+    round_label = year_match.group() if year_match else "unknown"
+
     matches, selection_log = discover_grant_files(folder, selected.keys())
     print(f"Matched {len(matches)} request IDs to files "
           f"({len(selected) - len(matches)} unmatched).")
@@ -245,6 +249,7 @@ def main():
         for it in items:
             tech, is_core = classify_line_item(it["system"], it["component"])
             lineitems.append({
+                "round": round_label,
                 "request_id": req_id,
                 "suggested_technology": tech,
                 "is_core_equipment": is_core,
@@ -259,12 +264,10 @@ def main():
                 "source_file": os.path.basename(fp),
             })
 
-    # --- Write the single output CSV ---
-    # Name includes the round year if detectable from the folder path (e.g. 2017, 2019).
-    year_match = re.search(r"20\d{2}", folder)
-    round_suffix = f"_{year_match.group()}" if year_match else ""
+    # --- Write the single output CSV (filename carries the round label) ---
+    round_suffix = f"_{round_label}" if round_label != "unknown" else ""
     li_path = os.path.join(folder, f"capex_lineitems{round_suffix}.csv")
-    li_fields = ["request_id", "suggested_technology", "is_core_equipment",
+    li_fields = ["round", "request_id", "suggested_technology", "is_core_equipment",
                  "category", "system", "component", "cost_ils", "site_name",
                  "company_name", "tax_id", "notes", "source_file"]
     with open(li_path, "w", newline="", encoding="utf-8-sig") as f:
