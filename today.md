@@ -1,42 +1,50 @@
-# Today - May 30, 2026
+# Today - June 1, 2026
 
-**Date:** 2026-05-30
-**Updated:** 2026-05-30
+**Date:** 2026-06-01
+**Updated:** 2026-06-01
 
 ---
 
 ## Current Priority
 
-- Job search: pipeline cleared, need fresh applications
-- Energy program chapter (writing)
+- Energy program: CapEx pipeline complete, review master CSV in Excel
+- Job search: active applications need follow-up
 
 ---
 
 ## Today's Completed ✅
 
-1. **Job tracker cleanup** - Updated 4 application statuses (Lightricks, Bank of Israel, MoonActive x2 → all Rejected)
-2. **Tracker restructure** - Archived 30 stale Found jobs to tracker-archive.md; main tracker now lean
-3. **preferences.md rewrite** - Accurate current sectors, locations, exclusions, timeline
-4. **Skills overhauled** - Added YAML frontmatter to job-tracker + save-context skills; rewrote job-tracker logic
-5. **skill-creator added** - Installed to .claude/skills/skill-creator/
-6. **Research agent fix** - Discovered WebSearch via subagent_type doesn't work; job tracker now runs searches inline
-7. **assignment skill built** - Two-phase university assignment writer; extracted academic style guide from 3 real assignments; 100% pass rate vs 52% baseline in evals
-8. **Urban Analytics Session 3 lab** - Completed all 5 stages: fetched Tel Aviv fitness center open data via API, ran correlation + insight analysis, wrote 3 PIER policy memos, generated polished PDF report
-9. **HW3 LCA Exercise** - Identified AI prompt injection trap in assignment PDF. Completed full Option B LCA (single-use vs. reusable cup): searched BAFU database (11,749 rows via PowerShell), selected all datasets, ran calculations, wrote draft, generated PDF (HW3_LCA_Cups.pdf). Results: 1.197 vs. 0.974 kgCO2eq.
-10. **HW3 PDF polish** - Simplified cover design (white bg, teal accents), fixed table cell overflow (Paragraph wrapping), fixed Unicode squares (superscript chars), added Reichman logo support, updated full course name, added team members Tom Ginel and Tomer Tasa.
-11. **Git sync** - Committed and pushed all pending changes (11 files, commit 6a0eb7a) so work PC can pull. Established: always commit+push at end of session.
+1. **CapEx pipeline: 2017 format support** - Root cause of 0 matches found and fixed. 2017-era files use "1. פרטים כלליים ועלויות" sheet (flat table) vs newer "אתר 1/2/3" format. Both now supported.
+2. **Pipeline simplified to Option A** - Single output: `capex_lineitems.csv` only. No auto-averaging. User filters in Excel + AVERAGEIF for model numbers.
+3. **All 5 rounds extracted** - 2017/2018/2019/2020/2022 ran clean. 127/253 selected requests matched, 686 line items total.
+4. **Master CSV created** - `capex_all_rounds.csv` (686 rows) in מענקים folder, ready for Excel review.
 
 ---
 
 ## This Week's Focus
 
-1. **Job Search** - Full pipeline cleared. Only Primis (Applied) still active. Need new applications - Taboola, Similarweb, Riskified, MyHeritage (junior roles).
-2. **Energy Program** - Writing the chapter for the plan document
-3. **University** - HW #2 submitted, monitor for grade
+1. **Energy Program** - Review `capex_all_rounds.csv` in Excel: filter junk rows, verify technology tags, compute AVERAGEIF per tech → 4 model CapEx numbers
+2. **Job Search** - Follow up on active applications (Primis, Mobileye, Realplay, Nexxen)
+3. **University** - Monitor HW #2 and HW #3 grades
 
 ## Active Applications
 
 - **Primis** (Junior Business Analyst) - Applied 2026-05-24, awaiting response
+- **Mobileye** (Global Share Plans Analyst) - Applied 2026-05-31, awaiting response
+- **Realplay** (Business Strategy Analyst) - Applied 2026-05-28, awaiting response
+- **Nexxen** (Junior Revenue Operations Manager) - Applied 2026-05-27, awaiting response
+
+---
+
+## Next Session: Energy Program
+
+1. Run gut-check on classification before filtering:
+```powershell
+$dest = "C:\Users\OmriShamgar\EcoTraders Ltd\Communication site - מסמכים\Data\משרד האנרגיה\אגף אנרגיה מקיימת\תכנית לאומית להתייעלות אנרגטית\תכנית 2025\אמצעי מדיניות\תוכניות מענקים\מענקים\capex_all_rounds.csv"
+Import-Csv $dest | Group-Object suggested_technology | Select-Object Name, Count | Sort-Object Count -Descending
+```
+2. If classification looks off, tune keywords before manual review
+3. Filter master CSV in Excel → AVERAGEIF per technology → model inputs
 
 ---
 
