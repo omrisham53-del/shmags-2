@@ -8,7 +8,9 @@ for the techno-economic model.
 Steps:
   1. Read the category CSV (CP862 / DOS-Hebrew encoded), filter to the relevant
      consolidated categories (col F) plus הסבה-to-electricity rows.
-  2. Match each selected request ID (col A) to a grant Excel file by filename.
+  2. Walk the round folder; each request lives in its own subfolder whose name
+     contains the request ID. Pick the best grant-form Excel per request
+     (prefer 'בדיקה' reviewed file, then highest version, then newest).
   3. Extract line items from each matched file (via extract_capex.py).
   4. Classify each line item to one of the 4 model technologies by keyword.
   5. Aggregate per request per technology and compute averages.
@@ -25,6 +27,7 @@ Usage:
 
 import sys
 import os
+import re
 import csv
 from collections import defaultdict
 
@@ -116,20 +119,79 @@ def load_selected_requests(csv_path):
     return selected
 
 
-def match_files_to_ids(folder, request_ids):
-    """Return dict {request_id: filepath}. Matches when the ID string appears
-    in the filename. Reports IDs with 0 or >1 matches."""
-    xlsx = [f for f in os.listdir(folder)
-            if f.lower().endswith(".xlsx") and not f.startswith("~")]
+REVIEW_MARKER = "בדיקה"   # reviewed/working version, usually the one to read
+
+
+def file_priority(path):
+    """Sort key for choosing the best file in a request folder. Higher = better.
+    Priority: (is reviewed 'בדיקה') > (highest numeric version) > (most recent mtime).
+    Version tokens look like 0.1 / 1.2 / v2 — request IDs (5-7 digit integers)
+    are deliberately excluded so they aren't mistaken for versions."""
+    name = os.path.basename(path)
+    is_review = 1 if REVIEW_MARKER in name else 0
+    # decimal version tokens like 0.1, 1.2 (not whole integers, which could be IDs)
+    decimals = re.findall(r"(?<!\d)(\d{1,2}\.\d{1,2})(?!\d)", name)
+    # explicit v2 / גרסה 3 style
+    vtokens = re.findall(r"(?:v|גרסה|גרסא)\s*(\d{1,2})", name, flags=re.IGNORECASE)
+    version = max([float(d) for d in decimals] + [float(v) for v in vtokens],
+                  default=-1.0)
+    try:
+        mtime = os.path.getmtime(path)
+    except OSError:
+        mtime = 0
+    return (is_review, version, mtime)
+
+
+def is_grant_form(path):
+    """True if the workbook has the grant-form structure (a site or summary sheet)."""
+    try:
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+        ok = any(s in wb.sheetnames for s in ["אתר 1", "סיכום ובקשת המענק", "אתר 2", "אתר 3"])
+        wb.close()
+        return ok
+    except Exception:
+        return False
+
+
+def discover_grant_files(root, wanted_ids):
+    """Walk the round folder tree. Group .xlsx files by the request ID found in
+    their path (folder name or filename), then pick the best grant-form file per
+    request. Returns (matches {id: path}, selection_log list)."""
+    wanted = set(wanted_ids)
+    candidates = defaultdict(list)   # id -> [paths]
+
+    for dirpath, _dirs, files in os.walk(root):
+        for fn in files:
+            if not fn.lower().endswith(".xlsx") or fn.startswith("~$"):
+                continue
+            full = os.path.join(dirpath, fn)
+            hay = dirpath + os.sep + fn
+            ids_in_path = set(re.findall(r"\d{5,7}", hay))
+            for rid in (wanted & ids_in_path):
+                candidates[rid].append(full)
+
     matches = {}
-    ambiguous = {}
-    for req_id in request_ids:
-        hits = [f for f in xlsx if req_id in f]
-        if len(hits) == 1:
-            matches[req_id] = os.path.join(folder, hits[0])
-        elif len(hits) > 1:
-            ambiguous[req_id] = hits
-    return matches, ambiguous
+    selection_log = []
+    for rid, paths in candidates.items():
+        ranked = sorted(paths, key=file_priority, reverse=True)
+        chosen = next((p for p in ranked if is_grant_form(p)), None)
+        if chosen is None:
+            selection_log.append({
+                "request_id": rid, "chosen": "(none valid)",
+                "n_candidates": len(paths),
+                "others": " | ".join(os.path.basename(p) for p in ranked),
+            })
+            continue
+        matches[rid] = chosen
+        others = [os.path.basename(p) for p in ranked if p != chosen]
+        selection_log.append({
+            "request_id": rid, "chosen": os.path.basename(chosen),
+            "n_candidates": len(paths),
+            "others": " | ".join(others),
+        })
+    return matches, selection_log
 
 
 def main():
@@ -150,9 +212,16 @@ def main():
     selected = load_selected_requests(csv_path)
     print(f"Selected {len(selected)} requests from category table.")
 
-    matches, ambiguous = match_files_to_ids(folder, selected.keys())
+    matches, selection_log = discover_grant_files(folder, selected.keys())
     print(f"Matched {len(matches)} request IDs to files "
-          f"({len(selected) - len(matches)} unmatched, {len(ambiguous)} ambiguous).")
+          f"({len(selected) - len(matches)} unmatched).")
+
+    # Write the file-selection log so the chosen file per request can be audited
+    sel_path = os.path.join(folder, "capex_file_selection.csv")
+    with open(sel_path, "w", newline="", encoding="utf-8-sig") as f:
+        w = csv.DictWriter(f, fieldnames=["request_id", "chosen", "n_candidates", "others"])
+        w.writeheader()
+        w.writerows(sorted(selection_log, key=lambda r: r["request_id"]))
 
     lineitems = []           # every line item with tech tag
     coverage_notes = []
@@ -254,12 +323,10 @@ def main():
         f.write(f"Selected requests: {len(selected)}\n")
         f.write(f"Matched to files: {len(matches)}\n")
         f.write(f"Unmatched IDs: {len(selected) - len(matches)}\n\n")
-        if ambiguous:
-            f.write("AMBIGUOUS (ID matched multiple files):\n")
-            for rid, hits in ambiguous.items():
-                f.write(f"  {rid}: {hits}\n")
-            f.write("\n")
-        unmatched = sorted(set(selected) - set(matches) - set(ambiguous))
+        no_valid = [s["request_id"] for s in selection_log if s["chosen"] == "(none valid)"]
+        if no_valid:
+            f.write("FOUND FOLDER BUT NO VALID GRANT FORM:\n  " + ", ".join(sorted(no_valid)) + "\n\n")
+        unmatched = sorted(set(selected) - set(matches))
         if unmatched:
             f.write("UNMATCHED IDs (no file found):\n  " + ", ".join(unmatched) + "\n\n")
         if coverage_notes:
@@ -271,6 +338,7 @@ def main():
     print(f"  Line items:     {li_path}  ({len(lineitems)} rows)")
     print(f"  By request/tech:{br_path}")
     print(f"  Averages:       {avg_path}")
+    print(f"  File selection: {sel_path}")
     print(f"  Coverage:       {cov_path}")
 
 
