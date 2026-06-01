@@ -97,13 +97,24 @@ def extract_site_items(ws, site_name):
     site_name_cell = ws.cell(row=6, column=2)  # row 6 col B = site name
     site_display = str(site_name_cell.value).strip() if site_name_cell.value else site_name
 
+    # The row immediately after the header is the template's example row
+    # (always "מרכך מים ... מסוג XXX של חברת XXX בהספק של YYY"). Skip it.
+    example_row = header_row + 1
+    reported_total = None
+
     for r in range(header_row + 1, ws.max_row + 1):
         b_val = ws.cell(row=r, column=cost_col - 2).value  # system col
         cost_val = ws.cell(row=r, column=cost_col).value
 
-        # Stop at סה"כ row
+        # Stop at סה"כ row, capturing the reported total for validation
         if isinstance(b_val, str) and TOTAL_MARKER in b_val:
+            if isinstance(cost_val, (int, float)):
+                reported_total = cost_val
             break
+
+        # Skip the template example row
+        if r == example_row:
+            continue
 
         # Skip rows with no numeric cost
         if not isinstance(cost_val, (int, float)):
@@ -123,6 +134,15 @@ def extract_site_items(ws, site_name):
             "cost_ils": cost_val,
             "notes": notes,
         })
+
+    # Validate: extracted line items should sum to the reported סה"כ total
+    if reported_total is not None and items:
+        extracted_sum = sum(it["cost_ils"] for it in items)
+        if abs(extracted_sum - reported_total) > 1:  # allow rounding
+            warn.append(
+                f"  {site_name}: sum mismatch — extracted {extracted_sum:,.0f} "
+                f"vs reported total {reported_total:,.0f}"
+            )
 
     return items, warn
 
