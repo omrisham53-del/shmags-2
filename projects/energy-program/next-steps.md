@@ -13,7 +13,7 @@
 ## Daniel's Feedback - Tax Incentive Model (2026-06-01)
 
 - [ ] **Capex** - find it in the fund data (don't estimate; pull from the source)
-- [ ] **Electricity price** - use average of תעו"ז tariff (time-of-use rate), not a flat rate
+- [ ] **Electricity price** - use average across תעו"ז time bands (peak / off-peak / shoulder)
 - [ ] **Interest rate** - use 6%
 
 **Notes:**
