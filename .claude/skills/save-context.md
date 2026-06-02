@@ -26,6 +26,18 @@ Scan the full conversation for:
 
 4. **Update project trackers if changed** — e.g., job tracker status, university tracker.
 
+5. **Git sync** — stage and commit all pending changes, then merge to master and push:
+   - If on master: `git add -A`, commit, push
+   - If on a feature/claude branch: commit any pending changes, then:
+     ```
+     git checkout master
+     git merge --ff-only <branch>
+     git push
+     git branch -d <branch>
+     ```
+   - If `--ff-only` fails (diverged history), use `git merge --no-ff <branch>` instead
+   - Goal: always end the session with master up to date on the remote
+
 ## Report
 
 After saving, show a tight summary:
@@ -33,5 +45,6 @@ After saving, show a tight summary:
 - ACCOMPLISHMENTS: (list or "none")  
 - MEMORY UPDATES: (list or "none")
 - FILES UPDATED: (list)
+- GIT: branch merged + pushed, or "already on master, pushed"
 
 Skip empty categories.
