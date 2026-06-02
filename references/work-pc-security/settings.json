@@ -1,0 +1,46 @@
+{
+  "permissions": {
+    "defaultMode": "default",
+    "deny": [
+      "WebFetch",
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(Invoke-WebRequest:*)",
+      "Bash(Invoke-RestMethod:*)",
+      "Bash(iwr:*)",
+      "Bash(irm:*)",
+      "Bash(scp:*)",
+      "Bash(ssh:*)",
+      "Bash(sftp:*)",
+      "Bash(ftp:*)",
+      "Bash(telnet:*)",
+      "Bash(nc:*)",
+      "Bash(ncat:*)",
+      "Bash(Start-BitsTransfer:*)",
+      "Bash(git push:*)"
+    ],
+    "ask": [
+      "Bash(rm:*)",
+      "Bash(Remove-Item:*)",
+      "Bash(del:*)",
+      "Bash(rmdir:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(py:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:\\Users\\YOUR_USER\\.claude\\block-network.ps1"
+          }
+        ]
+      }
+    ]
+  }
+}
