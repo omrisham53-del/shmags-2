@@ -15,6 +15,12 @@
 
 ## Today's Completed
 
+1. **Status line upgrade** - Added plan usage limits (5h + weekly windows, % left + reset countdown) as a second line in the Claude Code status bar, sourced from the native `rate_limits` field in the status line stdin JSON. Added `refreshInterval: 60` so countdowns stay current while idle. Files: `statusline-command.ps1`, `settings.json`.
+
+---
+
+## Recent Work (June 1-2)
+
 1. **Repo audit + cleanup** - Reviewed all .md files, identified dead weight, deleted 7 stale status/next-steps files, archived old agent-memory and assignment skill evals (55 files).
 2. **Session-start hook fixed** - settings.json had duplicate "hooks" key bug silently discarding the date updater. Fixed + updated session-start.sh to update today.md date fields on every session.
 3. **save-context skill updated** - Added Step 5: merge branch to master + push before ending session.
