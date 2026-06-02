@@ -20,6 +20,9 @@
 3. **save-context skill updated** - Added Step 5: merge branch to master + push before ending session.
 4. **CLAUDE.md overhauled** - Added folder map with rules, fixed malformed section headers, added session-start instruction for stale completed items.
 5. **Work PC branches merged** - Pulled and merged claude/beautiful-albattani (tax incentive model, May 31) and claude/gracious-babbage (CapEx pipeline, June 1) into master.
+6. **Audited CapEx extraction scripts** - Read + grep-scanned `capex_pipeline.py`, `extract_capex.py`, `diag_walk.py`. Confirmed clean: no network/subprocess/eval/destructive ops, openpyxl read-only. Safe to trust.
+7. **Built work-PC security kit** - `references/work-pc-security/` with deny rules (settings.json), a PreToolUse hook (block-network.ps1), and a README. Deterministic alternative to a "guardian agent." Committed + pushed.
+8. **Clarified work-PC setup** - All work-PC tasks run on Claude Code online (sandbox, can't harm the PC). Security kit parked for desktop use only; real online safety = anonymize uploads (no real company names/tax IDs).
 
 ---
 
