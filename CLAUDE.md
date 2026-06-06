@@ -59,6 +59,7 @@ Every folder has a single purpose. Don't create files outside the right home.
 | `context/` | Who Omri is and what's in focus. Semi-permanent. | me.md, work.md, team.md, goals.md, current-priorities.md. Update quarterly or when focus shifts. |
 | `projects/` | One subfolder per active workstream. | Each project: `README.md` (what it is) + `tracker.md` (status/deadlines). No status.md or next-steps.md — those are always stale. |
 | `research/` | Timestamped research output. Never edit; add new files. | `job-market/`, `academic/`, `dnd/` subfolders. Naming: `YYYY-MM-DD_topic.md`. |
+| `brainstorms/` | Raw discovery/grilling session captures. | One file per session: `YYYY-MM-DD_topic.md` from /grill-me. Raw Q&A and decisions. Polished deliverables graduate to `projects/`; the raw capture stays here. |
 | `references/` | Reusable assets and style guides. | Academic style guide, brand assets (fonts, logos), templates. Things you pull from, not produce. |
 | `decisions/` | Append-only decision log. | `log.md` only. Never delete or rewrite entries. |
 | `archives/` | Completed or stale work. | Move here instead of deleting. |
