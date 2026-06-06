@@ -30,12 +30,24 @@
 
 ## The Fall (Historical Event)
 
-### The Crisis
+> NOTE: This section has two layers. "The Public Account" is what everyone in the world believes (and what the Betrayer wants them to believe). "The Truth" is DM-only and is revealed to players in pieces across the campaign. See also The Betrayer below.
+
+### The Public Account (what everyone believes)
 - One dragon rider lost control of their dragon (magical bond fractured)
 - The dragon went wild, unbound
-- Destroyed a major city (Helstone)
+- Destroyed a major city (Helstone) - this event is recorded as "The Fall of House Arendath"
 - Killed hundreds of innocent people
 - Wrought massive destruction in a single night
+- Lesson the world drew: freedom is too dangerous; dragons must never be trusted
+
+### The Truth (DM-only, control caused it - not freedom)
+- A small faction created a **gem** and convinced the rider (the future Betrayer) it would make him far more powerful
+- He tried to use it by **embedding the gem into his dragon's skin mid-flight** to amplify his control
+- Forcing control is exactly what shattered the bond: the dragon went berserk and burned Helstone
+- The gem was destroyed in the chaos
+- He buried the truth, blamed the dragon's "freedom," and built the world's fear (and his own creed) on the lie
+- His body was never found; history says he died in the fire. He is presumed dead. In truth he escaped and caged the dragon. (This is why no one has hunted him for centuries.)
+- The faction that made the gem is gone and irrelevant now
 
 ### The Aftermath
 - Population traumatized and furious
@@ -107,26 +119,40 @@ Dragon rider research became illegal because:
 
 ---
 
-## The Betrayer's Corruption
+## The Betrayer
 
-### The Irony
-- Descendant of dragon rider bloodline
-- Should understand partnership/freedom
-- Instead corrupted it into tool of domination
-- Wants to resurrect dragon riding as weapon of conquest
+### Who He Is
+- **Name: Ashar** (= the ash of Helstone; presumed burned in the Fall, rose from it)
+- An **ancient elf** of the original dragon-rider bloodline (NOT a recent descendant); the rider of House Arendath
+- The rider whose dragon burned Helstone; presumed dead for centuries
+- Secretly the dragon's jailer the whole time, hiding behind his own presumed death
 
-### The Plan
-1. Mine blue salt crystals
-2. Create spell/item for forced dragon bonding
-3. Enslave ancient dragon
-4. Use dragon-rider power for personal domination
-5. Create new order of dragon riders under his control
+### His Belief (guilt, not conquest)
+- "**Freedom failed, so control is the only safe way.**"
+- He concluded partnership with dragons is too dangerous after the catastrophe (which he secretly caused)
+- In his own mind he is the world's protector, the only one willing to do dragon riding "safely," not a would-be conqueror
+- A tragic mirror of the party's emerging freedom/partnership values
+
+### The Plan (now)
+1. The centuries-old binding on the dragon is decaying; he is out of time
+2. A forced binding is not a rideable pact, so he needs the **Scholar's conversion ritual** to make it permanent
+3. Mine/use blue salt crystals (calm + subdue), rehearsed first on the Darklings
+4. Convert the failing cage into a true forced pact before it breaks
+- His goal is not conquest; it is to finally "fix" what went wrong centuries ago, on his terms (control)
+
+### The Method Ladder (unifies the magic)
+1. **Gem (force)** caused the catastrophe; taught him forcing control kills
+2. **Crystals (calm + chain)** were his fallback to cage the berserk dragon for centuries
+3. **Crystals + Scholar's ritual (permanent forced pact)** is the plan now
+
+### His Camouflage
+- Presumed dead (no one hunts a dead man)
+- The religious orders act on sincere, independent fear; he is a **parasite** hiding in the doctrine they built, not their puppet
+- Operates through proxies (Kobolds, Darklings, possibly an insider) and stays offstage until the level 4-5 reveal
 
 ### Why This Threatens Everything
-- Perverting noble magic for domination
-- If successful: dragons enslaved, freedom crushed
-- Represents worst-case scenario for both "dragon rider age" and "order age"
-- Creates threat that no conventional authority can handle
+- If successful: the dragon is permanently enslaved and freedom loses its last living proof
+- The final confrontation is a three-way emotional knot: jailer (guilt) / prisoner (centuries punished for one moment) / new rider (Aerendil, freedom reborn)
 
 ---
 
@@ -204,7 +230,7 @@ Dragon rider research became illegal because:
 **Type:** Ancestral history
 **Message:** Power runs in the blood, but can be corrupted
 **Narrative:** Dragon rider bloodline carried fire magic, some fell to darkness
-**Player Discovery:** The betrayer comes from this bloodline - a fallen heir
+**Player Discovery:** The Betrayer comes from this bloodline - not a recent heir but an ancient survivor of it who is presumed long dead
 
 ---
 

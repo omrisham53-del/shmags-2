@@ -16,6 +16,8 @@
 ## Today's Completed
 
 1. **Status line upgrade** - Added plan usage limits (5h + weekly windows, % left + reset countdown) as a second line in the Claude Code status bar, sourced from the native `rate_limits` field in the status line stdin JSON. Added `refreshInterval: 60` so countdowns stay current while idle. Files: `statusline-command.ps1`, `settings.json`.
+2. **grill-me skill reviewed + adjusted** - Fixed the capture template em dash and the Bash date note; added a `brainstorms/` row to the CLAUDE.md folder map (raw captures stay there, polished deliverables graduate to projects/). Committed.
+3. **First grill-me session: D&D campaign arc** - Ran a full discovery interview and locked the campaign's load-bearing canon. Capture at `brainstorms/2026-06-06-dnd-campaign-arc.md`. Key results: Betrayer named **Ashar** (ancient elf, dragon's jailer, presumed dead in the Fall); the truth that CONTROL caused the Fall of House Arendath (the gem), not freedom; the enslaved dragon is that same dragon; the gem->crystals->ritual method ladder; milestone pacing with Herald's Oath gating L3; Ziggy's buried-song arc. Synced all decisions into `campaign-arc.md`, `world-lore.md`, `npcs-and-characters.md` and the campaign memory. Saved a new `dnd_dm_style` memory (improv-first DM philosophy).
 
 ---
 

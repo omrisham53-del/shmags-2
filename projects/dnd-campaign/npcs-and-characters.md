@@ -12,6 +12,8 @@
 - Spiritually lost, seeking new path and meaning
 - Mechanically: Paladin (oath TBD)
 
+**Pacing constraint (IMPORTANT):** Paladin level 3 = Oath selection (subclass). The **level 2->3 milestone must coincide with Herald reaching his Oath decision**, and the natural crucible is reaching the Scholar (the living victim of his order's complicity). Frame the moment "your order did this, who are you now?" and let his PLAYER pick the Oath, don't steer it. Likely reads: Ancients (heir to suppressed old ideals), Redemption (mercy/anti-domination, counterweight to the Betrayer), Vengeance (radicalized by betrayal), Devotion (reclaim honor from a corrupt order).
+
 **Personal Arc:**
 - Discovers his old order deliberately suppressed dragon rider knowledge
 - Learns dragon riders' values: freedom + partnership (contrast to order's control)
@@ -76,25 +78,28 @@
 - The magical instrument itself (Harmony Lute)
 - Proving himself independent from his old band
 
-**Personal Arc:**
-- Discover deeper meaning behind his instrument
-- Connect instrument's harmony to ancient dragon rider magic (parallel theme)
-- Build group bonds through sharing his backstory
-- **Goal:** (Developing) Instrument becomes symbol of his connection to something greater than personal ambition
+**Personal Arc (the SONG, not the lyre):**
+- Ziggy unknowingly carries a suppressed song in his repertoire, a "harmless" old tune that's actually an encoded fragment of the truth (the catastrophe, the dragon's name, or where it's caged)
+- He's an accidental guardian of erased history; the orders tried to erase it but it survived inside the songs performers pass down
+- Someone reacts to the song (the Scholar's eyes widen, the dragon stirs) and his world tilts
+- **Goal:** Decide what he stands for once he learns his songs are dangerous truth - mirrors the Scholar's exile and the freedom-vs-control theme at the level of story/truth
+- Improv-friendly: the song can unlock a clue exactly when the table needs one
+- Optional variant (not yet chosen): the song ties to his own lineage/mentor who quietly kept the knowledge alive
 
 **What He Needs:**
-- Opportunity to share backstory with the group (next session opportunity)
-- Discovery that his instrument's harmony mirrors ancient magic
+- Opportunity to share/perform, so the song surfaces naturally
+- A moment where someone recognizes the song for what it is
 - Group acceptance and integration
-- Eventually: Understanding his role in the larger narrative
+- Eventually: Understanding his role as keeper of the buried truth
+
+**IMPORTANT (consistency):** Do NOT retcon new powers onto the lyre. He has already played it at the table; it stays a normal magic item. His arc runs through the song, not the instrument.
 
 **The Harmony Lute:**
 - Creates perfect harmonic music with spectral band
 - Duration: 5 minutes per activation
 - Once per long rest
 - Mechanical effect: Increases Bardic Inspiration die by one size (d6→d8, d8→d10, etc.)
-- No literal connection to dragon riders needed, but thematic parallel
-- His use of harmony mirrors how ancient elves bonded with dragons
+- Just a normal magic item. No connection to dragon riders. His arc is the buried song, not this lyre.
 
 **Notes:**
 - Yoav joined the campaign later (after first sessions), so he's still catching up on lore
@@ -151,8 +156,14 @@
 **Background:**
 - Scholar researched forbidden dragon rider bloodline material
 - Got passionate about their practices and beliefs
-- Started creating "weird magic" that mirrors ancient dragon rider magic
-- Academy exiled her as a threat
+- **Reconstructed the bloodline conversion ritual** from fragments (the ritual to turn a calmed/caged dragon into a true forced pact). She is NOT of the bloodline; this is academic reconstruction.
+- Academy + religious orders exiled her as a threat for exactly this
+
+**Why she is the linchpin:**
+- The conversion ritual she reconstructed is the precise missing piece the Betrayer needs to finish his plan
+- Symmetry: the orders exiled her for the same knowledge the Betrayer now hunts her for
+- She has only recently surfaced (likely tipped him off unknowingly, e.g. a paper or query), which is why he is hunting her NOW
+- She treats this as history; she does NOT know it's being used on a living dragon, or that her hunter is the ancient jailer presumed dead for centuries
 
 **Personality:**
 - Passionate, intellectual, driven by ideas
@@ -197,7 +208,7 @@
 - Floaty, slow voice - clearly a loner who spends most of his time in the mountains
 - Collects mushrooms (and uses them - gave some to Ziggy in Session 1, distorted both their perceptions)
 - Players don't fully trust him yet - he's odd
-- No deeper agenda - genuinely just a skilled guide with mountain knowledge
+- **Allegiance deliberately left open:** could be exactly what he seems (a skilled, harmless guide) OR a quiet insider/agent of the Betrayer. Players haven't gotten a good read on him, so keep both doors open and decide later at the table.
 
 **What He Knows:**
 - The Hellrock Mountains terrain intimately
@@ -210,8 +221,8 @@
 - Trust builds gradually as he proves useful with terrain
 
 **Notes:**
-- Keep his personality consistent: useful, odd, not dangerous
-- The Kobold claim (truth or lie) can be resolved later if it becomes relevant
+- Keep his personality consistent: useful, odd, hard to read
+- The Kobold claim (truth or lie) and his true allegiance can both be resolved later if/when relevant
 
 ---
 
@@ -236,44 +247,50 @@
 
 ---
 
-### The Betrayer (Male, Identity TBD)
-**Role:** Main antagonist, corrupted dragon rider descendant
+### Ashar - The Betrayer (ancient elf)
+**Role:** Main antagonist, the dragon's centuries-long jailer
 
-**Class/Type:** Druid
+**Who He Is:**
+- **Name: Ashar** (= the ash of Helstone; the rider presumed burned in the Fall who rose from it)
+- An **ancient elf** of the original dragon-rider bloodline (NOT a recent descendant); the rider of House Arendath
+- The rider whose dragon burned Helstone in the Fall; **presumed dead** for centuries
+- Secretly survived, caged that same dragon, and has hidden behind his own presumed death ever since
+- A stranger the players hunt, not a trusted NPC
+
+**His Belief (guilt, not conquest):**
+- "**Freedom failed, so control is the only safe way.**"
+- Caused the catastrophe (secretly) and concluded dragons must be controlled, never trusted
+- Believes he is the world's protector, the only one willing to do dragon riding "safely"
+- Tragic mirror of the party's freedom/partnership values
 
 **Abilities:**
-- Move through nature undetected
-- Magic to create dragon-bonding spell/item using blue salt crystals
-- Leadership over Kobolds and Darklings
-- Descended from dragon rider bloodline - has fire heritage/magic
+- Magic tied to the dragon-rider fire bloodline; long experience with blue salt crystal binding
+- Leadership over Kobolds and Darklings (proxies)
+- (Class not locked. Old notes said Druid; treat as flexible.)
 
-**Personality:** (To be determined as campaign develops)
-- Likely: ambitious, corrupted, sees domination as evolution of dragon riding
-- Possible: tragic figure who fell to darkness
-- Motivations: unclear until level 4-5 revelation
+**His Plan (now):**
+1. The centuries-old binding is decaying; he is out of time
+2. Needs the **Scholar's conversion ritual** to turn the failing cage into a permanent forced pact
+3. Mine/use blue salt crystals (calm + subdue), rehearsed on the Darklings first
+4. Convert the cage before it breaks. Goal is to "fix" his ancient failure on his terms (control), NOT conquest
 
-**His Plan:**
-1. Gather blue salt crystals (via Kobold miners under Clerroc)
-2. Create spell/magical item for forced dragon bonding
-3. Enslave ancient dragon and use it for conquest/domination
-4. Resurrect dragon-riding as tool of power, not partnership
+**The Method Ladder:** Gem (force, caused the Fall) -> Crystals (calm + chain, caged the dragon) -> Crystals + Scholar's ritual (permanent pact, the plan now).
 
-**His Current Activity (Levels 1-2):**
-- Actively searching library for information (found something)
-- Directing Kobolds to mine
-- Hunting the scholar (she knows too much about bloodline)
-- Organizing Darklings as superior minions
+**His Camouflage:**
+- Presumed dead (no one hunts a dead man)
+- The religious orders act on sincere, independent fear; he is a **parasite** in their doctrine, not their puppet
+- Stays offstage via proxies until the level 4-5 reveal
 
 **Hints & Clues (Level 2-5):**
 - **Level 2:** Mysterious library searcher, Darklings with Kobolds
 - **Level 3-4:** Escalating encounters, organized threat pattern, fire magic parallels
-- **Level 4-5:** Identity revealed, family connection to dragon riders becomes clear
-- **Level 5-6:** Full plan exposed, final confrontation inevitable
+- **Level 4-5:** Identity revealed (the "dead" rider from the Fall is alive)
+- **Level 5-6:** Full plan and the TRUTH of the Fall exposed, final confrontation inevitable
 
 **Notes:**
 - Don't reveal too much too fast - mystery builds tension
-- The druid element means he's naturally stealthy/connected to nature
-- His descent from dragon rider bloodline makes him parallel to Herald (both seeking path/purpose, but opposite directions)
+- He and Herald are mirrors: both tied to the bloodline/legacy, opposite conclusions (control vs partnership)
+- Name locked: **Ashar** (see brainstorms/2026-06-06-dnd-campaign-arc.md)
 
 ---
 
@@ -288,9 +305,14 @@
 - Gave him warlock powers
 - Chose him specifically to help free it
 
+**The key fact (DM-known):**
+- This is the **same dragon from the Fall of House Arendath** - the one the Betrayer maddened with the gem, who then burned Helstone
+- It has been imprisoned and punished by the Betrayer for centuries, for a catastrophe that was really *his* fault, not the dragon's
+- Gives the dragon a tragic innocence: it has spent centuries caged for a crime it did not choose
+
 **Current Status:**
-- Enslaved/bound by betrayer
-- Betrayer attempting to create permanent non-consensual bond
+- Enslaved/bound by the Betrayer (the binding is now decaying)
+- Betrayer attempting to convert the failing cage into a permanent non-consensual pact
 - One power remaining: ability to communicate through human dreams
 - Desperate but not broken
 
