@@ -62,9 +62,11 @@
 
 ## This Week's Focus
 
-1. **Energy Program** - Review `capex_all_rounds.csv` in Excel: filter junk rows, verify technology tags, compute AVERAGEIF per tech → 4 model CapEx numbers
-2. **Job Search** - Follow up on active applications (Primis, Mobileye, Realplay, Nexxen)
-3. **University** - Monitor HW #2 and HW #3 grades
+1. **Energy Program** - Grant chapter: meeting with Omri (PM) tomorrow for notes/comments review, send final to Daniel by end of week
+2. **Energy Program** - Schedule and run follow-up meeting with Rafi to expand on email sent (by end of week)
+3. **Energy Program** - Review `capex_all_rounds.csv` in Excel: filter junk rows, verify technology tags, compute AVERAGEIF per tech → 4 model CapEx numbers
+4. **Job Search** - Follow up on active applications (Primis, Mobileye, Realplay, Nexxen)
+5. **University** - Monitor HW #2 and HW #3 grades
 
 ## Active Applications
 
