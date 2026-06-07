@@ -7,13 +7,20 @@
 
 ## Current Priority
 
+- Economics final paper (with Tomer): edit lit review + discussion in Google Docs, then hand back for full-document assembly
 - Energy program: review `capex_all_rounds.csv` in Excel, compute AVERAGEIF per tech → 4 model CapEx numbers
 - Job search: follow up on active applications
-- University: monitor HW #2 and HW #3 grades
 
 ---
 
 ## Today's Completed
+
+1. **Economics final paper — collaboration setup + drafting (with Tomer)** - New university assignment: CBA policy paper on energy sourcing for a 20MW data center in Gush Dan. Folder at `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\Economics Final` (kept OUT of SHMAGS 2 for privacy; shared with Tomer via Live Share). Read the brief, the existing Hebrew draft, the Excel CBA model, and Tomer's Consensus AI research report (~30 sources). Chose "lighter alignment" to the brief's 8-section structure. Drafted the **סקירת ספרות** and **דיון** sections in Hebrew (formal register, author-year citation tags). Flagged two Excel data bugs (CO2 sheet SCC ~1000x too high; misleading "Year 20 OPEX" replacement spike).
+2. **Built 6 professional Hebrew charts** - matplotlib + Segoe UI + python-bidi (RTL); consistent per-alternative palette. Total cost, blended rate, energy mix, investment payoff, PUE sensitivity, OPEX composition. Saved to `Economics Final\charts\` with `build_charts.py`.
+
+---
+
+## Recent Work (June 6)
 
 1. **Status line upgrade** - Added plan usage limits (5h + weekly windows, % left + reset countdown) as a second line in the Claude Code status bar, sourced from the native `rate_limits` field in the status line stdin JSON. Added `refreshInterval: 60` so countdowns stay current while idle. Files: `statusline-command.ps1`, `settings.json`.
 2. **grill-me skill reviewed + adjusted** - Fixed the capture template em dash and the Bash date note; added a `brainstorms/` row to the CLAUDE.md folder map (raw captures stay there, polished deliverables graduate to projects/). Committed.

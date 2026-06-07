@@ -1,12 +1,26 @@
 # University Assignments Tracker
 
-**Last Updated:** May 26, 2026
+**Last Updated:** June 7, 2026
 **Term:** Spring 2026
 **Total Assignments:** Track all coursework, deadlines, and status
 
 ---
 
 ## Active Assignments
+
+### Economics Final Paper: CBA – Data Center Energy Sourcing (with Tomer)
+
+| Field | Value |
+|-------|-------|
+| **Course** | Economics (final paper) |
+| **Type** | Policy paper / cost-benefit analysis (group: Omri + Tomer Tesa) |
+| **Status** | In Progress (lit review + discussion drafted 2026-06-07) |
+| **Folder** | `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\Economics Final` (OUTSIDE SHMAGS 2, shared with Tomer via Live Share) |
+| **Files** | Brief: `מבנה העבודה .pdf`; draft `.docx`; model `DC_Israel_Cost_Model_ILS_v4.xlsx`; Consensus research PDF; `charts/` (6 figures + build script) |
+| **Grade** | Pending |
+| **Notes** | CBA of energy sourcing for a 20MW data center in Gush Dan (grid vs hybrid vs self-sufficiency). "Lighter alignment" to the brief's 8-section structure. Hebrew, footnote citations (author-year tags → footnotes at assembly), one APA bibliography. Next: Omri edits lit review + discussion in Docs, hands back for full assembly. See memory `economics_final_paper` + `hebrew_academic_rendering`. |
+
+---
 
 ### HW #3: LCA Exercise – Single-Use vs. Reusable Cup
 
