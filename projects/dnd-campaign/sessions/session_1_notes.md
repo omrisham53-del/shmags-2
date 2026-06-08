@@ -21,7 +21,7 @@
 - Improvised estate backstory: the estate was built by humans with a deep connection to the elves/dragon riders, with cooling pipe systems to preserve Dragon Rider artifacts, scrolls, and books - to keep their legacy alive
 
 **In Town:**
-- Herald went to the temple in Kell Rock - his first visit. Tried old rituals he hadn't performed in a long time. It felt familiar but also hollow. The main monk, Gali (friendly), approached him. Herald ran.
+- Herald went to the temple in Kell Rock - his first visit. Tried old rituals he hadn't performed in a long time. It felt familiar but also hollow. A young monk spoke with him briefly and told him about Gali (the friendly head monk); Gali himself did not approach. Herald ran.
 - Aerendil asked people around town about the blue crystals - risky move. More people now know they exist. Could blow back on Thorn if word reaches the wrong ears.
 - Small visit to a blacksmith - tried to determine if the crystals were metal. No one knows. Common folk have no knowledge of the crystals or their connection to dragon bonding.
 
