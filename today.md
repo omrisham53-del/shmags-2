@@ -1,7 +1,7 @@
-# Today - 2026-06-07
+# Today - 2026-06-08
 
-**Date:** 2026-06-07
-**Updated:** 2026-06-07
+**Date:** 2026-06-08
+**Updated:** 2026-06-08
 
 ---
 
@@ -15,7 +15,13 @@
 
 ## Today's Completed
 
-1. **Economics final paper — collaboration setup + drafting (with Tomer)** - New university assignment: CBA policy paper on energy sourcing for a 20MW data center in Gush Dan. Folder at `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\Economics Final` (kept OUT of SHMAGS 2 for privacy; shared with Tomer via Live Share). Read the brief, the existing Hebrew draft, the Excel CBA model, and Tomer's Consensus AI research report (~30 sources). Chose "lighter alignment" to the brief's 8-section structure. Drafted the **סקירת ספרות** and **דיון** sections in Hebrew (formal register, author-year citation tags). Flagged two Excel data bugs (CO2 sheet SCC ~1000x too high; misleading "Year 20 OPEX" replacement spike).
+1. **CV revision for Avishai's consulting firm (kibbutz economic projects)** - New referral lead: friend Avishai offered to bring Omri into his workplace, a small economics-consulting firm doing economic projects with kibbutzim. Reviewed and repositioned the Hebrew CV across 3 revisions. Subtitle changed from a degree restatement to a value prop ("אנליסט כלכלי"); profile rewritten economics-first (was sustainability/data-science-first); EcoTraders bullets rewritten so each owns one dimension (modeling / client-facing presentation / AI-process / policy analysis) to kill overlap; kept noun-form bullets to match the rest of the CV; education set to 2023-2026 with "בוגר" framing (graduating July 2026), GPA shown as 93; merged "אקסל" + "תוכנות office" into one skill line; kept English at "רמת שפת אם" (writing reviewed, consistent with the claim). CV is interview-ready.
+
+---
+
+## Recent Work (June 7)
+
+1. **Economics final paper — collaboration setup + drafting (with Tomer)** - CBA policy paper on energy sourcing for a 20MW data center in Gush Dan. Folder at `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\Economics Final` (kept OUT of SHMAGS 2 for privacy; shared with Tomer via Live Share). Read the brief, the existing Hebrew draft, the Excel CBA model, and Tomer's Consensus AI research report (~30 sources). Chose "lighter alignment" to the brief's 8-section structure. Drafted the **סקירת ספרות** and **דיון** sections in Hebrew (formal register, author-year citation tags). Flagged two Excel data bugs (CO2 sheet SCC ~1000x too high; misleading "Year 20 OPEX" replacement spike).
 2. **Built 6 professional Hebrew charts** - matplotlib + Segoe UI + python-bidi (RTL); consistent per-alternative palette. Total cost, blended rate, energy mix, investment payoff, PUE sensitivity, OPEX composition. Saved to `Economics Final\charts\` with `build_charts.py`.
 
 ---

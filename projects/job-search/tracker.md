@@ -7,6 +7,7 @@ Running log of active applications. Found/unactioned jobs are in [tracker-archiv
 - In review: 1
 - Rejected: 3
 - Offer: 0
+- Referral leads: 1
 
 ---
 
@@ -14,6 +15,7 @@ Running log of active applications. Found/unactioned jobs are in [tracker-archiv
 
 | Date Found | Job Title | Company | Location | Link | Fit | Status | Notes |
 |------------|-----------|---------|----------|------|-----|--------|-------|
+| 2026-06-08 | Economic Analyst (referral) | Avishai's consulting firm | TBD | | High | Lead | Friend Avishai (from university) offered to bring Omri into his workplace, a small economics-consulting firm doing economic projects with kibbutzim. CV repositioned for the role 2026-06-08 (economics-forward, "אנליסט כלכלי" subtitle). Next: send CV / set up conversation with Avishai. |
 | 2026-05-31 | Global Share Plans Analyst | Mobileye | Jerusalem | | High | Applied | Applied 2026-05-31. Awaiting response. |
 | 2026-05-28 | Business Strategy Analyst | Realplay | Tel Aviv | | High | Applied | Applied 2026-05-28. Awaiting response. |
 | 2026-05-27 | Junior Revenue Operations Manager | Nexxen | Tel Aviv | | High | Applied | Applied 2026-05-27. Messaged Itamar Bilu (Director of Publisher Operations) on LinkedIn. Awaiting response. |
@@ -28,6 +30,7 @@ Running log of active applications. Found/unactioned jobs are in [tracker-archiv
 ## Status Legend
 - **Applied** — Application submitted, waiting to hear back
 - **In Review** — Company is reviewing your application
+- **Lead** — Warm/referral opportunity, not yet formally applied
 - **Rejected** — Company declined to move forward
 - **Offer** — Company extended an offer
 
