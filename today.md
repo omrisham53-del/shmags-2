@@ -15,7 +15,9 @@
 
 ## Today's Completed
 
-1. **Climeworks presentation - RTL layout fix + rehearsal** - Fixed Hebrew alignment in v2.pptx: wrote fix_rtl.py to scan all slides and apply rtl="1" + algn="r" on every Hebrew paragraph, lang="he-IL" on run properties. Saved as v3.pptx at `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\חדשנות טכנולוגית\Climeworks - Climate Innovation v3.pptx`. Ran slide-by-slide rehearsal and wrote speaker scripts for slides 2-5 (Omri's 3 slides + Gal's bizmodel slide). Added Climeworks CDR portfolio content to slide 3 script (DAC + nature-based: biochar, reforestation, enhanced weathering, BECCS; 450k+ tons certified). Slides 6-8 scripts still pending.
+1. **D&D Session 2 prep — completed** - Finished all 6 open questions from the 2026-06-08 WIP session: named the Scholar (Sera, "more broken" direction), built her full voice/appearance/gesture profile, locked cavern fight (3 Darklings + 2 Kobolds, one Darkling flees), shaped both Scholar scene endings (5-min tense vs 30-60-min quiet, both avoid combat-cliffhanger repeat), chose early-arrival reveals 1+3. Built Scholar's camp map spec and all stat blocks (Darkling, Kobold, Carrion Crawler). Wrote final session_2_plan.md at projects/dnd-campaign/sessions/session_2_plan.md.
+
+2. **Climeworks presentation - RTL layout fix + rehearsal** - Fixed Hebrew alignment in v2.pptx: wrote fix_rtl.py to scan all slides and apply rtl="1" + algn="r" on every Hebrew paragraph, lang="he-IL" on run properties. Saved as v3.pptx at `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\חדשנות טכנולוגית\Climeworks - Climate Innovation v3.pptx`. Ran slide-by-slide rehearsal and wrote speaker scripts for slides 2-5 (Omri's 3 slides + Gal's bizmodel slide). Added Climeworks CDR portfolio content to slide 3 script (DAC + nature-based: biochar, reforestation, enhanced weathering, BECCS; 450k+ tons certified). Slides 6-8 scripts still pending.
 
 ---
 
