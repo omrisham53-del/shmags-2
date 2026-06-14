@@ -7,13 +7,19 @@
 
 ## Current Priority
 
-- Economics final paper (with Tomer): edit lit review + discussion in Google Docs, then hand back for full-document assembly
+- Economics final paper (with Tomer): paste full paper into Word, convert in-text citations to footnotes, assemble with charts, submit
 - Energy program: review `capex_all_rounds.csv` in Excel, compute AVERAGEIF per tech → 4 model CapEx numbers
 - Job search: follow up on active applications
 
 ---
 
 ## Today's Completed
+
+1. **Economics seminar paper — full paper written** - Completed the entire 7-section Hebrew paper (per Prof. Lifshitz's PPTX structure). Sections 1-3 (תקציר, הקדמה, סקירת ספרות) written in prior session; sections 4-8 (ניתוח, סיכום, המלצות, ביבליוגרפיה, נספחים) completed this session. In-text (author, year) citations throughout. Charts 01-05 placed: [איור 3] in 4.2, [איורים 1, 2, 4] in 4.3, [איור 5] in 4.4. Chart 06 excluded. Next: Tomer pastes into Word, converts citations to footnotes, assembles final doc.
+
+---
+
+## Recent Work (June 9)
 
 1. **D&D Session 2 prep — completed** - Finished all 6 open questions from the 2026-06-08 WIP session: named the Scholar (Sera, "more broken" direction), built her full voice/appearance/gesture profile, locked cavern fight (3 Darklings + 2 Kobolds, one Darkling flees), shaped both Scholar scene endings (5-min tense vs 30-60-min quiet, both avoid combat-cliffhanger repeat), chose early-arrival reveals 1+3. Built Scholar's camp map spec and all stat blocks (Darkling, Kobold, Carrion Crawler). Wrote final session_2_plan.md at projects/dnd-campaign/sessions/session_2_plan.md.
 
