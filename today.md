@@ -17,6 +17,10 @@
 
 1. **Economics seminar paper — full paper written** - Completed the entire 7-section Hebrew paper (per Prof. Lifshitz's PPTX structure). Sections 1-3 (תקציר, הקדמה, סקירת ספרות) written in prior session; sections 4-8 (ניתוח, סיכום, המלצות, ביבליוגרפיה, נספחים) completed this session. In-text (author, year) citations throughout. Charts 01-05 placed: [איור 3] in 4.2, [איורים 1, 2, 4] in 4.3, [איור 5] in 4.4. Chart 06 excluded. Next: Tomer pastes into Word, converts citations to footnotes, assembles final doc.
 
+2. **Rafi follow-up meeting -- email sent** - Received Rafi's methodology feedback on CapEx analysis (normalize to ₪/TR per unit, segment by size + cooled type; equipment isolation already done). Drafted and sent email to set up a follow-up call.
+
+3. **Grant model explanation prompt drafted** - Built a structured prompt for the work Claude account (which has the model file) to produce talking points + a verbal guide for explaining the grant program model to Daniel. Output: model structure, key assumptions with rationale, talking points in logical order, likely Q&A. Hebrew output. Ready to use.
+
 ---
 
 ## Recent Work (June 9)
