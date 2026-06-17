@@ -1,0 +1,7 @@
+{
+  "routes": [
+    { "src": "/world-cup-party\\.html", "dest": "/world-cup-party.html" },
+    { "src": "/world-cup-party-host\\.html", "dest": "/world-cup-party-host.html" },
+    { "src": "/(.*)", "status": 404 }
+  ]
+}
