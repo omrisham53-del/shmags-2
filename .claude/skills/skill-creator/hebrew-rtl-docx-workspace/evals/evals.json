@@ -1,0 +1,23 @@
+{
+  "skill_name": "hebrew-rtl-docx",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to create a Hebrew Word document for a university assignment summary. It should have: a title 'סיכום עבודה סמינריונית', an intro paragraph in Hebrew (2-3 sentences), a section heading 'ממצאים עיקריים', 3 Hebrew bullet points, and a closing paragraph. Please write and run a Python script to generate this as assignment_summary.docx. Make sure it will render correctly in Microsoft Word (not just LibreOffice).",
+      "expected_output": "A working Python script that generates assignment_summary.docx using the Python+zipfile approach. The .docx file should pass RTL validation (full bidi/rtl coverage, Normal style defined). No npm/docx library.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create a professional Hebrew Word document for an energy technology comparison report. It should have a main title in Hebrew, an introductory paragraph explaining the purpose, and a 3-column comparison table with Hebrew headers (טכנולוגיה, עלות ממוצעת, יעילות) and at least 3 data rows. Save as energy_report.docx and run the script.",
+      "expected_output": "A working Python script that generates energy_report.docx with a proper RTL table. The table should use <w:bidiVisual/> so columns flow right-to-left. Passes validation.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "My Hebrew Word document looks perfect in LibreOffice — text is right-aligned, bullets are on the right. But when I open it in Microsoft Word, all the text is left-aligned and the bullet points appear on the left side. What are the root causes of this? Please provide a complete Python script that I can run on any Hebrew .docx to fix these RTL issues, without needing to unpack the file manually.",
+      "expected_output": "Clear explanation of the root causes (missing bidi at paragraph level, missing rtl at run level, Normal style not defined). A complete Python fix script that takes input/output paths and fixes document.xml, styles.xml, and numbering.xml. Runs as a standalone script.",
+      "files": []
+    }
+  ]
+}

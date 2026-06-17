@@ -1,0 +1,35 @@
+{
+  "eval_id": 2,
+  "eval_name": "energy-table",
+  "prompt": "Create a professional Hebrew Word document for an energy technology comparison report. It should have a main title in Hebrew, an introductory paragraph explaining the purpose, and a 3-column comparison table with Hebrew headers (טכנולוגיה, עלות ממוצעת, יעילות) and at least 3 data rows. Save as energy_report.docx and run the script.",
+  "assertions": [
+    {
+      "id": "produces_docx",
+      "description": "A .docx file is saved to the output directory"
+    },
+    {
+      "id": "uses_python_zipfile",
+      "description": "Solution uses Python + zipfile approach (not npm docx library)"
+    },
+    {
+      "id": "bidi_full_coverage",
+      "description": "Every <w:pPr> block in document.xml contains <w:bidi/>"
+    },
+    {
+      "id": "rtl_full_coverage",
+      "description": "Every <w:rPr> block in document.xml contains <w:rtl/>"
+    },
+    {
+      "id": "normal_style_defined",
+      "description": "styles.xml defines a Normal style with w:styleId='Normal' and <w:bidi/>"
+    },
+    {
+      "id": "table_has_bidi_visual",
+      "description": "document.xml contains <w:bidiVisual/> for correct RTL column order in table"
+    },
+    {
+      "id": "has_hebrew_text",
+      "description": "document.xml contains Hebrew characters (Unicode range U+0590-U+05FF)"
+    }
+  ]
+}

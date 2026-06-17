@@ -1,0 +1,31 @@
+{
+  "eval_id": 3,
+  "eval_name": "fix-script",
+  "prompt": "My Hebrew Word document looks perfect in LibreOffice — text is right-aligned, bullets are on the right. But when I open it in Microsoft Word, all the text is left-aligned and the bullet points appear on the left side. What are the root causes of this? Please provide a complete Python script that I can run on any Hebrew .docx to fix these RTL issues, without needing to unpack the file manually.",
+  "assertions": [
+    {
+      "id": "explains_two_level_rtl",
+      "description": "Response explains that RTL requires both paragraph-level <w:bidi/> AND run-level <w:rtl/>"
+    },
+    {
+      "id": "mentions_normal_style",
+      "description": "Response mentions that a missing Normal style causes Word to auto-create an LTR default"
+    },
+    {
+      "id": "mentions_libreoffice_unreliable",
+      "description": "Response notes that LibreOffice masks these issues and is not a valid test"
+    },
+    {
+      "id": "provides_fix_script",
+      "description": "Response includes a Python script that takes input and output file paths"
+    },
+    {
+      "id": "script_uses_zipfile",
+      "description": "The fix script uses Python's zipfile module to read/write the docx"
+    },
+    {
+      "id": "script_fixes_numbering",
+      "description": "The fix script addresses numbering.xml (bullet direction fix)"
+    }
+  ]
+}
