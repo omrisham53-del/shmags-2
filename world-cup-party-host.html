@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>גביע העולם 2026 - ערב צפייה</title>
+    <title>גביע העולם 2026 - מנחה</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -17,13 +17,13 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #145214, #0a3a0a);
+            background: linear-gradient(135deg, #3a1414, #200a0a);
             padding: 18px 16px 14px;
             text-align: center;
             border-bottom: 3px solid #d4a800;
         }
         .header h1 { font-size: 22px; color: #f0c030; font-weight: 900; letter-spacing: 1px; }
-        .header p { font-size: 13px; color: #aaa; margin-top: 4px; }
+        .header p { font-size: 13px; color: #cc8888; margin-top: 4px; }
 
         .page { display: none; padding: 14px; }
         .page.active { display: block; }
@@ -70,6 +70,19 @@
         }
         .share-btn:active { background: #0a3a0a; }
 
+        /* Scoring */
+        .scoring-card { background: #0a1a0a; border: 2px solid #1a5a1a; border-radius: 12px; padding: 16px; margin-bottom: 12px; margin-top: 6px; }
+        .scoring-title { font-size: 16px; font-weight: 700; color: #7dff7d; margin-bottom: 14px; }
+        .result-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+        .result-label { font-size: 13px; color: #aaa; min-width: 130px; flex-shrink: 0; }
+        .result-input {
+            flex: 1; background: #0d1117; border: 1.5px solid #2a3050;
+            border-radius: 8px; padding: 9px 10px; color: #fff;
+            font-size: 14px; direction: rtl; outline: none;
+        }
+        .result-input:focus { border-color: #7dff7d; }
+        .scoring-guide { font-size: 12px; color: #668866; line-height: 1.9; margin-top: 12px; padding-top: 12px; border-top: 1px solid #1a3a1a; }
+
         /* Bingo */
         .bingo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 8px; }
         .bingo-cell {
@@ -110,14 +123,35 @@
 
         /* שאלו עמרי */
         .omri-card { background: #0a1625; border: 2px solid #1e5080; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
-        .omri-q { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.5; }
-        .omri-hint { font-size: 12px; color: #557799; font-style: italic; }
+        .omri-q { font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.5; }
+        .omri-reveal-btn {
+            background: #1a5080; color: #fff; border: none;
+            border-radius: 8px; padding: 9px 16px; font-size: 14px;
+            cursor: pointer; width: 100%; -webkit-tap-highlight-color: transparent;
+        }
+        .omri-reveal-btn:active { background: #0f3a60; }
+        .answer-box {
+            display: none; background: #081020; border-radius: 8px;
+            padding: 11px 13px; margin-top: 10px; font-size: 14px;
+            color: #a0d0ff; line-height: 1.6;
+        }
 
         /* Bonus */
         .bonus-card { background: #1a0808; border: 2px solid #7a1010; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
         .bonus-tag { font-size: 11px; font-weight: 700; color: #e05050; letter-spacing: 0.5px; margin-bottom: 8px; }
         .bonus-rule { font-size: 12px; color: #cc4444; margin-bottom: 12px; padding: 8px 10px; background: #2a0808; border-radius: 6px; border-right: 3px solid #cc4444; }
-        .bonus-q { font-size: 15px; font-weight: 700; line-height: 1.5; }
+        .bonus-q { font-size: 15px; font-weight: 700; margin-bottom: 12px; line-height: 1.5; }
+        .bonus-reveal-btn {
+            background: #7a1010; color: #fff; border: none;
+            border-radius: 8px; padding: 9px 16px; font-size: 14px;
+            cursor: pointer; width: 100%; -webkit-tap-highlight-color: transparent;
+        }
+        .bonus-reveal-btn:active { background: #5a0808; }
+        .bonus-answer-box {
+            display: none; background: #0a0505; border-radius: 8px;
+            padding: 11px 13px; margin-top: 10px; font-size: 14px;
+            color: #f0a080; line-height: 1.6;
+        }
 
         /* Bottom Nav */
         .bottom-nav {
@@ -143,7 +177,7 @@
 
 <div class="header">
     <h1>גביע העולם 2026</h1>
-    <p>ערב צפייה - 17 ביוני, 20:00</p>
+    <p>גרסת מנחה - עם תשובות</p>
 </div>
 
 <!-- PREDICTIONS -->
@@ -167,14 +201,34 @@
             <button class="share-btn" id="share-btn">שלח לקבוצה בוואטסאפ</button>
         </div>
     </div>
-    <div class="card" style="font-size:12px; color:#666; text-align:center; line-height:1.7;">
-        שיטת הניקוד:<br>
-        תוצאה מדויקת = 3 נקודות<br>
-        ניחוש מנצחת נכון (לא מדויק) = 1 נקודה<br>
-        גול ראשון נכון = 2 נקודות<br>
-        כרטיס צהוב ראשון נכון = 1 נקודה<br>
-        מי מוביל בהפסקה נכון = 1 נקודה<br>
-        <strong style="color:#888;">מקסימום: 8 נקודות</strong>
+
+    <div class="scoring-card">
+        <div class="scoring-title">ניקוד - תוצאות אמת</div>
+        <div class="result-row">
+            <div class="result-label">תוצאה סופית</div>
+            <input class="result-input" placeholder="X - X">
+        </div>
+        <div class="result-row">
+            <div class="result-label">מי הכניס ראשון</div>
+            <input class="result-input" placeholder="שם שחקן">
+        </div>
+        <div class="result-row">
+            <div class="result-label">כרטיס צהוב ראשון</div>
+            <input class="result-input" placeholder="שם שחקן">
+        </div>
+        <div class="result-row">
+            <div class="result-label">מוביל בהפסקה</div>
+            <input class="result-input" placeholder="קבוצה / שוויון">
+        </div>
+        <div class="scoring-guide">
+            שיטת הניקוד:<br>
+            תוצאה מדויקת = 3 נקודות<br>
+            ניחוש מנצחת נכון (לא מדויק) = 1 נקודה<br>
+            גול ראשון נכון = 2 נקודות<br>
+            כרטיס צהוב ראשון נכון = 1 נקודה<br>
+            מוביל בהפסקה נכון = 1 נקודה<br>
+            <strong style="color:#aaa;">מקסימום: 8 נקודות</strong>
+        </div>
     </div>
 </div>
 
@@ -259,79 +313,99 @@
     </div>
 </div>
 
-<!-- שאלו עמרי - GUEST VERSION: questions only, no answers -->
+<!-- שאלו עמרי - HOST VERSION: with answers -->
 <div class="page" id="page-omri">
     <div class="section-title">שאלו את עמרי</div>
-    <p class="subtitle">הוא חושב שהוא יודע הכל. תוכיחו אחרת.</p>
+    <p class="subtitle">הן שואלות, אתה עונה. תצדיע.</p>
 
     <div class="omri-card">
         <div class="omri-q">כמה חילופים מותר לכל קבוצה?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">5 חילופים לכל קבוצה - הכלל הוחלף מ-3 ל-5 אחרי קורונה 2020 ונשאר מאז</div>
     </div>
     <div class="omri-card">
         <div class="omri-q">כמה בעיטות פנדל יש לכל קבוצה בדו-קרב פנדלים?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">5 בעיטות לכל קבוצה. אם אחרי 5 לכל אחד עדיין שוויון - ממשיכים בפנדלים פתאומיים (sudden death), אחד-אחד, עד שמישהי פספסה</div>
     </div>
     <div class="omri-card">
         <div class="omri-q">כמה כרטיסים צהובים שווים כרטיס אדום (גירוש)?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">2 כרטיסים צהובים באותו משחק = כרטיס אדום אוטומטי = יציאה מהמגרש</div>
     </div>
     <div class="omri-card">
         <div class="omri-q">מהי ליגת האלופות, ומה ההבדל ממשחקי גביע העולם?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">גביע העולם = נבחרות לאומיות, כל 4 שנים. ליגת האלופות = קבוצות מועדון (ריאל, ברצה, ליברפול וכו'), כל שנה באירופה</div>
     </div>
     <div class="omri-card">
         <div class="omri-q">מה זה VAR ולמה אנשים שונאים אותו?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">Video Assistant Referee - שופט וידאו שמסתכל על מצלמות ויכול לבקש לבדוק שוב החלטה. שונאים כי מבטל גולים דקות אחרי חגיגה, ומאריך את המשחק</div>
     </div>
     <div class="omri-card">
         <div class="omri-q">מה זה "האט טריק"?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">3 גולים של אותו שחקן במשחק אחד. המונח מגיע מקריקט - שחקן שלקח 3 ויקטים ברצף קיבל כובע (hat) כפרס</div>
     </div>
     <div class="omri-card">
         <div class="omri-q">מה ההבדל בין פנדל רגיל לפנדל שוטי?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">פנדל רגיל = עונש על עבירה בתוך קו הרחק. פנדל שוטי = סדרת בעיטות לאחר תיקו בנוקאאוט - לא בשל עבירה, אלא כדרך הכרעה</div>
     </div>
     <div class="omri-card">
         <div class="omri-q">באיזה ליגה משחקות הקבוצות החזקות בעולם?</div>
-        <div class="omri-hint">האם הוא יודע?</div>
+        <button class="omri-reveal-btn" onclick="toggleReveal(this)">גלה תשובה</button>
+        <div class="answer-box">ויכוח אמיתי - המתחרות: פרמייר ליג (אנגליה), לה ליגה (ספרד), סריה א (איטליה), בונדסליגה (גרמניה). פרמייר ליג ולה ליגה הכי חזקות כיום</div>
     </div>
 </div>
 
-<!-- BONUS - GUEST VERSION: questions only, no answers -->
+<!-- BONUS - HOST VERSION: with answers -->
 <div class="page" id="page-bonus">
     <div class="section-title">שאלות בונוס</div>
-    <p class="subtitle">תשובה נכונה = יתרון במשחקים. תשובה שגויה = שוט!</p>
+    <p class="subtitle">תשובה נכונה = יתרון. תשובה שגויה = שוט!</p>
 
     <div class="bonus-card">
         <div class="bonus-tag">שאלת בונוס 1</div>
         <div class="bonus-rule">תשובה שגויה = שוט</div>
-        <div class="bonus-q">באיזו שנה נוסדה FIFA (ההתאחדות הבינלאומית לכדורגל)?</div>
+        <div class="bonus-q">באיזו שנה נוסדה FIFA?</div>
+        <button class="bonus-reveal-btn" onclick="toggleBonus(this)">גלה תשובה</button>
+        <div class="bonus-answer-box">1904 - נוסדה בפריז על ידי 7 מדינות אירופאיות. הדרישה: שופט ניטרלי וחוקים אחידים</div>
     </div>
     <div class="bonus-card">
         <div class="bonus-tag">שאלת בונוס 2</div>
         <div class="bonus-rule">תשובה שגויה = שוט</div>
-        <div class="bonus-q">כמה קבוצות השתתפו בגביע העולם הראשון אי פעם (1930)?</div>
+        <div class="bonus-q">כמה קבוצות השתתפו בגביע העולם הראשון (1930)?</div>
+        <button class="bonus-reveal-btn" onclick="toggleBonus(this)">גלה תשובה</button>
+        <div class="bonus-answer-box">13 קבוצות - באורוגוואי. רוב המדינות האירופאיות לא הגיעו בגלל עלות הנסיעה בסירה</div>
     </div>
     <div class="bonus-card">
         <div class="bonus-tag">שאלת בונוס 3</div>
         <div class="bonus-rule">תשובה שגויה = שוט</div>
-        <div class="bonus-q">כמה גולים הבקיע רונאלדו הברזילאי בגביעי עולם לאורך הקריירה?</div>
+        <div class="bonus-q">כמה גולים הבקיע רונאלדו הברזילאי בגביעי עולם?</div>
+        <button class="bonus-reveal-btn" onclick="toggleBonus(this)">גלה תשובה</button>
+        <div class="bonus-answer-box">15 גולים ב-3 גביעי עולם. השיא נשבר ב-2014 על ידי קלוזה עם 16. מסי השווה ל-16 ב-2026</div>
     </div>
     <div class="bonus-card">
         <div class="bonus-tag">שאלת בונוס 4</div>
         <div class="bonus-rule">תשובה שגויה = שוט</div>
         <div class="bonus-q">כמה פעמים ארגנטינה זכתה בגביע העולם בסך הכל?</div>
+        <button class="bonus-reveal-btn" onclick="toggleBonus(this)">גלה תשובה</button>
+        <div class="bonus-answer-box">3 פעמים: 1978 (ארגנטינה), 1986 (מקסיקו - מארדונה, גול "יד האלוהים"), 2022 (קטאר - מסי)</div>
     </div>
     <div class="bonus-card">
         <div class="bonus-tag">שאלת בונוס 5</div>
         <div class="bonus-rule">תשובה שגויה = שוט</div>
         <div class="bonus-q">איפה שוחק גמר גביע העולם 2026?</div>
+        <button class="bonus-reveal-btn" onclick="toggleBonus(this)">גלה תשובה</button>
+        <div class="bonus-answer-box">MetLife Stadium - ניו יורק / ניו ג'רזי. גביע 2026: ארה"ב, קנדה ומקסיקו</div>
     </div>
     <div class="bonus-card">
         <div class="bonus-tag">שאלת בונוס 6 - הכי קשה</div>
         <div class="bonus-rule">תשובה שגויה = שוט</div>
         <div class="bonus-q">מה המונח לכשמעבירים כדור בין רגלי יריב? (שם המונח בדיוק)</div>
+        <button class="bonus-reveal-btn" onclick="toggleBonus(this)">גלה תשובה</button>
+        <div class="bonus-answer-box">נוטמג (Nutmeg) - בעברית גם "פנה". אחד המהלכים הכי משפילים, ולכן אחד הכי מפורסמים</div>
     </div>
 </div>
 
@@ -470,6 +544,21 @@ document.querySelectorAll('.option[data-correct]').forEach(function(opt) {
         }
     });
 });
+
+// Reveals
+function toggleReveal(btn) {
+    var box = btn.nextElementSibling;
+    var shown = box.style.display === 'block';
+    box.style.display = shown ? 'none' : 'block';
+    btn.textContent = shown ? 'גלה תשובה' : 'הסתר תשובה';
+}
+
+function toggleBonus(btn) {
+    var box = btn.nextElementSibling;
+    var shown = box.style.display === 'block';
+    box.style.display = shown ? 'none' : 'block';
+    btn.textContent = shown ? 'גלה תשובה' : 'הסתר תשובה';
+}
 
 buildBingo();
 </script>
