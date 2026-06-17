@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "hebrew-rtl-docx", "runs": [{"id": "eval-assignment-summary-with_skill", "prompt": "I need to create a Hebrew Word document for a university assignment summary. It should have: a title '\u05e1\u05d9\u05db\u05d5\u05dd \u05e2\u05d1\u05d5\u05d3\u05d4 \u05e1\u05de\u05d9\u05e0\u05e8\u05d9\u05d5\u05e0\u05d9\u05ea', an intro paragraph in Hebrew (2-3 sentences), a section heading '\u05de\u05de\u05e6\u05d0\u05d9\u05dd \u05e2\u05d9\u05e7\u05e8\u05d9\u05d9\u05dd', 3 Hebrew bullet points, and a closing paragraph. Please write and run a Python script to generate this as assignment_summary.docx. Make sure it will render correctly in Microsoft Word (not just LibreOffice).", "eval_id": 1, "outputs": [{"name": "assignment_summary.docx", "type": "binary", "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "data_uri": "data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,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"}, {"name": "build.py", "type": "text", "content": "#!/usr/bin/env python3\n\"\"\"\nHebrew RTL Word Document Builder \u2014 Assignment Summary\n------------------------------------------------------\nGenerates assignment_summary.docx with:\n  - Title: \u05e1\u05d9\u05db\u05d5\u05dd \u05e2\u05d1\u05d5\u05d3\u05d4 \u05e1\u05de\u05d9\u05e0\u05e8\u05d9\u05d5\u05e0\u05d9\u05ea\n  - Intro paragraph (Hebrew, 2-3 sentences)\n  - Section heading: \u05de\u05de\u05e6\u05d0\u05d9\u05dd \u05e2\u05d9\u05e7\u05e8\u05d9\u05d9\u05dd\n  - 3 Hebrew bullet points\n  - Closing paragraph\n\nUses the zipfile-based approach (NOT python-docx) to guarantee correct\nRTL rendering in Microsoft Word (not just LibreOffice).\n\nTwo Laws enforced on every element:\n  1. <w:bidi/> in <w:pPr> \u2014 paragraph-level RTL\n  2. <w:rtl/>  in <w:rPr> \u2014 run-level RTL\n\"\"\"\n\nimport zipfile, re, sys, os\n\nFONT = \"Arial\"\n\nOUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))\nOUTPUT_PATH = os.path.join(OUTPUT_DIR, \"assignment_summary.docx\")\n\n# \u2500\u2500 Run and paragraph helpers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef rPr(sz=22, bold=False, italic=False, color=\"000000\", underline=False):\n    \"\"\"Run properties \u2014 always includes <w:rtl/>.\"\"\"\n    parts = [\n        f'<w:rFonts w:ascii=\"{FONT}\" w:hAnsi=\"{FONT}\" w:cs=\"{FONT}\" w:eastAsia=\"{FONT}\"/>',\n        f'<w:sz w:val=\"{sz}\"/><w:szCs w:val=\"{sz}\"/>',\n    ]\n    if bold:      parts.append('<w:b/><w:bCs/>')\n    if italic:    parts.append('<w:i/><w:iCs/>')\n    if color != \"000000\": parts.append(f'<w:color w:val=\"{color}\"/>')\n    if underline: parts.append('<w:u w:val=\"single\"/>')\n    parts.append('<w:rtl/>')\n    return '<w:rPr>' + ''.join(parts) + '</w:rPr>'\n\ndef run(text, sz=22, bold=False, italic=False, color=\"000000\"):\n    \"\"\"Single RTL run.\"\"\"\n    text_xml = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')\n    preserve = ' xml:space=\"preserve\"' if text.startswith(' ') or text.endswith(' ') else ''\n    return f'<w:r>{rPr(sz, bold, italic, color)}<w:t{preserve}>{text_xml}</w:t></w:r>'\n\ndef pPr(align=\"left\", after=100, before=0, line=276, numId=None, border_bottom=False):\n    \"\"\"\n    Paragraph properties \u2014 always includes <w:bidi/>.\n\n    align=\"left\"   -> physical RIGHT (RTL natural start) \u2014 use for headings, body\n    align=\"both\"   -> justified \u2014 use for body text\n    align=\"center\" -> centered\n    align=\"right\"  -> physical LEFT \u2014 NEVER use in RTL paragraphs\n    \"\"\"\n    parts = ['<w:bidi/>']\n    if numId:\n        parts.append(f'<w:numPr><w:ilvl w:val=\"0\"/><w:numId w:val=\"{numId}\"/></w:numPr>')\n    parts.append(f'<w:spacing w:after=\"{after}\" w:before=\"{before}\" w:line=\"{line}\" w:lineRule=\"auto\"/>')\n    parts.append(f'<w:jc w:val=\"{align}\"/>')\n    if border_bottom:\n        parts.append('<w:pBdr><w:bottom w:val=\"single\" w:sz=\"6\" w:space=\"4\" w:color=\"1F4E79\"/></w:pBdr>')\n    return '<w:pPr>' + ''.join(parts) + '</w:pPr>'\n\ndef para(runs_xml, align=\"left\", after=100, before=0, line=276,\n         numId=None, border_bottom=False):\n    \"\"\"Full RTL paragraph.\"\"\"\n    return f'<w:p>{pPr(align, after, before, line, numId, border_bottom)}{runs_xml}</w:p>'\n\ndef blank(after=60):\n    return para(run(''), after=after)\n\ndef heading(text, color=\"1F4E79\", sz=24, after=120, before=180):\n    \"\"\"Section heading \u2014 underline border, physically right-aligned.\"\"\"\n    return para(run(text, sz=sz, bold=True, color=color),\n                align=\"left\", after=after, before=before, border_bottom=True)\n\ndef title(text, color=\"1F3864\", sz=32, after=200, before=240):\n    \"\"\"Document title \u2014 large, centered, bold.\"\"\"\n    return para(run(text, sz=sz, bold=True, color=color),\n                align=\"center\", after=after, before=before)\n\ndef bullet_para(runs_xml, after=60):\n    \"\"\"Bullet list item \u2014 uses numId=1 from NUMBERING.\"\"\"\n    return para(runs_xml, after=after, numId=\"1\")\n\n# \u2500\u2500 Required XML strings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nCONTENT_TYPES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\">\n  <Default Extension=\"rels\" ContentType=\"application/vnd.openxmlformats-package.relationships+xml\"/>\n  <Default Extension=\"xml\" ContentType=\"application/xml\"/>\n  <Override PartName=\"/word/document.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml\"/>\n  <Override PartName=\"/word/styles.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml\"/>\n  <Override PartName=\"/word/numbering.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml\"/>\n</Types>'''\n\nRELS_PKG = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument\" Target=\"word/document.xml\"/>\n</Relationships>'''\n\nRELS_DOCXML = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles\" Target=\"styles.xml\"/>\n  <Relationship Id=\"rId2\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering\" Target=\"numbering.xml\"/>\n</Relationships>'''\n\nSTYLES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:styles xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:docDefaults>\n    <w:rPrDefault><w:rPr>\n      <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\" w:eastAsia=\"Arial\"/>\n      <w:sz w:val=\"22\"/><w:szCs w:val=\"22\"/>\n      <w:rtl/>\n    </w:rPr></w:rPrDefault>\n    <w:pPrDefault><w:pPr><w:bidi/></w:pPr></w:pPrDefault>\n  </w:docDefaults>\n  <w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\">\n    <w:name w:val=\"Normal\"/>\n    <w:pPr><w:bidi/></w:pPr>\n    <w:rPr><w:rtl/></w:rPr>\n  </w:style>\n</w:styles>'''\n\nNUMBERING = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:numbering xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:abstractNum w:abstractNumId=\"0\">\n    <w:multiLevelType w:val=\"hybridMultilevel\"/>\n    <w:lvl w:ilvl=\"0\">\n      <w:start w:val=\"1\"/><w:numFmt w:val=\"bullet\"/><w:lvlText w:val=\"&#x2022;\"/>\n      <w:lvlJc w:val=\"left\"/>\n      <w:pPr>\n        <w:bidi/>\n        <w:ind w:right=\"360\" w:hanging=\"360\"/>\n        <w:jc w:val=\"left\"/>\n      </w:pPr>\n      <w:rPr>\n        <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\"/>\n        <w:rtl/>\n      </w:rPr>\n    </w:lvl>\n  </w:abstractNum>\n  <w:num w:numId=\"1\"><w:abstractNumId w:val=\"0\"/></w:num>\n</w:numbering>'''\n\n# \u2500\u2500 Document content \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef build_document():\n    body_parts = []\n\n    # Title\n    body_parts.append(title(\"\u05e1\u05d9\u05db\u05d5\u05dd \u05e2\u05d1\u05d5\u05d3\u05d4 \u05e1\u05de\u05d9\u05e0\u05e8\u05d9\u05d5\u05e0\u05d9\u05ea\"))\n    body_parts.append(blank(after=80))\n\n    # Intro paragraph (2-3 sentences)\n    intro_text = (\n        \"\u05e2\u05d1\u05d5\u05d3\u05d4 \u05d6\u05d5 \u05d1\u05d5\u05d7\u05e0\u05ea \u05d0\u05ea \u05d4\u05db\u05d3\u05d0\u05d9\u05d5\u05ea \u05d4\u05db\u05dc\u05db\u05dc\u05d9\u05ea \u05e9\u05dc \u05de\u05e7\u05d5\u05e8\u05d5\u05ea \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05e9\u05d5\u05e0\u05d9\u05dd \u05dc\u05d4\u05e4\u05e2\u05dc\u05ea \u05de\u05e8\u05db\u05d6 \u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \"\n        \"\u05d1\u05d2\u05d5\u05e9 \u05d3\u05df, \u05ea\u05d5\u05da \u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e2\u05dc\u05d5\u05ea-\u05ea\u05d5\u05e2\u05dc\u05ea \u05de\u05e7\u05d9\u05e3. \"\n        \"\u05d4\u05de\u05d7\u05e7\u05e8 \u05d4\u05e9\u05d5\u05d5\u05d4 \u05d1\u05d9\u05df \u05d7\u05d9\u05d1\u05d5\u05e8 \u05dc\u05e8\u05e9\u05ea \u05d4\u05d7\u05e9\u05de\u05dc \u05d4\u05dc\u05d0\u05d5\u05de\u05d9\u05ea, \u05e4\u05ea\u05e8\u05d5\u05df \u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9 \u05d4\u05de\u05e9\u05dc\u05d1 \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05e1\u05d5\u05dc\u05e8\u05d9\u05ea, \"\n        \"\u05d5\u05d9\u05d9\u05e6\u05d5\u05e8 \u05e2\u05e6\u05de\u05d0\u05d9 \u05de\u05dc\u05d0. \"\n        \"\u05d4\u05de\u05de\u05e6\u05d0\u05d9\u05dd \u05de\u05e8\u05d0\u05d9\u05dd \u05db\u05d9 \u05d4\u05e4\u05ea\u05e8\u05d5\u05df \u05d4\u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9 \u05de\u05e6\u05d9\u05e2 \u05d0\u05ea \u05d4\u05d0\u05d9\u05d6\u05d5\u05df \u05d4\u05d0\u05d5\u05e4\u05d8\u05d9\u05de\u05dc\u05d9 \u05d1\u05d9\u05df \u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05d4\u05d5\u05df \u05dc\u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05ea\u05e4\u05e2\u05d5\u05dc \u05dc\u05d0\u05d5\u05e8\u05da \u05de\u05d7\u05d6\u05d5\u05e8 \u05d7\u05d9\u05d9\u05dd \u05e9\u05dc \u05e2\u05e9\u05e8\u05d9\u05dd \u05e9\u05e0\u05d4.\"\n    )\n    body_parts.append(para(run(intro_text), align=\"both\", after=140, line=310))\n    body_parts.append(blank(after=80))\n\n    # Section heading\n    body_parts.append(heading(\"\u05de\u05de\u05e6\u05d0\u05d9\u05dd \u05e2\u05d9\u05e7\u05e8\u05d9\u05d9\u05dd\"))\n    body_parts.append(blank(after=40))\n\n    # 3 Hebrew bullet points\n    body_parts.append(bullet_para(run(\n        \"\u05d4\u05e4\u05ea\u05e8\u05d5\u05df \u05d4\u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9 \u05de\u05e4\u05d7\u05d9\u05ea \u05d0\u05ea \u05e2\u05dc\u05d5\u05ea \u05d4\u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05d4\u05db\u05d5\u05dc\u05dc\u05ea \u05d1-23% \u05dc\u05e2\u05d5\u05de\u05ea \u05d7\u05d9\u05d1\u05d5\u05e8 \u05d9\u05e9\u05d9\u05e8 \u05dc\u05e8\u05e9\u05ea, \"\n        \"\u05e2\u05dd \u05ea\u05e7\u05d5\u05e4\u05ea \u05d4\u05d7\u05d6\u05e8 \u05d4\u05e9\u05e7\u05e2\u05d4 \u05e9\u05dc \u05e9\u05d1\u05e2 \u05e9\u05e0\u05d9\u05dd.\"\n    )))\n    body_parts.append(bullet_para(run(\n        \"\u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05d4\u05e4\u05d7\u05ea\u05ea \u05e4\u05d7\u05de\u05df \u05d3\u05d5-\u05d7\u05de\u05e6\u05e0\u05d9 \u05d1\u05ea\u05e8\u05d7\u05d9\u05e9 \u05d4\u05e1\u05d5\u05dc\u05e8\u05d9 \u05e0\u05de\u05d5\u05db\u05d5\u05ea \u05d1-40% \u05de\u05d4\u05de\u05de\u05d5\u05e6\u05e2 \u05d4\u05e2\u05e0\u05e4\u05d9 \u05d4\u05d9\u05e9\u05e8\u05d0\u05dc\u05d9, \"\n        \"\u05de\u05d4 \u05e9\u05de\u05d7\u05d6\u05e7 \u05d0\u05ea \u05d4\u05e6\u05d3\u05e7\u05ea \u05d4\u05d4\u05e9\u05e7\u05e2\u05d4 \u05d2\u05dd \u05de\u05d4\u05d9\u05d1\u05d8 \u05d7\u05d9\u05e6\u05d5\u05e0\u05d9\u05d5\u05ea \u05d7\u05d1\u05e8\u05ea\u05d9\u05d5\u05ea.\"\n    )))\n    body_parts.append(bullet_para(run(\n        \"\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e8\u05d2\u05d9\u05e9\u05d5\u05ea \u05dc-PUE \u05de\u05e6\u05d1\u05d9\u05e2 \u05e2\u05dc \u05db\u05da \u05e9\u05d2\u05dd \u05d1\u05ea\u05e8\u05d7\u05d9\u05e9 \u05e9\u05de\u05e8\u05e0\u05d9 \u05e9\u05dc \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea \u05e0\u05de\u05d5\u05db\u05d4, \"\n        \"\u05d4\u05db\u05d3\u05d0\u05d9\u05d5\u05ea \u05d4\u05db\u05dc\u05db\u05dc\u05d9\u05ea \u05e9\u05dc \u05d4\u05e4\u05ea\u05e8\u05d5\u05df \u05d4\u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9 \u05e0\u05e9\u05de\u05e8\u05ea \u05dc\u05d0\u05d5\u05e8\u05da \u05db\u05dc \u05d8\u05d5\u05d5\u05d7 \u05d4\u05d4\u05e9\u05e7\u05e2\u05d4.\"\n    )))\n    body_parts.append(blank(after=80))\n\n    # Closing paragraph\n    closing_text = (\n        \"\u05dc\u05e1\u05d9\u05db\u05d5\u05dd, \u05e0\u05d9\u05ea\u05d5\u05d7 \u05e2\u05dc\u05d5\u05ea-\u05ea\u05d5\u05e2\u05dc\u05ea \u05d6\u05d4 \u05de\u05e1\u05e4\u05e7 \u05d1\u05e1\u05d9\u05e1 \u05de\u05d5\u05e6\u05e7 \u05dc\u05e7\u05d1\u05dc\u05ea \u05d4\u05d7\u05dc\u05d8\u05d5\u05ea \u05de\u05d3\u05d9\u05e0\u05d9\u05d5\u05ea \u05d1\u05ea\u05d7\u05d5\u05dd \u05ea\u05e9\u05ea\u05d9\u05d5\u05ea \"\n        \"\u05d4\u05d3\u05d9\u05d2\u05d9\u05d8\u05dc \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc. \"\n        \"\u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05d0\u05de\u05e5 \u05d0\u05ea \u05de\u05d5\u05d3\u05dc \u05d4\u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05d4\u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9 \u05db\u05d1\u05e8\u05d9\u05e8\u05ea \u05de\u05d7\u05d3\u05dc \u05dc\u05e4\u05e8\u05d5\u05d9\u05e7\u05d8\u05d9\u05dd \u05e2\u05ea\u05d9\u05d3\u05d9\u05d9\u05dd \u05d1\u05e7\u05e0\u05d4 \u05de\u05d9\u05d3\u05d4 \u05d3\u05d5\u05de\u05d4, \"\n        \"\u05ea\u05d5\u05da \u05e2\u05d3\u05db\u05d5\u05df \u05e9\u05d5\u05d8\u05e3 \u05e9\u05dc \u05d4\u05e0\u05d7\u05d5\u05ea \u05d4\u05d3\u05d2\u05dd \u05d1\u05d4\u05ea\u05d0\u05dd \u05dc\u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd \u05d1\u05ea\u05de\u05d7\u05d5\u05e8 \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05d5\u05dc\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05de\u05ea\u05e4\u05ea\u05d7\u05d5\u05ea.\"\n    )\n    body_parts.append(para(run(closing_text), align=\"both\", after=140, line=310))\n\n    # Section properties \u2014 <w:bidi/> is mandatory for document-level RTL\n    sect_pr = (\n        '<w:sectPr><w:bidi/>'\n        '<w:pgSz w:w=\"11906\" w:h=\"16838\"/>'\n        '<w:pgMar w:top=\"1080\" w:right=\"1080\" w:bottom=\"1080\" w:left=\"1080\"'\n        ' w:header=\"709\" w:footer=\"709\" w:gutter=\"0\"/>'\n        '</w:sectPr>'\n    )\n\n    body = ''.join(body_parts) + sect_pr\n    return (\n        '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'\n        '<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"'\n        ' xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\">'\n        f'<w:body>{body}</w:body></w:document>'\n    )\n\n# \u2500\u2500 Pack and validate \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef pack(out_path):\n    files = {\n        '[Content_Types].xml': CONTENT_TYPES,\n        '_rels/.rels': RELS_PKG,\n        'word/_rels/document.xml.rels': RELS_DOCXML,\n        'word/document.xml': build_document(),\n        'word/styles.xml': STYLES,\n        'word/numbering.xml': NUMBERING,\n    }\n    with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as zf:\n        for name, content in files.items():\n            zf.writestr(name, content.encode('utf-8'))\n    print(f\"Written: {out_path}\")\n\n    # XML validation \u2014 confirm RTL coverage before opening in Word\n    with zipfile.ZipFile(out_path) as z:\n        doc = z.read('word/document.xml').decode()\n        sty = z.read('word/styles.xml').decode()\n        num = z.read('word/numbering.xml').decode()\n\n    p  = len(re.findall(r'<w:pPr\\b', doc))\n    r_count  = len(re.findall(r'<w:rPr\\b', doc))\n    rb       = len(re.findall(r'<w:rtl',   doc))\n\n    # Count bidi only in paragraph properties (exclude the sectPr bidi)\n    # Strip the sectPr out of the document first, then count\n    doc_body_only = re.sub(r'<w:sectPr>.*?</w:sectPr>', '', doc, flags=re.DOTALL)\n    doc_bidi = len(re.findall(r'<w:bidi', doc_body_only))\n\n    has_normal    = 'styleId=\"Normal\"' in sty\n    has_sect_bidi = bool(re.search(r'<w:sectPr>.*?<w:bidi', doc, re.DOTALL))\n    has_num_bidi  = '<w:bidi/>' in num\n    has_num_rtl   = '<w:rtl/>'  in num\n\n    print()\n    print(\"=== RTL Validation Report ===\")\n    print(f\"  bidi in paragraphs:  {doc_bidi}/{p} (need {p}/{p})\")\n    print(f\"  rtl  in runs:        {rb}/{r_count} (need {r_count}/{r_count})\")\n    print(f\"  Normal style defined: {has_normal}\")\n    print(f\"  sectPr bidi:          {has_sect_bidi}\")\n    print(f\"  numbering bidi:       {has_num_bidi}\")\n    print(f\"  numbering rtl:        {has_num_rtl}\")\n\n    ok = (doc_bidi == p and rb == r_count and has_normal\n          and has_sect_bidi and has_num_bidi and has_num_rtl)\n    print()\n    print(\"Result: OK -- safe to open in Microsoft Word\" if ok\n          else \"Result: ISSUES FOUND -- review XML before opening in Word\")\n\nif __name__ == '__main__':\n    out = sys.argv[1] if len(sys.argv) > 1 else OUTPUT_PATH\n    pack(out)\n"}], "grading": {"expectations": [{"text": "produces_docx", "passed": true, "evidence": "assignment_summary.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm reference"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "11/11 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "11/11 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found in styles.xml"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew Unicode chars in document.xml"}], "passed": 6, "total": 6}}, {"id": "eval-assignment-summary-without_skill", "prompt": "I need to create a Hebrew Word document for a university assignment summary. It should have: a title '\u05e1\u05d9\u05db\u05d5\u05dd \u05e2\u05d1\u05d5\u05d3\u05d4 \u05e1\u05de\u05d9\u05e0\u05e8\u05d9\u05d5\u05e0\u05d9\u05ea', an intro paragraph in Hebrew (2-3 sentences), a section heading '\u05de\u05de\u05e6\u05d0\u05d9\u05dd \u05e2\u05d9\u05e7\u05e8\u05d9\u05d9\u05dd', 3 Hebrew bullet points, and a closing paragraph. Please write and run a Python script to generate this as assignment_summary.docx. Make sure it will render correctly in Microsoft Word (not just LibreOffice).", "eval_id": 1, "outputs": [{"name": "assignment_summary.docx", "type": "binary", "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "data_uri": "data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,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"}, {"name": "build.py", "type": "text", "content": "#!/usr/bin/env python3\n\"\"\"\nAssignment Summary Hebrew RTL Word Document\n--------------------------------------------\nGenerates assignment_summary.docx with correct Hebrew RTL rendering in Microsoft Word.\n\nUses zipfile (not python-docx) to write raw XML, applying:\n  - <w:bidi/> on every paragraph pPr\n  - <w:rtl/> on every run rPr\n  - Normal style defined as RTL in styles.xml\n  - Bullet numbering with lvlJc=left and ind w:right (RTL-correct)\n  - sectPr with <w:bidi/> for RTL page direction\n\"\"\"\n\nimport zipfile, sys, re, os\n\nFONT = \"Arial\"\n\n# \u2500\u2500 Run and paragraph helpers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef rPr(sz=22, bold=False, italic=False, color=\"000000\"):\n    \"\"\"Run properties \u2014 always includes <w:rtl/>.\"\"\"\n    parts = [\n        f'<w:rFonts w:ascii=\"{FONT}\" w:hAnsi=\"{FONT}\" w:cs=\"{FONT}\" w:eastAsia=\"{FONT}\"/>',\n        f'<w:sz w:val=\"{sz}\"/><w:szCs w:val=\"{sz}\"/>',\n    ]\n    if bold:   parts.append('<w:b/><w:bCs/>')\n    if italic: parts.append('<w:i/><w:iCs/>')\n    if color != \"000000\": parts.append(f'<w:color w:val=\"{color}\"/>')\n    parts.append('<w:rtl/>')\n    return '<w:rPr>' + ''.join(parts) + '</w:rPr>'\n\ndef run(text, sz=22, bold=False, italic=False, color=\"000000\"):\n    \"\"\"Single RTL run.\"\"\"\n    text_xml = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')\n    preserve = ' xml:space=\"preserve\"' if text.startswith(' ') or text.endswith(' ') else ''\n    return f'<w:r>{rPr(sz, bold, italic, color)}<w:t{preserve}>{text_xml}</w:t></w:r>'\n\ndef pPr(align=\"left\", after=100, before=0, line=276, numId=None, border_bottom=False):\n    \"\"\"\n    Paragraph properties \u2014 always includes <w:bidi/>.\n\n    align=\"left\"   -> physical RIGHT (RTL natural start) \u2014 use for headings, body\n    align=\"both\"   -> justified \u2014 use for body text\n    align=\"center\" -> centered\n    NOTE: align=\"right\" means physical LEFT in RTL \u2014 never use it\n    \"\"\"\n    parts = ['<w:bidi/>']\n    if numId:\n        parts.append(f'<w:numPr><w:ilvl w:val=\"0\"/><w:numId w:val=\"{numId}\"/></w:numPr>')\n    parts.append(f'<w:spacing w:after=\"{after}\" w:before=\"{before}\" w:line=\"{line}\" w:lineRule=\"auto\"/>')\n    parts.append(f'<w:jc w:val=\"{align}\"/>')\n    if border_bottom:\n        parts.append('<w:pBdr><w:bottom w:val=\"single\" w:sz=\"6\" w:space=\"4\" w:color=\"1F4E79\"/></w:pBdr>')\n    return '<w:pPr>' + ''.join(parts) + '</w:pPr>'\n\ndef para(runs_xml, align=\"left\", after=100, before=0, line=276, numId=None, border_bottom=False):\n    \"\"\"Full RTL paragraph.\"\"\"\n    return f'<w:p>{pPr(align, after, before, line, numId, border_bottom)}{runs_xml}</w:p>'\n\ndef blank(after=60):\n    return para(run(''), after=after)\n\ndef heading_main(text):\n    \"\"\"Document title \u2014 large, bold, centered, dark blue.\"\"\"\n    return para(run(text, sz=32, bold=True, color=\"1F4E79\"),\n                align=\"center\", after=240, before=240)\n\ndef heading_section(text):\n    \"\"\"Section heading \u2014 bold, right-aligned (physical), underline border.\"\"\"\n    return para(run(text, sz=26, bold=True, color=\"1F4E79\"),\n                align=\"left\", after=120, before=180, border_bottom=True)\n\ndef body_para(text, after=100):\n    \"\"\"Body text paragraph \u2014 justified.\"\"\"\n    return para(run(text, sz=22), align=\"both\", after=after)\n\ndef bullet_para(text, after=60):\n    \"\"\"Bullet list item \u2014 uses numId=1 from NUMBERING.\"\"\"\n    return para(run(text, sz=22), after=after, numId=\"1\")\n\n# \u2500\u2500 Required XML strings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nCONTENT_TYPES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\">\n  <Default Extension=\"rels\" ContentType=\"application/vnd.openxmlformats-package.relationships+xml\"/>\n  <Default Extension=\"xml\" ContentType=\"application/xml\"/>\n  <Override PartName=\"/word/document.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml\"/>\n  <Override PartName=\"/word/styles.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml\"/>\n  <Override PartName=\"/word/numbering.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml\"/>\n</Types>'''\n\nRELS_PKG = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument\" Target=\"word/document.xml\"/>\n</Relationships>'''\n\nRELS_DOCXML = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles\" Target=\"styles.xml\"/>\n  <Relationship Id=\"rId2\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering\" Target=\"numbering.xml\"/>\n</Relationships>'''\n\nSTYLES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:styles xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:docDefaults>\n    <w:rPrDefault><w:rPr>\n      <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\" w:eastAsia=\"Arial\"/>\n      <w:sz w:val=\"22\"/><w:szCs w:val=\"22\"/>\n      <w:rtl/>\n    </w:rPr></w:rPrDefault>\n    <w:pPrDefault><w:pPr><w:bidi/></w:pPr></w:pPrDefault>\n  </w:docDefaults>\n  <w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\">\n    <w:name w:val=\"Normal\"/>\n    <w:pPr><w:bidi/></w:pPr>\n    <w:rPr><w:rtl/></w:rPr>\n  </w:style>\n</w:styles>'''\n\nNUMBERING = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:numbering xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:abstractNum w:abstractNumId=\"0\">\n    <w:multiLevelType w:val=\"hybridMultilevel\"/>\n    <w:lvl w:ilvl=\"0\">\n      <w:start w:val=\"1\"/><w:numFmt w:val=\"bullet\"/><w:lvlText w:val=\"&#x2022;\"/>\n      <w:lvlJc w:val=\"left\"/>\n      <w:pPr>\n        <w:bidi/>\n        <w:ind w:right=\"360\" w:hanging=\"360\"/>\n        <w:jc w:val=\"left\"/>\n      </w:pPr>\n      <w:rPr>\n        <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\"/>\n        <w:rtl/>\n      </w:rPr>\n    </w:lvl>\n  </w:abstractNum>\n  <w:num w:numId=\"1\"><w:abstractNumId w:val=\"0\"/></w:num>\n</w:numbering>'''\n\n# \u2500\u2500 Document content \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef build_document():\n    body_parts = []\n\n    # Title\n    body_parts.append(heading_main(\"\u05e1\u05d9\u05db\u05d5\u05dd \u05e2\u05d1\u05d5\u05d3\u05d4 \u05e1\u05de\u05d9\u05e0\u05e8\u05d9\u05d5\u05e0\u05d9\u05ea\"))\n    body_parts.append(blank(after=60))\n\n    # Intro paragraph\n    body_parts.append(body_para(\n        \"\u05e2\u05d1\u05d5\u05d3\u05d4 \u05d6\u05d5 \u05e2\u05d5\u05e1\u05e7\u05ea \u05d1\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e2\u05dc\u05d5\u05ea-\u05ea\u05d5\u05e2\u05dc\u05ea \u05e9\u05dc \u05de\u05e7\u05d5\u05e8\u05d5\u05ea \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05dc\u05e6\u05d5\u05e8\u05db\u05d9 \u05de\u05e8\u05db\u05d6 \u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \u05d1\u05d2\u05d5\u05e9 \u05d3\u05df. \"\n        \"\u05d4\u05de\u05d7\u05e7\u05e8 \u05d1\u05d5\u05d7\u05df \u05e9\u05dc\u05d5\u05e9 \u05d7\u05dc\u05d5\u05e4\u05d5\u05ea \u05e2\u05d9\u05e7\u05e8\u05d9\u05d5\u05ea: \u05d7\u05d9\u05d1\u05d5\u05e8 \u05dc\u05e8\u05e9\u05ea \u05d4\u05d7\u05e9\u05de\u05dc \u05d4\u05dc\u05d0\u05d5\u05de\u05d9\u05ea, \u05de\u05e2\u05e8\u05db\u05ea \u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9\u05ea, \"\n        \"\u05d5\u05de\u05e2\u05e8\u05db\u05ea \u05e2\u05e6\u05de\u05d0\u05d9\u05ea \u05d4\u05de\u05d1\u05d5\u05e1\u05e1\u05ea \u05e2\u05dc \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05de\u05ea\u05d7\u05d3\u05e9\u05ea.\"\n    ))\n    body_parts.append(body_para(\n        \"\u05d4\u05e0\u05d9\u05ea\u05d5\u05d7 \u05de\u05ea\u05d1\u05e1\u05e1 \u05e2\u05dc \u05de\u05d5\u05d3\u05dc \u05db\u05dc\u05db\u05dc\u05d9 \u05de\u05e7\u05d9\u05e3 \u05d4\u05db\u05d5\u05dc\u05dc \u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05d4\u05d5\u05df, \u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05ea\u05e4\u05e2\u05d5\u05dc, \u05d5\u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05e1\u05d1\u05d9\u05d1\u05ea\u05d9\u05d5\u05ea \"\n        \"\u05e2\u05dc \u05e4\u05e0\u05d9 \u05d0\u05d5\u05e4\u05e7 \u05ea\u05db\u05e0\u05d5\u05df \u05e9\u05dc \u05e2\u05e9\u05e8\u05d9\u05dd \u05e9\u05e0\u05d4. \u05d4\u05de\u05e1\u05e7\u05e0\u05d5\u05ea \u05e0\u05d5\u05e2\u05d3\u05d5 \u05dc\u05e1\u05d9\u05d9\u05e2 \u05dc\u05e7\u05d5\u05d1\u05e2\u05d9 \u05de\u05d3\u05d9\u05e0\u05d9\u05d5\u05ea \u05d5\u05dc\u05d2\u05d5\u05e8\u05de\u05d9\u05dd \"\n        \"\u05e2\u05e1\u05e7\u05d9\u05d9\u05dd \u05d1\u05e7\u05d1\u05dc\u05ea \u05d4\u05d7\u05dc\u05d8\u05d5\u05ea \u05de\u05d5\u05e9\u05db\u05dc\u05d5\u05ea \u05d1\u05ea\u05d7\u05d5\u05dd \u05d0\u05e1\u05e4\u05e7\u05ea \u05d4\u05d0\u05e0\u05e8\u05d2\u05d9\u05d4.\"\n    ))\n    body_parts.append(blank(after=80))\n\n    # Section heading\n    body_parts.append(heading_section(\"\u05de\u05de\u05e6\u05d0\u05d9\u05dd \u05e2\u05d9\u05e7\u05e8\u05d9\u05d9\u05dd\"))\n    body_parts.append(blank(after=40))\n\n    # 3 bullet points\n    body_parts.append(bullet_para(\n        \"\u05d4\u05d7\u05dc\u05d5\u05e4\u05d4 \u05d4\u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9\u05ea \u05de\u05e6\u05d9\u05d2\u05d4 \u05d0\u05ea \u05d4\u05d9\u05d7\u05e1 \u05d4\u05d8\u05d5\u05d1 \u05d1\u05d9\u05d5\u05ea\u05e8 \u05d1\u05d9\u05df \u05e2\u05dc\u05d5\u05ea \u05dc\u05ea\u05d5\u05e2\u05dc\u05ea \u05e2\u05dc \u05e4\u05e0\u05d9 \u05db\u05dc \u05d0\u05d5\u05e4\u05e7 \u05d4\u05d6\u05de\u05df \u05d4\u05e0\u05d1\u05d7\u05df.\"\n    ))\n    body_parts.append(bullet_para(\n        \"\u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05d4\u05e4\u05d7\u05de\u05df \u05de\u05d4\u05d5\u05d5\u05ea \u05d2\u05d5\u05e8\u05dd \u05de\u05db\u05e8\u05d9\u05e2 \u05d1\u05d4\u05e9\u05d5\u05d5\u05d0\u05d4 \u05d1\u05d9\u05df \u05d4\u05d7\u05dc\u05d5\u05e4\u05d5\u05ea, \u05d1\u05de\u05d9\u05d5\u05d7\u05d3 \u05d1\u05ea\u05e8\u05d7\u05d9\u05e9\u05d9\u05dd \u05e9\u05dc \u05de\u05d7\u05d9\u05e8 \u05e4\u05d7\u05de\u05df \u05d2\u05d1\u05d5\u05d4.\"\n    ))\n    body_parts.append(bullet_para(\n        \"\u05d4\u05e9\u05e7\u05e2\u05d4 \u05d1\u05ea\u05e9\u05ea\u05d9\u05d5\u05ea \u05de\u05ea\u05d7\u05d3\u05e9\u05d5\u05ea \u05de\u05e7\u05d8\u05d9\u05e0\u05d4 \u05d0\u05ea \u05ea\u05dc\u05d5\u05ea \u05d4\u05de\u05e8\u05db\u05d6 \u05d1\u05e8\u05e9\u05ea \u05d4\u05dc\u05d0\u05d5\u05de\u05d9\u05ea \u05d5\u05de\u05d9\u05d9\u05e6\u05e8\u05ea \u05d9\u05ea\u05e8\u05d5\u05df \u05ea\u05d7\u05e8\u05d5\u05ea\u05d9 \u05dc\u05d8\u05d5\u05d5\u05d7 \u05d4\u05d0\u05e8\u05d5\u05da.\"\n    ))\n    body_parts.append(blank(after=80))\n\n    # Closing paragraph\n    body_parts.append(body_para(\n        \"\u05dc\u05e1\u05d9\u05db\u05d5\u05dd, \u05de\u05de\u05e6\u05d0\u05d9 \u05d4\u05de\u05d7\u05e7\u05e8 \u05de\u05e6\u05d1\u05d9\u05e2\u05d9\u05dd \u05e2\u05dc \u05db\u05da \u05e9\u05de\u05e2\u05d1\u05e8 \u05dc\u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05d4\u05d9\u05d1\u05e8\u05d9\u05d3\u05d9\u05ea \u05de\u05d4\u05d5\u05d5\u05d4 \u05d0\u05ea \u05d4\u05d1\u05d7\u05d9\u05e8\u05d4 \u05d4\u05d0\u05e1\u05d8\u05e8\u05d8\u05d2\u05d9\u05ea \"\n        \"\u05d4\u05de\u05d9\u05d8\u05d1\u05d9\u05ea \u05e2\u05d1\u05d5\u05e8 \u05de\u05e8\u05db\u05d6 \u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \u05d1\u05d4\u05d9\u05e7\u05e3 \u05e9\u05dc \u05e2\u05e9\u05e8\u05d9\u05dd \u05de\u05d2\u05d4-\u05d5\u05d5\u05d0\u05d8. \u05de\u05d5\u05de\u05dc\u05e5 \u05dc\u05d4\u05de\u05e9\u05d9\u05da \u05d5\u05dc\u05e2\u05d3\u05db\u05df \u05d0\u05ea \u05d4\u05de\u05d5\u05d3\u05dc \"\n        \"\u05db\u05db\u05dc \u05e9\u05e0\u05ea\u05d5\u05e0\u05d9 \u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05d7\u05d3\u05e9\u05d9\u05dd \u05d9\u05ea\u05e7\u05d1\u05dc\u05d5, \u05d5\u05dc\u05e9\u05e7\u05d5\u05dc \u05d0\u05ea \u05d4\u05d4\u05e9\u05dc\u05db\u05d5\u05ea \u05d4\u05e8\u05d2\u05d5\u05dc\u05d8\u05d5\u05e8\u05d9\u05d5\u05ea \u05e9\u05dc \u05db\u05dc \u05d7\u05dc\u05d5\u05e4\u05d4 \u05dc\u05e4\u05e0\u05d9 \"\n        \"\u05e7\u05d1\u05dc\u05ea \u05d4\u05d7\u05dc\u05d8\u05d4 \u05e1\u05d5\u05e4\u05d9\u05ea.\"\n    ))\n\n    sect_pr = ('<w:sectPr><w:bidi/>'\n               '<w:pgSz w:w=\"11906\" w:h=\"16838\"/>'\n               '<w:pgMar w:top=\"1080\" w:right=\"1080\" w:bottom=\"1080\" w:left=\"1080\"'\n               ' w:header=\"709\" w:footer=\"709\" w:gutter=\"0\"/>'\n               '</w:sectPr>')\n\n    body = ''.join(body_parts) + sect_pr\n    return (\n        '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'\n        '<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"'\n        ' xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\">'\n        f'<w:body>{body}</w:body></w:document>'\n    )\n\n# \u2500\u2500 Pack and validate \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef pack(out_path):\n    files = {\n        '[Content_Types].xml': CONTENT_TYPES,\n        '_rels/.rels': RELS_PKG,\n        'word/_rels/document.xml.rels': RELS_DOCXML,\n        'word/document.xml': build_document(),\n        'word/styles.xml': STYLES,\n        'word/numbering.xml': NUMBERING,\n    }\n    with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as zf:\n        for name, content in files.items():\n            zf.writestr(name, content.encode('utf-8'))\n    print(f\"Written: {out_path}\")\n\n    # XML validation\n    with zipfile.ZipFile(out_path) as z:\n        doc = z.read('word/document.xml').decode()\n        sty = z.read('word/styles.xml').decode()\n    p  = len(re.findall(r'<w:pPr\\b', doc))\n    pb = len(re.findall(r'<w:bidi',  doc))\n    r  = len(re.findall(r'<w:rPr\\b', doc))\n    rb = len(re.findall(r'<w:rtl',   doc))\n    print(f\"bidi coverage: {pb}/{p} paragraphs\")\n    print(f\"rtl  coverage: {rb}/{r} runs\")\n    has_normal = 'styleId=\"Normal\"' in sty\n    print(f\"Normal style: {has_normal}\")\n    ok = (pb == p and rb == r and has_normal)\n    print(\"Validation: OK\" if ok else \"Validation: ISSUES FOUND\")\n    return ok\n\nif __name__ == '__main__':\n    script_dir = os.path.dirname(os.path.abspath(__file__))\n    out = sys.argv[1] if len(sys.argv) > 1 else os.path.join(script_dir, 'assignment_summary.docx')\n    pack(out)\n"}], "grading": {"expectations": [{"text": "produces_docx", "passed": true, "evidence": "assignment_summary.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm reference"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "12/12 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "12/12 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found in styles.xml"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew Unicode chars in document.xml"}], "passed": 6, "total": 6}}, {"id": "eval-energy-table-with_skill", "prompt": "Create a professional Hebrew Word document for an energy technology comparison report. It should have a main title in Hebrew, an introductory paragraph explaining the purpose, and a 3-column comparison table with Hebrew headers (\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4, \u05e2\u05dc\u05d5\u05ea \u05de\u05de\u05d5\u05e6\u05e2\u05ea, \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea) and at least 3 data rows. Save as energy_report.docx and run the script.", "eval_id": 2, "outputs": [{"name": "build.py", "type": "text", "content": "#!/usr/bin/env python3\n\"\"\"\nEnergy Technology Comparison Report \u2014 Hebrew RTL Word Document\nBuilt using the hebrew-rtl-docx skill template.\n\"\"\"\n\nimport zipfile, sys, re\n\nFONT = \"Arial\"\n\n# \u2500\u2500 Run and paragraph helpers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef rPr(sz=22, bold=False, italic=False, color=\"000000\", underline=False):\n    \"\"\"Run properties \u2014 always includes <w:rtl/>.\"\"\"\n    parts = [\n        f'<w:rFonts w:ascii=\"{FONT}\" w:hAnsi=\"{FONT}\" w:cs=\"{FONT}\" w:eastAsia=\"{FONT}\"/>',\n        f'<w:sz w:val=\"{sz}\"/><w:szCs w:val=\"{sz}\"/>',\n    ]\n    if bold:      parts.append('<w:b/><w:bCs/>')\n    if italic:    parts.append('<w:i/><w:iCs/>')\n    if color != \"000000\": parts.append(f'<w:color w:val=\"{color}\"/>')\n    if underline: parts.append('<w:u w:val=\"single\"/>')\n    parts.append('<w:rtl/>')\n    return '<w:rPr>' + ''.join(parts) + '</w:rPr>'\n\ndef run(text, sz=22, bold=False, italic=False, color=\"000000\"):\n    \"\"\"Single RTL run.\"\"\"\n    text_xml = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')\n    preserve = ' xml:space=\"preserve\"' if text.startswith(' ') or text.endswith(' ') else ''\n    return f'<w:r>{rPr(sz, bold, italic, color)}<w:t{preserve}>{text_xml}</w:t></w:r>'\n\ndef pPr(align=\"left\", after=100, before=0, line=276, numId=None, border_bottom=False):\n    \"\"\"\n    Paragraph properties \u2014 always includes <w:bidi/>.\n    align=\"left\"   \u2192 physical RIGHT (RTL natural start) \u2014 use for headings, body\n    align=\"both\"   \u2192 justified \u2014 use for body text\n    align=\"center\" \u2192 centered\n    \"\"\"\n    parts = ['<w:bidi/>']\n    if numId:\n        parts.append(f'<w:numPr><w:ilvl w:val=\"0\"/><w:numId w:val=\"{numId}\"/></w:numPr>')\n    parts.append(f'<w:spacing w:after=\"{after}\" w:before=\"{before}\" w:line=\"{line}\" w:lineRule=\"auto\"/>')\n    parts.append(f'<w:jc w:val=\"{align}\"/>')\n    if border_bottom:\n        parts.append('<w:pBdr><w:bottom w:val=\"single\" w:sz=\"6\" w:space=\"4\" w:color=\"1F6B3A\"/></w:pBdr>')\n    return '<w:pPr>' + ''.join(parts) + '</w:pPr>'\n\ndef para(runs_xml, align=\"left\", after=100, before=0, line=276,\n         numId=None, border_bottom=False):\n    \"\"\"Full RTL paragraph.\"\"\"\n    return f'<w:p>{pPr(align, after, before, line, numId, border_bottom)}{runs_xml}</w:p>'\n\ndef blank(after=60):\n    return para(run(''), after=after)\n\ndef heading(text, color=\"1F6B3A\", sz=28, after=120, before=240):\n    \"\"\"Main title \u2014 underline border, physically right-aligned.\"\"\"\n    return para(run(text, sz=sz, bold=True, color=color),\n                align=\"left\", after=after, before=before, border_bottom=True)\n\ndef subheading(text, color=\"1F6B3A\", sz=24, after=100, before=180):\n    \"\"\"Section heading.\"\"\"\n    return para(run(text, sz=sz, bold=True, color=color),\n                align=\"left\", after=after, before=before, border_bottom=False)\n\n# \u2500\u2500 Table helpers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nBORDER = ('<w:top w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>'\n          '<w:left w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>'\n          '<w:bottom w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>'\n          '<w:right w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>')\n\ndef cell(width, paragraphs_xml, fill=None):\n    shade = f'<w:shd w:val=\"clear\" w:color=\"auto\" w:fill=\"{fill}\"/>' if fill else ''\n    tcPr = (f'<w:tcPr><w:tcW w:type=\"dxa\" w:w=\"{width}\"/>'\n            f'<w:tcBorders>{BORDER}</w:tcBorders>{shade}'\n            f'<w:tcMar><w:top w:type=\"dxa\" w:w=\"60\"/><w:left w:type=\"dxa\" w:w=\"100\"/>'\n            f'<w:bottom w:type=\"dxa\" w:w=\"60\"/><w:right w:type=\"dxa\" w:w=\"100\"/></w:tcMar>'\n            f'<w:vAlign w:val=\"center\"/></w:tcPr>')\n    return f'<w:tc>{tcPr}{paragraphs_xml}</w:tc>'\n\ndef hcell(width, text, bg=\"1F6B3A\"):\n    \"\"\"Header cell \u2014 dark green background, white bold text, centered.\"\"\"\n    p = para(run(text, sz=20, bold=True, color=\"FFFFFF\"), align=\"center\", after=0)\n    return cell(width, p, fill=bg)\n\ndef dcell(width, text, fill=None):\n    \"\"\"Data cell \u2014 left-aligned (physical right in RTL).\"\"\"\n    p = para(run(text, sz=20), align=\"left\", after=0)\n    return cell(width, p, fill=fill)\n\ndef trow(*cells_xml):\n    return '<w:tr>' + ''.join(cells_xml) + '</w:tr>'\n\ndef table(col_widths, rows_xml):\n    \"\"\"RTL table \u2014 <w:bidiVisual/> makes columns flow right-to-left.\"\"\"\n    total = sum(col_widths)\n    grid = ''.join(f'<w:gridCol w:w=\"{w}\"/>' for w in col_widths)\n    tblPr = (f'<w:tblPr>'\n             f'<w:bidiVisual/>'\n             f'<w:tblW w:type=\"dxa\" w:w=\"{total}\"/>'\n             f'<w:tblBorders>'\n             f'<w:top w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:left w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:bottom w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:right w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:insideH w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:insideV w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'</w:tblBorders></w:tblPr>')\n    return f'<w:tbl>{tblPr}<w:tblGrid>{grid}</w:tblGrid>{\"\".join(rows_xml)}</w:tbl>'\n\n# \u2500\u2500 Required XML strings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nCONTENT_TYPES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\">\n  <Default Extension=\"rels\" ContentType=\"application/vnd.openxmlformats-package.relationships+xml\"/>\n  <Default Extension=\"xml\" ContentType=\"application/xml\"/>\n  <Override PartName=\"/word/document.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml\"/>\n  <Override PartName=\"/word/styles.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml\"/>\n  <Override PartName=\"/word/numbering.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml\"/>\n</Types>'''\n\nRELS_PKG = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument\" Target=\"word/document.xml\"/>\n</Relationships>'''\n\nRELS_DOCXML = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles\" Target=\"styles.xml\"/>\n  <Relationship Id=\"rId2\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering\" Target=\"numbering.xml\"/>\n</Relationships>'''\n\nSTYLES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:styles xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:docDefaults>\n    <w:rPrDefault><w:rPr>\n      <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\" w:eastAsia=\"Arial\"/>\n      <w:sz w:val=\"22\"/><w:szCs w:val=\"22\"/>\n      <w:rtl/>\n    </w:rPr></w:rPrDefault>\n    <w:pPrDefault><w:pPr><w:bidi/></w:pPr></w:pPrDefault>\n  </w:docDefaults>\n  <w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\">\n    <w:name w:val=\"Normal\"/>\n    <w:pPr><w:bidi/></w:pPr>\n    <w:rPr><w:rtl/></w:rPr>\n  </w:style>\n</w:styles>'''\n\nNUMBERING = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:numbering xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:abstractNum w:abstractNumId=\"0\">\n    <w:multiLevelType w:val=\"hybridMultilevel\"/>\n    <w:lvl w:ilvl=\"0\">\n      <w:start w:val=\"1\"/><w:numFmt w:val=\"bullet\"/><w:lvlText w:val=\"&#x2022;\"/>\n      <w:lvlJc w:val=\"left\"/>\n      <w:pPr>\n        <w:bidi/>\n        <w:ind w:right=\"360\" w:hanging=\"360\"/>\n        <w:jc w:val=\"left\"/>\n      </w:pPr>\n      <w:rPr>\n        <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\"/>\n        <w:rtl/>\n      </w:rPr>\n    </w:lvl>\n  </w:abstractNum>\n  <w:num w:numId=\"1\"><w:abstractNumId w:val=\"0\"/></w:num>\n</w:numbering>'''\n\n# \u2500\u2500 Document content \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef build_document():\n    body_parts = []\n\n    # Main title\n    body_parts.append(heading(\"\u05d4\u05e9\u05d5\u05d5\u05d0\u05ea \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05dc\u05ea\u05e2\u05e9\u05d9\u05d9\u05d4\"))\n    body_parts.append(blank(after=80))\n\n    # Introductory paragraph\n    body_parts.append(para(\n        run(\"\u05d3\u05d5\u05d7 \u05d6\u05d4 \u05de\u05e6\u05d9\u05d2 \u05d4\u05e9\u05d5\u05d5\u05d0\u05d4 \u05d1\u05d9\u05df \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05d9\u05d9\u05e2\u05d5\u05dc \u05d0\u05e0\u05e8\u05d2\u05d8\u05d9 \u05de\u05e8\u05db\u05d6\u05d9\u05d5\u05ea \u05dc\u05ea\u05e2\u05e9\u05d9\u05d9\u05d4. \"\n            \"\u05d4\u05e0\u05d9\u05ea\u05d5\u05d7 \u05de\u05d1\u05d5\u05e1\u05e1 \u05e2\u05dc \u05e0\u05ea\u05d5\u05e0\u05d9 \u05e2\u05dc\u05d5\u05ea \u05de\u05de\u05d5\u05e6\u05e2\u05ea \u05dc\u05d4\u05ea\u05e7\u05e0\u05d4 \u05d5\u05e2\u05dc \u05de\u05d3\u05d3\u05d9 \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea \u05d0\u05e0\u05e8\u05d2\u05d8\u05d9\u05ea \"\n            \"\u05e9\u05e0\u05d0\u05e1\u05e4\u05d5 \u05de\u05de\u05e7\u05d5\u05e8\u05d5\u05ea \u05d4\u05e0\u05d3\u05e1\u05d9\u05d9\u05dd \u05d5\u05de\u05e0\u05ea\u05d5\u05e0\u05d9 \u05ea\u05d5\u05db\u05e0\u05d9\u05ea \u05d4\u05de\u05e2\u05e0\u05e7\u05d9\u05dd \u05d4\u05dc\u05d0\u05d5\u05de\u05d9\u05ea. \"\n            \"\u05d4\u05de\u05d8\u05e8\u05d4 \u05d4\u05d9\u05d0 \u05dc\u05e1\u05e4\u05e7 \u05ea\u05e9\u05ea\u05d9\u05ea \u05de\u05d9\u05d3\u05e2 \u05dc\u05d4\u05d7\u05dc\u05d8\u05d5\u05ea \u05d4\u05e9\u05e7\u05e2\u05d4 \u05d1\u05de\u05e1\u05d2\u05e8\u05ea \u05ea\u05d5\u05db\u05e0\u05d9\u05ea \u05d4\u05d4\u05ea\u05d9\u05d9\u05e2\u05dc\u05d5\u05ea \u05d4\u05d0\u05e0\u05e8\u05d2\u05d8\u05d9\u05ea \u05d4\u05dc\u05d0\u05d5\u05de\u05d9\u05ea.\",\n            sz=22),\n        align=\"both\", after=200\n    ))\n\n    # Table section heading\n    body_parts.append(subheading(\"\u05d8\u05d1\u05dc\u05ea \u05d4\u05e9\u05d5\u05d5\u05d0\u05ea \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea\"))\n    body_parts.append(blank(after=60))\n\n    # 3-column comparison table: \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4 | \u05e2\u05dc\u05d5\u05ea \u05de\u05de\u05d5\u05e6\u05e2\u05ea | \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea\n    # Column widths in twips (total ~7560 = ~5.25 inches for content area)\n    col_widths = [3200, 2180, 2180]\n\n    # Alternating row fill colors\n    ALT_FILL = \"E8F5E9\"  # light green tint\n\n    rows = [\n        # Header row\n        trow(\n            hcell(3200, \"\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4\"),\n            hcell(2180, \"\u05e2\u05dc\u05d5\u05ea \u05de\u05de\u05d5\u05e6\u05e2\u05ea\"),\n            hcell(2180, \"\u05d9\u05e2\u05d9\u05dc\u05d5\u05ea\"),\n        ),\n        # Data row 1 \u2014 \u05de\u05e9\u05d0\u05d1\u05d5\u05ea \u05d7\u05d5\u05dd\n        trow(\n            dcell(3200, \"\u05de\u05e9\u05d0\u05d1\u05d5\u05ea \u05d7\u05d5\u05dd \u05ea\u05e2\u05e9\u05d9\u05d9\u05ea\u05d9\u05d5\u05ea\"),\n            dcell(2180, \"850,000 \u20aa\"),\n            dcell(2180, \"300% COP\"),\n        ),\n        # Data row 2 \u2014 \u05e6'\u05d9\u05dc\u05e8\u05d9\u05dd\n        trow(\n            dcell(3200, \"\u05e6'\u05d9\u05dc\u05e8\u05d9\u05dd \u05e2\u05dd \u05d1\u05e7\u05e8\u05ea \u05ea\u05d3\u05e8\", fill=ALT_FILL),\n            dcell(2180, \"620,000 \u20aa\", fill=ALT_FILL),\n            dcell(2180, \"15-20%\", fill=ALT_FILL),\n        ),\n        # Data row 3 \u2014 \u05de\u05d3\u05d7\u05e1\u05d9\u05dd\n        trow(\n            dcell(3200, \"\u05de\u05d3\u05d7\u05e1\u05d9\u05dd \u05e2\u05dd \u05db\u05d5\u05e0\u05df \u05de\u05d4\u05d9\u05e8\u05d5\u05ea \u05de\u05e9\u05ea\u05e0\u05d4\"),\n            dcell(2180, \"480,000 \u20aa\"),\n            dcell(2180, \"25-35%\"),\n        ),\n        # Data row 4 \u2014 \u05e7\u05d9\u05d8\u05d5\u05e8 \u05d7\u05e9\u05de\u05dc\u05d9\n        trow(\n            dcell(3200, \"\u05d2\u05e0\u05e8\u05d8\u05d5\u05e8\u05d9 \u05e7\u05d9\u05d8\u05d5\u05e8 \u05d7\u05e9\u05de\u05dc\u05d9\u05d9\u05dd\", fill=ALT_FILL),\n            dcell(2180, \"1,100,000 \u20aa\", fill=ALT_FILL),\n            dcell(2180, \"90-95%\", fill=ALT_FILL),\n        ),\n    ]\n    body_parts.append(table(col_widths, rows))\n    body_parts.append(blank(after=80))\n\n    # Footer note\n    body_parts.append(para(\n        run(\"* \u05d4\u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \u05de\u05d1\u05d5\u05e1\u05e1\u05d9\u05dd \u05e2\u05dc \u05de\u05de\u05d5\u05e6\u05e2 \u05d4\u05d4\u05d2\u05e9\u05d5\u05ea \u05de\u05e2\u05d2\u05dc\u05d9 2017-2022 \u05e9\u05dc \u05ea\u05d5\u05db\u05e0\u05d9\u05ea \u05d4\u05de\u05e2\u05e0\u05e7\u05d9\u05dd. \"\n            \"\u05d4\u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05d0\u05d9\u05e0\u05df \u05db\u05d5\u05dc\u05dc\u05d5\u05ea \u05d4\u05ea\u05e7\u05e0\u05d4 \u05d5\u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05e2\u05d6\u05e8. \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea \u05de\u05d1\u05d5\u05d8\u05d0\u05ea \u05db\u05d7\u05d9\u05e1\u05db\u05d5\u05df \u05d9\u05d7\u05e1\u05d9 \u05d1\u05e6\u05e8\u05d9\u05db\u05ea \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4.\",\n            sz=18, color=\"595959\"),\n        align=\"both\", after=0\n    ))\n\n    sect_pr = ('<w:sectPr><w:bidi/>'\n               '<w:pgSz w:w=\"11906\" w:h=\"16838\"/>'\n               '<w:pgMar w:top=\"1080\" w:right=\"1080\" w:bottom=\"1080\" w:left=\"1080\"'\n               ' w:header=\"709\" w:footer=\"709\" w:gutter=\"0\"/>'\n               '</w:sectPr>')\n\n    body = ''.join(body_parts) + sect_pr\n    return (\n        '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'\n        '<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"'\n        ' xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\">'\n        f'<w:body>{body}</w:body></w:document>'\n    )\n\n# \u2500\u2500 Pack and validate \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef pack(out_path):\n    files = {\n        '[Content_Types].xml': CONTENT_TYPES,\n        '_rels/.rels': RELS_PKG,\n        'word/_rels/document.xml.rels': RELS_DOCXML,\n        'word/document.xml': build_document(),\n        'word/styles.xml': STYLES,\n        'word/numbering.xml': NUMBERING,\n    }\n    with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as zf:\n        for name, content in files.items():\n            zf.writestr(name, content.encode('utf-8'))\n    print(f\"Written: {out_path}\")\n\n    # Validation \u2014 confirm RTL coverage\n    # <w:bidi> prefix matches both <w:bidi/> (paragraph) and <w:bidiVisual/> (table).\n    # sectPr also contains one <w:bidi/> (required). Subtract both to get paragraph count.\n    with zipfile.ZipFile(out_path) as z:\n        doc = z.read('word/document.xml').decode()\n        sty = z.read('word/styles.xml').decode()\n    p   = len(re.findall(r'<w:pPr\\b', doc))\n    pb  = len(re.findall(r'<w:bidi', doc))       # includes bidiVisual + sectPr bidi\n    bidi_visual = len(re.findall(r'<w:bidiVisual', doc))\n    sect_bidi   = len(re.findall(r'<w:bidi/>', doc)) - (pb - bidi_visual)  # sectPr only\n    pb_para = pb - bidi_visual - 1  # 1 for the sectPr <w:bidi/>\n    r   = len(re.findall(r'<w:rPr\\b', doc))\n    rb  = len(re.findall(r'<w:rtl',   doc))\n    has_normal = 'styleId=\"Normal\"' in sty\n    print(f\"bidi coverage: {pb_para}/{p} paragraphs\")\n    print(f\"rtl  coverage: {rb}/{r} runs\")\n    print(f\"Normal style: {has_normal}\")\n    print(\"Validation: OK\" if pb_para == p and rb == r and has_normal\n          else \"Validation: ISSUES FOUND\")\n\nif __name__ == '__main__':\n    out = sys.argv[1] if len(sys.argv) > 1 else 'energy_report.docx'\n    pack(out)\n"}, {"name": "energy_report.docx", "type": "binary", "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "data_uri": "data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,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"}], "grading": {"expectations": [{"text": "produces_docx", "passed": true, "evidence": "energy_report.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "22/22 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "22/22 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found"}, {"text": "table_has_bidi_visual", "passed": true, "evidence": "<w:bidiVisual/> found in document"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew chars present"}], "passed": 7, "total": 7}}, {"id": "eval-energy-table-without_skill", "prompt": "Create a professional Hebrew Word document for an energy technology comparison report. It should have a main title in Hebrew, an introductory paragraph explaining the purpose, and a 3-column comparison table with Hebrew headers (\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4, \u05e2\u05dc\u05d5\u05ea \u05de\u05de\u05d5\u05e6\u05e2\u05ea, \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea) and at least 3 data rows. Save as energy_report.docx and run the script.", "eval_id": 2, "outputs": [{"name": "build.py", "type": "text", "content": "#!/usr/bin/env python3\n\"\"\"\nEnergy Technology Comparison Report - Hebrew RTL Word Document\n-------------------------------------------------------------\nBuilds energy_report.docx: a Hebrew RTL document with a title,\nintro paragraph, and a 3-column comparison table.\n\"\"\"\n\nimport zipfile, sys, re\n\nFONT = \"Arial\"\n\n# \u2500\u2500 Run and paragraph helpers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef rPr(sz=22, bold=False, italic=False, color=\"000000\"):\n    parts = [\n        f'<w:rFonts w:ascii=\"{FONT}\" w:hAnsi=\"{FONT}\" w:cs=\"{FONT}\" w:eastAsia=\"{FONT}\"/>',\n        f'<w:sz w:val=\"{sz}\"/><w:szCs w:val=\"{sz}\"/>',\n    ]\n    if bold:   parts.append('<w:b/><w:bCs/>')\n    if italic: parts.append('<w:i/><w:iCs/>')\n    if color != \"000000\": parts.append(f'<w:color w:val=\"{color}\"/>')\n    parts.append('<w:rtl/>')\n    return '<w:rPr>' + ''.join(parts) + '</w:rPr>'\n\ndef run(text, sz=22, bold=False, italic=False, color=\"000000\"):\n    text_xml = text.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')\n    preserve = ' xml:space=\"preserve\"' if text.startswith(' ') or text.endswith(' ') else ''\n    return f'<w:r>{rPr(sz, bold, italic, color)}<w:t{preserve}>{text_xml}</w:t></w:r>'\n\ndef pPr(align=\"left\", after=100, before=0, line=276, border_bottom=False):\n    \"\"\"\n    align=\"left\"   -> physical right (RTL natural start)\n    align=\"both\"   -> justified\n    align=\"center\" -> centered\n    \"\"\"\n    parts = ['<w:bidi/>']\n    parts.append(f'<w:spacing w:after=\"{after}\" w:before=\"{before}\" w:line=\"{line}\" w:lineRule=\"auto\"/>')\n    parts.append(f'<w:jc w:val=\"{align}\"/>')\n    if border_bottom:\n        parts.append('<w:pBdr><w:bottom w:val=\"single\" w:sz=\"6\" w:space=\"4\" w:color=\"1A5276\"/></w:pBdr>')\n    return '<w:pPr>' + ''.join(parts) + '</w:pPr>'\n\ndef para(runs_xml, align=\"left\", after=100, before=0, line=276, border_bottom=False):\n    return f'<w:p>{pPr(align, after, before, line, border_bottom)}{runs_xml}</w:p>'\n\ndef blank(after=80):\n    return para(run(''), after=after)\n\ndef heading(text, color=\"1A5276\", sz=28, after=120, before=200):\n    \"\"\"Main title heading.\"\"\"\n    return para(run(text, sz=sz, bold=True, color=color),\n                align=\"center\", after=after, before=before, border_bottom=False)\n\ndef section_heading(text, color=\"1A5276\", sz=24, after=100, before=160):\n    \"\"\"Section heading with bottom border.\"\"\"\n    return para(run(text, sz=sz, bold=True, color=color),\n                align=\"left\", after=after, before=before, border_bottom=True)\n\n# \u2500\u2500 Table helpers \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nBORDER = ('<w:top w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>'\n          '<w:left w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>'\n          '<w:bottom w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>'\n          '<w:right w:val=\"single\" w:sz=\"4\" w:space=\"0\" w:color=\"BFBFBF\"/>')\n\ndef cell(width, paragraphs_xml, fill=None):\n    shade = f'<w:shd w:val=\"clear\" w:color=\"auto\" w:fill=\"{fill}\"/>' if fill else ''\n    tcPr = (f'<w:tcPr><w:tcW w:type=\"dxa\" w:w=\"{width}\"/>'\n            f'<w:tcBorders>{BORDER}</w:tcBorders>{shade}'\n            f'<w:tcMar>'\n            f'<w:top w:type=\"dxa\" w:w=\"80\"/><w:left w:type=\"dxa\" w:w=\"120\"/>'\n            f'<w:bottom w:type=\"dxa\" w:w=\"80\"/><w:right w:type=\"dxa\" w:w=\"120\"/>'\n            f'</w:tcMar>'\n            f'<w:vAlign w:val=\"center\"/></w:tcPr>')\n    return f'<w:tc>{tcPr}{paragraphs_xml}</w:tc>'\n\ndef hcell(width, text, bg=\"1A5276\"):\n    \"\"\"Header cell \u2014 dark background, white bold text, centered.\"\"\"\n    p = para(run(text, sz=20, bold=True, color=\"FFFFFF\"), align=\"center\", after=0)\n    return cell(width, p, fill=bg)\n\ndef dcell(width, text, bg=None, bold=False, align=\"center\"):\n    \"\"\"Data cell.\"\"\"\n    p = para(run(text, sz=20, bold=bold), align=align, after=0)\n    return cell(width, p, fill=bg)\n\ndef trow(*cells_xml, shading=None):\n    return '<w:tr>' + ''.join(cells_xml) + '</w:tr>'\n\ndef table(col_widths, rows_xml):\n    \"\"\"RTL table \u2014 <w:bidiVisual/> makes columns flow right-to-left.\"\"\"\n    total = sum(col_widths)\n    grid = ''.join(f'<w:gridCol w:w=\"{w}\"/>' for w in col_widths)\n    tblPr = (f'<w:tblPr>'\n             f'<w:bidiVisual/>'\n             f'<w:tblW w:type=\"dxa\" w:w=\"{total}\"/>'\n             f'<w:tblBorders>'\n             f'<w:top w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:left w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:bottom w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:right w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:insideH w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'<w:insideV w:val=\"single\" w:sz=\"4\" w:color=\"BFBFBF\"/>'\n             f'</w:tblBorders>'\n             f'<w:tblCellMar>'\n             f'<w:top w:type=\"dxa\" w:w=\"80\"/><w:left w:type=\"dxa\" w:w=\"120\"/>'\n             f'<w:bottom w:type=\"dxa\" w:w=\"80\"/><w:right w:type=\"dxa\" w:w=\"120\"/>'\n             f'</w:tblCellMar>'\n             f'</w:tblPr>')\n    return f'<w:tbl>{tblPr}<w:tblGrid>{grid}</w:tblGrid>{\"\".join(rows_xml)}</w:tbl>'\n\n# \u2500\u2500 Required XML strings \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nCONTENT_TYPES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\">\n  <Default Extension=\"rels\" ContentType=\"application/vnd.openxmlformats-package.relationships+xml\"/>\n  <Default Extension=\"xml\" ContentType=\"application/xml\"/>\n  <Override PartName=\"/word/document.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml\"/>\n  <Override PartName=\"/word/styles.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml\"/>\n  <Override PartName=\"/word/numbering.xml\" ContentType=\"application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml\"/>\n</Types>'''\n\nRELS_PKG = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument\" Target=\"word/document.xml\"/>\n</Relationships>'''\n\nRELS_DOCXML = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Relationships xmlns=\"http://schemas.openxmlformats.org/package/2006/relationships\">\n  <Relationship Id=\"rId1\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles\" Target=\"styles.xml\"/>\n  <Relationship Id=\"rId2\" Type=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships/numbering\" Target=\"numbering.xml\"/>\n</Relationships>'''\n\nSTYLES = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:styles xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:docDefaults>\n    <w:rPrDefault><w:rPr>\n      <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\" w:eastAsia=\"Arial\"/>\n      <w:sz w:val=\"22\"/><w:szCs w:val=\"22\"/>\n      <w:rtl/>\n    </w:rPr></w:rPrDefault>\n    <w:pPrDefault><w:pPr><w:bidi/></w:pPr></w:pPrDefault>\n  </w:docDefaults>\n  <w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\">\n    <w:name w:val=\"Normal\"/>\n    <w:pPr><w:bidi/></w:pPr>\n    <w:rPr><w:rtl/></w:rPr>\n  </w:style>\n</w:styles>'''\n\nNUMBERING = '''<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<w:numbering xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\">\n  <w:abstractNum w:abstractNumId=\"0\">\n    <w:multiLevelType w:val=\"hybridMultilevel\"/>\n    <w:lvl w:ilvl=\"0\">\n      <w:start w:val=\"1\"/><w:numFmt w:val=\"bullet\"/><w:lvlText w:val=\"&#x2022;\"/>\n      <w:lvlJc w:val=\"left\"/>\n      <w:pPr>\n        <w:bidi/>\n        <w:ind w:right=\"360\" w:hanging=\"360\"/>\n        <w:jc w:val=\"left\"/>\n      </w:pPr>\n      <w:rPr>\n        <w:rFonts w:ascii=\"Arial\" w:hAnsi=\"Arial\" w:cs=\"Arial\"/>\n        <w:rtl/>\n      </w:rPr>\n    </w:lvl>\n  </w:abstractNum>\n  <w:num w:numId=\"1\"><w:abstractNumId w:val=\"0\"/></w:num>\n</w:numbering>'''\n\n# \u2500\u2500 Document content \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef build_document():\n    body_parts = []\n\n    # Main title\n    body_parts.append(heading(\"\u05d4\u05e9\u05d5\u05d5\u05d0\u05ea \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05de\u05ea\u05d7\u05d3\u05e9\u05ea\"))\n    body_parts.append(blank(after=60))\n\n    # Introductory paragraph\n    intro = (\n        \"\u05d3\u05d5\u05d7 \u05d6\u05d4 \u05de\u05e6\u05d9\u05d2 \u05d4\u05e9\u05d5\u05d5\u05d0\u05d4 \u05d1\u05d9\u05df \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d5\u05ea \u05d9\u05d9\u05e6\u05d5\u05e8 \u05d0\u05e0\u05e8\u05d2\u05d9\u05d4 \u05de\u05ea\u05d7\u05d3\u05e9\u05ea \u05d4\u05e4\u05d5\u05e2\u05dc\u05d5\u05ea \u05d1\u05d9\u05e9\u05e8\u05d0\u05dc, \"\n        \"\u05ea\u05d5\u05da \u05d4\u05ea\u05de\u05e7\u05d3\u05d5\u05ea \u05d1\u05e2\u05dc\u05d5\u05ea \u05d4\u05de\u05de\u05d5\u05e6\u05e2\u05ea \u05dc\u05d4\u05ea\u05e7\u05e0\u05d4 \u05d5\u05d1\u05de\u05d3\u05d3 \u05d4\u05d9\u05e2\u05d9\u05dc\u05d5\u05ea \u05d4\u05d0\u05e0\u05e8\u05d2\u05d8\u05d9\u05ea \u05e9\u05dc \u05db\u05dc \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4. \"\n        \"\u05d4\u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \u05de\u05d1\u05d5\u05e1\u05e1\u05d9\u05dd \u05e2\u05dc \u05de\u05de\u05d5\u05e6\u05e2 \u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05e2\u05d2\u05d5\u05dc 2022 \u05de\u05ea\u05d5\u05da \u05de\u05d0\u05d2\u05e8 \u05d4\u05e0\u05ea\u05d5\u05e0\u05d9\u05dd \u05e9\u05dc \u05ea\u05db\u05e0\u05d9\u05ea \u05d4\u05de\u05e2\u05e0\u05e7\u05d9\u05dd \u05d4\u05dc\u05d0\u05d5\u05de\u05d9\u05ea \"\n        \"\u05dc\u05d9\u05d9\u05e2\u05d5\u05dc \u05d0\u05e0\u05e8\u05d2\u05d8\u05d9, \u05d5\u05de\u05d9\u05d5\u05e2\u05d3\u05d9\u05dd \u05dc\u05e9\u05de\u05e9 \u05db\u05d1\u05e1\u05d9\u05e1 \u05dc\u05e0\u05d9\u05ea\u05d5\u05d7 \u05e2\u05dc\u05d5\u05ea-\u05ea\u05d5\u05e2\u05dc\u05ea \u05d7\u05d1\u05e8\u05ea\u05d9.\"\n    )\n    body_parts.append(para(run(intro), align=\"both\", after=120, before=0))\n    body_parts.append(blank(after=80))\n\n    # Section heading\n    body_parts.append(section_heading(\"\u05d8\u05d1\u05dc\u05ea \u05d4\u05e9\u05d5\u05d5\u05d0\u05d4: \u05e2\u05dc\u05d5\u05ea \u05d5\u05d9\u05e2\u05d9\u05dc\u05d5\u05ea \u05dc\u05e4\u05d9 \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4\"))\n    body_parts.append(blank(after=60))\n\n    # Column widths in twips (total ~7200 for a standard page with 1080 margins)\n    # Right column (first in RTL): \u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4 (technology name) - widest\n    # Middle column: \u05e2\u05dc\u05d5\u05ea \u05de\u05de\u05d5\u05e6\u05e2\u05ea (average cost)\n    # Left column: \u05d9\u05e2\u05d9\u05dc\u05d5\u05ea (efficiency)\n    COL_TECH  = 3200\n    COL_COST  = 2200\n    COL_EFF   = 1800\n\n    # Alternating row shading\n    ROW_LIGHT = \"EBF5FB\"\n    ROW_WHITE = \"FFFFFF\"\n\n    rows = [\n        # Header row\n        trow(\n            hcell(COL_TECH, \"\u05d8\u05db\u05e0\u05d5\u05dc\u05d5\u05d2\u05d9\u05d4\"),\n            hcell(COL_COST, \"\u05e2\u05dc\u05d5\u05ea \u05de\u05de\u05d5\u05e6\u05e2\u05ea\"),\n            hcell(COL_EFF,  \"\u05d9\u05e2\u05d9\u05dc\u05d5\u05ea\"),\n        ),\n        # Data rows\n        trow(\n            dcell(COL_TECH, \"\u05de\u05e9\u05d0\u05d1\u05d5\u05ea \u05d7\u05d5\u05dd \u05ea\u05e2\u05e9\u05d9\u05d9\u05ea\u05d9\u05d5\u05ea\", bg=ROW_LIGHT, bold=True, align=\"left\"),\n            dcell(COL_COST, \"850,000 \u20aa\",             bg=ROW_LIGHT),\n            dcell(COL_EFF,  \"300% (COP)\",             bg=ROW_LIGHT),\n        ),\n        trow(\n            dcell(COL_TECH, \"\u05e6'\u05d9\u05dc\u05e8\u05d9\u05dd \u05d0\u05d1\u05e1\u05d5\u05e8\u05e4\u05e6\u05d9\u05d4\",      bg=ROW_WHITE, bold=True, align=\"left\"),\n            dcell(COL_COST, \"620,000 \u20aa\",              bg=ROW_WHITE),\n            dcell(COL_EFF,  \"70% (COP 0.7)\",           bg=ROW_WHITE),\n        ),\n        trow(\n            dcell(COL_TECH, \"\u05de\u05d3\u05d7\u05e1\u05d9\u05dd \u05e2\u05dd \u05db\u05d5\u05e0\u05df \u05de\u05d4\u05d9\u05e8\u05d5\u05ea (VSD)\", bg=ROW_LIGHT, bold=True, align=\"left\"),\n            dcell(COL_COST, \"410,000 \u20aa\",              bg=ROW_LIGHT),\n            dcell(COL_EFF,  \"\u05d7\u05d9\u05e1\u05db\u05d5\u05df 35%\",             bg=ROW_LIGHT),\n        ),\n        trow(\n            dcell(COL_TECH, \"\u05e7\u05d5\u05dc\u05d8\u05d9 \u05e7\u05d9\u05d8\u05d5\u05e8 \u05d7\u05e9\u05de\u05dc\u05d9\u05d9\u05dd\",   bg=ROW_WHITE, bold=True, align=\"left\"),\n            dcell(COL_COST, \"1,100,000 \u20aa\",            bg=ROW_WHITE),\n            dcell(COL_EFF,  \"98% (\u05d7\u05e9\u05de\u05dc\u05d9)\",             bg=ROW_WHITE),\n        ),\n    ]\n\n    body_parts.append(table([COL_TECH, COL_COST, COL_EFF], rows))\n    body_parts.append(blank(after=100))\n\n    # Footer note\n    note = \"* \u05e2\u05dc\u05d5\u05d9\u05d5\u05ea \u05d4\u05d9\u05e0\u05df \u05de\u05de\u05d5\u05e6\u05e2 \u05de\u05e9\u05d5\u05e7\u05dc\u05dc \u05dc\u05d4\u05e9\u05e7\u05e2\u05d4 \u05dc\u05e4\u05d9 \u05e0\u05ea\u05d5\u05e0\u05d9 \u05e2\u05d9\u05d2\u05d5\u05dc 2022 \u05de\u05ea\u05d5\u05da capex_all_rounds.csv.\"\n    body_parts.append(para(run(note, sz=18, italic=True, color=\"595959\"), align=\"left\", after=0))\n\n    sect_pr = ('<w:sectPr><w:bidi/>'\n               '<w:pgSz w:w=\"11906\" w:h=\"16838\"/>'\n               '<w:pgMar w:top=\"1080\" w:right=\"1080\" w:bottom=\"1080\" w:left=\"1080\"'\n               ' w:header=\"709\" w:footer=\"709\" w:gutter=\"0\"/>'\n               '</w:sectPr>')\n\n    body = ''.join(body_parts) + sect_pr\n    return (\n        '<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>'\n        '<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"'\n        ' xmlns:r=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\">'\n        f'<w:body>{body}</w:body></w:document>'\n    )\n\n# \u2500\u2500 Pack and validate \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\ndef pack(out_path):\n    files = {\n        '[Content_Types].xml': CONTENT_TYPES,\n        '_rels/.rels': RELS_PKG,\n        'word/_rels/document.xml.rels': RELS_DOCXML,\n        'word/document.xml': build_document(),\n        'word/styles.xml': STYLES,\n        'word/numbering.xml': NUMBERING,\n    }\n    with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as zf:\n        for name, content in files.items():\n            zf.writestr(name, content.encode('utf-8'))\n    print(f\"Written: {out_path}\")\n\n    with zipfile.ZipFile(out_path) as z:\n        doc = z.read('word/document.xml').decode()\n        sty = z.read('word/styles.xml').decode()\n\n    p  = len(re.findall(r'<w:pPr\\b', doc))\n    pb = len(re.findall(r'<w:bidi',  doc))\n    r  = len(re.findall(r'<w:rPr\\b', doc))\n    rb = len(re.findall(r'<w:rtl',   doc))\n    print(f\"bidi coverage: {pb}/{p} paragraphs\")\n    print(f\"rtl  coverage: {rb}/{r} runs\")\n    has_normal = 'styleId=\"Normal\"' in sty\n    print(f\"Normal style: {has_normal}\")\n    print(\"Validation: OK\" if pb == p and rb == r and has_normal\n          else \"Validation: ISSUES FOUND\")\n\nif __name__ == '__main__':\n    out = sys.argv[1] if len(sys.argv) > 1 else 'energy_report.docx'\n    pack(out)\n"}, {"name": "energy_report.docx", "type": "binary", "mime": "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "data_uri": "data:application/vnd.openxmlformats-officedocument.wordprocessingml.document;base64,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"}], "grading": {"expectations": [{"text": "produces_docx", "passed": true, "evidence": "energy_report.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "23/23 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "23/23 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found"}, {"text": "table_has_bidi_visual", "passed": true, "evidence": "<w:bidiVisual/> found in document"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew chars present"}], "passed": 7, "total": 7}}, {"id": "eval-fix-script-with_skill", "prompt": "My Hebrew Word document looks perfect in LibreOffice \u2014 text is right-aligned, bullets are on the right. But when I open it in Microsoft Word, all the text is left-aligned and the bullet points appear on the left side. What are the root causes of this? Please provide a complete Python script that I can run on any Hebrew .docx to fix these RTL issues, without needing to unpack the file manually.", "eval_id": 3, "outputs": [{"name": "fix_rtl.py", "type": "text", "content": "#!/usr/bin/env python3\n\"\"\"\nHebrew RTL Fixer for existing .docx files\n------------------------------------------\nFixes Hebrew Word documents that render correctly in LibreOffice but break\nin Microsoft Word (left-aligned text, wrong-side bullets, scrambled mixed content).\n\nUsage:\n    python3 fix_rtl.py input.docx output.docx\n\nWhat it fixes:\n    - Adds <w:bidi/> to every paragraph that lacks it (word/document.xml + styles.xml)\n    - Adds <w:rtl/> to every run that lacks it\n    - Ensures Normal style is defined explicitly as RTL (prevents Word from auto-creating LTR)\n    - Fixes numbering.xml: lvlJc direction, indent direction, bidi/rtl in bullet levels\n    - Fixes sectPr: adds <w:bidi/> to section properties for page-level RTL\n    - Fixes docDefaults: ensures default paragraph and run properties are RTL\n\nNo external dependencies \u2014 uses only Python standard library (zipfile, re, sys).\n\"\"\"\n\nimport re, sys, zipfile\n\n\ndef add_bidi(m):\n    \"\"\"Add <w:bidi/> to a <w:pPr> block, after <w:pStyle> if present.\"\"\"\n    ppr = m.group(0)\n    if '<w:bidi' in ppr:\n        return ppr\n    open_tag = re.match(r'<w:pPr[^>]*>', ppr).group(0)\n    rest = ppr[len(open_tag):]\n    style_m = re.match(r'(\\s*<w:pStyle[^/]*/>\\s*)', rest)\n    if style_m:\n        return open_tag + style_m.group(1) + '<w:bidi/>' + rest[len(style_m.group(1)):]\n    return open_tag + '<w:bidi/>' + rest\n\n\ndef add_rtl(m):\n    \"\"\"Add <w:rtl/> to a <w:rPr> block.\"\"\"\n    rpr = m.group(0)\n    if '<w:rtl' in rpr:\n        return rpr\n    return rpr.replace('</w:rPr>', '<w:rtl/></w:rPr>')\n\n\ndef fix_xml(xml):\n    \"\"\"Apply bidi + rtl fixes to any OOXML string (document.xml or styles.xml).\"\"\"\n    # Fix full <w:pPr>...</w:pPr> blocks\n    xml = re.sub(r'<w:pPr\\b[^>]*>.*?</w:pPr>', add_bidi, xml, flags=re.DOTALL)\n    # Fix self-closing <w:pPr/>\n    xml = xml.replace('<w:pPr/>', '<w:pPr><w:bidi/></w:pPr>')\n    # Fix full <w:rPr>...</w:rPr> blocks\n    xml = re.sub(r'<w:rPr\\b.*?</w:rPr>', add_rtl, xml, flags=re.DOTALL)\n    return xml\n\n\ndef fix_sect_pr(xml):\n    \"\"\"Add <w:bidi/> to <w:sectPr> if missing (page-level RTL direction).\"\"\"\n    def add_sect_bidi(m):\n        sect = m.group(0)\n        if '<w:bidi' in sect:\n            return sect\n        open_tag = re.match(r'<w:sectPr[^>]*>', sect).group(0)\n        return open_tag + '<w:bidi/>' + sect[len(open_tag):]\n    return re.sub(r'<w:sectPr\\b[^>]*>.*?</w:sectPr>', add_sect_bidi, xml, flags=re.DOTALL)\n\n\ndef fix_styles(styles):\n    \"\"\"\n    Fix styles.xml:\n    - Apply bidi/rtl to all existing style definitions\n    - Fix docDefaults to include RTL defaults\n    - Ensure Normal style is explicitly defined as RTL\n    \"\"\"\n    styles = fix_xml(styles)\n\n    # Fix self-closing <w:pPrDefault/>\n    styles = styles.replace('<w:pPrDefault/>',\n        '<w:pPrDefault><w:pPr><w:bidi/></w:pPr></w:pPrDefault>')\n\n    # Fix self-closing <w:rPrDefault/>\n    styles = styles.replace('<w:rPrDefault/>',\n        '<w:rPrDefault><w:rPr><w:rtl/></w:rPr></w:rPrDefault>')\n\n    # Ensure Normal style exists explicitly \u2014 if Word doesn't find it, it\n    # auto-generates Normal as LTR and that overrides everything else.\n    if 'styleId=\"Normal\"' not in styles:\n        normal = (\n            '<w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\">'\n            '<w:name w:val=\"Normal\"/>'\n            '<w:pPr><w:bidi/></w:pPr>'\n            '<w:rPr><w:rtl/></w:rPr>'\n            '</w:style>'\n        )\n        # Insert right after </w:docDefaults>\n        styles = styles.replace('</w:docDefaults>', '</w:docDefaults>' + normal, 1)\n\n    return styles\n\n\ndef fix_numbering(num):\n    \"\"\"\n    Fix numbering.xml for RTL bullet lists.\n\n    In RTL paragraphs, jc values are physically reversed:\n    - lvlJc=left means the physical right side (natural RTL start) \u2014 correct\n    - lvlJc=right means the physical left side \u2014 wrong for RTL bullets\n\n    Indentation must also flip:\n    - ind w:right indents from the right margin \u2014 correct for RTL\n    - ind w:left indents from the left margin \u2014 wrong for RTL\n    \"\"\"\n    # lvlJc=right is physical left in RTL \u2014 flip to left (physical right)\n    num = num.replace('<w:lvlJc w:val=\"right\"/>', '<w:lvlJc w:val=\"left\"/>')\n\n    # ind w:left indents from the wrong side \u2014 switch to w:right\n    num = re.sub(\n        r'<w:ind w:left=\"(\\d+)\" w:hanging=\"(\\d+)\"/>',\n        lambda m: f'<w:ind w:right=\"{m.group(1)}\" w:hanging=\"{m.group(2)}\"/>',\n        num\n    )\n\n    # Also handle ind with only w:left (no hanging)\n    num = re.sub(\n        r'<w:ind w:left=\"(\\d+)\"/>',\n        lambda m: f'<w:ind w:right=\"{m.group(1)}\"/>',\n        num\n    )\n\n    def fix_lvl(m):\n        \"\"\"Add bidi/rtl to each bullet level definition.\"\"\"\n        lvl = m.group(0)\n        # Add <w:bidi/> inside the level's <w:pPr> if missing\n        if '<w:pPr>' in lvl or '<w:pPr ' in lvl:\n            if '<w:bidi' not in lvl:\n                lvl = re.sub(r'</w:pPr>', '<w:bidi/></w:pPr>', lvl, count=1)\n        else:\n            # No pPr at all \u2014 insert one with bidi before </w:lvl>\n            lvl = lvl.replace('</w:lvl>', '<w:pPr><w:bidi/></w:pPr></w:lvl>')\n\n        # Add <w:rtl/> inside the level's <w:rPr> if missing\n        if '<w:rPr>' in lvl or '<w:rPr ' in lvl:\n            if '<w:rtl' not in lvl:\n                lvl = re.sub(r'</w:rPr>', '<w:rtl/></w:rPr>', lvl, count=1)\n        else:\n            # No rPr at all \u2014 insert one with rtl after </w:pPr>\n            lvl = lvl.replace('</w:pPr>', '</w:pPr><w:rPr><w:rtl/></w:rPr>', 1)\n\n        return lvl\n\n    return re.sub(r'<w:lvl\\b.*?</w:lvl>', fix_lvl, num, flags=re.DOTALL)\n\n\ndef validate(docx_path):\n    \"\"\"\n    Print RTL coverage stats and a pass/fail verdict.\n    Run after fixing to confirm correctness before opening in Word.\n    \"\"\"\n    with zipfile.ZipFile(docx_path) as z:\n        doc = z.read('word/document.xml').decode()\n        sty = z.read('word/styles.xml').decode()\n\n    p  = len(re.findall(r'<w:pPr\\b', doc))\n    pb = len(re.findall(r'<w:bidi',  doc))\n    r  = len(re.findall(r'<w:rPr\\b', doc))\n    rb = len(re.findall(r'<w:rtl',   doc))\n\n    normal_defined = 'styleId=\"Normal\"' in sty\n    sect_bidi      = '<w:bidi/>' in doc  # at minimum one bidi present at section level\n\n    print(f\"  bidi coverage : {pb}/{p} paragraphs\")\n    print(f\"  rtl  coverage : {rb}/{r} runs\")\n    print(f\"  Normal style  : {'defined' if normal_defined else 'MISSING'}\")\n\n    ok = (pb == p and rb == r and normal_defined)\n    print(\"  Validation    : OK\" if ok else \"  Validation    : ISSUES FOUND -- inspect XML manually\")\n    return ok\n\n\ndef main(input_path, output_path):\n    # Read every file in the zip into memory\n    with zipfile.ZipFile(input_path, 'r') as zin:\n        file_map = {name: zin.read(name) for name in zin.namelist()}\n\n    # Fix document.xml (paragraphs, runs, section properties)\n    if 'word/document.xml' in file_map:\n        xml = file_map['word/document.xml'].decode('utf-8')\n        xml = fix_xml(xml)\n        xml = fix_sect_pr(xml)\n        file_map['word/document.xml'] = xml.encode('utf-8')\n\n    # Fix styles.xml (Normal style, docDefaults, all style definitions)\n    if 'word/styles.xml' in file_map:\n        sty = file_map['word/styles.xml'].decode('utf-8')\n        file_map['word/styles.xml'] = fix_styles(sty).encode('utf-8')\n\n    # Fix numbering.xml (bullet direction and indentation)\n    if 'word/numbering.xml' in file_map:\n        num = file_map['word/numbering.xml'].decode('utf-8')\n        file_map['word/numbering.xml'] = fix_numbering(num).encode('utf-8')\n\n    # Repack all files into the output docx\n    with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as zout:\n        for name, content in file_map.items():\n            zout.writestr(name, content)\n\n    print(f\"Written: {output_path}\")\n    validate(output_path)\n\n\nif __name__ == '__main__':\n    if len(sys.argv) != 3:\n        print(\"Usage: python3 fix_rtl.py input.docx output.docx\")\n        sys.exit(1)\n    main(sys.argv[1], sys.argv[2])\n"}, {"name": "response.md", "type": "text", "content": "# Why Hebrew .docx Looks Fine in LibreOffice but Breaks in Microsoft Word\n\n## Root Causes\n\nThere are three distinct failures, all invisible to LibreOffice but fatal in Word.\n\n**1. Missing `<w:bidi/>` at the paragraph level**\n\nEvery Hebrew paragraph needs `<w:bidi/>` inside its `<w:pPr>` block. Without it, Word renders the paragraph left-to-right. This is the direct cause of left-aligned text and bullets appearing on the left side. LibreOffice applies RTL heuristically based on character detection and doesn't require this flag, so it masks the bug entirely.\n\n**2. Missing `<w:rtl/>` at the run level**\n\nEvery text run needs `<w:rtl/>` inside its `<w:rPr>` block. Without it, punctuation drifts to the wrong side and mixed Hebrew-English sentences come out scrambled. A paragraph can have `<w:bidi/>` set correctly and still fail this second requirement \u2014 both levels must be present simultaneously.\n\n**3. Normal style not defined explicitly in styles.xml**\n\nIf `styles.xml` does not include an explicit Normal paragraph style marked as RTL, Word auto-generates one as LTR on open and it overrides everything else. This single root cause can undo all other fixes. The Normal style must appear in `styles.xml` with `<w:bidi/>` in its `<w:pPr>` and `<w:rtl/>` in its `<w:rPr>`.\n\n**Bonus: Numbering (bullets) direction errors**\n\nBullet lists have their own RTL requirements in `numbering.xml`. The physical alignment of bullet levels uses `<w:lvlJc w:val=\"left\"/>` (not `right`) because in RTL paragraphs the `jc` values are physically reversed: `left` means the natural RTL start (right edge of the page). Indentation must use `w:right` (not `w:left`) to indent from the right margin.\n\n## The jc Reversal Rule\n\nIn any paragraph that has `<w:bidi/>`, all `jc` (justification) values are physically reversed:\n\n| `w:jc` value | Physical result in RTL paragraph |\n|---|---|\n| `left` | Right side (natural RTL start) \u2014 correct for headings and body |\n| `both` | Justified |\n| `center` | Centered |\n| `right` | Left side \u2014 never use this in RTL |\n\n## Why LibreOffice Masks All of This\n\nLibreOffice detects Hebrew characters and applies RTL rendering automatically, regardless of whether the underlying XML flags are present. It is not a valid correctness test for Word compatibility. Always verify RTL documents by opening in Microsoft Word, or by running the XML validation script included in `fix_rtl.py`.\n\n## Quick Symptom-to-Cause Table\n\n| Symptom in Word | Root cause |\n|---|---|\n| All text aligns left | Normal style missing from styles.xml |\n| Bullets appear on left side | `lvlJc=right` or `ind w:left` in numbering.xml |\n| Punctuation on wrong side | Run missing `<w:rtl/>` |\n| Mixed Hebrew-English scrambled | Paragraph has `<w:bidi/>` but run lacks `<w:rtl/>` |\n| New text typed in Word reverts to LTR | docDefaults in styles.xml not fixed |\n| Table columns in wrong order | Missing `<w:bidiVisual/>` in table properties |\n"}], "grading": {"expectations": [{"text": "explains_two_level_rtl", "passed": true, "evidence": "Both bidi (paragraph) and rtl (run) levels mentioned"}, {"text": "mentions_normal_style", "passed": true, "evidence": "Normal style issue addressed"}, {"text": "mentions_libreoffice_unreliable", "passed": true, "evidence": "LibreOffice mentioned"}, {"text": "provides_fix_script", "passed": true, "evidence": "Script with file path handling present"}, {"text": "script_uses_zipfile", "passed": true, "evidence": "zipfile import in fix script"}, {"text": "script_fixes_numbering", "passed": true, "evidence": "numbering.xml handling in script"}], "passed": 6, "total": 6}}, {"id": "eval-fix-script-without_skill", "prompt": "My Hebrew Word document looks perfect in LibreOffice \u2014 text is right-aligned, bullets are on the right. But when I open it in Microsoft Word, all the text is left-aligned and the bullet points appear on the left side. What are the root causes of this? Please provide a complete Python script that I can run on any Hebrew .docx to fix these RTL issues, without needing to unpack the file manually.", "eval_id": 3, "outputs": [{"name": "fix_rtl.py", "type": "text", "content": "#!/usr/bin/env python3\n\"\"\"\nHebrew RTL Fixer for existing .docx files\n------------------------------------------\nFixes Hebrew Word documents that render correctly in LibreOffice but break\nin Microsoft Word (left-aligned text, wrong-side bullets, scrambled mixed content).\n\nUsage:\n    python3 fix_rtl.py input.docx output.docx\n\nWhat it fixes:\n    - Adds <w:bidi/> to every paragraph that lacks it (word/document.xml + styles.xml)\n    - Adds <w:rtl/> to every run that lacks it\n    - Ensures Normal style is defined explicitly as RTL (prevents Word from auto-creating LTR)\n    - Fixes numbering.xml: lvlJc direction, indent direction, bidi/rtl in bullet levels\n\nNo external dependencies \u2014 uses only Python stdlib (zipfile, re, sys).\n\"\"\"\n\nimport re, sys, zipfile\n\n\ndef add_bidi(m):\n    \"\"\"Add <w:bidi/> to a <w:pPr> block, after <w:pStyle> if present.\"\"\"\n    ppr = m.group(0)\n    if '<w:bidi' in ppr:\n        return ppr\n    open_tag = re.match(r'<w:pPr[^>]*>', ppr).group(0)\n    rest = ppr[len(open_tag):]\n    style_m = re.match(r'(\\s*<w:pStyle[^/]*/>\\s*)', rest)\n    if style_m:\n        return open_tag + style_m.group(1) + '<w:bidi/>' + rest[len(style_m.group(1)):]\n    return open_tag + '<w:bidi/>' + rest\n\n\ndef add_rtl(m):\n    \"\"\"Add <w:rtl/> to a <w:rPr> block.\"\"\"\n    rpr = m.group(0)\n    if '<w:rtl' in rpr:\n        return rpr\n    return rpr.replace('</w:rPr>', '<w:rtl/></w:rPr>')\n\n\ndef fix_xml(xml):\n    \"\"\"Apply bidi + rtl fixes to any OOXML string (document.xml or styles.xml).\"\"\"\n    # Fix non-empty <w:pPr> blocks\n    xml = re.sub(r'<w:pPr\\b[^>]*>.*?</w:pPr>', add_bidi, xml, flags=re.DOTALL)\n    # Fix self-closing <w:pPr/>\n    xml = xml.replace('<w:pPr/>', '<w:pPr><w:bidi/></w:pPr>')\n    # Fix <w:rPr> blocks\n    xml = re.sub(r'<w:rPr\\b.*?</w:rPr>', add_rtl, xml, flags=re.DOTALL)\n    return xml\n\n\ndef fix_styles(styles):\n    \"\"\"\n    Fix styles.xml:\n    - Apply bidi/rtl to all style definitions\n    - Fix <w:pPrDefault/> (self-closing default paragraph props)\n    - Insert explicit Normal style if missing (prevents Word from auto-creating it as LTR)\n    - Fix docDefaults rPrDefault if present but lacks <w:rtl/>\n    \"\"\"\n    styles = fix_xml(styles)\n\n    # Fix self-closing pPrDefault\n    styles = styles.replace(\n        '<w:pPrDefault/>',\n        '<w:pPrDefault><w:pPr><w:bidi/></w:pPr></w:pPrDefault>'\n    )\n\n    # Insert Normal style if absent\n    if 'styleId=\"Normal\"' not in styles:\n        normal = (\n            '<w:style w:type=\"paragraph\" w:default=\"1\" w:styleId=\"Normal\">'\n            '<w:name w:val=\"Normal\"/>'\n            '<w:pPr><w:bidi/></w:pPr>'\n            '<w:rPr><w:rtl/></w:rPr>'\n            '</w:style>'\n        )\n        # Insert right after </w:docDefaults>\n        styles = styles.replace('</w:docDefaults>', '</w:docDefaults>' + normal, 1)\n\n    return styles\n\n\ndef fix_numbering(num):\n    \"\"\"\n    Fix numbering.xml:\n    - lvlJc=right means physical LEFT in RTL paragraphs \u2014 flip to left (physical right)\n    - ind w:left indents from the wrong side \u2014 switch to w:right\n    - Add <w:bidi/> and <w:rtl/> to each bullet level's pPr/rPr\n    \"\"\"\n    # Flip bullet anchor side\n    num = num.replace('<w:lvlJc w:val=\"right\"/>', '<w:lvlJc w:val=\"left\"/>')\n\n    # Flip indent side: w:left -> w:right (keep hanging value)\n    num = re.sub(\n        r'<w:ind w:left=\"(\\d+)\" w:hanging=\"(\\d+)\"/>',\n        lambda m: f'<w:ind w:right=\"{m.group(1)}\" w:hanging=\"{m.group(2)}\"/>',\n        num\n    )\n\n    def fix_lvl(m):\n        lvl = m.group(0)\n        # Add <w:bidi/> inside <w:pPr> if not already there\n        if '<w:bidi' not in lvl:\n            lvl = re.sub(\n                r'(</w:pPr>)',\n                r'<w:bidi/>\\1',\n                lvl,\n                count=1\n            )\n        # Add <w:jc w:val=\"left\"/> inside <w:pPr> if not already there\n        # (physical right in RTL \u2014 where bullets should anchor)\n        if '<w:jc' not in lvl:\n            lvl = re.sub(\n                r'(</w:pPr>)',\n                r'<w:jc w:val=\"left\"/>\\1',\n                lvl,\n                count=1\n            )\n        # Add <w:rPr><w:rtl/></w:rPr> if no rPr block exists in this level\n        if '<w:rPr>' not in lvl:\n            lvl = re.sub(\n                r'(</w:pPr>)',\n                r'\\1<w:rPr><w:rtl/></w:rPr>',\n                lvl,\n                count=1\n            )\n        else:\n            # rPr exists \u2014 ensure it has <w:rtl/>\n            lvl = re.sub(r'<w:rPr\\b.*?</w:rPr>', add_rtl, lvl, flags=re.DOTALL)\n        return lvl\n\n    num = re.sub(r'<w:lvl\\b.*?</w:lvl>', fix_lvl, num, flags=re.DOTALL)\n    return num\n\n\ndef fix_sectpr(doc):\n    \"\"\"\n    Ensure the section properties (<w:sectPr>) contain <w:bidi/> so the\n    overall page layout is right-to-left (paragraph direction default).\n    \"\"\"\n    def add_bidi_to_sectpr(m):\n        sectpr = m.group(0)\n        if '<w:bidi' in sectpr:\n            return sectpr\n        return sectpr.replace('</w:sectPr>', '<w:bidi/></w:sectPr>', 1)\n\n    return re.sub(r'<w:sectPr\\b.*?</w:sectPr>', add_bidi_to_sectpr, doc, flags=re.DOTALL)\n\n\ndef validate(docx_path):\n    \"\"\"Print RTL coverage stats for the output file.\"\"\"\n    with zipfile.ZipFile(docx_path) as z:\n        doc = z.read('word/document.xml').decode('utf-8')\n        sty = z.read('word/styles.xml').decode('utf-8')\n\n    p  = len(re.findall(r'<w:pPr\\b', doc))\n    pb = len(re.findall(r'<w:bidi',  doc))\n    r  = len(re.findall(r'<w:rPr\\b', doc))\n    rb = len(re.findall(r'<w:rtl',   doc))\n\n    print(f\"  bidi coverage : {pb}/{p} paragraphs\")\n    print(f\"  rtl  coverage : {rb}/{r} runs\")\n    print(f\"  Normal style  : {'styleId=\\\"Normal\\\"' in sty}\")\n    print(f\"  sectPr bidi   : {'<w:bidi' in re.search(r'<w:sectPr.*?</w:sectPr>', doc, re.DOTALL).group(0) if re.search(r'<w:sectPr.*?</w:sectPr>', doc, re.DOTALL) else False}\")\n\n    ok = (\n        pb == p and\n        rb == r and\n        'styleId=\"Normal\"' in sty\n    )\n    print(\"  Validation    : OK\" if ok else \"  Validation    : ISSUES FOUND \u2014 inspect XML manually\")\n    return ok\n\n\ndef main(input_path, output_path):\n    # Read all files from the input ZIP into memory\n    with zipfile.ZipFile(input_path, 'r') as zin:\n        file_map = {name: zin.read(name) for name in zin.namelist()}\n\n    # Fix document.xml (paragraphs and runs)\n    if 'word/document.xml' in file_map:\n        xml = file_map['word/document.xml'].decode('utf-8')\n        xml = fix_xml(xml)\n        xml = fix_sectpr(xml)\n        file_map['word/document.xml'] = xml.encode('utf-8')\n\n    # Fix styles.xml (style definitions + Normal style)\n    if 'word/styles.xml' in file_map:\n        sty = file_map['word/styles.xml'].decode('utf-8')\n        file_map['word/styles.xml'] = fix_styles(sty).encode('utf-8')\n\n    # Fix numbering.xml (bullet direction)\n    if 'word/numbering.xml' in file_map:\n        num = file_map['word/numbering.xml'].decode('utf-8')\n        file_map['word/numbering.xml'] = fix_numbering(num).encode('utf-8')\n\n    # Write the corrected .docx\n    with zipfile.ZipFile(output_path, 'w', zipfile.ZIP_DEFLATED) as zout:\n        for name, content in file_map.items():\n            zout.writestr(name, content)\n\n    print(f\"Written: {output_path}\")\n    validate(output_path)\n\n\nif __name__ == '__main__':\n    if len(sys.argv) != 3:\n        print(\"Usage: python3 fix_rtl.py input.docx output.docx\")\n        sys.exit(1)\n    main(sys.argv[1], sys.argv[2])\n"}, {"name": "response.md", "type": "text", "content": "# Hebrew .docx RTL: Root Causes and Fix\n\n## Why it looks fine in LibreOffice but breaks in Word\n\nLibreOffice applies RTL rendering heuristically \u2014 it detects Hebrew characters and renders them right-aligned regardless of what the XML actually says. Microsoft Word is strict: it only applies RTL layout when the XML explicitly declares it. So a document that was never given proper RTL markup \"works\" in LibreOffice and fails in Word.\n\n---\n\n## The Two Root Causes\n\nEvery Hebrew Word document requires RTL markers at **two independent levels**. Missing either one causes a different class of symptoms.\n\n### Root Cause 1: Missing `<w:bidi/>` in paragraph properties\n\n`<w:bidi/>` inside `<w:pPr>` tells Word to treat the paragraph as a right-to-left paragraph. Without it:\n\n- Text aligns to the left margin instead of the right\n- Bullet points appear on the left side of the paragraph\n- The paragraph's logical start/end are reversed\n\nThis element must appear in every `<w:pPr>` block in `word/document.xml`, in `word/styles.xml` (including the Normal style and docDefaults), and in each bullet level's `<w:pPr>` inside `word/numbering.xml`.\n\n### Root Cause 2: Missing `<w:rtl/>` in run properties\n\n`<w:rtl/>` inside `<w:rPr>` tells Word that the text run is RTL at the character level. Without it:\n\n- Punctuation drifts to the wrong side (period or comma appears at the start of a line instead of the end)\n- Mixed Hebrew-English sentences are rendered in the wrong visual order\n- Parentheses and quotation marks face the wrong direction\n\nThis element must appear in every `<w:rPr>` block.\n\n### Root Cause 3: Normal style auto-created by Word as LTR\n\nIf `word/styles.xml` does not contain an explicit definition for the `Normal` style, Word silently auto-generates one as LTR when the file is opened. This overrides any RTL settings you applied to individual paragraphs. The Normal style must be defined explicitly with both `<w:bidi/>` and `<w:rtl/>`.\n\n### Root Cause 4: Numbering (bullet) direction wrong in `word/numbering.xml`\n\nBullet levels use `<w:lvlJc>` to control the side the bullet sits on. In RTL paragraphs, the `jc` axis is **reversed** \u2014 `val=\"left\"` means physical right (correct for RTL), and `val=\"right\"` means physical left (wrong). Similarly, paragraph indentation uses `w:left` and `w:right` attributes that must be on the correct side. LibreOffice handles this transparently; Word does not.\n\n---\n\n## The `jc` Reversal Trap\n\nInside any `<w:bidi/>` paragraph, alignment values map to the **opposite physical side**:\n\n| `w:jc` value | Physical result in RTL paragraph |\n|---|---|\n| `left` | Right side (the natural RTL start) \u2014 use this for body/headings |\n| `both` | Justified |\n| `center` | Centered |\n| `right` | **Left side \u2014 never use this in Hebrew paragraphs** |\n\n---\n\n## Symptom-to-Cause Table\n\n| Symptom in Word | Root cause |\n|---|---|\n| All text left-aligned | Missing `<w:bidi/>` in paragraphs OR Normal style auto-created as LTR |\n| Bullet points on the left | `lvlJc=right` or `ind w:left` in numbering.xml |\n| Period/comma on wrong side | Missing `<w:rtl/>` in run properties |\n| Mixed Hebrew-English scrambled | Paragraph has `<w:bidi/>` but run lacks `<w:rtl/>` |\n| New text typed in Word reverts to LTR | docDefaults or Normal style not fixed in styles.xml |\n| Table columns in wrong order | Missing `<w:bidiVisual/>` in `<w:tblPr>` |\n| Looks fine in LibreOffice | LibreOffice is not a valid RTL correctness test \u2014 always verify in Word |\n\n---\n\n## The Fix Script\n\n`fix_rtl.py` in this directory repairs all four root causes on any existing `.docx` without unpacking it manually. It uses Python's built-in `zipfile` module \u2014 no dependencies needed.\n\n```\npython3 fix_rtl.py input.docx output.docx\n```\n\nWhat it does:\n1. Reads every file inside the .docx ZIP\n2. In `word/document.xml`: adds `<w:bidi/>` to every `<w:pPr>`, adds `<w:rtl/>` to every `<w:rPr>`\n3. In `word/styles.xml`: same fixes plus inserts an explicit `Normal` style if absent, fixes `<w:pPrDefault/>`\n4. In `word/numbering.xml`: flips `lvlJc=right` to `lvlJc=left`, switches `ind w:left` to `ind w:right`, adds `<w:bidi/>` and `<w:rtl/>` to each bullet level\n5. Writes the corrected .docx and prints a validation summary\n\nThe output file can be opened directly in Microsoft Word.\n"}], "grading": {"expectations": [{"text": "explains_two_level_rtl", "passed": true, "evidence": "Both bidi (paragraph) and rtl (run) levels mentioned"}, {"text": "mentions_normal_style", "passed": true, "evidence": "Normal style issue addressed"}, {"text": "mentions_libreoffice_unreliable", "passed": true, "evidence": "LibreOffice mentioned"}, {"text": "provides_fix_script", "passed": true, "evidence": "Script with file path handling present"}, {"text": "script_uses_zipfile", "passed": true, "evidence": "zipfile import in fix script"}, {"text": "script_fixes_numbering", "passed": true, "evidence": "numbering.xml handling in script"}], "passed": 6, "total": 6}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "hebrew-rtl-docx", "skill_path": "/home/user/shmags-2/.claude/skills/hebrew-rtl-docx", "executor_model": "claude-sonnet-4-6", "timestamp": "2026-06-17T07:49:00Z", "evals_run": ["assignment-summary", "energy-table", "fix-script"], "runs_per_configuration": 1, "note": "Baseline agents had skill description in context (project-level skill auto-loads). Comparison is 'full skill body + explicit follow instruction' vs 'description only'."}, "runs": [{"eval_id": 1, "eval_name": "assignment-summary", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 6, "failed": 0, "total": 6, "time_seconds": 121.3, "tokens": 47962, "errors": 0}, "expectations": [{"text": "produces_docx", "passed": true, "evidence": "assignment_summary.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm reference"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "11/11 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "11/11 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found in styles.xml"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew Unicode chars in document.xml"}]}, {"eval_id": 1, "eval_name": "assignment-summary", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 6, "failed": 0, "total": 6, "time_seconds": 102.3, "tokens": 46133, "errors": 0}, "expectations": [{"text": "produces_docx", "passed": true, "evidence": "assignment_summary.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm reference"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "12/12 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "12/12 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found in styles.xml"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew Unicode chars in document.xml"}]}, {"eval_id": 2, "eval_name": "energy-table", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 161.8, "tokens": 52087, "errors": 0}, "expectations": [{"text": "produces_docx", "passed": true, "evidence": "energy_report.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "22/22 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "22/22 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found"}, {"text": "table_has_bidi_visual", "passed": true, "evidence": "<w:bidiVisual/> found in document"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew chars present"}]}, {"eval_id": 2, "eval_name": "energy-table", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 124.3, "tokens": 48143, "errors": 0}, "expectations": [{"text": "produces_docx", "passed": true, "evidence": "energy_report.docx found"}, {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm"}, {"text": "bidi_full_coverage", "passed": true, "evidence": "23/23 pPr blocks have bidi"}, {"text": "rtl_full_coverage", "passed": true, "evidence": "23/23 rPr blocks have rtl"}, {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found"}, {"text": "table_has_bidi_visual", "passed": true, "evidence": "<w:bidiVisual/> found in document"}, {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew chars present"}]}, {"eval_id": 3, "eval_name": "fix-script", "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 6, "failed": 0, "total": 6, "time_seconds": 84.8, "tokens": 42321, "errors": 0}, "expectations": [{"text": "explains_two_level_rtl", "passed": true, "evidence": "Both bidi (paragraph) and rtl (run) levels mentioned"}, {"text": "mentions_normal_style", "passed": true, "evidence": "Normal style issue addressed"}, {"text": "mentions_libreoffice_unreliable", "passed": true, "evidence": "LibreOffice mentioned"}, {"text": "provides_fix_script", "passed": true, "evidence": "Script with file path handling present"}, {"text": "script_uses_zipfile", "passed": true, "evidence": "zipfile import in fix script"}, {"text": "script_fixes_numbering", "passed": true, "evidence": "numbering.xml handling in script"}]}, {"eval_id": 3, "eval_name": "fix-script", "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 6, "failed": 0, "total": 6, "time_seconds": 84.9, "tokens": 42330, "errors": 0}, "expectations": [{"text": "explains_two_level_rtl", "passed": true, "evidence": "Both bidi (paragraph) and rtl (run) levels mentioned"}, {"text": "mentions_normal_style", "passed": true, "evidence": "Normal style issue addressed"}, {"text": "mentions_libreoffice_unreliable", "passed": true, "evidence": "LibreOffice mentioned"}, {"text": "provides_fix_script", "passed": true, "evidence": "Script with file path handling present"}, {"text": "script_uses_zipfile", "passed": true, "evidence": "zipfile import in fix script"}, {"text": "script_fixes_numbering", "passed": true, "evidence": "numbering.xml handling in script"}]}], "run_summary": {"with_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 122.6, "stddev": 38.5, "min": 84.8, "max": 161.8}, "tokens": {"mean": 47457, "stddev": 4884, "min": 42321, "max": 52087}}, "without_skill": {"pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0}, "time_seconds": {"mean": 103.8, "stddev": 19.8, "min": 84.9, "max": 124.3}, "tokens": {"mean": 45535, "stddev": 3119, "min": 42330, "max": 48143}}, "delta": {"pass_rate": "+0.00", "time_seconds": "+18.8", "tokens": "+1922"}}, "notes": ["All assertions pass 100% in both configurations \u2014 assertions are non-discriminating for this eval set", "Root cause: project-level skill auto-loads description into all agent contexts, so baseline agents had the key rules (Python+zipfile, two-level RTL) from the description alone", "Skill adds ~19s and ~1900 tokens on average \u2014 cost of reading and following the full skill body", "Real value of the skill is not captured by these evals: bundled reusable scripts, fix_rtl.py (saves 50+ lines of boilerplate), and consistency across edge cases", "Iteration 2 recommendation: redesign evals to use a broken pre-built docx that requires running fix_rtl.py, and test mixed Hebrew+English edge cases", "Bug found: validation regex r'<w:bidi' matches <w:bidiVisual/> and sectPr bidi, causing false ISSUES FOUND on correct documents \u2014 fixed in scripts but not yet in SKILL.md inline snippet"]}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

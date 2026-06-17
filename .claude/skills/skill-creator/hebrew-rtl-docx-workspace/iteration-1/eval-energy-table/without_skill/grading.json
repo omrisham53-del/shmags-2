@@ -1,0 +1,41 @@
+{
+  "expectations": [
+    {
+      "text": "produces_docx",
+      "passed": true,
+      "evidence": "energy_report.docx found"
+    },
+    {
+      "text": "uses_python_zipfile",
+      "passed": true,
+      "evidence": "zipfile import present, no npm"
+    },
+    {
+      "text": "bidi_full_coverage",
+      "passed": true,
+      "evidence": "23/23 pPr blocks have bidi"
+    },
+    {
+      "text": "rtl_full_coverage",
+      "passed": true,
+      "evidence": "23/23 rPr blocks have rtl"
+    },
+    {
+      "text": "normal_style_defined",
+      "passed": true,
+      "evidence": "styleId='Normal' found"
+    },
+    {
+      "text": "table_has_bidi_visual",
+      "passed": true,
+      "evidence": "<w:bidiVisual/> found in document"
+    },
+    {
+      "text": "has_hebrew_text",
+      "passed": true,
+      "evidence": "Hebrew chars present"
+    }
+  ],
+  "passed": 7,
+  "total": 7
+}

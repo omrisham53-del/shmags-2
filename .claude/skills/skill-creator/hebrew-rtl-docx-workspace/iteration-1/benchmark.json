@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "skill_name": "hebrew-rtl-docx",
+    "skill_path": "/home/user/shmags-2/.claude/skills/hebrew-rtl-docx",
+    "executor_model": "claude-sonnet-4-6",
+    "timestamp": "2026-06-17T07:49:00Z",
+    "evals_run": ["assignment-summary", "energy-table", "fix-script"],
+    "runs_per_configuration": 1,
+    "note": "Baseline agents had skill description in context (project-level skill auto-loads). Comparison is 'full skill body + explicit follow instruction' vs 'description only'."
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "eval_name": "assignment-summary",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 121.3,
+        "tokens": 47962,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "produces_docx", "passed": true, "evidence": "assignment_summary.docx found"},
+        {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm reference"},
+        {"text": "bidi_full_coverage", "passed": true, "evidence": "11/11 pPr blocks have bidi"},
+        {"text": "rtl_full_coverage", "passed": true, "evidence": "11/11 rPr blocks have rtl"},
+        {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found in styles.xml"},
+        {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew Unicode chars in document.xml"}
+      ]
+    },
+    {
+      "eval_id": 1,
+      "eval_name": "assignment-summary",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 102.3,
+        "tokens": 46133,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "produces_docx", "passed": true, "evidence": "assignment_summary.docx found"},
+        {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm reference"},
+        {"text": "bidi_full_coverage", "passed": true, "evidence": "12/12 pPr blocks have bidi"},
+        {"text": "rtl_full_coverage", "passed": true, "evidence": "12/12 rPr blocks have rtl"},
+        {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found in styles.xml"},
+        {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew Unicode chars in document.xml"}
+      ]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "energy-table",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 161.8,
+        "tokens": 52087,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "produces_docx", "passed": true, "evidence": "energy_report.docx found"},
+        {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm"},
+        {"text": "bidi_full_coverage", "passed": true, "evidence": "22/22 pPr blocks have bidi"},
+        {"text": "rtl_full_coverage", "passed": true, "evidence": "22/22 rPr blocks have rtl"},
+        {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found"},
+        {"text": "table_has_bidi_visual", "passed": true, "evidence": "<w:bidiVisual/> found in document"},
+        {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew chars present"}
+      ]
+    },
+    {
+      "eval_id": 2,
+      "eval_name": "energy-table",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 124.3,
+        "tokens": 48143,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "produces_docx", "passed": true, "evidence": "energy_report.docx found"},
+        {"text": "uses_python_zipfile", "passed": true, "evidence": "zipfile import present, no npm"},
+        {"text": "bidi_full_coverage", "passed": true, "evidence": "23/23 pPr blocks have bidi"},
+        {"text": "rtl_full_coverage", "passed": true, "evidence": "23/23 rPr blocks have rtl"},
+        {"text": "normal_style_defined", "passed": true, "evidence": "styleId='Normal' found"},
+        {"text": "table_has_bidi_visual", "passed": true, "evidence": "<w:bidiVisual/> found in document"},
+        {"text": "has_hebrew_text", "passed": true, "evidence": "Hebrew chars present"}
+      ]
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "fix-script",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 84.8,
+        "tokens": 42321,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "explains_two_level_rtl", "passed": true, "evidence": "Both bidi (paragraph) and rtl (run) levels mentioned"},
+        {"text": "mentions_normal_style", "passed": true, "evidence": "Normal style issue addressed"},
+        {"text": "mentions_libreoffice_unreliable", "passed": true, "evidence": "LibreOffice mentioned"},
+        {"text": "provides_fix_script", "passed": true, "evidence": "Script with file path handling present"},
+        {"text": "script_uses_zipfile", "passed": true, "evidence": "zipfile import in fix script"},
+        {"text": "script_fixes_numbering", "passed": true, "evidence": "numbering.xml handling in script"}
+      ]
+    },
+    {
+      "eval_id": 3,
+      "eval_name": "fix-script",
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 84.9,
+        "tokens": 42330,
+        "errors": 0
+      },
+      "expectations": [
+        {"text": "explains_two_level_rtl", "passed": true, "evidence": "Both bidi (paragraph) and rtl (run) levels mentioned"},
+        {"text": "mentions_normal_style", "passed": true, "evidence": "Normal style issue addressed"},
+        {"text": "mentions_libreoffice_unreliable", "passed": true, "evidence": "LibreOffice mentioned"},
+        {"text": "provides_fix_script", "passed": true, "evidence": "Script with file path handling present"},
+        {"text": "script_uses_zipfile", "passed": true, "evidence": "zipfile import in fix script"},
+        {"text": "script_fixes_numbering", "passed": true, "evidence": "numbering.xml handling in script"}
+      ]
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 122.6, "stddev": 38.5, "min": 84.8, "max": 161.8},
+      "tokens": {"mean": 47457, "stddev": 4884, "min": 42321, "max": 52087}
+    },
+    "without_skill": {
+      "pass_rate": {"mean": 1.0, "stddev": 0.0, "min": 1.0, "max": 1.0},
+      "time_seconds": {"mean": 103.8, "stddev": 19.8, "min": 84.9, "max": 124.3},
+      "tokens": {"mean": 45535, "stddev": 3119, "min": 42330, "max": 48143}
+    },
+    "delta": {
+      "pass_rate": "+0.00",
+      "time_seconds": "+18.8",
+      "tokens": "+1922"
+    }
+  },
+  "notes": [
+    "All assertions pass 100% in both configurations — assertions are non-discriminating for this eval set",
+    "Root cause: project-level skill auto-loads description into all agent contexts, so baseline agents had the key rules (Python+zipfile, two-level RTL) from the description alone",
+    "Skill adds ~19s and ~1900 tokens on average — cost of reading and following the full skill body",
+    "Real value of the skill is not captured by these evals: bundled reusable scripts, fix_rtl.py (saves 50+ lines of boilerplate), and consistency across edge cases",
+    "Iteration 2 recommendation: redesign evals to use a broken pre-built docx that requires running fix_rtl.py, and test mixed Hebrew+English edge cases",
+    "Bug found: validation regex r'<w:bidi' matches <w:bidiVisual/> and sectPr bidi, causing false ISSUES FOUND on correct documents — fixed in scripts but not yet in SKILL.md inline snippet"
+  ]
+}

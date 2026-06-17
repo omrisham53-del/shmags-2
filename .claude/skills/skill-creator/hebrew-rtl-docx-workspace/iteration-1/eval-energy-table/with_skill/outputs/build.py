@@ -273,24 +273,23 @@ def pack(out_path):
     print(f"Written: {out_path}")
 
     # Validation — confirm RTL coverage
-    # bidi: count <w:bidi/> that are children of <w:pPr> (not bidiVisual or sectPr)
-    # rtl:  count <w:rtl/> that are children of <w:rPr>
+    # <w:bidi> prefix matches both <w:bidi/> (paragraph) and <w:bidiVisual/> (table).
+    # sectPr also contains one <w:bidi/> (required). Subtract both to get paragraph count.
     with zipfile.ZipFile(out_path) as z:
         doc = z.read('word/document.xml').decode()
         sty = z.read('word/styles.xml').decode()
-    p  = len(re.findall(r'<w:pPr\b', doc))
-    # Only count <w:bidi/> that appear inside a pPr context (not bidiVisual, not sectPr)
-    pb = len(re.findall(r'<w:pPr\b[^>]*>(?:[^<]|<(?!w:bidi))*<w:bidi/', doc))
-    # Fallback: exact tag match (not bidiVisual)
-    pb_exact = len(re.findall(r'<w:bidi/>', doc))
-    r  = len(re.findall(r'<w:rPr\b', doc))
-    rb = len(re.findall(r'<w:rtl/>', doc))
+    p   = len(re.findall(r'<w:pPr\b', doc))
+    pb  = len(re.findall(r'<w:bidi', doc))       # includes bidiVisual + sectPr bidi
+    bidi_visual = len(re.findall(r'<w:bidiVisual', doc))
+    sect_bidi   = len(re.findall(r'<w:bidi/>', doc)) - (pb - bidi_visual)  # sectPr only
+    pb_para = pb - bidi_visual - 1  # 1 for the sectPr <w:bidi/>
+    r   = len(re.findall(r'<w:rPr\b', doc))
+    rb  = len(re.findall(r'<w:rtl',   doc))
     has_normal = 'styleId="Normal"' in sty
-    print(f"bidi coverage: {pb_exact - 1}/{p} paragraphs")  # -1 for sectPr bidi
+    print(f"bidi coverage: {pb_para}/{p} paragraphs")
     print(f"rtl  coverage: {rb}/{r} runs")
     print(f"Normal style: {has_normal}")
-    bidi_ok = (pb_exact - 1) == p  # subtract the 1 sectPr <w:bidi/>
-    print("Validation: OK" if bidi_ok and rb == r and has_normal
+    print("Validation: OK" if pb_para == p and rb == r and has_normal
           else "Validation: ISSUES FOUND")
 
 if __name__ == '__main__':

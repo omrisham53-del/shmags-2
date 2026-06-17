@@ -1,0 +1,36 @@
+{
+  "expectations": [
+    {
+      "text": "explains_two_level_rtl",
+      "passed": true,
+      "evidence": "Both bidi (paragraph) and rtl (run) levels mentioned"
+    },
+    {
+      "text": "mentions_normal_style",
+      "passed": true,
+      "evidence": "Normal style issue addressed"
+    },
+    {
+      "text": "mentions_libreoffice_unreliable",
+      "passed": true,
+      "evidence": "LibreOffice mentioned"
+    },
+    {
+      "text": "provides_fix_script",
+      "passed": true,
+      "evidence": "Script with file path handling present"
+    },
+    {
+      "text": "script_uses_zipfile",
+      "passed": true,
+      "evidence": "zipfile import in fix script"
+    },
+    {
+      "text": "script_fixes_numbering",
+      "passed": true,
+      "evidence": "numbering.xml handling in script"
+    }
+  ],
+  "passed": 6,
+  "total": 6
+}

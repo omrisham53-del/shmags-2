@@ -1,0 +1,36 @@
+{
+  "expectations": [
+    {
+      "text": "produces_docx",
+      "passed": true,
+      "evidence": "assignment_summary.docx found"
+    },
+    {
+      "text": "uses_python_zipfile",
+      "passed": true,
+      "evidence": "zipfile import present, no npm reference"
+    },
+    {
+      "text": "bidi_full_coverage",
+      "passed": true,
+      "evidence": "11/11 pPr blocks have bidi"
+    },
+    {
+      "text": "rtl_full_coverage",
+      "passed": true,
+      "evidence": "11/11 rPr blocks have rtl"
+    },
+    {
+      "text": "normal_style_defined",
+      "passed": true,
+      "evidence": "styleId='Normal' found in styles.xml"
+    },
+    {
+      "text": "has_hebrew_text",
+      "passed": true,
+      "evidence": "Hebrew Unicode chars in document.xml"
+    }
+  ],
+  "passed": 6,
+  "total": 6
+}
