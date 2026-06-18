@@ -19,6 +19,10 @@
 
 2. **Economics seminar paper — full paper written** - Completed the entire 7-section Hebrew paper (per Prof. Lifshitz's PPTX structure). Sections 1-3 (תקציר, הקדמה, סקירת ספרות) written in prior session; sections 4-8 (ניתוח, סיכום, המלצות, ביבליוגרפיה, נספחים) completed this session. In-text (author, year) citations throughout. Charts 01-05 placed: [איור 3] in 4.2, [איורים 1, 2, 4] in 4.3, [איור 5] in 4.4. Chart 06 excluded. Next: Tomer pastes into Word, converts citations to footnotes, assembles final doc.
 
+3. **Upstart program email sent to Ofir** - Explained missed sessions, team presenting without Omri, requested personal assignment option or withdrawal. CC'd Naor (academic instructor). Ofir replied warmly: "need to check what we can do, will update soon." No action needed — awaiting his decision.
+
+4. **Urban Analytics final assignment — reviewed + docs fixed + presentation guide written** - Reviewed all deliverables for Monday's presentation. Regenerated Backup_Memo_v2.docx (clean formatting: Times New Roman 12, 1.15 spacing, proper bold/italic, no markdown artifacts) with all 6 figures embedded. Regenerated Policy_Report_Clean.docx. Removed analysis/eda.py references. Verified all 5 open datasets and both academic articles (Sallis 2016, Oja 2011) exist. Wrote full presentation script as Presentation_Guide.md in the final assignment folder for tomorrow's review with Yonatan. Still pending: convert docs to PDF, get poster from Yonatan, confirm who-did-what split.
+
 ---
 
 ## Recent Work (June 9)
