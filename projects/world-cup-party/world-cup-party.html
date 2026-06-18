@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>גביע העולם 2026 - ערב צפייה</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0d1117;
+            color: #f0f0f0;
+            direction: rtl;
+            min-height: 100vh;
+            padding-bottom: calc(70px + env(safe-area-inset-bottom));
+        }
+
+        .header {
+            background: linear-gradient(135deg, #145214, #0a3a0a);
+            padding: 18px 16px 14px;
+            text-align: center;
+            border-bottom: 3px solid #d4a800;
+        }
+        .header h1 { font-size: 22px; color: #f0c030; font-weight: 900; letter-spacing: 1px; }
+        .header p { font-size: 13px; color: #aaa; margin-top: 4px; }
+
+        .page { display: none; padding: 14px; }
+        .page.active { display: block; }
+
+        .section-title {
+            font-size: 20px; font-weight: 800; color: #f0c030;
+            text-align: center; margin-bottom: 6px;
+            padding-bottom: 10px; border-bottom: 2px solid #222;
+        }
+        .subtitle { text-align: center; font-size: 13px; color: #888; margin-bottom: 16px; margin-top: 2px; }
+
+        .card { background: #161b27; border-radius: 12px; padding: 16px; margin-bottom: 12px; border: 1px solid #252c3f; }
+
+        /* Predictions */
+        .pred-label { font-size: 13px; color: #aaa; margin-top: 14px; margin-bottom: 5px; }
+        .pred-label:first-child { margin-top: 0; }
+        .pred-input {
+            width: 100%; background: #0d1117; border: 1.5px solid #2a3050;
+            border-radius: 8px; padding: 11px 12px; color: #fff;
+            font-size: 15px; direction: rtl; outline: none; -webkit-appearance: none;
+        }
+        .pred-input:focus { border-color: #d4a800; }
+
+        .save-btn {
+            width: 100%; background: #145214; color: #f0c030;
+            border: 2px solid #d4a800; border-radius: 10px;
+            padding: 13px; font-size: 16px; font-weight: 700;
+            cursor: pointer; margin-top: 16px; -webkit-tap-highlight-color: transparent;
+        }
+        .save-btn:active { background: #0a3a0a; }
+
+        .share-section { display: none; margin-top: 14px; }
+        .share-text-box {
+            background: #0a0a15; border: 1px solid #2a3050;
+            border-radius: 8px; padding: 12px; font-size: 13px;
+            color: #a0c0ff; line-height: 1.8; white-space: pre-wrap;
+            margin-bottom: 10px;
+        }
+        .share-btn {
+            width: 100%; background: #1a5a1a; color: #fff;
+            border: none; border-radius: 10px; padding: 13px;
+            font-size: 16px; font-weight: 700; cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .share-btn:active { background: #0a3a0a; }
+
+        /* Bingo */
+        .bingo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 8px; }
+        .bingo-cell {
+            background: #0e4a1a; border-radius: 8px; padding: 8px 4px;
+            text-align: center; font-size: 11px;
+            border: 2px solid transparent; min-height: 64px;
+            display: flex; align-items: center; justify-content: center;
+            line-height: 1.35; user-select: none; -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
+        }
+        .bingo-cell.marked { background: #d4a800; color: #000; font-weight: 700; border-color: #fff; }
+        .bingo-win-banner {
+            display: none; background: #d4a800; color: #000;
+            text-align: center; padding: 12px; border-radius: 10px;
+            font-size: 18px; font-weight: 900; margin-bottom: 10px;
+        }
+        .reset-btn {
+            background: #2a2a3a; color: #aaa; border: 1px solid #3a3a4a;
+            border-radius: 8px; padding: 10px 20px; font-size: 14px;
+            cursor: pointer; margin-top: 12px; width: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Quiz */
+        .question-card { background: #161b27; border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid #252c3f; }
+        .question-num { font-size: 11px; color: #f0c030; font-weight: 600; margin-bottom: 8px; }
+        .question-text { font-size: 15px; font-weight: 700; margin-bottom: 14px; line-height: 1.5; }
+        .option {
+            background: #0d1117; border: 1.5px solid #252c3f;
+            border-radius: 8px; padding: 11px 13px; margin-bottom: 8px;
+            font-size: 14px; line-height: 1.4; cursor: pointer;
+            user-select: none; -webkit-tap-highlight-color: transparent;
+        }
+        .option.correct { background: #0e4a1a; border-color: #2e8b2e; color: #7dff7d; }
+        .option.wrong { background: #4a0e0e; border-color: #8b2e2e; color: #ff7d7d; }
+        .option.reveal { background: #0e4a1a; border-color: #2e8b2e; color: #7dff7d; }
+        .open-q-note { background: #0d1117; border: 1.5px solid #252c3f; border-radius: 8px; padding: 11px 13px; font-size: 13px; color: #888; line-height: 1.5; }
+
+        /* שאלו עמרי */
+        .omri-card { background: #0a1625; border: 2px solid #1e5080; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .omri-q { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.5; }
+        .omri-hint { font-size: 12px; color: #557799; font-style: italic; }
+
+        /* Bonus */
+        .bonus-card { background: #1a0808; border: 2px solid #7a1010; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .bonus-tag { font-size: 11px; font-weight: 700; color: #e05050; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .bonus-rule { font-size: 12px; color: #cc4444; margin-bottom: 12px; padding: 8px 10px; background: #2a0808; border-radius: 6px; border-right: 3px solid #cc4444; }
+        .bonus-q { font-size: 15px; font-weight: 700; line-height: 1.5; }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #0a0d14; border-top: 2px solid #d4a800;
+            display: flex; z-index: 9999;
+            height: calc(64px + env(safe-area-inset-bottom));
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .nav-btn {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 6px 2px; cursor: pointer; font-size: 9.5px;
+            color: #555; background: none; border: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation; user-select: none; gap: 3px;
+        }
+        .nav-btn.active { color: #f0c030; }
+        .nav-icon { font-size: 20px; line-height: 1; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>גביע העולם 2026</h1>
+    <p>ערב צפייה - 17 ביוני, 20:00</p>
+</div>
+
+<!-- PREDICTIONS -->
+<div class="page active" id="page-pred">
+    <div class="section-title">ניחושים</div>
+    <p class="subtitle">מלאו לפני הקיקאוף ושתפו בקבוצה</p>
+    <div class="card">
+        <div class="pred-label">שמך</div>
+        <input class="pred-input" id="pred-name" type="text" placeholder="שם...">
+        <div class="pred-label">תוצאה סופית (לדוגמה: 2-1)</div>
+        <input class="pred-input" id="pred-score" type="text" placeholder="X - X">
+        <div class="pred-label">מי יכניס גול ראשון?</div>
+        <input class="pred-input" id="pred-scorer" type="text" placeholder="שם שחקן...">
+        <div class="pred-label">מי יקבל כרטיס צהוב ראשון?</div>
+        <input class="pred-input" id="pred-yellow" type="text" placeholder="שם שחקן...">
+        <div class="pred-label">מי תוביל בסוף המחצית הראשונה?</div>
+        <input class="pred-input" id="pred-halftime" type="text" placeholder="שם קבוצה / שוויון">
+        <button class="save-btn" id="save-btn">שמור וצור טקסט לשיתוף</button>
+        <div class="share-section" id="share-section">
+            <div class="share-text-box" id="share-text-box"></div>
+            <button class="share-btn" id="share-btn">שלח לקבוצה בוואטסאפ</button>
+        </div>
+    </div>
+    <div class="card" style="font-size:12px; color:#666; text-align:center; line-height:1.7;">
+        שיטת הניקוד:<br>
+        תוצאה מדויקת = 3 נקודות<br>
+        ניחוש מנצחת נכון (לא מדויק) = 1 נקודה<br>
+        גול ראשון נכון = 2 נקודות<br>
+        כרטיס צהוב ראשון נכון = 1 נקודה<br>
+        מי מוביל בהפסקה נכון = 1 נקודה<br>
+        <strong style="color:#888;">מקסימום: 8 נקודות</strong>
+    </div>
+</div>
+
+<!-- BINGO -->
+<div class="page" id="page-bingo">
+    <div class="section-title">בינגו</div>
+    <p class="subtitle">לחצו על כל דבר שקורה. שורה = זכייה!</p>
+    <div class="bingo-win-banner" id="bingo-banner">בינגו! יש לך שורה!</div>
+    <div class="bingo-grid" id="bingo-grid"></div>
+    <button class="reset-btn" id="reset-bingo">איפוס לוח</button>
+</div>
+
+<!-- QUIZ -->
+<div class="page" id="page-quiz">
+    <div class="section-title">חידון חצי המשחק</div>
+    <p class="subtitle">שחקו בהפסקה - מי יודע יותר?</p>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 1 מתוך 8</div>
+        <div class="question-text">כמה פעמים זכתה ברזיל בגביע העולם?</div>
+        <div class="option" data-correct="false">3 פעמים</div>
+        <div class="option" data-correct="false">4 פעמים</div>
+        <div class="option" data-correct="true">5 פעמים</div>
+        <div class="option" data-correct="false">6 פעמים</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 2 מתוך 8</div>
+        <div class="question-text">מי מהשחקנים הבאים זכה הכי הרבה פעמים בגביע העולם?</div>
+        <div class="option" data-correct="true">פלה</div>
+        <div class="option" data-correct="false">ליאונל מסי</div>
+        <div class="option" data-correct="false">קריסטיאנו רונאלדו</div>
+        <div class="option" data-correct="false">לוקה מודריץ'</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 3 מתוך 8</div>
+        <div class="question-text">נכון או לא נכון: מסי ורונאלדו מעולם לא שיחקו יחד באותה קבוצת מועדון</div>
+        <div class="option" data-correct="true">נכון</div>
+        <div class="option" data-correct="false">לא נכון</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 4 מתוך 8 - שאלה פתוחה</div>
+        <div class="question-text">מה זה אופסייד? תסבירו בחמש מילים בלבד. הניסוח הכי ברור זוכה!</div>
+        <div class="open-q-note">שאלה לדיון - עמרי שופט מי מנצחת.</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 5 מתוך 8</div>
+        <div class="question-text">מה מאלה הוא מונח כדורגל אמיתי?</div>
+        <div class="option" data-correct="false">בעיטת ינשוף - בעיטה אחורית מעל הראש</div>
+        <div class="option" data-correct="true">נוטמג - הכנסת כדור בין רגלי היריב</div>
+        <div class="option" data-correct="false">מגע צף - עצירת כדור באוויר בשתי רגליים</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 6 מתוך 8</div>
+        <div class="question-text">איזו מדינה אירחה את גביע העולם 2022?</div>
+        <div class="option" data-correct="false">ערב הסעודית</div>
+        <div class="option" data-correct="false">איחוד האמירויות</div>
+        <div class="option" data-correct="true">קטאר</div>
+        <div class="option" data-correct="false">כווית</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 7 מתוך 8</div>
+        <div class="question-text">כמה פעמים זכתה גרמניה בגביע העולם?</div>
+        <div class="option" data-correct="false">2 פעמים</div>
+        <div class="option" data-correct="false">3 פעמים</div>
+        <div class="option" data-correct="true">4 פעמים</div>
+        <div class="option" data-correct="false">5 פעמים</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 8 מתוך 8</div>
+        <div class="question-text">כמה קבוצות ישתתפו בגביע העולם 2026?</div>
+        <div class="option" data-correct="false">32</div>
+        <div class="option" data-correct="true">48</div>
+        <div class="option" data-correct="false">36</div>
+        <div class="option" data-correct="false">40</div>
+    </div>
+</div>
+
+<!-- שאלו עמרי - GUEST VERSION: questions only, no answers -->
+<div class="page" id="page-omri">
+    <div class="section-title">שאלו את עמרי</div>
+    <p class="subtitle">הוא חושב שהוא יודע הכל. תוכיחו אחרת.</p>
+
+    <div class="omri-card">
+        <div class="omri-q">כמה חילופים מותר לכל קבוצה?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">כמה בעיטות פנדל יש לכל קבוצה בדו-קרב פנדלים?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">כמה כרטיסים צהובים שווים כרטיס אדום (גירוש)?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מהי ליגת האלופות, ומה ההבדל ממשחקי גביע העולם?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מה זה VAR ולמה אנשים שונאים אותו?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מה זה "האט טריק"?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מה ההבדל בין פנדל רגיל לפנדל שוטי?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">באיזה ליגה משחקות הקבוצות החזקות בעולם?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+</div>
+
+<!-- BONUS - GUEST VERSION: questions only, no answers -->
+<div class="page" id="page-bonus">
+    <div class="section-title">שאלות בונוס</div>
+    <p class="subtitle">תשובה נכונה = יתרון במשחקים. תשובה שגויה = שוט!</p>
+
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 1</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">באיזו שנה נוסדה FIFA (ההתאחדות הבינלאומית לכדורגל)?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 2</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">כמה קבוצות השתתפו בגביע העולם הראשון אי פעם (1930)?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 3</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">כמה גולים הבקיע רונאלדו הברזילאי בגביעי עולם לאורך הקריירה?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 4</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">כמה פעמים ארגנטינה זכתה בגביע העולם בסך הכל?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 5</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">איפה שוחק גמר גביע העולם 2026?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 6 - הכי קשה</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">מה המונח לכשמעבירים כדור בין רגלי יריב? (שם המונח בדיוק)</div>
+    </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+    <button class="nav-btn active" data-page="pred">
+        <div class="nav-icon">&#128203;</div>
+        ניחושים
+    </button>
+    <button class="nav-btn" data-page="bingo">
+        <div class="nav-icon">&#127919;</div>
+        בינגו
+    </button>
+    <button class="nav-btn" data-page="quiz">
+        <div class="nav-icon">&#10067;</div>
+        חידון
+    </button>
+    <button class="nav-btn" data-page="omri">
+        <div class="nav-icon">&#128064;</div>
+        עמרי
+    </button>
+    <button class="nav-btn" data-page="bonus">
+        <div class="nav-icon">&#128293;</div>
+        בונוס
+    </button>
+</nav>
+
+<script>
+// Navigation
+document.querySelectorAll('.nav-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var page = this.dataset.page;
+        document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+        document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.getElementById('page-' + page).classList.add('active');
+        this.classList.add('active');
+        window.scrollTo(0, 0);
+    });
+});
+
+// Predictions
+document.getElementById('save-btn').addEventListener('click', function() {
+    var name = document.getElementById('pred-name').value.trim();
+    if (!name) { alert('נא להכניס שם'); return; }
+
+    var data = {
+        name: name,
+        score: document.getElementById('pred-score').value.trim() || 'לא מלאתי',
+        scorer: document.getElementById('pred-scorer').value.trim() || 'לא מלאתי',
+        yellow: document.getElementById('pred-yellow').value.trim() || 'לא מלאתי',
+        halftime: document.getElementById('pred-halftime').value.trim() || 'לא מלאתי'
+    };
+
+    localStorage.setItem('wc-pred-' + name, JSON.stringify(data));
+
+    var text = 'הניחושים של ' + data.name + ':\n' +
+               'תוצאה סופית: ' + data.score + '\n' +
+               'גול ראשון: ' + data.scorer + '\n' +
+               'כרטיס צהוב ראשון: ' + data.yellow + '\n' +
+               'מוביל בהפסקה: ' + data.halftime;
+
+    document.getElementById('share-text-box').textContent = text;
+    document.getElementById('share-section').style.display = 'block';
+});
+
+document.getElementById('share-btn').addEventListener('click', function() {
+    var text = document.getElementById('share-text-box').textContent;
+    if (navigator.share) {
+        navigator.share({ text: text }).catch(function() {});
+    } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(function() { alert('הועתק! הדבק בוואטסאפ'); });
+    } else {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        alert('הועתק! הדבק בוואטסאפ');
+    }
+});
+
+// Bingo
+var bingoItems = [
+    'כרטיס צהוב', 'שחקן נופל דרמטית', '5 קרנות', 'גווול!!!',
+    'שחקן מתווכח עם השופט', 'VAR ביטל שער', 'חגיגת גול מוגזמת', 'חילוף כפול',
+    'כרטיס אדום', 'גול ראש', 'החמצה גדולה', 'שחקן מבזבז זמן',
+    'עצור לפציעה', 'פנדל!', 'מאמן חוגג', 'גול עצמי'
+];
+
+function buildBingo() {
+    var grid = document.getElementById('bingo-grid');
+    grid.innerHTML = '';
+    bingoItems.forEach(function(item) {
+        var cell = document.createElement('div');
+        cell.className = 'bingo-cell';
+        cell.textContent = item;
+        cell.addEventListener('click', function() {
+            this.classList.toggle('marked');
+            checkBingo();
+        });
+        grid.appendChild(cell);
+    });
+}
+
+function checkBingo() {
+    var cells = Array.from(document.querySelectorAll('.bingo-cell'));
+    var lines = [
+        [0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],
+        [0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],
+        [0,5,10,15],[3,6,9,12]
+    ];
+    var won = lines.some(function(line) {
+        return line.every(function(i) { return cells[i].classList.contains('marked'); });
+    });
+    document.getElementById('bingo-banner').style.display = won ? 'block' : 'none';
+}
+
+document.getElementById('reset-bingo').addEventListener('click', function() {
+    document.querySelectorAll('.bingo-cell').forEach(function(c) { c.classList.remove('marked'); });
+    document.getElementById('bingo-banner').style.display = 'none';
+});
+
+// Quiz
+document.querySelectorAll('.option[data-correct]').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+        var card = this.closest('.question-card');
+        if (card.classList.contains('answered')) return;
+        card.classList.add('answered');
+        if (this.dataset.correct === 'true') {
+            this.classList.add('correct');
+        } else {
+            this.classList.add('wrong');
+            var correct = card.querySelector('[data-correct="true"]');
+            if (correct) correct.classList.add('reveal');
+        }
+    });
+});
+
+buildBingo();
+</script>
+</body>
+</html>
