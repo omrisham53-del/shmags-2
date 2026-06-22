@@ -68,6 +68,7 @@ TECHS = [
         savings_pct=0.50,
         std_depr_pct=0.10,
         std_depr_yrs=10,
+        output_unit='kW תרמי',
         notes="החלפת דוד חשמל במשאבת חום | חיסכון אנרגטי ~50% | אורך חיים: 10 vs 15 שנה",
     ),
     dict(
@@ -79,6 +80,7 @@ TECHS = [
         savings_pct=0.20,
         std_depr_pct=0.10,
         std_depr_yrs=10,
+        output_unit='TR',
         notes="שדרוג מערכת קירור תעשייתית | חיסכון ~20% | אורך חיים: 17 vs 15 שנה",
     ),
     dict(
@@ -90,6 +92,7 @@ TECHS = [
         savings_pct=0.20,
         std_depr_pct=0.10,
         std_depr_yrs=10,
+        output_unit='מ"ק/דק',
         notes="מדחסי אוויר עם בקרת מהירות משתנה | חיסכון ~20% | אורך חיים: 12 שנה",
     ),
     dict(
@@ -101,6 +104,7 @@ TECHS = [
         savings_pct=0.50,
         std_depr_pct=0.10,
         std_depr_yrs=10,
+        output_unit='ק"ג/שעה',
         notes="החלפת קיטור מבוסס דלק בקיטור חשמלי | חיסכון ~50% | אורך חיים: 10 vs 15 שנה",
     ),
 ]
@@ -370,8 +374,53 @@ def build_global_sheet(wb):
            f"=IF(ISNUMBER({cl}35),{cl}35*(1-{cl}36),\"PENDING\")",
            fmt=FMT_NIS, align=A_C)
 
-    sc(ws, 44, 2,
-       "* CapEx, עלות אנרגיה שנתית בסיסית ו-OPEX אחר — ממתינים לנתוני רפי. "
+    # ── Section 5: CapEx per Output (normalization) ──
+    ws.merge_cells(start_row=43, start_column=2, end_row=43, end_column=T_END_COL)
+    c43 = ws.cell(row=43, column=2)
+    c43.value = "5. נירמול CapEx לפי תפוקה — השוואה בין-מיזמית"
+    c43.fill  = PatternFill("solid", fgColor="70AD47")
+    c43.font  = Font(name="Arial", bold=True, color="FFFFFF", size=10)
+    c43.alignment = A_R
+
+    norm_meta = [
+        (44, "הספק מותקן / תפוקה נומינלית", "יח' תפוקה", "נתוני רפי",
+             "kW תרמי (משאבות) | TR (צ'ילרים) | מ\"ק/דק (מדחסים) | ק\"ג/שעה (קיטור)",
+             F_INPUT),
+        (45, "CapEx/תפוקה — ציוד בסיסי",    "₪/יח'",     "חישוב",
+             "= CapEx בסיסי ÷ תפוקה מותקנת",
+             F_NONE),
+        (46, "CapEx/תפוקה — ציוד יעיל",     "₪/יח'",     "חישוב",
+             "= CapEx יעיל ÷ תפוקה מותקנת",
+             F_NONE),
+        (47, "ΔCapEx/תפוקה (יעיל − בסיסי)", "₪/יח'",     "חישוב",
+             "= ΔCapEx ÷ תפוקה | עלות נוספת לנירמול | מאפשר השוואה בין מיזמים בגדלים שונים",
+             F_NONE),
+    ]
+    for row, label, units, source, notes, fill in norm_meta:
+        sc(ws, row, 2, label,  font=FONT_N if fill == F_NONE else FONT_P, align=A_R)
+        sc(ws, row, 3, units,  align=A_R)
+        sc(ws, row, 4, source, align=A_R)
+        sc(ws, row, 5, notes,  font=FONT_SM, align=A_R)
+        if fill != F_NONE:
+            ws.cell(row=row, column=2).fill = fill
+
+    for i, tech in enumerate(TECHS):
+        col = T_START_COL + i
+        cl  = get_column_letter(col)
+        sc(ws, 44, col, "PENDING", fill=F_INPUT, font=FONT_P, fmt=FMT_NUM, align=A_C)
+        sc(ws, 44, col).comment = None   # placeholder; unit shown in col E note
+        sc(ws, 45, col,
+           f"=IF(ISNUMBER({cl}30)*ISNUMBER({cl}44),{cl}30/{cl}44,\"PENDING\")",
+           fmt=FMT_NIS, align=A_C)
+        sc(ws, 46, col,
+           f"=IF(ISNUMBER({cl}31)*ISNUMBER({cl}44),{cl}31/{cl}44,\"PENDING\")",
+           fmt=FMT_NIS, align=A_C)
+        sc(ws, 47, col,
+           f"=IF(ISNUMBER({cl}32)*ISNUMBER({cl}44),{cl}32/{cl}44,\"PENDING\")",
+           fmt=FMT_NIS, align=A_C)
+
+    sc(ws, 49, 2,
+       "* CapEx, עלות אנרגיה שנתית בסיסית, תפוקה מותקנת ו-OPEX אחר — ממתינים לנתוני רפי. "
        "% חיסכון אנרגטי אושר על ידי רפי. שאר הנתונים הם הנחות עבודה לאישור.",
        font=FONT_SM)
 
@@ -381,19 +430,23 @@ def build_global_sheet(wb):
         cl = get_column_letter(T_START_COL + i)
         s  = GLOBAL_SHEET
         tech_refs.append({
-            'capex_b':    f"'{s}'!${cl}$30",
-            'capex_e':    f"'{s}'!${cl}$31",
-            'dcapex':     f"'{s}'!${cl}$32",
-            'life_b':     f"'{s}'!${cl}$33",
-            'life_e':     f"'{s}'!${cl}$34",
-            'energy_b':   f"'{s}'!${cl}$35",   # annual energy cost, baseline (₪/yr)
-            'svpct':      f"'{s}'!${cl}$36",
-            'energy_e':   f"'{s}'!${cl}$37",   # annual energy cost, efficient (₪/yr)
-            'degrad':     f"'{s}'!${cl}$38",
-            'opex_o_b':   f"'{s}'!${cl}$39",
-            'opex_o_e':   f"'{s}'!${cl}$40",
-            'opex_e_b':   f"'{s}'!${cl}$41",
-            'opex_e_e':   f"'{s}'!${cl}$42",
+            'capex_b':         f"'{s}'!${cl}$30",
+            'capex_e':         f"'{s}'!${cl}$31",
+            'dcapex':          f"'{s}'!${cl}$32",
+            'life_b':          f"'{s}'!${cl}$33",
+            'life_e':          f"'{s}'!${cl}$34",
+            'energy_b':        f"'{s}'!${cl}$35",   # annual energy cost, baseline (₪/yr)
+            'svpct':           f"'{s}'!${cl}$36",
+            'energy_e':        f"'{s}'!${cl}$37",   # annual energy cost, efficient (₪/yr)
+            'degrad':          f"'{s}'!${cl}$38",
+            'opex_o_b':        f"'{s}'!${cl}$39",
+            'opex_o_e':        f"'{s}'!${cl}$40",
+            'opex_e_b':        f"'{s}'!${cl}$41",
+            'opex_e_e':        f"'{s}'!${cl}$42",
+            'output_cap':      f"'{s}'!${cl}$44",   # rated output capacity
+            'capex_b_per_out': f"'{s}'!${cl}$45",   # ₪ per output unit, baseline
+            'capex_e_per_out': f"'{s}'!${cl}$46",   # ₪ per output unit, efficient
+            'dcapex_per_out':  f"'{s}'!${cl}$47",   # ₪ per output unit, delta
         })
     return tech_refs
 
@@ -892,33 +945,37 @@ def _tech_block(ws, tech, R_start, refs):
 def _summary_block(ws, tech_results, R_start):
     R = R_start
     tech_end_col = 6 + MAX_YRS
-    section_hdr(ws, R, "סיכום השוואתי לפי טכנולוגיה", number=4, col_end=14)
+    section_hdr(ws, R, "סיכום השוואתי לפי טכנולוגיה", number=4, col_end=17)
     R += 1
 
     sc(ws, R, 2,
        f"* מכפיל פחת = '{GLOBAL_SHEET}'!F15 — שנה שם ותוצאות מתעדכנות אוטומטית | "
-       f"OPEX וCapEx ממתינים לנתוני רפי",
+       f"CapEx, עלות אנרגיה ותפוקה ממתינים לנתוני רפי",
        font=FONT_SM, align=A_R)
     R += 1
 
     hdrs = [
-        (2, "טכנולוגיה"),
-        (3, "NPV A (בסיסי)"),
-        (4, "NPV B (יעיל, ללא)"),
-        (5, "NPV C (יעיל, עם)"),
-        (6, "ΔNPV B−A"),
-        (7, "ערך תמריץ C−B"),
-        (8, "ROI A"),
-        (9, "ROI B"),
+        (2,  "טכנולוגיה"),
+        (3,  "NPV A (בסיסי)"),
+        (4,  "NPV B (יעיל, ללא)"),
+        (5,  "NPV C (יעיל, עם)"),
+        (6,  "ΔNPV B−A"),
+        (7,  "ערך תמריץ C−B"),
+        (8,  "ROI A"),
+        (9,  "ROI B"),
         (10, "ROI C"),
         (11, "החזר ΔCapEx B−A (שנים)"),
         (12, "החזר ΔCapEx C−A (שנים)"),
+        (13, "CapEx בסיסי/תפוקה (₪/יח')"),
+        (14, "CapEx יעיל/תפוקה (₪/יח')"),
+        (15, "ΔCapEx/תפוקה (₪/יח')"),
     ]
     for col, lbl in hdrs:
         sc(ws, R, col, lbl, fill=F_SUBHEAD, font=FONT_SH, align=A_C)
     R += 1
 
-    for tech, rmap in tech_results:
+    T_START_COL = 6   # mirrors global sheet layout
+    for idx, (tech, rmap) in enumerate(tech_results):
         sc(ws, R, 2, tech['name_efficient'], font=FONT_N, align=A_R)
         for col, key, fmt, fill in [
             (3,  'npv_a',  FMT_NIS, F_RESULT),
@@ -934,10 +991,21 @@ def _summary_block(ws, tech_results, R_start):
         ]:
             sc(ws, R, col, f"=$F${rmap[key]}",
                fill=fill, fmt=fmt, align=A_C)
+        # CapEx per output — reference global sheet rows 45-47 directly
+        gl_cl = get_column_letter(T_START_COL + idx)
+        for col, row_num, fill in [
+            (13, 45, F_RESULT),
+            (14, 46, F_SCN_B),
+            (15, 47, F_INPUT),
+        ]:
+            sc(ws, R, col,
+               f"=IF(ISNUMBER('{GLOBAL_SHEET}'!${gl_cl}${row_num}),"
+               f"'{GLOBAL_SHEET}'!${gl_cl}${row_num},\"PENDING\")",
+               fill=fill, fmt=FMT_NIS, align=A_C)
         R += 1
 
     sc(ws, R + 1, 2,
-       "** כל ערכי PENDING מתעדכנים אוטומטית עם קבלת נתוני רפי (CapEx, kWh, OPEX אחר)",
+       "** כל ערכי PENDING מתעדכנים אוטומטית עם קבלת נתוני רפי (CapEx, עלות אנרגיה, תפוקה מותקנת, OPEX אחר)",
        font=Font(name="Arial", italic=True, color="FF0000", size=9), align=A_R)
 
 
