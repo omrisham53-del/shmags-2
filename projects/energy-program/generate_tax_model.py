@@ -313,19 +313,19 @@ def build_global_sheet(wb):
     # Row 42: OPEX energy efficient ₪/yr (computed)
 
     param_meta = [
-        (30, "CapEx — ציוד קיים (בסיסי)",              "₪",          "נתוני רפי",      F_INPUT),
-        (31, "CapEx — ציוד יעיל",                       "₪",          "נתוני רפי",      F_INPUT),
-        (32, "ΔCapEx = יעיל − בסיסי",                   "₪",          "חישוב",           F_NONE),
-        (33, "אורך חיים — ציוד בסיסי",                  "שנים",       "ממצאי הנדסה",    F_CONTROL),
-        (34, "אורך חיים — ציוד יעיל",                   "שנים",       "ממצאי הנדסה",    F_CONTROL),
-        (35, 'צריכת חשמל שנתית — בסיסי',               'קוט"ש/שנה',  "נתוני רפי",      F_INPUT),
-        (36, "חיסכון אנרגטי",                           "% מצריכה",   "ממצאי הנדסה",    F_CONTROL),
-        (37, 'צריכת חשמל שנתית — יעיל',                'קוט"ש/שנה',  "חישוב",           F_NONE),
-        (38, "גורם שחיקת ביצועים",                      "%/שנה",      "הנחת עבודה",     F_INPUT),
-        (39, "OPEX אחר — בסיסי (תחזוקה, חלפים...)",    "₪/שנה",      "נתוני רפי",      F_INPUT),
-        (40, "OPEX אחר — יעיל (תחזוקה, חלפים...)",     "₪/שנה",      "נתוני רפי",      F_INPUT),
-        (41, "OPEX אנרגיה שנה 1 — בסיסי",              "₪/שנה",      "חישוב",           F_NONE),
-        (42, "OPEX אנרגיה שנה 1 — יעיל",               "₪/שנה",      "חישוב",           F_NONE),
+        (30, "CapEx — ציוד קיים (בסיסי)",              "₪",        "נתוני רפי",    F_INPUT),
+        (31, "CapEx — ציוד יעיל",                       "₪",        "נתוני רפי",    F_INPUT),
+        (32, "ΔCapEx = יעיל − בסיסי",                   "₪",        "חישוב",         F_NONE),
+        (33, "אורך חיים — ציוד בסיסי",                  "שנים",     "ממצאי הנדסה",  F_CONTROL),
+        (34, "אורך חיים — ציוד יעיל",                   "שנים",     "ממצאי הנדסה",  F_CONTROL),
+        (35, "עלות אנרגיה שנתית — ציוד בסיסי (שנה 1)", "₪/שנה",   "נתוני רפי",    F_INPUT),
+        (36, "חיסכון אנרגטי",                           "% מצריכה", "נתוני רפי",    F_INPUT),
+        (37, "עלות אנרגיה שנתית — ציוד יעיל (שנה 1)",  "₪/שנה",   "חישוב",         F_NONE),
+        (38, "גורם שחיקת ביצועים",                      "%/שנה",    "הנחת עבודה",   F_INPUT),
+        (39, "OPEX אחר — בסיסי (תחזוקה, חלפים...)",    "₪/שנה",    "נתוני רפי",    F_INPUT),
+        (40, "OPEX אחר — יעיל (תחזוקה, חלפים...)",     "₪/שנה",    "נתוני רפי",    F_INPUT),
+        (41, "OPEX אנרגיה שנה 1 — בסיסי",              "₪/שנה",    "חישוב",         F_NONE),
+        (42, "OPEX אנרגיה שנה 1 — יעיל",               "₪/שנה",    "חישוב",         F_NONE),
     ]
     for row, label, units, source, fill in param_meta:
         sc(ws, row, 2, label,  font=FONT_N, align=A_R)
@@ -336,7 +336,7 @@ def build_global_sheet(wb):
     notes_row = {
         30: "⚠ ממתין לנתוני רפי",
         31: "⚠ ממתין לנתוני רפי",
-        35: "⚠ ממתין לנתוני רפי",
+        35: "⚠ ממתין לנתוני רפי | עלות חשמל שנתית לציוד הקיים (ישירות ב-₪, ללא kWh)",
         39: "⚠ ממתין | תחזוקה, חלפים, ביטוח",
         40: "⚠ ממתין | תחזוקה, חלפים, ביטוח",
     }
@@ -355,23 +355,24 @@ def build_global_sheet(wb):
            fmt=FMT_NIS, align=A_C)
         sc(ws, 33, col, tech['lifetime_baseline'],   fill=F_CONTROL, fmt=FMT_YR,  align=A_C)
         sc(ws, 34, col, tech['lifetime_efficient'],  fill=F_CONTROL, fmt=FMT_YR,  align=A_C)
-        sc(ws, 35, col, "PENDING", fill=F_INPUT,  font=FONT_P, fmt=FMT_NUM, align=A_C)
-        sc(ws, 36, col, tech['savings_pct'],         fill=F_CONTROL, fmt=FMT_PCT, align=A_C)
+        sc(ws, 35, col, "PENDING", fill=F_INPUT,  font=FONT_P, fmt=FMT_NIS, align=A_C)
+        sc(ws, 36, col, tech['savings_pct'],         fill=F_INPUT,   fmt=FMT_PCT, align=A_C)
         sc(ws, 37, col,
            f"=IF(ISNUMBER({cl}35),{cl}35*(1-{cl}36),\"PENDING\")",
-           fmt=FMT_NUM, align=A_C)
+           fmt=FMT_NIS, align=A_C)
         sc(ws, 38, col, 0.005, fill=F_INPUT, fmt=FMT_PCT, align=A_C)
         sc(ws, 39, col, "PENDING", fill=F_INPUT, font=FONT_P, fmt=FMT_NIS, align=A_C)
         sc(ws, 40, col, "PENDING", fill=F_INPUT, font=FONT_P, fmt=FMT_NIS, align=A_C)
         sc(ws, 41, col,
-           f"=IF(ISNUMBER({cl}35),{cl}35*$F$12/100,\"PENDING\")",
+           f"=IF(ISNUMBER({cl}35),{cl}35,\"PENDING\")",
            fmt=FMT_NIS, align=A_C)
         sc(ws, 42, col,
-           f"=IF(ISNUMBER({cl}37),{cl}37*$F$12/100,\"PENDING\")",
+           f"=IF(ISNUMBER({cl}35),{cl}35*(1-{cl}36),\"PENDING\")",
            fmt=FMT_NIS, align=A_C)
 
     sc(ws, 44, 2,
-       "* CapEx, kWh ו-OPEX אחר — ממתינים לנתוני רפי. שאר הנתונים הם הנחות עבודה לאישור.",
+       "* CapEx, עלות אנרגיה שנתית בסיסית ו-OPEX אחר — ממתינים לנתוני רפי. "
+       "% חיסכון אנרגטי אושר על ידי רפי. שאר הנתונים הם הנחות עבודה לאישור.",
        font=FONT_SM)
 
     # Build and return cell reference dict for each tech (used by analysis sheet)
@@ -380,19 +381,19 @@ def build_global_sheet(wb):
         cl = get_column_letter(T_START_COL + i)
         s  = GLOBAL_SHEET
         tech_refs.append({
-            'capex_b':  f"'{s}'!${cl}$30",
-            'capex_e':  f"'{s}'!${cl}$31",
-            'dcapex':   f"'{s}'!${cl}$32",
-            'life_b':   f"'{s}'!${cl}$33",
-            'life_e':   f"'{s}'!${cl}$34",
-            'kwh_b':    f"'{s}'!${cl}$35",
-            'svpct':    f"'{s}'!${cl}$36",
-            'kwh_e':    f"'{s}'!${cl}$37",
-            'degrad':   f"'{s}'!${cl}$38",
-            'opex_o_b': f"'{s}'!${cl}$39",
-            'opex_o_e': f"'{s}'!${cl}$40",
-            'opex_e_b': f"'{s}'!${cl}$41",
-            'opex_e_e': f"'{s}'!${cl}$42",
+            'capex_b':    f"'{s}'!${cl}$30",
+            'capex_e':    f"'{s}'!${cl}$31",
+            'dcapex':     f"'{s}'!${cl}$32",
+            'life_b':     f"'{s}'!${cl}$33",
+            'life_e':     f"'{s}'!${cl}$34",
+            'energy_b':   f"'{s}'!${cl}$35",   # annual energy cost, baseline (₪/yr)
+            'svpct':      f"'{s}'!${cl}$36",
+            'energy_e':   f"'{s}'!${cl}$37",   # annual energy cost, efficient (₪/yr)
+            'degrad':     f"'{s}'!${cl}$38",
+            'opex_o_b':   f"'{s}'!${cl}$39",
+            'opex_o_e':   f"'{s}'!${cl}$40",
+            'opex_e_b':   f"'{s}'!${cl}$41",
+            'opex_e_e':   f"'{s}'!${cl}$42",
         })
     return tech_refs
 
