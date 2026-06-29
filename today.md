@@ -8,12 +8,22 @@
 ## Current Priority
 
 - Economics final paper (with Tomer): paste full paper into Word, convert in-text citations to footnotes, assemble with charts, submit
-- Energy program: review `capex_all_rounds.csv` in Excel, compute AVERAGEIF per tech → 4 model CapEx numbers
+- Energy program: tax model blocked on data coverage (per-output only works for chillers). Set Thursday working session with Daniel to decide the fork. Monday = 6-month feedback meeting.
 - Job search: follow up on active applications
 
 ---
 
 ## Today's Completed
+
+1. **Tax incentive model — tested Rafi's per-output restructure, hit a data wall** - Read the real model (`tax model 0.1.xlsx`: 3 sheets, A/B/C scenario engine in `ניתוח פחת מואץ` block AR21:AY35, four tech columns AV/AW/AX/AY). Confirmed the `ניתוח` sheet only reads 8 engine rows (CapEx 23/24/25, degradation 31, OPEX 32-35), so the kWh chain (28-30) is internal and safe to remove. Locked design with Omri: savings entered as ₪ per output unit directly, price NOT a lever, keep row 34 (basic OPEX/unit) so standalone NPVs stay real. Extracted ₪/cooling-ton from grant data (27 chiller rows with capacity in text, median ≈4,186 ₪/ton, mean ≈4,440) and sent Omri an annotated capex file (`עלות לטון קירור` sheet). **Blocker:** only chillers carry capacity data in the grant files; heat pumps / VSD / electric steam have none, so per-output can't be computed for them. Decided NOT to fake it. Taking the fork to Daniel.
+
+2. **Found a bug in the model:** every discounting formula in `ניתוח` reads `/(1+#REF!)^n` — the 6% rate (assumptions F17) isn't wired in, so no NPV currently computes. Fix pending alongside the restructure.
+
+3. **Drafted Outlook email to Daniel** proposing a Thursday working session on the model data-coverage fork (get capacity data for all 4 techs, or keep per-output for chillers only + average-per-installation for the rest). Separate from Monday's 6-month feedback meeting. Draft in chat, hours TBD by Omri.
+
+---
+
+## Recent Work (June 25)
 
 1. **Economics paper — chart 07 built (net savings chart)** - Created new PUE net savings chart showing TCO savings vs PUE 2.2 baseline for all 3 alternatives. Optimal PUE = 1.4 for all alternatives. Peak savings: ₪392M (Alt 0), ₪259M (Alt 1), ₪152M (Alt 2). Script at `Economics Final\charts\build_chart_07.py`.
 
