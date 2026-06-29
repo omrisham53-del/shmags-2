@@ -97,15 +97,11 @@
 
 ---
 
-## Pending — Needs Rafi's Data
+## Rafi's Model Guidance (2026-06-29 call)
 
-- CapEx per technology (₪)
-- Annual energy consumption per technology (kWh/year)
-- Equipment degradation rate (%/year)
-
-## Pending — Needs Daniel's Decision
-
-- Discount rate: 6% (social/national) vs 10% (private/industrial)
+- Energy savings: use % of baseline, not actual kWh/year
+- CapEx: normalize to cost per output unit per technology (e.g. ₪/cooling ton for chillers), not average per installation
+- Interest rate: 6% (per Daniel)
 
 ---
 
