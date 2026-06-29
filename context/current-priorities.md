@@ -1,16 +1,15 @@
 # Current Priorities
 
-*Last updated: 2026-05-13*
+*Last updated: 2026-06-29*
 
 ## Priority 1: Energy Program (Work)
 Grants Excel analysis: DONE. Now writing the chapter for the plan document.  
 **Deadline:** End of June 2026  
 **Owner:** EcoTraders (Manager: Daniel)
 
-## Priority 2: Job Search
-Finding a data analyst or adjacent role, initially in gaming but exploring other sectors. Building connections and networking on LinkedIn.  
-**Goal:** Accept offer by August 2026 for October start  
-**Key activities:** LinkedIn outreach, research, conversations
+## Priority 2: Job Search (PAUSED during trip)
+No longer a persistent hunt. Omri leaves EcoTraders end of August 2026 and starts a multi-month trip in September (hiking, socializing, time for himself), using it to explore what he wants to do next. May look at specific opportunities opportunistically, but not actively applying. Re-evaluate direction on return.  
+**Status:** Paused. Earlier goal (offer by August for October start) is shelved.
 
 ## Priority 3: University Projects
 Complete coursework and assignments. HW #2 (Functional Unit and System Boundary) submitted May 18.  
