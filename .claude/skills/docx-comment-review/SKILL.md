@@ -61,3 +61,13 @@ Files carry a version in the filename. The scheme:
 - Chapters are **Hebrew, RTL**. The scripts are encoding-safe (UTF-8, no terminal box-drawing). When you draft `new_text`, write natural Hebrew that matches the chapter's register.
 - The reviewer author defaults to "Omri" on the tracked changes (it's Omri making the edits in response to Daniel). Pass `--author` if that should differ.
 - Keep the comment bubbles. Omri was explicit: he does not want a clean file with the comments stripped - he and Daniel both need to see the comment sitting next to the revision that answers it.
+
+## Known limits (v1 - revisit after the first real chapter)
+
+Built and tested against synthetic, single-sentence comments. A real Daniel review will likely stress these, so when it does, that's the signal to update the skill rather than force it:
+
+- **Multi-paragraph comment ranges** are skipped, not applied. If Daniel routinely comments across whole sections, `apply_revisions.py` needs to handle ranges that span paragraphs.
+- **Run-level formatting inside the anchored text** (bold, a footnote, a citation in the middle of the commented span) is collapsed - the replacement is inserted as one clean run carrying the first run's formatting. Fine for plain prose, lossy if the anchored text is richly formatted.
+- **Footnotes / tracked footnote edits** aren't handled at all. The program's chapters lean on footnotes heavily (the citation scheme), so editing text that lives in a footnote, or a comment attached to one, is out of scope for v1.
+- **Comments that aren't text edits** - "let's discuss", "check with Rafi", a question - have no `new_text`. The skill should leave these for Omri to reply to Daniel directly; don't invent an edit to make the bubble go away.
+- **Tracked-changes rendering across Word versions** - validated structurally, not visually in Word. First real run, confirm Word shows them as expected before trusting it on a client deliverable.
