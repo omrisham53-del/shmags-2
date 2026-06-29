@@ -21,6 +21,8 @@
 
 3. **Drafted Outlook email to Daniel** proposing a Thursday working session on the model data-coverage fork (get capacity data for all 4 techs, or keep per-output for chillers only + average-per-installation for the rest). Separate from Monday's 6-month feedback meeting. Draft in chat, hours TBD by Omri.
 
+4. **Built the docx-comment-review skill (v1)** - Addresses Daniel's review comments on program chapters as tracked changes. Two scripts: `read_comments.py` (comment bubble + anchored text) and `apply_revisions.py` (approved fixes as w:del/w:ins, keeps bubbles, bumps version 0.2->0.3). Built/tested on synthetic Hebrew files via skill-creator. v1 limits noted in SKILL.md. Runs on work PC against real files; syncs via git. At `.claude/skills/docx-comment-review/`.
+
 ---
 
 ## Recent Work (June 25)
