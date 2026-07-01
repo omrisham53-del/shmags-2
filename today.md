@@ -1,7 +1,7 @@
-# Today - 2026-06-30
+# Today - 2026-07-01
 
-**Date:** 2026-06-30
-**Updated:** 2026-06-30
+**Date:** 2026-07-01
+**Updated:** 2026-07-01
 
 ---
 
@@ -14,6 +14,12 @@
 ---
 
 ## Today's Completed
+
+1. **September Europe trip — route and destination planning** - Locked core 3-month route: Norway → Scotland → London → Ireland → Portugal (Sept 8 - ~Dec 8). Built out conceptual frameworks for each leg: Norway (DNT huts, Jotunheimen, allemannsretten), Scotland (West Highland Way, Glasgow/Edinburgh), Ireland (Galway/Connemara, west coast surf, trad sessions), Portugal (Rota Vicentina, Peniche/Sagres surf, Porto/Lisbon). Discussed and set aside flex destinations (Iceland, Faroe Islands, Basque Country, Galicia, Azores). Next: consult with family member on Norway specifics, then plan each leg in more detail.
+
+---
+
+## Recent Work (June 25)
 
 1. **Economics paper — chart 07 built (net savings chart)** - Created new PUE net savings chart showing TCO savings vs PUE 2.2 baseline for all 3 alternatives. Optimal PUE = 1.4 for all alternatives. Peak savings: ₪392M (Alt 0), ₪259M (Alt 1), ₪152M (Alt 2). Script at `Economics Final\charts\build_chart_07.py`.
 
