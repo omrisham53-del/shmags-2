@@ -42,9 +42,3 @@ Notes:
 - Push only updates a Notion row if at least one field changed.
 - Pull regenerates `tracker.md` from scratch, sorted by Date Found (newest first), grouped by status priority. The file's surrounding prose (legend, etc.) is preserved by the template in `write_tracker()`.
 - Database ID and data-source ID are hardcoded in the script. If the DB is recreated, update `DATABASE_ID` at the top.
-
----
-
-## daily_dashboard.py
-
-Generates the morning dashboard. Scheduled via Windows Task Scheduler at 8:30 AM Asia/Jerusalem. See CLAUDE.md for details.

@@ -63,9 +63,8 @@ Every folder has a single purpose. Don't create files outside the right home.
 | `references/` | Reusable assets and style guides. | Academic style guide, brand assets (fonts, logos), templates. Things you pull from, not produce. |
 | `decisions/` | Append-only decision log. | `log.md` only. Never delete or rewrite entries. |
 | `archives/` | Completed or stale work. | Move here instead of deleting. |
-| `sessions/` | Session notes (Cowork use). | One file per session: `YYYY-MM-DD_topic.md`. Mostly managed by Cowork, not Claude Code. |
-| `scripts/` | Python automation scripts. | `daily_dashboard.py` and similar. |
-| `templates/` | Blank templates for recurring docs. | `session-summary.md` etc. Copy, don't edit directly. |
+| `reviews/` | Weekly-review reports. | Dated `weekly-review-YYYY-MM-DD.md` written by the scheduled `/weekly-review` cloud routine (Fridays). Read, act on flags, don't edit. |
+| `scripts/` | Python automation scripts. | Job sync and similar helpers. |
 | `.claude/` | Claude Code configuration. | `skills/` (natural language triggers), `commands/` (slash), `rules/`, `agents/`, `hooks/`, `settings.json`. |
 
 **Rules to keep it clean:**
