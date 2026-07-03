@@ -15,6 +15,7 @@
 
 ## Today's Completed
 
+1. **Ronni's psychobiology assignment review** - Read all 4 source articles (Bojesen 2026, Jauhar 2018, Wulff 2015, Kegeles 2010) + assignment brief + tips doc. Extracted text from the submitted .docx via Word COM. Generated full Hebrew review report covering: science accuracy per article, 3 missing bibliography entries (Carlsson 2006, Lieberman 1993, Howes et al. 2009), citation formatting errors throughout (first initials in in-text citations, missing commas, Staufer/Stauffer misspelling), figure references that need replacing with text descriptions, integration paragraph word count flag, and science precision notes on GABA-K3 in AN-FEP and the Kegeles causal reversal claim. Assignment folder: `C:\עמרי ורוני\לימודים\מטלת הכירו את המדע\`.
 ---
 
 ## Recent Work (July 1)
