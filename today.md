@@ -7,6 +7,7 @@
 
 ## Current Priority
 
+- **6-month feedback meeting with Daniel today** - review self-eval (הערכה תקופתית 2026), then give notice near the end (proposed last day ~late August, ahead of Sept 8 travel). See decisions/log.md 2026-07-06 for full talking points and reasoning. Outcome (Daniel's reaction, agreed last day, handoff plan) to be logged here after.
 - Economics final paper (with Tomer): paste full paper into Word, convert in-text citations to footnotes, assemble with charts, submit
 - Energy program: review `capex_all_rounds.csv` in Excel, compute AVERAGEIF per tech → 4 model CapEx numbers
 - Job search: follow up on active applications
