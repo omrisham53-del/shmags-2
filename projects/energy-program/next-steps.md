@@ -19,3 +19,13 @@
 **Notes:**
 - Add specific tasks as they become clearer
 - Link to meeting notes in `notes/` folder
+
+## Daniel's Unblocking Suggestion - Baseline Data Points (2026-07-06)
+
+Omri was stuck making progress on the model; Daniel suggested a 3-step process:
+
+1. [x] Find average data points from open sources for a first baseline reference → done, see `baseline-technology-data.md`
+2. [ ] Review with Daniel — confirm popular-spectrum picks and efficiency indicators
+3. [ ] Talk with Rafi for verification — see the "Open Flags for Rafi" section in `baseline-technology-data.md`
+
+Per-technology data points gathered: 2 capacity points on the popular spectrum (for linear interpolation), efficiency indicator, annual operating hours, and power.
