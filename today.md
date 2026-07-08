@@ -1,20 +1,27 @@
-# Today - 2026-07-06
+# Today - 2026-07-07
 
-**Date:** 2026-07-06
-**Updated:** 2026-07-06
+**Date:** 2026-07-07
+**Updated:** 2026-07-07
 
 ---
 
 ## Current Priority
 
-- **6-month feedback meeting with Daniel today** - review self-eval (הערכה תקופתית 2026), then give notice near the end (proposed last day ~late August, ahead of Sept 8 travel). See decisions/log.md 2026-07-06 for full talking points and reasoning. Outcome (Daniel's reaction, agreed last day, handoff plan) to be logged here after.
 - Economics final paper (with Tomer): paste full paper into Word, convert in-text citations to footnotes, assemble with charts, submit
-- Energy program: review `capex_all_rounds.csv` in Excel, compute AVERAGEIF per tech → 4 model CapEx numbers
+- Energy program: gather baseline data for the COMPARISON systems (less efficient/conventional baselines -- e.g. standard boilers, fixed-speed compressors, standard chillers, conventional heat sources) to pair with the efficient-system data already built in `baseline-technology-data.md`
 - Job search: follow up on active applications
 
 ---
 
 ## Today's Completed
+
+1. **"Through the Gap" newsletter launched (Skill 6 project)** - Brainstormed passion-first income streams for the trip; landed on football economics + inequality as the niche (deepest knowledge + economics background + visual data journalism format). Name: Through the Gap. Platform: Substack (signup in progress, free tier first). First article drafted: "The £116 Million Illusion" - the Anderson £116m transfer as a lens on Forest's PSR survival-selling, the SCR flat-tax problem (85% of unequal revenues = permanent gap), and the private votes (SCR passed 14-6, anchoring killed 12-7). Draft + 5 chart specs + verify-before-publish list at `projects/through-the-gap/articles/2026-07-07_the-116-million-illusion.md`; reusable 9-step article workflow in the project README. Next: finish Substack setup, fact-check pass, build charts in Python.
+
+2. **Git sync + EcoTraders notice outcome logged** - Merged two work-PC branches to master (resolved decisions/log.md conflict), pushed. Logged meeting outcome: Daniel accepted politely, last day Aug 22, no handoff plan discussed. Saved ecotraders-exit memory.
+
+---
+
+## Recent Work (July 6)
 
 1. **Economics seminar POSTER — design direction locked + built via Claude Design MCP** - Iterated the distinction-prize poster through several concepts (electricity bill → thermal map → editorial charts → Economist cover) before landing on an Economist-style cover with a hand-drawn ISOMETRIC bird's-eye illustration (warm terracotta field, Frank Ruhl Libre + Assistant). Corrected the core message: NOT "efficiency beats the source" but "energy independence is most beneficial" — a data center on its own solar + efficient gas plant pays ~54% less for power (Alt 2, ₪0.172 vs ₪0.373/kWh), with PUE efficiency (~25%) as the complementary lever. Workflow: illustration generated in Claude Design, Hebrew text/layout authored in code and pushed back via the DesignSync MCP. Files in the "Israel's Overheating Grid" Claude Design project + local mirror at `Economics Final\Poster\design\`; final assembly = `Poster - Final.dc.html`. Still open: polish the illustration (grey cooling units density, tile fit), optionally sync fixes to standalone Isometric Campus, then export print-ready 50×70 PDF.
 
