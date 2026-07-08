@@ -26,14 +26,18 @@ Each technology below uses its own industry-standard efficiency metric (not a bl
 
 **Efficiency metric used:** kW/ton at full load, contextualized against AHRI Standard 550/590 IPLV (Integrated Part Load Value — the actual industry standard rating, which weights performance at 100/75/50/25% load rather than full-load kW/ton alone).
 
+**Baseline vs. efficient split:** Original draft only had one "efficient" range per capacity point (driven by compressor class), with no explicit conventional/baseline comparison. Revised to a real baseline-vs-incented split so the model can compute savings directly.
+
 | Data point | Value | Reasoning | Source |
 |---|---|---|---|
 | **Capacity point 1 (low)** | 100 RT (~352 kW cooling) | Popular small-to-mid commercial chiller size | [Chiller efficiency overview](https://aircondlounge.com/chiller-efficiency-calculation-kw-ton-cop-eer-iplv-nplv/) |
 | **Capacity point 2 (high)** | 500 RT (~1,758 kW cooling) | Popular large commercial/light-industrial chiller size | Same source |
-| **Efficiency at low capacity** | 0.70-0.90 kW/ton | At ~100 RT, chillers are typically screw or scroll/reciprocating compressor machines (centrifugal compressors aren't economical at this scale), and that compressor class runs 0.60-1.20 kW/ton | [Chiller kW/ton by compressor type](https://aircondlounge.com/chiller-efficiency-calculation-kw-ton-cop-eer-iplv-nplv/) |
-| **Efficiency at high capacity** | 0.45-0.70 kW/ton | At ~500 RT, centrifugal compressors become the standard choice and are inherently more efficient (0.45-0.70 kW/ton) — so the efficiency difference between the two capacity points is a real, documented consequence of which compressor technology is economical at each scale, not an arbitrary "old vs new" split | Same source; standard rating method is [AHRI 550/590 IPLV](https://www.ahrinet.org/search-standards/ahri-550590-i-p-and-551591-si-performance-rating-water-chilling-and-heat-pump-water-heating-packages) |
-| **Annual operating hours** | 1,800 (commonly-cited default) up to ~2,500 | 1,800 hrs/yr is a standard US/European commercial-building energy-audit default. I raised the upper bound to 2,500 as a judgment call for Israel's longer cooling season — **this adjustment is NOT sourced**, it's my own reasoning, and is exactly the kind of number that needs Rafi/local validation before it goes in the model | [Energy-audit chiller hours reference](https://envigilance.com/blog/chiller-plant-optimization/) (1,800 hrs figure); Israel-climate adjustment unsourced |
-| **Power** | ~70-90 kW (100 RT × 0.70-0.90) to ~790-1,230 kW (500 RT × 0.45-0.70) | Derived from capacity × kW/ton | Derived |
+| **Baseline efficiency — 100 RT** | 0.95 kW/ton (avg of 0.70-1.20) | Older/lower-tier reciprocating compressor class at this size — the conventional equipment being displaced | [Chiller kW/ton by compressor type](https://aircondlounge.com/chiller-efficiency-calculation-kw-ton-cop-eer-iplv-nplv/) — weakest-sourced bracket in this table, general market range, not a pinned code-minimum table value |
+| **Efficient efficiency — 100 RT** | 0.80 kW/ton (avg of 0.70-0.90) | Screw/scroll compressor class, incented tier | Same source |
+| **Baseline efficiency — 500 RT** | 0.60 kW/ton (avg of 0.56-0.63) | ASHRAE 90.1 Table 6.8.1-3 code-minimum for a ~500-600 ton water-cooled centrifugal chiller (Path A, 2013 edition, effective 2015) — this is an actual code-baseline table value, well sourced | [ASHRAE 90.1 Table 6.8.1-3 reference](https://up.codes/s/minimum-efficiency-requirement-listed-equipment-standard-rating-and-operating-co) |
+| **Efficient efficiency — 500 RT** | 0.48 kW/ton (avg of 0.45-0.50) | FEMP-designated efficient level for a 500-ton water-cooled centrifugal chiller (0.541 kW/ton) confirms this tier beats code minimum; used as the incented reference point | [DOE FEMP water-cooled electric chillers](https://www.energy.gov/femp/purchasing-energy-efficient-water-cooled-electric-chillers) |
+| **Annual operating hours** | 3,000 (locked working number) | Working number for the first-pass model, per Omri: above the ~2,080-8,760 range given by an EcoTraders engineer (verbal consult), and above the 1,800 hr US/EU energy-audit default sourced earlier. Treated as a first-pass point estimate, to be run as a sensitivity range later rather than refined to a single "correct" number now | Working assumption — not independently sourced at 3,000 specifically; supersedes the earlier 1,800-2,500 estimate |
+| **Power** | Baseline: ~95 kW (100 RT) / ~300 kW (500 RT). Efficient: ~80 kW (100 RT) / ~240 kW (500 RT) | Derived from capacity × kW/ton for each baseline/efficient pair | Derived |
 
 ---
 
@@ -72,10 +76,11 @@ Each technology below uses its own industry-standard efficiency metric (not a bl
 ## Open Flags for Rafi / Daniel (unresolved even after sourcing)
 
 1. **Heat pump hours (3,000-4,000)** — genuinely unsourced, reasoned estimate only. Highest priority to replace with real data.
-2. **Chiller hours upper bound (2,500)** — the 1,800 hr figure is sourced but is a US/European default; my extension to 2,500 for Israel's climate is my own unsourced judgment call.
-3. **Electric steam capacity range (200 kW-3 MW)** — placeholder, not tied to any Israeli project data. Should be replaced with real numbers from `capex_lineitems.csv` (הסבה category) once that CSV is reviewed — this program's own installations are a better source than international averages for this one specifically.
-4. **Electric vs. fuel-oil efficiency comparison** — comparing combustion efficiency (fuel-oil, with flue losses) to conversion efficiency (electric, no flue losses) is standard practice in this literature but is a different kind of number under the hood. Worth a sentence in the model documentation so it isn't read as "electric boilers are just better-engineered."
-5. **VSD reference pressure** — specific power numbers (15-18 vs 20-23 kW/100cfm) assume ~100 psi / 7 bar. Confirm the model's assumed system pressure matches, or the comparison isn't valid.
+2. **Chiller hours (3,000, locked working number)** — not independently sourced at this value; set by Omri above both the 1,800 hr US/EU default and inside the low end of a 2,080-8,760 range given verbally by an EcoTraders engineer. Flagged for a sensitivity analysis pass later rather than further refinement now.
+3. **Chiller 100 RT baseline (0.95 kW/ton)** — general reciprocating-compressor market range, not a pinned ASHRAE 90.1 code-minimum table value like the 500 RT bracket has. Weaker of the two chiller capacity points.
+4. **Electric steam capacity range (200 kW-3 MW)** — placeholder, not tied to any Israeli project data. Should be replaced with real numbers from `capex_lineitems.csv` (הסבה category) once that CSV is reviewed — this program's own installations are a better source than international averages for this one specifically.
+5. **Electric vs. fuel-oil efficiency comparison** — comparing combustion efficiency (fuel-oil, with flue losses) to conversion efficiency (electric, no flue losses) is standard practice in this literature but is a different kind of number under the hood. Worth a sentence in the model documentation so it isn't read as "electric boilers are just better-engineered."
+6. **VSD reference pressure** — specific power numbers (15-18 vs 20-23 kW/100cfm) assume ~100 psi / 7 bar. Confirm the model's assumed system pressure matches, or the comparison isn't valid.
 
 ## Next Steps (per Daniel's process)
 
