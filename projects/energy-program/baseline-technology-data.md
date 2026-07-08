@@ -25,6 +25,22 @@ Each technology below uses its own industry-standard efficiency metric (not a bl
 | **Power (electrical input, heat pump side)** | ~10-11 kW at 40kW capacity / ~38-43 kW at 150kW capacity | Derived: electrical input = thermal capacity ÷ COP (using COP 3.5-3.9) | Derived, not an independent source |
 | **Fuel input (baseline side)** | ~0.10-0.11 tons fuel per MWh of thermal output (diesel and mazut land in the same range) | Derived: fuel tons/MWh-output = (1 ÷ combustion efficiency) × caloric ratio. At 82% efficiency: diesel = (1÷0.82)×0.085 ≈ 0.104 tons/MWh; mazut = (1÷0.82)×0.088 ≈ 0.107 tons/MWh. At 85% efficiency both drop slightly (~0.100-0.104). Scales linearly with capacity — same ratio applies at 40kW and 150kW | Derived from the two sourced figures above |
 
+### Efficiency comparison (point-of-use vs. well-to-heat)
+
+COP and combustion efficiency aren't directly comparable as raw numbers — different units. Converting to a common basis:
+
+| Basis | Heat pump | Mazut/diesel boiler | Read |
+|---|---|---|---|
+| **Point-of-use** (energy actually consumed at the site) | COP 3.5-4.0 = 350-400% | 82-85% | Heat pump ~4-5x more efficient per unit of energy it consumes |
+| **Well-to-heat** (accounts for the ~50% loss generating grid electricity from fuel, per Rafi's factor used in the electric steam section) | 50% × 3.5-4.0 = 175-200% | 82-85% (no grid step — fuel is burned on-site) | Heat pump still ~2x more efficient, even after the same primary-energy correction that hurt electric steam's case |
+
+Point-of-use is what actually drives OPEX ₪ savings (the site pays its own electricity/fuel bill, not the grid's generation losses) — well-to-heat is the more honest efficiency/policy-impact story. Both numbers should probably appear in the model documentation, same reasoning as the electric steam section.
+
+**Important — efficiency ratio alone doesn't give ₪ cost savings.** Fuel and electricity are priced differently per unit of energy, so a 4-5x efficiency gain does not translate to a 4-5x cost reduction. The actual OPEX comparison needs:
+- Baseline annual fuel cost = fuel tons/year (from the Fuel input row above × annual output) × ₪/ton fuel price
+- Efficient annual electricity cost = electrical kWh/year (from the Power row above × annual hours) × ₪/kWh electricity price
+- **Still missing:** ₪/ton price for diesel and mazut. Electricity price is a shared model assumption already flagged by Daniel (תעו"ז time-band average, not heat-pump-specific) — see `next-steps.md`.
+
 ---
 
 ## 2. צ'ילרים (Chillers – Building Air Conditioning)
