@@ -61,3 +61,27 @@ Sections moved from today.md when "Recent Work" exceeded 3 dates. Append-only.
 1. **D&D Session 2 prep — completed** - Finished all 6 open questions from the 2026-06-08 WIP session: named the Scholar (Sera, "more broken" direction), built her full voice/appearance/gesture profile, locked cavern fight (3 Darklings + 2 Kobolds, one Darkling flees), shaped both Scholar scene endings (5-min tense vs 30-60-min quiet, both avoid combat-cliffhanger repeat), chose early-arrival reveals 1+3. Built Scholar's camp map spec and all stat blocks (Darkling, Kobold, Carrion Crawler). Wrote final session_2_plan.md at projects/dnd-campaign/sessions/session_2_plan.md.
 
 2. **Climeworks presentation - RTL layout fix + rehearsal** - Fixed Hebrew alignment in v2.pptx: wrote fix_rtl.py to scan all slides and apply rtl="1" + algn="r" on every Hebrew paragraph, lang="he-IL" on run properties. Saved as v3.pptx at `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\חדשנות טכנולוגית\Climeworks - Climate Innovation v3.pptx`. Ran slide-by-slide rehearsal and wrote speaker scripts for slides 2-5 (Omri's 3 slides + Gal's bizmodel slide). Added Climeworks CDR portfolio content to slide 3 script (DAC + nature-based: biochar, reforestation, enhanced weathering, BECCS; 450k+ tons certified). Slides 6-8 scripts still pending.
+
+---
+
+## Recent Work (June 22)
+
+1. **Repo housekeeping** - Git pull from work PC brought in world-cup-party files (guest + host HTML + vercel.json). Moved HTML files to projects/world-cup-party/, updated vercel.json routes to match. Root stays clean, Vercel URLs unchanged.
+
+2. **Economics seminar paper -- full paper written** - Completed the entire 7-section Hebrew paper (per Prof. Lifshitz's PPTX structure). Sections 1-3 (תקציר, הקדמה, סקירת ספרות) written in prior session; sections 4-8 (ניתוח, סיכום, המלצות, ביבליוגרפיה, נספחים) completed this session. In-text (author, year) citations throughout. Charts 01-05 placed: [איור 3] in 4.2, [איורים 1, 2, 4] in 4.3, [איור 5] in 4.4. Chart 06 excluded. Next: Tomer pastes into Word, converts citations to footnotes, assembles final doc.
+
+3. **Upstart program email sent to Ofir** - Explained missed sessions, team presenting without Omri, requested personal assignment option or withdrawal. CC'd Naor (academic instructor). Ofir replied warmly: "need to check what we can do, will update soon." No action needed -- awaiting his decision.
+
+4. **Urban Analytics final assignment -- reviewed + docs fixed + presentation guide written** - Reviewed all deliverables for Monday's presentation. Regenerated Backup_Memo_v2.docx (clean formatting: Times New Roman 12, 1.15 spacing, proper bold/italic, no markdown artifacts) with all 6 figures embedded. Regenerated Policy_Report_Clean.docx. Removed analysis/eda.py references. Verified all 5 open datasets and both academic articles (Sallis 2016, Oja 2011) exist. Wrote full presentation script as Presentation_Guide.md in the final assignment folder for tomorrow's review with Yonatan. Still pending: convert docs to PDF, get poster from Yonatan, confirm who-did-what split.
+
+---
+
+## Recent Work (June 25)
+
+1. **Economics paper -- chart 07 built (net savings chart)** - Created new PUE net savings chart showing TCO savings vs PUE 2.2 baseline for all 3 alternatives. Optimal PUE = 1.4 for all alternatives. Peak savings: ₪392M (Alt 0), ₪259M (Alt 1), ₪152M (Alt 2). Script at `Economics Final\charts\build_chart_07.py`.
+
+2. **Economics paper -- chart 03 updated** - New title "מקורות האנרגיה: רשת לאומית וייצור עצמי לפי חלופה"; added right-side bracket annotation grouping gas + solar as "ייצור עצמי" with combined %; bars repositioned for spacing.
+
+3. **Economics paper -- sensitivity analysis paragraph written** - Hebrew paragraph for section 4.4 explaining PUE sensitivity analysis and optimal PUE finding.
+
+4. **PwC 2025 citation identified** - Found source of US data center GDP contribution figures ($355B in 2017 to $727B in 2023): PwC report commissioned by Data Center Coalition (Feb 2025). In-text citation should be (PwC, 2025) not (WEF, 2025). Full APA citation provided.
