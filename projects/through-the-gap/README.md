@@ -2,6 +2,8 @@
 
 Football economics newsletter on Substack. Skill 6 project: a passion-first revenue stream that runs through the September trip and beyond.
 
+**Status note (2026-07-10):** Actively reconsidering the format. Omri wants to elevate this beyond a newsletter into a tool/app that generates revenue, is genuinely useful to him and people around him, hones his AI/product/creativity skills, and doubles as a portfolio piece for his next career step. Subject matter and passion-first premise stay; format is the open question. The workflow below is still valid if the newsletter format continues in some form -- don't build more newsletter-specific infrastructure without checking in on direction first.
+
 **Concept:** The economics and politics of English football, for fans who want to understand why the game looks the way it does. Visual data journalism, not newspaper articles. Charts, graphics, and (later) interactive features carry the story; text stays tight.
 
 **Editorial spine:** Inequality in English football. The gap between the giants and everyone else, how the rules create and protect it, and what it means for fans of the other clubs.

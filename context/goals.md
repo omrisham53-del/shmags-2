@@ -4,11 +4,12 @@
 
 *Update this file at the start of each quarter.*
 
-## Goal 1: Secure Next Role (Aug 2026)
-- Complete job search by August 2026
-- Accept offer for data analyst or adjacent role
-- Start new position: October 2026
-- Key metrics: Offers received, companies engaged, interviews completed
+## Goal 1: Secure Next Role (updated 2026-07-10, PAUSED for trip)
+- Active search paused as of July 2026 -- using the Sept-Dec Northern Europe trip to explore direction via alumni conversations rather than rushing into a role first
+- Resume active search after returning from trip (~Dec 2026)
+- No locked target start date; will firm up post-trip based on what the exploration turns up
+- MoonActive (gaming) still technically open but reconsidering whether gaming is the right sector
+- Key metrics: Offers received, companies engaged, interviews completed (paused until post-trip)
 
 ## Goal 2: Deliver Energy Program (Jun 2026)
 - Finish all national energy efficiency program deliverables

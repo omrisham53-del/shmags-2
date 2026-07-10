@@ -1,6 +1,6 @@
 # University Assignments Tracker
 
-**Last Updated:** June 7, 2026
+**Last Updated:** July 10, 2026
 **Term:** Spring 2026
 **Total Assignments:** Track all coursework, deadlines, and status
 
@@ -8,48 +8,39 @@
 
 ## Active Assignments
 
-### Economics Final Paper: CBA – Data Center Energy Sourcing (with Tomer)
+### Economics Seminar Poster (Distinction Prize) -- presentation pending
 
 | Field | Value |
 |-------|-------|
-| **Course** | Economics (final paper) |
-| **Type** | Policy paper / cost-benefit analysis (group: Omri + Tomer Tesa) |
-| **Status** | In Progress (lit review + discussion drafted 2026-06-07) |
-| **Folder** | `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\Economics Final` (OUTSIDE SHMAGS 2, shared with Tomer via Live Share) |
-| **Files** | Brief: `מבנה העבודה .pdf`; draft `.docx`; model `DC_Israel_Cost_Model_ILS_v4.xlsx`; Consensus research PDF; `charts/` (6 figures + build script) |
+| **Course** | Economics seminar (same course as the final paper, separate distinction-track deliverable) |
+| **Status** | Submitted (2026-07-07 deadline met) -- presentation July 30, 2026 still ahead |
+| **Files** | `Economics Final\Poster\` (final design: `design\Poster - Final.dc.html`, exported `Poster - Final.pdf`, 2026-07-04) |
 | **Grade** | Pending |
-| **Notes** | CBA of energy sourcing for a 20MW data center in Gush Dan (grid vs hybrid vs self-sufficiency). "Lighter alignment" to the brief's 8-section structure. Hebrew, footnote citations (author-year tags → footnotes at assembly), one APA bibliography. Next: Omri edits lit review + discussion in Docs, hands back for full assembly. See memory `economics_final_paper` + `hebrew_academic_rendering`. |
+| **Notes** | Economist-style isometric cover; hero message = energy independence (~54% cheaper power via self-generation), efficiency (~25%) as complementary lever. Confirmed submitted 2026-07-10. Next milestone: presentation July 30. |
 
 ---
 
-### HW #3: LCA Exercise – Single-Use vs. Reusable Cup
+### Final LCA Assignment
 
 | Field | Value |
 |-------|-------|
 | **Course** | LCA / Environmental Science |
-| **Assigned** | ~May 28, 2026 |
-| **Due** | ~June 18, 2026 |
-| **Status** | In Progress (draft complete 2026-05-30) |
-| **Draft** | `research/academic/hw3-lca-cups/draft.md` |
-| **Research** | `research/academic/hw3-lca-cups/` |
+| **Due** | August 1, 2026 |
+| **Status** | Not Started |
 | **Grade** | Pending |
-| **Notes** | Option B: 20 single-use cups vs. 1 reusable steel cup. Results: 1.197 vs. 0.974 kgCO2eq. Biggest contributors: PS (Product A), Steel (Product B). All BAFU datasets selected. Needs: conversion to Word/PDF, system boundary diagrams polished, AI disclosure PDF. |
+| **Notes** | Details TBD (brief, scope, research needs) -- flagged 2026-07-10, not yet reviewed. |
 
 ---
 
-### HW #2: Functional Unit and System Boundary
+### Final Sustainability Project
 
 | Field | Value |
 |-------|-------|
-| **Course** | [Environmental Science/Engineering] |
-| **Assigned** | May 14, 2026 |
-| **Due** | May 18, 2026 |
-| **Status** | In Progress (draft written 2026-05-26) |
-| **Submission** | Draft at `.claude/skills/assignment-workspace/iteration-1/full-draft-english-lca/with_skill/outputs/draft.md` |
-| **Files** | `/projects/university/notes/HW2_Functional_Unit_and_System_Boundary.docx` |
-| **Research** | `/research/academic/hw2-lca-milk-production/` |
+| **Course** | [Course TBD] |
+| **Due** | August 15, 2026 |
+| **Status** | Not Started |
 | **Grade** | Pending |
-| **Notes** | LCA comparison dairy vs. soy milk. Draft complete. 3 of 4 references need full citation details before submission. 2 SOURCE NEEDED flags in Discussion. |
+| **Notes** | Details TBD (brief, scope, research needs) -- flagged 2026-07-10, not yet reviewed. |
 
 ---
 
@@ -93,7 +84,9 @@ When a new assignment is announced, add it here:
 
 | Assignment | Course | Due | Grade | Status |
 |------------|--------|-----|-------|--------|
-| HW #2: Functional Unit & System Boundary | [Course] | 5/18/2026 | Pending | ✅ Submitted |
+| HW #2: Functional Unit & System Boundary | LCA / Environmental Science | 5/18/2026 | Pending | ✅ Submitted |
+| HW #3: LCA Exercise (Single-Use vs. Reusable Cup) | LCA / Environmental Science | ~6/18/2026 | Pending | ✅ Submitted (confirmed 2026-07-10) |
+| Economics Final Paper: CBA – Data Center Energy Sourcing (with Tomer) | Economics (final paper) | ~7/2026 | Pending | ✅ Submitted (confirmed 2026-07-10) |
 
 ---
 

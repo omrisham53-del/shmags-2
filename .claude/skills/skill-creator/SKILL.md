@@ -66,6 +66,7 @@ Based on the user interview, fill in these components:
 - **name**: Skill identifier
 - **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
 - **compatibility**: Required tools, dependencies (optional, rarely needed)
+- **Style section** (if the skill produces an artifact Omri reads or uses -- a document, message, prep plan, card, etc., not just internal automation): the specific tone and writing rules for that output type, consistent with `.claude/rules/communication-style.md`. See `.claude/skills/assignment/SKILL.md`'s Hebrew/English writing rules for the existing pattern. This section should evolve as Omri gives feedback on that skill's output style -- treat it the same way you'd treat any other part of the skill that gets refined over iterations.
 - **the rest of the skill :)**
 
 ### Skill Writing Guide

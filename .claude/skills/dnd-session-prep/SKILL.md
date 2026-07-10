@@ -159,6 +159,12 @@ It writes `session_N_plan.docx` beside the markdown. Only run it if he wants it.
 
 ---
 
+## Style
+
+Session docs, GM notes, and asset text are internal/working output (per `.claude/rules/communication-style.md`) -- casual and direct where it's your voice (GM Notes, reflections), no em dashes, no emojis. In-world flavor text (NPC dialogue, letters, prophecies) can break from this where it genuinely serves the read, but that's a per-instance call, not a standing exception -- default to the same hard rules there too.
+
+Update this section directly if Omri gives feedback about how a session doc reads, rather than just remembering it for next time.
+
 ## Campaign canon to hold
 
 Keep these in mind during Stage 1 homework, as gentle flags during Stage 2, and when building assets and writing in Stages 3-4. Getting them wrong makes the prep unusable.
