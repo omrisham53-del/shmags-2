@@ -32,4 +32,8 @@ Per-technology data points gathered: 2 capacity points on the popular spectrum (
 
 **Open decision:** whether to drop electric steam systems (מערכות קיטור חשמליות) from the model entirely. Rafi's ~50% grid-efficiency factor means its primary-energy "savings" story doesn't clearly hold up against the fuel-oil baseline — see the 2026-07-06 decision log entries for the full reasoning. Not yet finalized.
 
-**Still unresolved after sourcing:** chiller annual operating hours (EFLH) — tried Illinois TRM, ASHRAE, DOE reference buildings, ACEEE; couldn't get a solid citation (partly because WebFetch in this session's environment is restricted to a "trusted network access" allowlist that blocks most of these). Remains an assumption for Rafi, not a sourced figure.
+**Resolved (2026-07-08):** Chiller annual operating hours locked at 3,000 as a working number (Omri, above the ~2,080-8,760 range an EcoTraders engineer gave verbally) — flagged for a later sensitivity analysis rather than further sourcing. Chiller kW/ton also reworked into a real baseline-vs-efficient split (ASHRAE 90.1 code minimum vs. DOE FEMP efficient tier). Heat pump baseline corrected from electric resistance to mazut/diesel-fired ovens/boilers per Rafi's notes, with a point-of-use + well-to-heat efficiency comparison added.
+
+**Pending — engineer consult needed:** Heat pump annual operating hours (currently unsourced 3,000-4,000 estimate) — deliberately left open rather than locked to a placeholder, since Omri is consulting the EcoTraders engineer directly on this one. Blocks the annual fuel-consumption (tons/year) calc for the heat pump baseline until resolved. Omri is separately pulling real grant program data to sanity-check the range.
+
+**Also needed:** ₪/ton fuel prices for diesel and mazut, to turn the heat pump efficiency comparison into actual OPEX cost savings. Omri has this in his Excel model already — needs pulling in alongside the caloric value data already used.
