@@ -57,18 +57,6 @@
 
 ---
 
-## Recent Work (June 25)
-
-1. **Economics paper — chart 07 built (net savings chart)** - Created new PUE net savings chart showing TCO savings vs PUE 2.2 baseline for all 3 alternatives. Optimal PUE = 1.4 for all alternatives. Peak savings: ₪392M (Alt 0), ₪259M (Alt 1), ₪152M (Alt 2). Script at `Economics Final\charts\build_chart_07.py`.
-
-2. **Economics paper — chart 03 updated** - New title "מקורות האנרגיה: רשת לאומית וייצור עצמי לפי חלופה"; added right-side bracket annotation grouping gas + solar as "ייצור עצמי" with combined %; bars repositioned for spacing.
-
-3. **Economics paper — sensitivity analysis paragraph written** - Hebrew paragraph for section 4.4 explaining PUE sensitivity analysis and optimal PUE finding.
-
-4. **PwC 2025 citation identified** - Found source of US data center GDP contribution figures ($355B in 2017 → $727B in 2023): PwC report commissioned by Data Center Coalition (Feb 2025). In-text citation should be (PwC, 2025) not (WEF, 2025). Full APA citation provided.
-
----
-
 ## Pending — Needs Rafi's Data
 
 - CapEx per technology (₪)
