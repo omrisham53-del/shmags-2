@@ -15,6 +15,20 @@
 
 ## Today's Completed
 
+1. **Tax incentive model — chiller section fully completed with real grant-program data** - Merged the unmerged `claude/tax-incentive-data-points-iy616v` branch (was sitting unpushed, holding the original baseline-technology-data.md). Locked chiller kW/ton baseline-vs-efficient split (ASHRAE 90.1 code-minimum vs. DOE FEMP efficient tier at 500 RT; reciprocating vs. screw/scroll at 100 RT) with hours locked at 3,000 (working number, above the ~2,080-8,760 range an EcoTraders engineer gave verbally). Then Omri uploaded `capex_all_rounds_annotated.xlsx` with a chiller-specific sheet (96 real line items from the 2017-2022 grant rounds, by far the best-represented technology) - used the real median ₪4,186/ton for efficient CapEx, and derived an estimated ₪3,562/ton baseline CapEx by backing it out through a sourced 10-25% efficiency cost premium (DOE FEMP + market commentary), since grant data structurally can't contain a baseline-tier price. Chillers are now the most complete technology in `projects/energy-program/baseline-technology-data.md`.
+
+2. **Heat pump baseline corrected from electric resistance to mazut/diesel-fired boilers, then re-sourced with real capacity/COP data** - Rafi's notes (per Omri's re-check) confirmed heat pumps replace mazut/diesel ovens, not electric water heaters as originally assumed and as still hardcoded in `generate_tax_model.py`. Rebuilt as a fuel-combustion-vs-electric comparison (reusing electric steam's 82-85% ASME PTC4 combustion efficiency), added real MRV-sourced fuel caloric values from Omri's Excel (diesel 0.085 ton/MWh, mazut 0.088 ton/MWh) and a point-of-use (~4-5x) + well-to-heat (~2x, after Rafi's ~50% grid factor) efficiency comparison. Omri then caught real sourcing errors on review: the cited source only supported a 70kW capacity ceiling, not the 150kW originally used, and each product page actually lists a specific COP (4.13 at 40kW, 3.23-3.24 at 70kW - inversely related to capacity) instead of the flat 3.5-4.0 band used. Corrected and split heat pump (1a) and boiler (1b) data into separate tables. Heat pump hours (3,000-4,000) and CapEx both remain open - hours pending an EcoTraders engineer consult, CapEx to come from Omri's grant-program extraction.
+
+3. **CapEx sourcing strategy resolved after a same-day reversal** - Initially concluded (incorrectly) that CapEx should be open-sourced like everything else; Omri corrected this - he already has real CapEx pulled from the grant program rounds (the June 1 `capex_pipeline.py` extraction work) and uses that directly for heat pumps, VSD, and electric steam. Chillers are the one exception, kept in `baseline-technology-data.md` directly since that technology's grant data is uniquely strong (96 units vs. 49/5/1 for the others).
+
+4. **Reviewed Omri's latest tax-incentive-model Excel draft, found real issues before he sends anything to Daniel** - No real market fuel price (₪/ton) for diesel/mazut anywhere in the workbook, only environmental externality costs (a different concept - would be a methodology error to conflate them) and blank "market prices" rows. Every discounted-cashflow formula in the analysis sheet has a broken `#REF!` reference where the discount rate should be. The heat pump baseline row label was manually renamed to "תנור סולר" but the underlying formula still computes OPEX as electricity kWh x electricity price - the structural fuel-vs-electric code fix genuinely hasn't been done yet, just cosmetically relabeled.
+
+5. **Wrote 3 prompts for Omri's pre-send document review workflow** - A Word-extension prompt checking for unresolved tracked changes/comments, placeholder text, inconsistent terminology, and broken citations before sending a chapter to the Ministry of Energy; and two short client-email-drafting prompts (one each for the grants program chapter and the loan fund chapter) for Claude on the company account to use once the actual documents are attached there.
+
+---
+
+## Recent Work (July 10)
+
 1. **Full priorities re-derivation, not just a status patch** - First pass updated status text inside the same old buckets; Omri caught that priorities themselves had changed, not just their progress. Rebuilt `context/current-priorities.md` from scratch: Through the Gap elevated to Priority 1 (reconsidering newsletter -> tool/app), Job Search reframed as "Career Direction Exploration" (genuine reconsideration of career path during the trip via alumni/professor conversations, not a logistics pause), University and EcoTraders both explicitly deprioritized, D&D moved to an "On Hold" section (group scheduling killed his motivation), and a new "Hobbies" section added for chess. Updated `context/goals.md`, `projects/dnd-campaign/README.md`, `projects/through-the-gap/README.md`, and 3 memory files to match. Folded a standing "priorities re-derivation" step into the Friday `/weekly-review` cloud routine so this doesn't have to wait for another big context dump.
 
 2. **Job search tracker fully closed out** - Bank of Israel confirmed rejected (formal no); Mobileye, Realplay, Nexxen, Primis marked Rejected by default after 40+ days of silence. MoonActive Junior Acquisition Manager corrected from a mislabeled "Rejected" to "Paused" (the planned October reach-out no longer works since Omri will be traveling then). Tracker summary: 7 Rejected, 1 Paused, 1 Lead (Avishai referral), clean slate for post-trip.
@@ -59,9 +73,11 @@
 
 ## Pending — Needs Rafi's Data
 
-- CapEx per technology (₪)
 - Annual energy consumption per technology (kWh/year)
 - Equipment degradation rate (%/year)
+- Heat pump annual operating hours (engineer consult in progress)
+
+*(CapEx no longer Rafi-dependent — Omri has it from his own grant-program extraction, chillers directly sourced in `baseline-technology-data.md`.)*
 
 ## Pending — Needs Daniel's Decision
 
