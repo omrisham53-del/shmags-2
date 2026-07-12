@@ -12,7 +12,7 @@
 
 ## Daniel's Feedback - Tax Incentive Model (2026-06-01)
 
-- [ ] **Capex** - find it in the fund data (don't estimate; pull from the source)
+- [x] **Capex** - find it in the fund data (don't estimate; pull from the source) — Omri has this pulled from the grant program rounds extraction; being used directly for all 4 technologies
 - [ ] **Electricity price** - use average across תעו"ז time bands (peak / off-peak / shoulder)
 - [ ] **Interest rate** - use 6%
 
@@ -37,3 +37,5 @@ Per-technology data points gathered: 2 capacity points on the popular spectrum (
 **Pending — engineer consult needed:** Heat pump annual operating hours (currently unsourced 3,000-4,000 estimate) — deliberately left open rather than locked to a placeholder, since Omri is consulting the EcoTraders engineer directly on this one. Blocks the annual fuel-consumption (tons/year) calc for the heat pump baseline until resolved. Omri is separately pulling real grant program data to sanity-check the range.
 
 **Also needed:** ₪/ton fuel prices for diesel and mazut, to turn the heat pump efficiency comparison into actual OPEX cost savings. Omri has this in his Excel model already — needs pulling in alongside the caloric value data already used.
+
+**Resolved (2026-07-12):** CapEx for all 4 technologies will use Omri's grant-program-rounds extraction directly (not open-source data). A same-day open-source CapEx attempt in `baseline-technology-data.md` was reversed and removed once this was clarified — see `decisions/log.md`. Also fixed real errors in the heat pump data: capacity points corrected to 40kW/70kW (the cited source didn't actually support 150kW), COP made capacity-specific and sourced (4.13 at 40kW, 3.23-3.24 at 70kW) instead of a flat estimated band, and heat pump vs. mazut/diesel oven data split into separate tables.
