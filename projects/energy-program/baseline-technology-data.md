@@ -63,6 +63,8 @@ Point-of-use is what actually drives OPEX ₪ savings (the site pays its own ele
 
 **Baseline vs. efficient split:** Original draft only had one "efficient" range per capacity point (driven by compressor class), with no explicit conventional/baseline comparison. Revised to a real baseline-vs-incented split so the model can compute savings directly.
 
+**CapEx exception for chillers (2026-07-12):** CapEx is out of scope for the rest of this file (Omri's grant-program-rounds extraction covers it directly), but chillers are the strongest-represented technology in that extraction — 96 line items across the 2017-2022 rounds, vs. 49 for heat pumps, 5 for VSD, 1 for the boiler category. Real chiller CapEx is included below as a deliberate exception.
+
 | Data point | Value | Reasoning | Source |
 |---|---|---|---|
 | **Capacity point 1 (low)** | 100 RT (~352 kW cooling) | Popular small-to-mid commercial chiller size | [Chiller efficiency overview](https://aircondlounge.com/chiller-efficiency-calculation-kw-ton-cop-eer-iplv-nplv/) |
@@ -73,6 +75,8 @@ Point-of-use is what actually drives OPEX ₪ savings (the site pays its own ele
 | **Efficient efficiency — 500 RT** | 0.48 kW/ton (avg of 0.45-0.50) | FEMP-designated efficient level for a 500-ton water-cooled centrifugal chiller (0.541 kW/ton) confirms this tier beats code minimum; used as the incented reference point | [DOE FEMP water-cooled electric chillers](https://www.energy.gov/femp/purchasing-energy-efficient-water-cooled-electric-chillers) |
 | **Annual operating hours** | 3,000 (locked working number) | Working number for the first-pass model, per Omri: above the ~2,080-8,760 range given by an EcoTraders engineer (verbal consult), and above the 1,800 hr US/EU energy-audit default sourced earlier. Treated as a first-pass point estimate, to be run as a sensitivity range later rather than refined to a single "correct" number now | Working assumption — not independently sourced at 3,000 specifically; supersedes the earlier 1,800-2,500 estimate |
 | **Power** | Baseline: ~95 kW (100 RT) / ~300 kW (500 RT). Efficient: ~80 kW (100 RT) / ~240 kW (500 RT) | Derived from capacity × kW/ton for each baseline/efficient pair | Derived |
+| **CapEx — efficient (real grant program data)** | **₪4,186/ton (median)** — 100 RT ≈ ₪418,600 — 500 RT ≈ ₪2,093,000 | From `capex_all_rounds_annotated.xlsx`, sheet "עלות לטון קירור": 96 chiller line items across the 2017-2022 grant rounds, 27 of which had usable capacity data in the text (the rest were excluded — no ton figure in the project description). Median used over mean (₪4,440/ton) because several rows are flagged as unusually low/high outliers; the source sheet itself recommends the median for the model. Both 100 RT and 500 RT are directly represented in the real data (e.g. 2×100RT units at ₪3,000/ton; 500RT units ranging ₪1,875-4,800/ton depending on features like heat recovery) — no clean capacity-based pricing trend emerged (huge scatter even at fixed capacity), so one blended ₪/ton figure is applied across both points rather than inventing a false split | Omri's grant-program CapEx extraction, `capex_all_rounds_annotated.xlsx` |
+| **CapEx — baseline (conventional)** | **NOT AVAILABLE from this source** | Grant data only covers equipment the program actually funded — the efficient/incented tier. There's no conventional/baseline chiller cost in a grant-fund dataset by definition. Still needs a separate source if a baseline CapEx figure is required | Open flag |
 
 ---
 
@@ -118,8 +122,10 @@ Point-of-use is what actually drives OPEX ₪ savings (the site pays its own ele
 6. **VSD reference pressure** — specific power numbers (15-18 vs 20-23 kW/100cfm) assume ~100 psi / 7 bar. Confirm the model's assumed system pressure matches, or the comparison isn't valid.
 7. **`generate_tax_model.py` baseline name outdated** — still hardcodes heat pump baseline as `"דוד חשמל קונבנציונלי"` (electric resistance); needs updating to a mazut/diesel oven/boiler baseline to match the corrected comparison type. Work-computer task.
 8. **Heat pump vs. fuel baseline comparison type** — same electric-vs-combustion caveat as electric steam (#5 above): COP (electric) and combustion efficiency (fuel) aren't the same kind of number, worth a documentation sentence so it doesn't read as a straight efficiency comparison.
+9. **Chiller baseline CapEx (conventional equipment) not available** — the real grant-program data only covers the efficient/incented tier the program actually funded; no baseline-tier chiller cost exists in that dataset by definition. Still needs a separate source if the model requires it.
+10. **Chiller CapEx median (₪4,186/ton) is a blended figure across the full 35-500 ton range** — the underlying data showed no clean capacity-based pricing trend (huge scatter even at fixed capacity, e.g. ₪1,875-4,800/ton at 500 RT alone), so this single figure is applied at both 100 RT and 500 RT rather than a false split. Only 27 of 96 chiller line items had usable capacity data.
 
-**CapEx is out of scope for this file (2026-07-12)** — Omri already has CapEx extracted from the grant program rounds and will use that directly for all 4 technologies. An open-source CapEx pass was tried and then removed once this was clarified.
+**CapEx is out of scope for this file for the other 3 technologies (2026-07-12)** — Omri has CapEx extracted from the grant program rounds and uses that directly for heat pumps, VSD, and electric steam. Chillers are the one exception (see the CapEx rows above), since that technology has by far the strongest real data in the extraction (96 line items vs. 49/5/1 for the others).
 
 ## Next Steps (per Daniel's process)
 
