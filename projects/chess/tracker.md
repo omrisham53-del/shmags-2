@@ -9,6 +9,7 @@ Rating progress and Improvers Club submission log.
 | Date | Rapid | Tactics | Blitz | Notes |
 |---|---|---|---|---|
 | 2026-07-06 | 1223 (PB) | 1871 | 852 (best 1146) | Snapshot taken when the local Stockfish toolchain was set up |
+| 2026-07-13 | 1154 | 1871 | 828 | Rapid -69, Blitz -24 since July 6 -- heavy volume week (80+ games in July), auto-update routine failed silently since July 10 (see decision log), this row backfilled manually |
 
 ---
 
@@ -26,6 +27,13 @@ Candidates surfaced by the 3-day chess tracker routine, from game metadata only 
 
 | Date | Opponent (rating) | Result | Why flagged | Link | Status |
 |---|---|---|---|---|---|
+| 2026-07-10 | blenimal (842) | Win (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171397150856) | Flagged, pending analysis |
+| 2026-07-11 | Kushal_222222 (1194) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171422126774) | Flagged, pending analysis |
+| 2026-07-13 | OrganicOlid (846) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171511675562) | Flagged, pending analysis |
+| 2026-07-13 | Daz_W_89 (1182) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171527662322) | Flagged, pending analysis |
+| 2026-07-13 | mati3368 (1173) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171529583478) | Flagged, pending analysis |
+
+*(Backfilled manually 2026-07-13 after the automated 3-day routine failed to flag anything since July 10 -- see decision log. Window covers July 10 19:30 UTC through July 13 19:45 UTC, same heuristics the routine uses: upset win, checkmate finish, or <20-move decisive game. No upset wins or notably short games in this window, but 5 checkmate finishes qualified.)*
 
 ---
 
