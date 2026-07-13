@@ -1,7 +1,7 @@
-# Today - 2026-07-12
+# Today - 2026-07-13
 
-**Date:** 2026-07-12
-**Updated:** 2026-07-12
+**Date:** 2026-07-13
+**Updated:** 2026-07-13
 
 ---
 
@@ -15,6 +15,10 @@
 
 ## Today's Completed
 
+---
+
+## Recent Work (July 12)
+
 1. **Grants program chapter and loan fund position paper finished and sent to the Ministry of Energy client** - Both documents completed and sent directly to the client after review (not routed through Daniel first). Closes out two of the three incentive-section chapters Omri owns (grants, tax incentive, loan fund) -- tax incentive model is the one still in progress.
 
 2. **Tax incentive model — chiller section fully completed with real grant-program data** - Merged the unmerged `claude/tax-incentive-data-points-iy616v` branch (was sitting unpushed, holding the original baseline-technology-data.md). Locked chiller kW/ton baseline-vs-efficient split (ASHRAE 90.1 code-minimum vs. DOE FEMP efficient tier at 500 RT; reciprocating vs. screw/scroll at 100 RT) with hours locked at 3,000 (working number, above the ~2,080-8,760 range an EcoTraders engineer gave verbally). Then Omri uploaded `capex_all_rounds_annotated.xlsx` with a chiller-specific sheet (96 real line items from the 2017-2022 grant rounds, by far the best-represented technology) - used the real median ₪4,186/ton for efficient CapEx, and derived an estimated ₪3,562/ton baseline CapEx by backing it out through a sourced 10-25% efficiency cost premium (DOE FEMP + market commentary), since grant data structurally can't contain a baseline-tier price. Chillers are now the most complete technology in `projects/energy-program/baseline-technology-data.md`.
@@ -26,6 +30,14 @@
 5. **Reviewed Omri's latest tax-incentive-model Excel draft, found real issues before he sends anything to Daniel** - No real market fuel price (₪/ton) for diesel/mazut anywhere in the workbook, only environmental externality costs (a different concept - would be a methodology error to conflate them) and blank "market prices" rows. Every discounted-cashflow formula in the analysis sheet has a broken `#REF!` reference where the discount rate should be. The heat pump baseline row label was manually renamed to "תנור סולר" but the underlying formula still computes OPEX as electricity kWh x electricity price - the structural fuel-vs-electric code fix genuinely hasn't been done yet, just cosmetically relabeled.
 
 6. **Wrote 3 prompts for Omri's pre-send document review workflow** - A Word-extension prompt checking for unresolved tracked changes/comments, placeholder text, inconsistent terminology, and broken citations before sending a chapter to the Ministry of Energy; and two short client-email-drafting prompts (one each for the grants program chapter and the loan fund chapter) for Claude on the company account to use once the actual documents are attached there.
+
+7. **September trip route reordered for a London meetup** - Omri wants to book a flight to Oslo and is meeting friends in London ~Oct 8. Original route (Norway -> Scotland -> London -> Ireland -> Portugal) didn't reach London until Oct 19. Swapped to Norway -> London -> Scotland -> Ireland -> Portugal since Norway's 4-week leg already ends ~Oct 5, right before the meetup. Oslo confirmed as the flight destination; still open whether it replaces Bergen as the actual Norway entry point (originally Bergen-first).
+
+8. **Trip promoted to a full project** - Created `projects/travel/` (README + tracker) at Omri's request, same pattern as chess. `september_trip` memory now points to it as the live record instead of holding full details itself.
+
+9. **Trip budget analyzed and built into an Excel tracker** - Funding: ₪15,000 military service grant + ₪3,000 savings = ₪18,000 confirmed baseline (excludes flights); parents will help with costs "when needed" but no fixed amount, and a planned work/volunteer exchange (room+board) are both tracked as separate buffers, not part of the baseline. Researched real 2026 daily costs per leg (Norway/London/Scotland/Ireland/Portugal) and current EUR/GBP/NOK exchange rates. Estimated real cost range: ₪15,800 (frugal, disciplined) to ₪24,100 (moderate comfort) -- Norway flagged as the main risk (highest daily cost). Built `projects/travel/Travel_Budget_Tracker.xlsx` with 5 linked tabs (Summary, Funding Sources, Budget Plan, Expense Log, Rates) for trip prep and live expense tracking while traveling.
+
+10. **Session pushed to master** - Committed and pushed all of the above (commit `dd93edf`).
 
 ---
 
