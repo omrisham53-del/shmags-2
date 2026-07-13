@@ -7,7 +7,12 @@
 **Manager:** Daniel
 
 **Key Dates:**
-- **Deadline:** June 30, 2026
+- **Deadline:** June 30, 2026 (slipped)
+
+**Incentive-section chapters (Omri owns 3):**
+- Grants program chapter — sent to client 2026-07-12
+- Loan fund position paper — sent to client 2026-07-12
+- Tax incentive model — in progress (see `baseline-technology-data.md` + `next-steps.md`)
 
 **What's Included:**
 - Techno-economic analysis in Excel
