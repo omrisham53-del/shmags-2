@@ -13,6 +13,12 @@
 
 ---
 
+## Saved for Later / To Check
+
+- **outsourcerer** (GitHub repo) - https://github.com/alexgreensh/outsourcerer - Omri wants to look at this when he's home (saved 2026-07-13, came in via a LinkedIn share link)
+
+---
+
 ## Today's Completed
 
 ---
