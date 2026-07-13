@@ -15,7 +15,7 @@
 
 ## Saved for Later / To Check
 
-- **outsourcerer** (GitHub repo) - https://github.com/alexgreensh/outsourcerer - Omri wants to look at this when he's home (saved 2026-07-13, came in via a LinkedIn share link)
+- **outsourcerer** (GitHub repo) - https://github.com/alexgreensh/outsourcerer - checked out 2026-07-13. What it is: a lightweight bash tool (v0.4.1) that sits on top of your main agent (Claude Code) and delegates tasks to other models - cheap/free ones for grind work, local Ollama for private work ($0), or a panel of frontier models for consensus review. "Delegate the grind, keep the glory." Install in Claude Code: `/plugin marketplace add alexgreensh/outsourcerer` then `/plugin install outsourcerer@outsourcerer`. Three main uses: (1) `run`/`research`/`edit`/`yolo` to offload cheap tasks to a chosen model, (2) `second-opinion` for a multi-model consensus check before committing to something, (3) `fanout` to run a crew of agents in parallel with git-worktree isolation. Best feature for a budget-conscious student = **The Tab** (`outsourcerer tab` / `estimate`): an honest cost ledger that shows real cash spent AND real subscription-limit usage, refuses to pretend a $0 line is "free". Keyless for native Claude/Codex/Antigravity/local; only OpenRouter needs a key. Caveat for Omri: he runs Claude Code online (cloud sandbox), so the local-Ollama and multi-harness magic really needs a full local machine - `second-opinion`/`tab`/native-Claude lanes are the parts that map to his web setup. Relevance: strong fit for the "Through the Gap = build AI/product skills" goal, both as a budget-saving tool and as a reference architecture for agent orchestration + cost accounting.
 
 ---
 
