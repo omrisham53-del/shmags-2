@@ -5,6 +5,7 @@ Extract and save context from this session. Do the following:
    - Accomplishments (tasks completed, files created, research done)
    - New references (file paths, URLs, external resources that came up)
    - Project status changes (job applications updated, assignments submitted, etc.)
+   - Claude Code meta-lessons (anything learned about using Claude Code itself — features, settings, workflow habits, skill/config patterns, harness quirks — as distinct from project work)
 
 2. **Update `decisions/log.md`** — append any new decisions in this format:
    `[YYYY-MM-DD] DECISION: ... | REASONING: ... | CONTEXT: ...`
@@ -14,10 +15,13 @@ Extract and save context from this session. Do the following:
 
 4. **Update `today.md`** — move any completed tasks to the completed section if they aren't already there.
 
-5. **Report what was saved** — show a short summary of what was captured:
+5. **Update `projects/claude-code-lessons/tracker.md`** — append an HTML `<tr>` row (colored per status — copy the matching block from the "Row Template" section at the bottom of that file: green `#d4f4dd` for Done, gray `#eaeaea` for Not Started) for each Claude Code meta-lesson found. Skip if none came up.
+
+6. **Report what was saved** — show a short summary of what was captured:
    - DECISIONS: (list)
    - ACCOMPLISHMENTS: (list)
    - MEMORY UPDATES: (list)
+   - CLAUDE CODE LESSONS: (list)
    - FILES UPDATED: (list)
 
 Skip categories that have nothing new. Keep the report tight.

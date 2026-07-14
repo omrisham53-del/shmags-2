@@ -116,6 +116,7 @@
 - [Through the Gap](projects/through-the-gap/)
 - [Chess](projects/chess/)
 - [Travel](projects/travel/)
+- [Claude Code Lessons](projects/claude-code-lessons/)
 - [D&D Campaign](projects/dnd-campaign/) (on hold)
 
 **Workflows & References:**

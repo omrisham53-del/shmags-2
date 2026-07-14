@@ -14,6 +14,7 @@ Scan the full conversation for:
 - **Accomplishments** — tasks completed, files created, things submitted or sent
 - **Status changes** — job applications updated, assignments submitted, interviews done
 - **New preferences or patterns** — anything worth remembering for future sessions
+- **Claude Code meta-lessons** — anything learned about using Claude Code itself, as distinct from project work: a new feature or setting discovered, a workflow habit worth adopting, a skill/config pattern that worked or failed, a harness quirk or gotcha. This is about the tool, not the project the tool was used on.
 
 ## Steps
 
@@ -26,7 +27,9 @@ Scan the full conversation for:
 
 4. **Update project trackers if changed** — e.g., job tracker status, university tracker.
 
-5. **Git sync** — stage and commit all pending changes, then merge to master and push:
+5. **Update `projects/claude-code-lessons/tracker.md`** — for each Claude Code meta-lesson found, append an HTML `<tr>` row inside the Backlog table (it's an HTML table, not a markdown one, so rows can carry a background color — copy the matching block from the "Row Template" section at the bottom of that file). Status is `Done` (green, `#d4f4dd`) if the change was actually implemented this session (note what changed and where), or `Not Started` (gray, `#eaeaea`) if it's just an idea/observation not yet acted on. Skip this step entirely if no meta-lessons came up — most sessions won't have any.
+
+6. **Git sync** — stage and commit all pending changes, then merge to master and push:
    - If on master: `git add -A`, commit, push
    - If on a feature/claude branch: commit any pending changes, then:
      ```
@@ -44,6 +47,7 @@ After saving, show a tight summary:
 - DECISIONS: (list or "none")
 - ACCOMPLISHMENTS: (list or "none")  
 - MEMORY UPDATES: (list or "none")
+- CLAUDE CODE LESSONS: (list or "none")
 - FILES UPDATED: (list)
 - GIT: branch merged + pushed, or "already on master, pushed"
 
