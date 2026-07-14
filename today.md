@@ -15,6 +15,20 @@
 
 ## Today's Completed
 
+1. **Started `projects/claude-code-lessons/` to capture lessons from the 6-hour Claude Code manual** - README + tracker built for a multi-session, multi-day backlog (not a one-off brainstorm capture). Wired `/save-context` to also auto-feed it with Claude Code meta-lessons from regular work sessions, not just the manual. Tracker rows are color-coded HTML (green/amber/gray/dark-gray by status), rendered in VS Code Markdown Preview.
+
+2. **Built an explicit "AI Kill List" in communication-style.md** - First lesson from the manual. Concrete banned buzzwords/phrases/structural patterns (AI slop), replacing the old vague "keep it real" line. Applies everywhere including academic docs, living list to keep adding to.
+
+3. **Audited SHMAGS 2 for leaked secrets** - Second lesson (the .env pattern). Confirmed clean: `.env` gitignored and never committed, zero real secret hits across all 225 tracked files and full git history. Urban Analytics/Economics Final folders aren't git repos at all.
+
+4. **Installed and fully configured the gws CLI (googleworkspace/cli)** - Full Google Workspace access (Drive, Gmail, Calendar, Sheets, Docs, Slides, Tasks, Chat) from the terminal. Installed via npm, set up Google Cloud SDK + a new GCP project (`omri-gws-cli`, 44 APIs enabled), manually created the OAuth consent screen + client in Cloud Console, logged in as omrisham53@gmail.com. Verified with live Drive and Calendar queries. Known limitation: Testing-mode refresh tokens expire every 7 days, re-login needed weekly (open item, not yet resolved).
+
+5. **VS Code settings tuned** - New Claude Code sessions default to terminal view (`claudeCode.useTerminal`); all `.md` files default to rendered Preview instead of raw source (`workbench.editorAssociations`).
+
+6. **Built a visual 9-slide Google Slides deck for Itai showcasing Claude Code + gws** - First draft (bullet-based) was rejected in favor of a fully visual rebuild: knowledge-graph diagram, hub-and-spoke app grid, terminal mockups, comparison pills, a security flow diagram, a bar chart, a pipeline flow, and a numbered stepper, all built as native Slides shapes through `gws slides presentations batchUpdate`. Consistent navy/gold/Playfair Display design system. Deck itself demonstrates the tool (built via plain-English brief, no manual Slides editing). Saved as a durable `slide_deck_preferences` memory so future decks start visual-first by default.
+
+7. **Emailed and shared the deck with Itai via gws** - Sent through `gws gmail +send` (not the Gmail MCP, per Omri's request) and shared the deck with him directly on Drive. First draft had the wrong tone (read like a cold pitch, wrongly implied Itai didn't already know about the system) - corrected and saved as a `feedback_friend_emails` memory: match tone to the specific audience, check what the recipient already knows, and accumulate corrections over time into Omri's real per-audience voice.
+
 ---
 
 ## Recent Work (July 12)

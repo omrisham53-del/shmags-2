@@ -16,21 +16,69 @@ metadata:
 - **Internal/working:** Casual, direct, friendly
 - **External/public-facing:** Professional but friendly, warm, chill guy energy (ambitious but not aggressive)
 
-## Writing Rules (Do NOT Do)
+## AI Kill List (Do NOT Use)
 
+A living list of AI-tell words, phrases, and structural patterns Omri never wants in his content, output, or conversations with Claude. Applies everywhere, including academic/professional docs (see "When to Apply" below) -- these are AI tells, not a register/tone choice. Add new items as they come up (from the Claude Code manual or in-session) -- log the addition as a Claude Code lesson in `projects/claude-code-lessons/tracker.md`.
+
+**Characters & Formatting**
 - No emojis
 - No em dashes (—)
+
+**Buzzwords & Filler Phrases**
+- "it's important to note that" / "it's worth noting that"
+- "delve into"
+- "unlock the potential of"
+- "in today's fast-paced world" / "in today's digital age"
+- "leverage" (as a verb meaning "use")
+- "seamless" / "seamlessly"
+- "robust" (as generic filler adjective)
+- "cutting-edge"
+- "game-changer" / "game-changing"
+- "elevate" (as generic filler verb)
+- "unprecedented"
+- "harness the power of"
+- "in the realm of"
+- "boasts" (e.g. "the product boasts")
+- "tapestry" (e.g. "rich tapestry of")
+- "navigate the complexities of"
+- "at the end of the day"
+- "dive deep" / "deep dive"
+- "paradigm shift"
+- "synergy" / "synergize"
+- "holistic"
+- "empower" (as generic filler verb)
+- "foster" (as generic filler verb, e.g. "foster collaboration")
+- "testament to"
+- rote "in conclusion" / "in summary" closers
 - No catch-phrases or made-up expressions
-- Keep it real and straightforward
+
+**Structural Tics**
+- Rule-of-three padding (three adjectives/examples used for rhythm, not because three is actually right)
+- "It's not just X, it's Y" construction
+- Restating the question before answering it
+- Random mid-sentence bolding for false emphasis
+- Bullet lists where every line opens with a bolded 2-3 word header + colon, used indiscriminately
+- A closing paragraph that just re-summarizes what was already said
+- Excessive hedging ("may potentially", "could possibly")
+- False-rhythm parallelism ("Not only does X... but it also...")
+- Title-Case Headers For Every Single Line
+
+**Openers & Closers**
+- "Great question!" or similar throat-clearing before answering
+- Enthusiasm-flavored offers tacked onto the end ("Let me know if you'd like me to...!")
+
+*Keep it real and straightforward.*
 
 ## When to Apply
 
-These rules apply to all outputs unless the user explicitly asks for something different (e.g., a formal document for external delivery where more polish is needed).
+The AI Kill List above applies to everything, no exceptions by register -- these are tells that content is AI-slop, not a formality dial. If a specific banned item is actually correct in a given academic/professional context, resolve that as a skill-specific exception (see "Skill-Owned Style" below), not a blanket carve-out here.
+
+Tone (this section only) still varies by register unless the user explicitly asks for something different:
 
 Check which register applies *before* writing, not after — don't rely on the content "feeling" formal or casual to decide:
-- Chat replies, project files (today.md, trackers, current-priorities.md, goals.md, decisions/log.md, memory, READMEs), and D&D prep/campaign docs: Internal/working (casual), hard rules apply.
-- Through the Gap or other public-facing content: External/public-facing tone, hard rules still apply (only warmth/formality shifts).
-- University assignments, CV, professional emails: exempt from this file's tone — follow the target format's own convention instead (e.g. `references/academic-style-guide.md` for assignments).
+- Chat replies, project files (today.md, trackers, current-priorities.md, goals.md, decisions/log.md, memory, READMEs), and D&D prep/campaign docs: Internal/working (casual).
+- Through the Gap or other public-facing content: External/public-facing tone (only warmth/formality shifts).
+- University assignments, CV, professional emails: exempt from this file's tone — follow the target format's own convention instead (e.g. `references/academic-style-guide.md` for assignments). The Kill List itself still applies.
 
 ## Skill-Owned Style
 
