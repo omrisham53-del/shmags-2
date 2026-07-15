@@ -2,6 +2,8 @@
   "routes": [
     { "src": "/world-cup-party\\.html", "dest": "/projects/world-cup-party/world-cup-party.html" },
     { "src": "/world-cup-party-host\\.html", "dest": "/projects/world-cup-party/world-cup-party-host.html" },
+    { "src": "/world-cup-eng-arg\\.html", "dest": "/projects/world-cup-party/world-cup-eng-arg.html" },
+    { "src": "/world-cup-eng-arg-host\\.html", "dest": "/projects/world-cup-party/world-cup-eng-arg-host.html" },
     { "src": "/(.*)", "status": 404 }
   ]
 }

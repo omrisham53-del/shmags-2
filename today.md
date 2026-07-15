@@ -1,7 +1,7 @@
-# Today - 2026-07-14
+# Today - 2026-07-15
 
-**Date:** 2026-07-14
-**Updated:** 2026-07-14
+**Date:** 2026-07-15
+**Updated:** 2026-07-15
 
 ---
 
@@ -14,6 +14,13 @@
 ---
 
 ## Today's Completed
+
+1. **Built a new England vs Argentina edition of the World Cup party quiz for tonight** - New guest (`world-cup-eng-arg.html`) and host (`world-cup-eng-arg-host.html`) versions alongside the original files (not overwritten, in case they're reused later), routed via `vercel.json` at `/world-cup-eng-arg.html` and `/world-cup-eng-arg-host.html`. Same proven structure (predictions, bingo, halftime quiz, ask-Omri, bonus shots) with fixture-specific trivia: 1966 England win, Argentina's 3 titles, the 1986 Maradona "Hand of God"/"Goal of the Century" match, Beckham's 1998 red card. Added knockout-stage fields to predictions/scoring (extra time, penalty winner) since tonight is likely a knockout match. Deliberately left the "current managers" Ask Omri answer blank for Omri to fill in rather than guess at unverifiable 2026 details.
+2. **Hardened the WhatsApp share flow for the iPhone sharing issue flagged from last time** - Root cause was never pinned down (Omri didn't specify the exact symptom), so rebuilt the share section defensively: a direct `https://wa.me/?text=` deep link (works on iOS/Android without depending on Web Share API support) plus an always-visible "copy text" fallback with manual paste instructions, replacing the old `navigator.share().catch(() => {})` that could fail silently with no fallback. Added iOS web-app meta tags too, in case the original issue was about opening/pinning the page rather than the in-app share button. **Not yet deployed** - files are built and pushed to the branch, ready for Omri to review and push live once he's home.
+
+---
+
+## Recent Work (July 14)
 
 1. **Started `projects/claude-code-lessons/` to capture lessons from the 6-hour Claude Code manual** - README + tracker built for a multi-session, multi-day backlog (not a one-off brainstorm capture). Wired `/save-context` to also auto-feed it with Claude Code meta-lessons from regular work sessions, not just the manual. Tracker rows are color-coded HTML (green/amber/gray/dark-gray by status), rendered in VS Code Markdown Preview.
 

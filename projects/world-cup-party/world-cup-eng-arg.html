@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>אנגליה נגד ארגנטינה - ערב צפייה</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0d1117;
+            color: #f0f0f0;
+            direction: rtl;
+            min-height: 100vh;
+            padding-bottom: calc(70px + env(safe-area-inset-bottom));
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1a2a5e, #6ba3d6 50%, #1a2a5e);
+            padding: 18px 16px 14px;
+            text-align: center;
+            border-bottom: 3px solid #d4a800;
+        }
+        .header h1 { font-size: 21px; color: #fff; font-weight: 900; letter-spacing: 0.5px; }
+        .header p { font-size: 13px; color: #dde8ff; margin-top: 4px; }
+
+        .page { display: none; padding: 14px; }
+        .page.active { display: block; }
+
+        .section-title {
+            font-size: 20px; font-weight: 800; color: #f0c030;
+            text-align: center; margin-bottom: 6px;
+            padding-bottom: 10px; border-bottom: 2px solid #222;
+        }
+        .subtitle { text-align: center; font-size: 13px; color: #888; margin-bottom: 16px; margin-top: 2px; }
+
+        .card { background: #161b27; border-radius: 12px; padding: 16px; margin-bottom: 12px; border: 1px solid #252c3f; }
+
+        /* Predictions */
+        .pred-label { font-size: 13px; color: #aaa; margin-top: 14px; margin-bottom: 5px; }
+        .pred-label:first-child { margin-top: 0; }
+        .pred-input {
+            width: 100%; background: #0d1117; border: 1.5px solid #2a3050;
+            border-radius: 8px; padding: 11px 12px; color: #fff;
+            font-size: 15px; direction: rtl; outline: none; -webkit-appearance: none;
+        }
+        .pred-input:focus { border-color: #d4a800; }
+
+        .save-btn {
+            width: 100%; background: #145214; color: #f0c030;
+            border: 2px solid #d4a800; border-radius: 10px;
+            padding: 13px; font-size: 16px; font-weight: 700;
+            cursor: pointer; margin-top: 16px; -webkit-tap-highlight-color: transparent;
+        }
+        .save-btn:active { background: #0a3a0a; }
+
+        .share-section { display: none; margin-top: 14px; }
+        .share-text-box {
+            background: #0a0a15; border: 1px solid #2a3050;
+            border-radius: 8px; padding: 12px; font-size: 13px;
+            color: #a0c0ff; line-height: 1.8; white-space: pre-wrap;
+            margin-bottom: 10px; -webkit-user-select: text; user-select: text;
+        }
+        .share-btn {
+            width: 100%; background: #1a5a1a; color: #fff;
+            border: none; border-radius: 10px; padding: 13px;
+            font-size: 16px; font-weight: 700; cursor: pointer;
+            -webkit-tap-highlight-color: transparent; margin-bottom: 8px;
+            display: block; text-align: center; text-decoration: none;
+        }
+        .share-btn:active { background: #0a3a0a; }
+        .share-btn.secondary {
+            background: #22283a; border: 1px solid #3a3f55; color: #cfd6e6;
+        }
+        .share-hint { font-size: 11px; color: #666; text-align: center; margin-top: 4px; line-height: 1.5; }
+
+        /* Bingo */
+        .bingo-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 8px; }
+        .bingo-cell {
+            background: #0e4a1a; border-radius: 8px; padding: 8px 4px;
+            text-align: center; font-size: 11px;
+            border: 2px solid transparent; min-height: 64px;
+            display: flex; align-items: center; justify-content: center;
+            line-height: 1.35; user-select: none; -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
+        }
+        .bingo-cell.marked { background: #d4a800; color: #000; font-weight: 700; border-color: #fff; }
+        .bingo-win-banner {
+            display: none; background: #d4a800; color: #000;
+            text-align: center; padding: 12px; border-radius: 10px;
+            font-size: 18px; font-weight: 900; margin-bottom: 10px;
+        }
+        .reset-btn {
+            background: #2a2a3a; color: #aaa; border: 1px solid #3a3a4a;
+            border-radius: 8px; padding: 10px 20px; font-size: 14px;
+            cursor: pointer; margin-top: 12px; width: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Quiz */
+        .question-card { background: #161b27; border-radius: 12px; padding: 16px; margin-bottom: 16px; border: 1px solid #252c3f; }
+        .question-num { font-size: 11px; color: #f0c030; font-weight: 600; margin-bottom: 8px; }
+        .question-text { font-size: 15px; font-weight: 700; margin-bottom: 14px; line-height: 1.5; }
+        .option {
+            background: #0d1117; border: 1.5px solid #252c3f;
+            border-radius: 8px; padding: 11px 13px; margin-bottom: 8px;
+            font-size: 14px; line-height: 1.4; cursor: pointer;
+            user-select: none; -webkit-tap-highlight-color: transparent;
+        }
+        .option.correct { background: #0e4a1a; border-color: #2e8b2e; color: #7dff7d; }
+        .option.wrong { background: #4a0e0e; border-color: #8b2e2e; color: #ff7d7d; }
+        .option.reveal { background: #0e4a1a; border-color: #2e8b2e; color: #7dff7d; }
+        .open-q-note { background: #0d1117; border: 1.5px solid #252c3f; border-radius: 8px; padding: 11px 13px; font-size: 13px; color: #888; line-height: 1.5; }
+
+        /* שאלו עמרי */
+        .omri-card { background: #0a1625; border: 2px solid #1e5080; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .omri-q { font-size: 15px; font-weight: 700; margin-bottom: 8px; line-height: 1.5; }
+        .omri-hint { font-size: 12px; color: #557799; font-style: italic; }
+
+        /* Bonus */
+        .bonus-card { background: #1a0808; border: 2px solid #7a1010; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+        .bonus-tag { font-size: 11px; font-weight: 700; color: #e05050; letter-spacing: 0.5px; margin-bottom: 8px; }
+        .bonus-rule { font-size: 12px; color: #cc4444; margin-bottom: 12px; padding: 8px 10px; background: #2a0808; border-radius: 6px; border-right: 3px solid #cc4444; }
+        .bonus-q { font-size: 15px; font-weight: 700; line-height: 1.5; }
+
+        /* Bottom Nav */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #0a0d14; border-top: 2px solid #d4a800;
+            display: flex; z-index: 9999;
+            height: calc(64px + env(safe-area-inset-bottom));
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .nav-btn {
+            flex: 1; display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 6px 2px; cursor: pointer; font-size: 9.5px;
+            color: #555; background: none; border: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation; user-select: none; gap: 3px;
+        }
+        .nav-btn.active { color: #f0c030; }
+        .nav-icon { font-size: 20px; line-height: 1; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>&#127468;&#127463; אנגליה נגד ארגנטינה &#127462;&#127479;</h1>
+    <p>ערב צפייה - חצי גמר גביע העולם 2026</p>
+</div>
+
+<!-- PREDICTIONS -->
+<div class="page active" id="page-pred">
+    <div class="section-title">ניחושים</div>
+    <p class="subtitle">מלאו לפני הקיקאוף ושתפו בקבוצה</p>
+    <div class="card">
+        <div class="pred-label">שמך</div>
+        <input class="pred-input" id="pred-name" type="text" placeholder="שם...">
+        <div class="pred-label">תוצאה בסוף 90 דקות (לדוגמה: 1-1)</div>
+        <input class="pred-input" id="pred-score" type="text" placeholder="X - X">
+        <div class="pred-label">מי יכניס גול ראשון?</div>
+        <input class="pred-input" id="pred-scorer" type="text" placeholder="שם שחקן...">
+        <div class="pred-label">מי יקבל כרטיס צהוב ראשון?</div>
+        <input class="pred-input" id="pred-yellow" type="text" placeholder="שם שחקן...">
+        <div class="pred-label">האם המשחק יגיע להארכה?</div>
+        <input class="pred-input" id="pred-extra" type="text" placeholder="כן / לא">
+        <div class="pred-label">אם יגיע לפנדלים - מי ינצח?</div>
+        <input class="pred-input" id="pred-pens" type="text" placeholder="אנגליה / ארגנטינה / לא יגיע לזה">
+        <button class="save-btn" id="save-btn">שמור וצור טקסט לשיתוף</button>
+        <div class="share-section" id="share-section">
+            <div class="share-text-box" id="share-text-box"></div>
+            <a class="share-btn" id="whatsapp-btn" href="#" target="_blank" rel="noopener">שלח לקבוצה בוואטסאפ</a>
+            <button class="share-btn secondary" id="copy-btn">העתק טקסט</button>
+            <p class="share-hint">באייפון: אם הכפתור הירוק לא פותח וואטסאפ, השתמשו ב"העתק טקסט" והדביקו ידנית</p>
+        </div>
+    </div>
+    <div class="card" style="font-size:12px; color:#666; text-align:center; line-height:1.7;">
+        שיטת הניקוד:<br>
+        תוצאה מדויקת (90 דק') = 3 נקודות<br>
+        ניחוש מנצחת נכון (לא מדויק) = 1 נקודה<br>
+        גול ראשון נכון = 2 נקודות<br>
+        כרטיס צהוב ראשון נכון = 1 נקודה<br>
+        האם יגיע להארכה - נכון = 1 נקודה<br>
+        מנצחת הפנדלים נכון (אם רלוונטי) = 2 נקודות<br>
+        <strong style="color:#888;">מקסימום: 10 נקודות</strong>
+    </div>
+</div>
+
+<!-- BINGO -->
+<div class="page" id="page-bingo">
+    <div class="section-title">בינגו</div>
+    <p class="subtitle">לחצו על כל דבר שקורה. שורה = זכייה!</p>
+    <div class="bingo-win-banner" id="bingo-banner">בינגו! יש לך שורה!</div>
+    <div class="bingo-grid" id="bingo-grid"></div>
+    <button class="reset-btn" id="reset-bingo">איפוס לוח</button>
+</div>
+
+<!-- QUIZ -->
+<div class="page" id="page-quiz">
+    <div class="section-title">חידון חצי המשחק</div>
+    <p class="subtitle">שחקו בהפסקה - מי יודע יותר?</p>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 1 מתוך 8</div>
+        <div class="question-text">באיזו שנה זכתה אנגליה בגביע העולם היחיד שלה?</div>
+        <div class="option" data-correct="false">1962</div>
+        <div class="option" data-correct="true">1966</div>
+        <div class="option" data-correct="false">1970</div>
+        <div class="option" data-correct="false">1974</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 2 מתוך 8</div>
+        <div class="question-text">כמה פעמים זכתה ארגנטינה בגביע העולם בסך הכל?</div>
+        <div class="option" data-correct="false">2 פעמים</div>
+        <div class="option" data-correct="true">3 פעמים</div>
+        <div class="option" data-correct="false">4 פעמים</div>
+        <div class="option" data-correct="false">5 פעמים</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 3 מתוך 8</div>
+        <div class="question-text">נכון או לא נכון: אנגליה וארגנטינה מעולם לא נפגשו בגמר גביע עולם</div>
+        <div class="option" data-correct="true">נכון</div>
+        <div class="option" data-correct="false">לא נכון</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 4 מתוך 8 - שאלה פתוחה</div>
+        <div class="question-text">מה זה אופסייד? תסבירו בחמש מילים בלבד. הניסוח הכי ברור זוכה!</div>
+        <div class="open-q-note">שאלה לדיון - עמרי שופט מי מנצחת.</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 5 מתוך 8</div>
+        <div class="question-text">איך קוראים בעגה הכדורגלית לבעיטה מהמרחק שנכנסת ישר לשער?</div>
+        <div class="option" data-correct="false">פינצה</div>
+        <div class="option" data-correct="true">גולזה</div>
+        <div class="option" data-correct="false">סופר-גול</div>
+        <div class="option" data-correct="false">מגה-שער</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 6 מתוך 8</div>
+        <div class="question-text">איזו מדינה אירחה את גביע העולם 2022?</div>
+        <div class="option" data-correct="false">ערב הסעודית</div>
+        <div class="option" data-correct="false">איחוד האמירויות</div>
+        <div class="option" data-correct="true">קטאר</div>
+        <div class="option" data-correct="false">כווית</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 7 מתוך 8</div>
+        <div class="question-text">איזה שחקן אנגלי קיבל כרטיס אדום מול ארגנטינה במונדיאל 1998?</div>
+        <div class="option" data-correct="false">מייקל אואן</div>
+        <div class="option" data-correct="true">דיוויד בקהאם</div>
+        <div class="option" data-correct="false">אלן שירר</div>
+        <div class="option" data-correct="false">פול סקולס</div>
+    </div>
+
+    <div class="question-card">
+        <div class="question-num">שאלה 8 מתוך 8</div>
+        <div class="question-text">כמה קבוצות ישתתפו בגביע העולם 2026?</div>
+        <div class="option" data-correct="false">32</div>
+        <div class="option" data-correct="true">48</div>
+        <div class="option" data-correct="false">36</div>
+        <div class="option" data-correct="false">40</div>
+    </div>
+</div>
+
+<!-- שאלו עמרי - GUEST VERSION: questions only, no answers -->
+<div class="page" id="page-omri">
+    <div class="section-title">שאלו את עמרי</div>
+    <p class="subtitle">הוא חושב שהוא יודע הכל. תוכיחו אחרת.</p>
+
+    <div class="omri-card">
+        <div class="omri-q">כמה חילופים מותר לכל קבוצה?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">כמה זמן נמשכת הארכה (extra time), אם יש כזאת?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">כמה בעיטות פנדל יש לכל קבוצה בדו-קרב פנדלים?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">כמה כרטיסים צהובים שווים כרטיס אדום (גירוש)?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מה זה VAR ולמה אנשים שונאים אותו?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מה זה "האט טריק"?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מה ההבדל בין פנדל רגיל לפנדל שוטי?</div>
+        <div class="omri-hint">האם הוא יודע?</div>
+    </div>
+    <div class="omri-card">
+        <div class="omri-q">מי המאמנים הנוכחיים של שתי הנבחרות?</div>
+        <div class="omri-hint">שאלה קשה - אולי הוא ניחש נכון?</div>
+    </div>
+</div>
+
+<!-- BONUS - GUEST VERSION: questions only, no answers -->
+<div class="page" id="page-bonus">
+    <div class="section-title">שאלות בונוס</div>
+    <p class="subtitle">תשובה נכונה = יתרון במשחקים. תשובה שגויה = שוט!</p>
+
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 1</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">באיזו שנה שיחקו אנגליה וארגנטינה במשחק המפורסם עם "יד האלוהים"?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 2</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">מי הבקיע את שער "יד האלוהים" נגד אנגליה?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 3</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">אותו שחקן הבקיע במשחק ההוא עוד שער אגדי, שנחשב לאחד היפים בהיסטוריה. איך קוראים לו?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 4</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">באיזו מדינה התקיים גביע העולם 1986 (משחק "יד האלוהים")?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 5</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">איפה שוחק גמר גביע העולם 2026?</div>
+    </div>
+    <div class="bonus-card">
+        <div class="bonus-tag">שאלת בונוס 6 - הכי קשה</div>
+        <div class="bonus-rule">תשובה שגויה = שוט</div>
+        <div class="bonus-q">מהו השם המלא של הגביע עצמו שהזוכה מרימה בסוף הטורניר?</div>
+    </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav">
+    <button class="nav-btn active" data-page="pred">
+        <div class="nav-icon">&#128203;</div>
+        ניחושים
+    </button>
+    <button class="nav-btn" data-page="bingo">
+        <div class="nav-icon">&#127919;</div>
+        בינגו
+    </button>
+    <button class="nav-btn" data-page="quiz">
+        <div class="nav-icon">&#10067;</div>
+        חידון
+    </button>
+    <button class="nav-btn" data-page="omri">
+        <div class="nav-icon">&#128064;</div>
+        עמרי
+    </button>
+    <button class="nav-btn" data-page="bonus">
+        <div class="nav-icon">&#128293;</div>
+        בונוס
+    </button>
+</nav>
+
+<script>
+// Navigation
+document.querySelectorAll('.nav-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+        var page = this.dataset.page;
+        document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+        document.querySelectorAll('.nav-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.getElementById('page-' + page).classList.add('active');
+        this.classList.add('active');
+        window.scrollTo(0, 0);
+    });
+});
+
+// Predictions
+function copyTextFallback(text) {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+}
+
+function copyText(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(function() {
+            alert('הועתק! אפשר להדביק בוואטסאפ');
+        }).catch(function() {
+            copyTextFallback(text);
+            alert('הועתק! אפשר להדביק בוואטסאפ');
+        });
+    } else {
+        copyTextFallback(text);
+        alert('הועתק! אפשר להדביק בוואטסאפ');
+    }
+}
+
+document.getElementById('save-btn').addEventListener('click', function() {
+    var name = document.getElementById('pred-name').value.trim();
+    if (!name) { alert('נא להכניס שם'); return; }
+
+    var data = {
+        name: name,
+        score: document.getElementById('pred-score').value.trim() || 'לא מלאתי',
+        scorer: document.getElementById('pred-scorer').value.trim() || 'לא מלאתי',
+        yellow: document.getElementById('pred-yellow').value.trim() || 'לא מלאתי',
+        extra: document.getElementById('pred-extra').value.trim() || 'לא מלאתי',
+        pens: document.getElementById('pred-pens').value.trim() || 'לא מלאתי'
+    };
+
+    localStorage.setItem('wc-ea-pred-' + name, JSON.stringify(data));
+
+    var text = 'הניחושים של ' + data.name + ' לאנגליה נגד ארגנטינה:\n' +
+               'תוצאה (90 דק\'): ' + data.score + '\n' +
+               'גול ראשון: ' + data.scorer + '\n' +
+               'כרטיס צהוב ראשון: ' + data.yellow + '\n' +
+               'הארכה: ' + data.extra + '\n' +
+               'מנצחת בפנדלים: ' + data.pens;
+
+    document.getElementById('share-text-box').textContent = text;
+    // wa.me deep link works the same way on iPhone and Android and does not
+    // depend on the Web Share API being supported inside an in-app browser.
+    document.getElementById('whatsapp-btn').href = 'https://wa.me/?text=' + encodeURIComponent(text);
+    document.getElementById('share-section').style.display = 'block';
+});
+
+document.getElementById('copy-btn').addEventListener('click', function() {
+    copyText(document.getElementById('share-text-box').textContent);
+});
+
+// Bingo
+var bingoItems = [
+    'כרטיס צהוב', 'שחקן נופל דרמטית', '5 קרנות', 'גווול!!!',
+    'שחקן מתווכח עם השופט', 'VAR ביטל שער', 'חגיגת גול מוגזמת', 'חילוף כפול',
+    'כרטיס אדום', 'גול ראש', 'החמצה גדולה', 'הארכה!',
+    'עצור לפציעה', 'פנדל!', 'מאמן חוגג', 'מישהו מזכיר את 1986'
+];
+
+function buildBingo() {
+    var grid = document.getElementById('bingo-grid');
+    grid.innerHTML = '';
+    bingoItems.forEach(function(item) {
+        var cell = document.createElement('div');
+        cell.className = 'bingo-cell';
+        cell.textContent = item;
+        cell.addEventListener('click', function() {
+            this.classList.toggle('marked');
+            checkBingo();
+        });
+        grid.appendChild(cell);
+    });
+}
+
+function checkBingo() {
+    var cells = Array.from(document.querySelectorAll('.bingo-cell'));
+    var lines = [
+        [0,1,2,3],[4,5,6,7],[8,9,10,11],[12,13,14,15],
+        [0,4,8,12],[1,5,9,13],[2,6,10,14],[3,7,11,15],
+        [0,5,10,15],[3,6,9,12]
+    ];
+    var won = lines.some(function(line) {
+        return line.every(function(i) { return cells[i].classList.contains('marked'); });
+    });
+    document.getElementById('bingo-banner').style.display = won ? 'block' : 'none';
+}
+
+document.getElementById('reset-bingo').addEventListener('click', function() {
+    document.querySelectorAll('.bingo-cell').forEach(function(c) { c.classList.remove('marked'); });
+    document.getElementById('bingo-banner').style.display = 'none';
+});
+
+// Quiz
+document.querySelectorAll('.option[data-correct]').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+        var card = this.closest('.question-card');
+        if (card.classList.contains('answered')) return;
+        card.classList.add('answered');
+        if (this.dataset.correct === 'true') {
+            this.classList.add('correct');
+        } else {
+            this.classList.add('wrong');
+            var correct = card.querySelector('[data-correct="true"]');
+            if (correct) correct.classList.add('reveal');
+        }
+    });
+});
+
+buildBingo();
+</script>
+</body>
+</html>
