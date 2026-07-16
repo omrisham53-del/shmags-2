@@ -28,13 +28,13 @@ Candidates surfaced by the 3-day chess tracker routine, from game metadata only 
 
 | Date | Opponent (rating) | Result | Why flagged | Link | Status |
 |---|---|---|---|---|---|
-| 2026-07-10 | blenimal (842) | Win (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171397150856) | Flagged, pending analysis |
-| 2026-07-11 | Kushal_222222 (1194) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171422126774) | Flagged, pending analysis |
-| 2026-07-13 | OrganicOlid (846) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171511675562) | Flagged, pending analysis |
-| 2026-07-13 | Daz_W_89 (1182) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171527662322) | Flagged, pending analysis |
-| 2026-07-13 | mati3368 (1173) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171529583478) | Flagged, pending analysis |
-| 2026-07-13 | slizig (1150) | Loss (resignation) | Notably short decisive game (14 moves) | [Game](https://www.chess.com/game/live/171530420658) | Flagged, pending analysis |
-| 2026-07-15 | PubliusAugustus (1193) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171602305848) | Flagged, pending analysis |
+| 2026-07-10 | blenimal (842) | Win (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171397150856) | Analyzed |
+| 2026-07-11 | Kushal_222222 (1194) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171422126774) | Analyzed |
+| 2026-07-13 | OrganicOlid (846) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171511675562) | Analyzed |
+| 2026-07-13 | Daz_W_89 (1182) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171527662322) | Analyzed |
+| 2026-07-13 | mati3368 (1173) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171529583478) | Analyzed |
+| 2026-07-13 | slizig (1150) | Loss (resignation) | Notably short decisive game (14 moves) | [Game](https://www.chess.com/game/live/171530420658) | Analyzed |
+| 2026-07-15 | PubliusAugustus (1193) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171602305848) | Analyzed |
 
 *(Backfilled manually 2026-07-13 after the automated 3-day routine failed to flag anything since July 10 -- see decision log. Window covers July 10 19:30 UTC through July 13 19:45 UTC, same heuristics the routine uses: upset win, checkmate finish, or <20-move decisive game. No upset wins or notably short games in this window, but 5 checkmate finishes qualified. Auto-update 2026-07-14: 1 new game flagged, rest of the 3-day window's games already covered by the backfill. Auto-update 2026-07-16: 1 new game flagged (checkmate loss); other games in the window were wins/draws/timeouts by lower/similar-rated opponents or non-checkmate losses of ordinary length, so no upset wins or short decisive games qualified.)*
 
@@ -46,6 +46,7 @@ Twice a month, all pending flagged games get run through Stockfish (depth 18) in
 
 | Date Run | Games Analyzed | Batch Pick | Engine Reasoning |
 |---|---|---|---|
+| 2026-07-16 | 7 | vs. PubliusAugustus (1193), 2026-07-15, [Game](https://www.chess.com/game/live/171602305848) | Depth-18 analysis (Threads=3) found the longest engine-best-move streak of the batch: 8 consecutive best moves from 38.Kh3 through 45.Kxe6, well clear of the next-best streak (6, mati3368 game). Real story arc, not just a clean win: Omri (White) blundered -2594cp at move 32 (32.Kxg1, a king capture that gave back the advantage), then fought back with that 8-move defensive/technical streak, but still lost by checkmate. Other games in the batch (Kushal_222222, OrganicOlid, Daz_W_89, mati3368) had inflated cp-loss totals from mate-score artifacts in long endgames, making their raw numbers unreliable for comparison -- streak count was the trustworthy signal across all 7. |
 
 ---
 
