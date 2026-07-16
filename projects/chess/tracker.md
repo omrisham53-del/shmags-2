@@ -10,6 +10,7 @@ Rating progress and Improvers Club submission log.
 |---|---|---|---|---|
 | 2026-07-06 | 1223 (PB) | 1871 | 852 (best 1146) | Snapshot taken when the local Stockfish toolchain was set up |
 | 2026-07-13 | 1154 | 1871 | 828 | Rapid -69, Blitz -24 since July 6 -- heavy volume week (80+ games in July), auto-update routine failed silently since July 10 (see decision log), this row backfilled manually |
+| 2026-07-16 | 1148 | 1871 | 828 | Rapid -6, Tactics/Blitz unchanged |
 
 ---
 
@@ -33,8 +34,9 @@ Candidates surfaced by the 3-day chess tracker routine, from game metadata only 
 | 2026-07-13 | Daz_W_89 (1182) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171527662322) | Flagged, pending analysis |
 | 2026-07-13 | mati3368 (1173) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171529583478) | Flagged, pending analysis |
 | 2026-07-13 | slizig (1150) | Loss (resignation) | Notably short decisive game (14 moves) | [Game](https://www.chess.com/game/live/171530420658) | Flagged, pending analysis |
+| 2026-07-15 | PubliusAugustus (1193) | Loss (checkmate) | Decisive finish (checkmate) | [Game](https://www.chess.com/game/live/171602305848) | Flagged, pending analysis |
 
-*(Backfilled manually 2026-07-13 after the automated 3-day routine failed to flag anything since July 10 -- see decision log. Window covers July 10 19:30 UTC through July 13 19:45 UTC, same heuristics the routine uses: upset win, checkmate finish, or <20-move decisive game. No upset wins or notably short games in this window, but 5 checkmate finishes qualified. Auto-update 2026-07-14: 1 new game flagged, rest of the 3-day window's games already covered by the backfill.)*
+*(Backfilled manually 2026-07-13 after the automated 3-day routine failed to flag anything since July 10 -- see decision log. Window covers July 10 19:30 UTC through July 13 19:45 UTC, same heuristics the routine uses: upset win, checkmate finish, or <20-move decisive game. No upset wins or notably short games in this window, but 5 checkmate finishes qualified. Auto-update 2026-07-14: 1 new game flagged, rest of the 3-day window's games already covered by the backfill. Auto-update 2026-07-16: 1 new game flagged (checkmate loss); other games in the window were wins/draws/timeouts by lower/similar-rated opponents or non-checkmate losses of ordinary length, so no upset wins or short decisive games qualified.)*
 
 ---
 
