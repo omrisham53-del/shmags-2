@@ -1,6 +1,6 @@
 # About Me
 
-**Name:** Omri Shamgar  
+**Name:** Omri Shamgar (Hebrew spelling: עמרי — not עומרי)  
 **Role:** Economic Analyst & 3rd Year Student  
 **Timezone:** GMT+3  
 **Location:** Israel  

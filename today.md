@@ -1,21 +1,56 @@
-# Today - 2026-07-17
+# Today - 2026-07-21
 
-**Date:** 2026-07-17
-**Updated:** 2026-07-17
+**Date:** 2026-07-21
+**Updated:** 2026-07-21
 
 ---
 
 ## Current Priority
 
-- Through the Gap: reconsidering format -- elevate beyond a newsletter into a revenue-generating tool/app that also hones AI/product/creativity skills and doubles as a portfolio piece
-- University: two remaining assignments (Final LCA, due Aug 1; Final Sustainability Project, due Aug 15), plus the poster presentation July 30
-- Energy Program (EcoTraders): coast-to-Aug-22 wind-down, not active investment -- opportunistic only (baseline data review with Daniel, verification with Rafi)
+- **University:** Economics paper presentation -- script finalized, first-draft slide deck built and sent to Tomer for messaging/storytelling feedback. Thursday July 30 presentation, review + lecturer call Tuesday 7/28. Final LCA (due Aug 1), Final Sustainability Project (due Aug 15, still TBD).
+- **EcoTraders tax incentive model:** Rafi email deferred to tomorrow from the work PC -- need Omri's photographed notes (missing data + Daniel's tweaks) before drafting.
+- Through the Gap: football-economics angle isn't landing for Omri -- looking for a different revenue-potential side project
+- Norway trip: family member gave real travel/equipment/food info -- prep session still pending
 
 ---
 
 ## Today's Completed
 
-*(nothing yet)*
+1. **Economics presentation script finalized** -- refined paragraph by paragraph against the real paper (`_paper_dump.txt`) and Excel model outputs, not invented content. Added the PUE finding (₪222.6M, highest-ROI lever in the model) as a secondary point after the 54% self-generation savings; added the paper's real carbon-pricing recommendation (was missing from the draft), blended with the Ireland/Germany renewable-obligation precedent; rewrote the closing summary to focus on Israel's structural future (6-12% of peak demand by decade end, ~20 years of gas reserves, 22%/year market growth, Feb 2026 Treasury interim recommendations) rather than on the presenters themselves. Edited directly into `presentation/script.docx` (closed/reopened once to clear a Word file-lock).
+
+2. **First-draft slide deck built and verified -- 11 slides** -- built with python-pptx (navy+terracotta system matching the poster), embedding real assets: a live screenshot of the actual Calcalist article headline (captured via headless Chrome, not a mockup) and the real chart PNGs from the paper (total cost, blended rate, PUE sensitivity). Uploaded via `gws` and converted to native Google Slides. Verified every unique slide layout via API thumbnails before calling it done -- caught and fixed one real image/text overlap on the hook slide. Explicitly a messaging/structure draft; visual design polish deferred to a later pass per Omri's request.
+
+3. **Sent script + deck to Tomer for storytelling feedback** -- emailed with the script attached and the Slides link, framed around messaging/story rather than design (not final yet). Shared Drive edit access afterward so the link actually opens for him.
+
+4. **Two corrections logged for future Hebrew/friend emails** -- Omri's name is spelled עמרי, not עומרי (fixed in `context/me.md` and the wrong spelling used in the Tomer email); casual peer emails should skip the closing signature entirely, unlike mentor-register emails like the one to Osnat.
+
+---
+
+## Recent Work (July 20)
+
+1. **Energy Policy final exam taken -- final exam of the whole degree, done** -- exam happened Monday morning (7/20), went well per Omri. Closed out the temporary Priority 1 from Thursday.
+
+2. **Tax incentive model presented to Daniel -- approved with follow-up work** -- Daniel liked the model despite the still-missing data points, asked Omri to email Rafi to close the gaps plus make a few tweaks. Omri has the details on paper (photographed notes, not uploaded) -- specifics pending before the Rafi email can be drafted (now deferred to the work PC).
+
+3. **Economics paper presentation confirmed for the distinction track -- Thursday July 30, presenting with Tomer** -- 5-7 minute slot. Found a strong real-world anchor for the presentation: Calcalist reported the Electricity Authority ordered a 140-day freeze on new data-center grid-connection requests (incoming requests ~27,000 MW, 3x Israel's average consumption, exceeds grid capacity) -- directly validates the paper's headline finding that self-generation (Alt 2, ~54% cheaper power) isn't just economically optimal but now the only path around a real regulatory bottleneck.
+
+4. **Email sent to Osnat (lecturer)** -- confirming they're presenting, thanking her for a year of support and mentorship, requesting pointers for the format, and proposing Tuesday 7/28 for a prep call. Omri's actual sent version led with genuine warmth before the ask and skipped re-explaining the paper (she already knows it) -- sharper than my first draft, saved as a lecturer/mentor email-tone lesson.
+
+5. **Norway trip: consulted a family member on real travel/equipment/food logistics** -- prep session still pending to work through what came out of that conversation.
+
+---
+
+## Recent Work (July 17)
+
+1. **Energy Policy final exam surfaced and tracked** -- discovered mid-session it's the final exam of the whole degree, Monday July 20. Added to `projects/university/tracker.md`, promoted to temporary Priority 1. Course materials uploaded (12 lecture decks + sample exam) and mapped against the sample exam's structure to identify core recurring topics. Plan: friend's NotebookLM (link saved) for solo review Sat 7/18, group study with friends Sun 7/19 -- no separate study guide needed from Claude.
+
+2. **gws OAuth 7-day re-login issue fixed for good** -- published the app from Testing to Production in Cloud Console (no formal Google verification needed for personal single-user use), re-authenticated, verified live. Closes out a lesson flagged since 2026-07-14.
+
+3. **Final LCA assignment unblocked** -- real brief surfaced (was "details TBD" for weeks). Topic locked to a comparative EPD analysis: ready-mix concrete, Interbeton (Greece) vs. JSW (India), both under PCR 2019:14 + c-PCR-003. Sourced both real EPDs + the PCR directly from environdec.com's public file API -- no portal account needed, skipping the manual registration the brief walks through. All source PDFs scanned for hidden/injected text -- clean. Found a genuine methodological gap between the two EPDs (different declared system boundaries despite citing the identical PCR version) to build the comparative analysis around. Actual writing deferred to tomorrow -- Omri wants minimum effort on structure/research but real focus on tone/language.
+
+4. **Travel: flight confirmed booked, Oslo→Bergen logistics locked, Norway trek season map built** -- confirmed the Sept 8 Oslo flight is booked (El Al receipt found in Gmail; not yet auto-added to Calendar). Decided on the overnight sleeper train Oslo→Bergen over flying (cheaper + doubles as that night's lodging). Built an escalating Bergen hiking warm-up ladder (Løvstakken → Rundemanen → Vidden → 4-Mountains Hike) with a full route guide for the last one. Researched every Norway trek candidate beyond Bergen (Jotunheimen, Breheimen, Trolltunga, Husedalen/Hardangervidda, Preikestolen, Rondane, Trollheimen) against real season/hut-closure constraints and built a [Norway Trek & Season Map artifact](https://claude.ai/code/artifact/b21fa77e-26f1-4e90-9385-30c5361ef323) -- surfaced that Jotunheimen is nearly 2x faster to reach from Oslo than Bergen and its staffed huts close ~Sept 13, suggesting the trip order should flip (Jotunheimen first, then Bergen) -- pending Omri's confirmation before rewriting the tracker.
+
+5. **Travel: Bergen dropped entirely, full Oslo→Jotunheimen→Breheimen route locked with real dates** -- Omri picked two published hut-to-hut routes ("6 Days in Jotunheimen's Peaks" and "From Fjord to Mountain in Breheimen") over building a custom one. Cross-referenced every hut on both routes against the official DNT maps (Jotunheimen map Omri uploaded, Breheimen map pulled directly from dnt.no) to classify each as DNT staffed / DNT self-service / private staffed -- found the route's Day 5 night (Sept 14, Memurubu) falls one day past the confirmed Sept 13 DNT hut-closure date, now the top question for Omri's planned in-person DNT center visit in Oslo the morning of Sept 9. Navarsete (the one hut not visible on the map crop) confirmed self-service directly by Omri via the DNT site. Full itinerary with dates, both route links, and the DNT-question list written into `projects/travel/tracker.md`; decision logged. Started scoping the post-Breheimen block (Sept 22 onward, ~13 days): Trolltunga + surrounding day hikes near Odda, plus a candidate multi-day Hardangervidda crossing from Kinsarvik (3/4/6-day variants) -- not yet decided which, captured in the tracker as open candidates.
 
 ---
 

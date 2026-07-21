@@ -1,6 +1,6 @@
 # Claude Code Lessons Tracker
 
-**Last Updated:** July 14, 2026
+**Last Updated:** July 21, 2026
 
 Backlog of lessons/ideas from the 6-hour Claude Code manual, plus meta-lessons that surface organically during regular work sessions (auto-fed by `/save-context`). Add new rows as lessons come up; work them in any order across sessions.
 
@@ -62,12 +62,12 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Installed via npm (<code>gws 0.22.5</code>). Installed Google Cloud SDK (winget, <code>Google.CloudSDK</code>) to manage the GCP side. Created new GCP project <code>omri-gws-cli</code>, enabled 44 Workspace APIs. Learned OAuth client creation is NEVER automatable via gcloud, even with the SDK installed -- always requires manual clicks in Cloud Console (consent screen + Desktop OAuth client), regardless of which setup path is chosen. Downloaded <code>client_secret.json</code> to <code>C:\Users\User\.config\gws\client_secret.json</code>, logged in as omrisham53@gmail.com (had to add self as a Test User under Audience since the consent screen defaults to Testing mode -- even the project owner isn't auto-whitelisted). Verified working with a live Drive files list call. gws is now usable from Bash/PowerShell directly.</td>
 </tr>
 
-<tr style="background-color:#fff3cd;">
+<tr style="background-color:#d4f4dd;">
 <td>2026-07-14</td>
 <td>gws OAuth consent screen is in Testing mode, which caps refresh tokens at 7 days -- re-login (<code>gws auth login</code>) will be needed roughly weekly until/unless the app is published to Production.</td>
 <td>Habit-workflow</td>
-<td><strong>In Progress</strong></td>
-<td>Flagging now, not yet decided: live with the weekly re-login (simple, no extra setup), or go through Google's app verification process to move to Production (removes the 7-day cap but is a heavier one-time process, may not be worth it for personal-only use). No action taken yet -- revisit if the weekly re-login gets annoying.</td>
+<td><strong>Done</strong></td>
+<td>Fixed 2026-07-17: no full Google verification needed for personal single-user use -- just clicked <strong>Publish App</strong> in Cloud Console (OAuth consent screen -> moves Testing -> In Production), which lifts the 7-day cap since the app owner/sole user just clicks through the one-time "unverified app" warning. Re-ran <code>gws auth login</code> after publishing (old token still carried the 7-day expiry, had to get a fresh one). Verified live with <code>gws gmail users getProfile</code>. No more weekly re-login needed.</td>
 </tr>
 
 <tr style="background-color:#d4f4dd;">
@@ -84,6 +84,78 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Habit-workflow</td>
 <td><strong>Done</strong></td>
 <td>Built a 9-slide visual deck for Itai entirely through <code>gws slides presentations batchUpdate</code> (native shapes/lines/text boxes, no manual Slides editing). Gotcha: object IDs in createShape/createLine/createSlide requests must be 5+ characters or the whole batchUpdate call fails validation. Workflow: generate batch JSON with a small Python helper script, apply via gws, pull thumbnails back via <code>getThumbnail</code> to visually verify and catch layout collisions before calling it done. Reusable pattern for any future deck request.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-14</td>
+<td>General principle: OS-level installs and credential storage are portable across AI tools; anything scoped to one tool's own session is not. Checked whether switching from Claude Code to a different tool (e.g. Codex) would mean reconnecting gws from scratch.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Confirmed gws's OAuth credentials live at <code>C:\Users\User\.config\gws\</code> (encrypted file + OS keyring), and both <code>gws</code> (npm) and <code>gcloud</code> (winget) are registered on the permanent Windows user-level PATH (verified straight from the registry, not just the current shell). None of that state lives inside Claude Code or this repo's <code>.env</code> -- any new tool that can run shell commands opens a fresh process, reads the same PATH, and finds gws already authenticated. The only session-scoped thing was manually exporting the Cloud SDK path inside already-running Bash calls, which a brand-new terminal never hits. Takeaway for future tool setups: prefer real OS-level installs + OS-level credential storage over anything sandboxed to one tool's session, so switching tools later never requires redoing auth.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-17</td>
+<td>Portal-gated document sites (e.g. environdec.com's EPD/PCR library) often expose a direct file-download API endpoint discoverable via WebFetch on the library page, even when the site's own UI walks you through account registration first.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Used this to source real EPD + PCR PDFs for the LCA final assignment directly via <code>curl</code> against <code>api.prod.environdec.com/.../Documents</code> -- skipped the manual portal signup the assignment brief walked through entirely. Reusable pattern for future academic research on similar registries.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-17</td>
+<td>The Read tool's PDF extraction pulls the underlying embedded text, not a rendered image -- so hidden white-on-white or off-page prompt-injection text (the AI-trap pattern from HW3 in May) would surface in the extracted content exactly like visible text.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Confirmed this is a reliable way to scan a document for that specific trap type, not just a formality -- reading a PDF with Read IS the trap check, no separate step needed. Used to clear 4 LCA source PDFs this session.</td>
+</tr>
+
+<tr style="background-color:#eaeaea;">
+<td>2026-07-17</td>
+<td>The Bash tool's sandboxed shell can report the wrong timezone for "what time is it" (returned JST instead of Israel time this session) -- don't trust the sandbox system clock for the user's local time, ask directly instead.</td>
+<td>Habit-workflow</td>
+<td><strong>Not Started</strong></td>
+<td>Worked around it this session by just asking Omri directly. No fix needed, just a standing habit to remember.</td>
+</tr>
+
+<tr style="background-color:#eaeaea;">
+<td>2026-07-17</td>
+<td>gcloud CLI (installed 2026-07-14 per that session's decision log entry, confirmed on the permanent Windows PATH) was not found in this session's Bash or PowerShell when trying to check the gws OAuth consent screen's publishing status.</td>
+<td>Habit-workflow</td>
+<td><strong>Not Started</strong></td>
+<td>Worked around it by just doing the fix manually in Cloud Console instead (which was needed anyway, per the standing "OAuth changes require manual clicks" lesson). Open question whether this is a one-off session quirk or a real PATH-persistence gap worth investigating if it recurs.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-21</td>
+<td>Editing a .docx with python-docx fails with a <code>PermissionError</code> if the file is currently open in Word -- the <code>~$filename.docx</code> companion file is the tell.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Hit this mid-session writing script edits into an open <code>script.docx</code>. Fix: check for the <code>~$</code> lock file (or just try the write and catch the <code>PermissionError</code>) and ask the user to close the file rather than forcing it. Retried successfully once Omri closed Word -- no data lost.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-21</td>
+<td>gws gmail +send's <code>-a</code>/<code>--attach</code> rejects any file path that resolves outside the current working directory, even a legitimate absolute path to a real file.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Had to <code>cp</code> the target file (from an unrelated folder outside the repo) into the repo's cwd before attaching, then <code>rm</code> it right after sending so it doesn't linger as an untracked file. Reusable pattern: always stage external attachments into cwd first when using <code>gws gmail +send</code>.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-21</td>
+<td>Edge headless (<code>--headless=new</code>) was unreliable in this sandboxed Bash environment for capturing a real webpage screenshot -- silent failures and profile-lock collisions across repeated calls even with a fresh <code>--user-data-dir</code>; switching to Chrome headless with a fresh <code>--user-data-dir</code> per call worked reliably on the first try.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Also: screenshot output height caps around ~1200-1250px regardless of a taller <code>--window-size</code> request, so capturing a full article requires cropping the region of interest with PIL afterward rather than one tall screenshot. Used to capture the real Calcalist article headline for a presentation deck instead of a mockup.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-21</td>
+<td>python-pptx can build a fully custom deck locally, and gws can convert it to a native (editable) Google Slides file on upload by setting the target mimeType in <code>--json</code> metadata alongside <code>--upload</code>/<code>--upload-content-type</code> set to the source PPTX mimetype.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td><code>gws drive files create --upload deck.pptx --upload-content-type application/vnd.openxmlformats-officedocument.presentationml.presentation --json '{"mimeType":"application/vnd.google-apps.presentation",...}'</code> triggers Drive's real conversion, not just an uploaded static file. To iterate, <code>gws drive files update --upload</code> on the same fileId overwrites content in place, keeping the same shareable link. Complements the 2026-07-14 batchUpdate-based deck lesson -- this path is better when layouts need pixel-precise custom positioning (color-coded cards, big stat callouts, embedded real images/charts) that's easier to lay out in python-pptx than via repeated batchUpdate calls. Verified rendering via <code>getThumbnail</code> per slide before delivering, same as the 07-14 pattern.</td>
 </tr>
 
 </tbody>

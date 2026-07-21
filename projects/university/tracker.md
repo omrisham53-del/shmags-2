@@ -8,15 +8,39 @@
 
 ## Active Assignments
 
+### Energy Policy — Final Exam (final exam of the entire degree)
+
+| Field | Value |
+|-------|-------|
+| **Course** | Energy Policy |
+| **Due** | Monday, July 20, 2026 |
+| **Status** | ✅ Complete -- taken 2026-07-20, went well |
+| **Grade** | Pending |
+| **Notes** | This is the final exam of the whole degree.
+
+---
+
+### Final LCA Assignment (Industrial Ecology and LCA course, 5040)
+
+| Field | Value |
+|-------|-------|
+| **Course** | Industrial Ecology and LCA |
+| **Due** | August 1, 2026 |
+| **Status** | In Progress -- topic + sources locked 2026-07-17, writing session scheduled for tomorrow (Sat 7/18) |
+| **Grade** | Pending |
+| **Notes** | Comparative EPD assignment: pick one PCR, two EPDs (different companies) for the same product, compare methodology + results (~10 pages, submit via Moodle). Real brief only surfaced 2026-07-17 (`Final Assignment 2026.pdf`) -- tracker previously had this as "details TBD." Topic locked: **ready-mix concrete**, PCR 2019:14 + c-PCR-003 (Concrete and concrete elements), comparing Interbeton Building Materials S.A. (Greece, product C12/15) vs. JSW Green Cement Pvt Ltd (India, grades M7.5-M60). Both EPDs + the c-PCR sourced directly from environdec.com's public API (no portal account needed) and saved to `LCA\EPDs\` in the course folder. Scanned all 4 source PDFs for hidden/injected text -- clean, no AI traps. Key real finding to build the analysis around: both EPDs cite the identical PCR version (1.11, 2021-02-05), but Interbeton declares a full cradle-to-grave scope (A1-A5, B1-B7, C1-C4, D, including a B1 carbonation credit) while JSW declares only A1-A4, C1-C4, D (B stage and A5 marked "Module Not Declared") -- a real, citable comparability gap under the nominally "same" PCR. Closest JSW grade match to Interbeton's C12/15 (15 MPa) is M20 (in the EPD's Annexure) since M15 has no full LCIA table. Omri wants minimum effort on this assignment but real focus on getting the tone/language right. Course materials (12 lecture decks + a sample final exam, "דוגמא למבחן מסכם") live at `C:\עמרי\אוניברסיטה\שנה ג\סמסטר ב\מדיניות אנרגיה`. A friend built a NotebookLM covering the course content: https://notebooklm.google.com/notebook/98f164d6-dad2-400b-8ccf-05032b14d809 -- plan is Omri reviews it solo Sat 7/18, then studies with friends Sun 7/19. Sample exam structure: 2 hrs, no aids, Part I (4 of 7 short-answer, 10 pts each) + Part II (2 of 3 essay, 30 pts each). Core recurring topics identified from the sample exam + the course's own "summary and exam prep" lecture: energy security's 4 components (availability/reliability/affordability/sustainability) vs. energy services; energy independence vs. security; decentralized electricity paradigms; decarbonization; energy resilience (risk = hazard x exposure x vulnerability); VOLL / cost of non-supply; energy trilemma (incl. how natural gas entered Israel's electricity market); geopolitics (security of supply vs. demand, oil vs. gas, critical minerals); energy poverty; "kosher electricity" (חשמל כשר, a real recurring course topic on Sabbath-compliant electricity policy). |
+
+---
+
 ### Economics Seminar Poster (Distinction Prize) -- presentation pending
 
 | Field | Value |
 |-------|-------|
 | **Course** | Economics seminar (same course as the final paper, separate distinction-track deliverable) |
-| **Status** | Submitted (2026-07-07 deadline met) -- presentation July 30, 2026 still ahead |
+| **Status** | Selected to present -- presenting the paper (not just the poster) Thursday July 30, 2026, with Tomer |
 | **Files** | `Economics Final\Poster\` (final design: `design\Poster - Final.dc.html`, exported `Poster - Final.pdf`, 2026-07-04) |
 | **Grade** | Pending |
-| **Notes** | Economist-style isometric cover; hero message = energy independence (~54% cheaper power via self-generation), efficiency (~25%) as complementary lever. Confirmed submitted 2026-07-10. Next milestone: presentation July 30. |
+| **Notes** | Economist-style isometric cover; hero message = energy independence (~54% cheaper power via self-generation), efficiency (~25%) as complementary lever. Confirmed submitted 2026-07-10. **Presentation confirmed 2026-07-20**: 5-7 min slot, presenting with Tomer. Real-world hook: Calcalist reported (2026) the Electricity Authority froze new data-center grid-connection requests for 140 days (~27,000 MW requested, 3x Israel's average consumption, exceeds grid capacity) -- directly validates the paper's headline finding that self-generation is now the only path around a real regulatory bottleneck, not just the cheaper option. Email sent to Osnat 2026-07-20 confirming + requesting pointers + proposing the 7/28 call. **2026-07-21: script finalized** (`presentation/script.docx`) -- PUE finding added as a secondary point, carbon-pricing recommendation added, closing summary refocused on Israel's future. **First-draft slide deck built** (11 slides, python-pptx + gws, real embedded Calcalist screenshot + paper charts) and sent to Tomer for messaging/storytelling feedback -- visual design polish deferred. Schedule: in-person review + prep call with lecturer Osnat Tuesday 7/28, present Thursday 7/30. |
 
 ---
 
