@@ -182,6 +182,14 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Without this, labels for thin slices sitting close together in angle (e.g. two companies each under 3% of the total) visually collide. Fixed overlapping company-name labels in two market-cap pie charts for the LCA assignment this way.</td>
 </tr>
 
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-22</td>
+<td>Before drafting a status/data-request message about a living artifact (a model, a spreadsheet), open the actual file and read its own status markers rather than trusting the project notes. Reading the tax model's cell fill colors via openpyxl (yellow = awaiting data, orange = to verify, green/peach = settled) revealed the notes had drifted: electric steam was dropped and fuel prices were already sourced. The live file is the source of truth; notes go stale.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Caught two would-be errors in the Rafi email (asking for data we already had / for a technology no longer in the model). openpyxl exposes both cell values and fill fgColor.rgb, so a color-coded legend in a workbook is machine-readable, not just visual.</td>
+</tr>
+
 </tbody>
 </table>
 

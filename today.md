@@ -8,13 +8,17 @@
 ## Current Priority
 
 - **University:** Economics paper presentation -- script finalized, first-draft slide deck built and sent to Tomer for messaging/storytelling feedback. Thursday July 30 presentation, review + lecturer call Tuesday 7/28. Final LCA (due Aug 1) -- full draft + submission-ready .docx built, handed to Omri for his own final edits in Word. Final Sustainability Project (due Aug 15, still TBD).
-- **EcoTraders tax incentive model:** Rafi email deferred to tomorrow from the work PC -- need Omri's photographed notes (missing data + Daniel's tweaks) before drafting.
+- **EcoTraders tax incentive model:** Rafi data-request email sent (numbers-only, CC Daniel). Now writing the tax incentive **chapter** for the national program -- market analysis (the macro view) is the heart of it; methodology brainstormed with Claude, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`. Next actions: check the model's analysis sheet for the fiscal-cost calc, then build the chiller market-sizing engine.
 - Through the Gap: football-economics angle isn't landing for Omri -- looking for a different revenue-potential side project
 - Norway trip: family member gave real travel/equipment/food info -- prep session still pending
 
 ---
 
 ## Today's Completed
+
+1. **Rafi data-request email drafted, grounded in the live model, and sent** -- opened the actual model file (`b2c10692...0.1.xlsx`, 2 sheets: נתונים והנחות + ניתוח) with openpyxl and read its own color legend to separate missing (yellow) / to-verify (orange) / settled (green + peach) data, rather than trusting the drifted project notes. That caught real drift: electric steam is no longer in the model (only 3 techs remain -- heat pumps, chillers, VSD), and fuel prices are now sourced from משרד האנרגיה (so both were dropped from the email). Final email asks Rafi for only 4 things: (1) CapEx of the mazut/diesel furnace = heat pump baseline (row 39, blank), (2) incremental annual maintenance cost efficient-vs-baseline for all 3 techs (rows 45-46, blank), (3) equipment degradation rate (0.5% placeholder), (4) confirm annual operating hours (5,475 / 3,000 / 6,400). Numbers-only framing on purpose (past meetings ran long), CC Daniel. Omri edited and sent.
+
+2. **Tax incentive chapter -- market analysis methodology brainstormed** -- the macro view that turns the model's per-unit results into total-market impact + fiscal cost + ₪/MWh and ₪/tCO2 (same ruler as the grant chapter). Full capture in `brainstorms/2026-07-22_tax-incentive-market-analysis.md`; key calls logged in decisions/log.md.
 
 ---
 
