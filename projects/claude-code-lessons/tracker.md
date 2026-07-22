@@ -158,6 +158,30 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td><code>gws drive files create --upload deck.pptx --upload-content-type application/vnd.openxmlformats-officedocument.presentationml.presentation --json '{"mimeType":"application/vnd.google-apps.presentation",...}'</code> triggers Drive's real conversion, not just an uploaded static file. To iterate, <code>gws drive files update --upload</code> on the same fileId overwrites content in place, keeping the same shareable link. Complements the 2026-07-14 batchUpdate-based deck lesson -- this path is better when layouts need pixel-precise custom positioning (color-coded cards, big stat callouts, embedded real images/charts) that's easier to lay out in python-pptx than via repeated batchUpdate calls. Verified rendering via <code>getThumbnail</code> per slide before delivering, same as the 07-14 pattern.</td>
 </tr>
 
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-21</td>
+<td>Building a submission-ready .docx from a markdown draft is reliable via a custom python-docx script tailored to the doc's own structure, but the conversion should be visually verified, not just trusted from the generation code.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Verification pipeline: render the .docx to PDF via Word COM automation (<code>win32com.client.Dispatch('Word.Application')</code>, <code>doc.SaveAs(pdf_path, FileFormat=17)</code>), then rasterize pages with PyMuPDF (<code>fitz</code>) since poppler/pdftoppm isn't installed in this environment and the Read tool's built-in PDF-page rendering depends on it. This caught a real leftover em dash on the cover page that reviewing the conversion script alone would have missed. Used for the Final LCA assignment; script at <code>research/academic/final-lca-assignment/md_to_docx.py</code>.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-21</td>
+<td>The dataviz skill is framed around interactive HTML/web charts, but its core method (pick the form by job, fixed categorical hue order per role and never cycled, one-axis rule, legend placement, no rainbow) applies directly to static matplotlib charts embedded in an academic Word/PDF document too.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Used the skill's reference palette for the LCA assignment's charts: a fixed blue/green categorical pair for Interbeton/JSW across every comparison chart, and a highlight-vs-context two-color scheme (orange vs. muted gray) for the market-cap charts.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-21</td>
+<td>Matplotlib pie-chart leader-line labels need explicit anti-overlap placement for small/adjacent wedges: assign each label an evenly spaced target position (top-to-bottom per left/right side) rather than placing it proportional to the wedge's own angle.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Without this, labels for thin slices sitting close together in angle (e.g. two companies each under 3% of the total) visually collide. Fixed overlapping company-name labels in two market-cap pie charts for the LCA assignment this way.</td>
+</tr>
+
 </tbody>
 </table>
 
