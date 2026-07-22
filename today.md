@@ -16,6 +16,10 @@
 
 ## Today's Completed
 
+---
+
+## Recent Work (July 21)
+
 1. **Economics presentation script finalized** -- refined paragraph by paragraph against the real paper (`_paper_dump.txt`) and Excel model outputs, not invented content. Added the PUE finding (₪222.6M, highest-ROI lever in the model) as a secondary point after the 54% self-generation savings; added the paper's real carbon-pricing recommendation (was missing from the draft), blended with the Ireland/Germany renewable-obligation precedent; rewrote the closing summary to focus on Israel's structural future (6-12% of peak demand by decade end, ~20 years of gas reserves, 22%/year market growth, Feb 2026 Treasury interim recommendations) rather than on the presenters themselves. Edited directly into `presentation/script.docx` (closed/reopened once to clear a Word file-lock).
 
 2. **First-draft slide deck built and verified -- 11 slides** -- built with python-pptx (navy+terracotta system matching the poster), embedding real assets: a live screenshot of the actual Calcalist article headline (captured via headless Chrome, not a mockup) and the real chart PNGs from the paper (total cost, blended rate, PUE sensitivity). Uploaded via `gws` and converted to native Google Slides. Verified every unique slide layout via API thumbnails before calling it done -- caught and fixed one real image/text overlap on the hook slide. Explicitly a messaging/structure draft; visual design polish deferred to a later pass per Omri's request.
