@@ -9,12 +9,16 @@
 
 - **University:** Economics paper presentation -- script finalized, first-draft slide deck built and sent to Tomer for messaging/storytelling feedback. Thursday July 30 presentation. Prep call with lecturer Osnat proposed for Tuesday 7/28 -- Omri asked to move it earlier to 14:30, no reply yet as of 7/24. Final LCA (due Aug 1) -- full draft + submission-ready .docx built, handed to Omri for his own final edits in Word (functionally done). Final Sustainability Project (due Aug 15) is the one real assignment left in the whole degree, still TBD.
 - **EcoTraders tax incentive model:** Rafi data-request email sent (numbers-only, CC Daniel). Now writing the tax incentive **chapter** for the national program -- market analysis (the macro view) is the heart of it; methodology brainstormed with Claude, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`. Next actions: check the model's analysis sheet for the fiscal-cost calc, then build the chiller market-sizing engine. No career future here (coasting) but genuinely engaged -- interesting Excel modeling work, goal is to finish the chapter + model before Aug 22.
-- **Through the Gap:** elevated priority -- football-economics angle isn't landing for Omri, brainstorming a new revenue-potential direction today (7/24).
+- **Through the Gap -> "Window Winners":** newsletter direction dropped entirely. New concept locked via a full discovery session (7/24): a Premier League transfer-window prediction game -- hybrid model (Omri's own scoring engine for squad fit/impact + a credibility-weighted valuation aggregator from news/social, not scraped from Transfermarkt for legal reasons) plus fan predictions and a leaderboard. Traction + technical growth prioritized over revenue for now; goal is a rough v1 live before Sept 8, then continuous development through the trip toward a real January launch and a creator-sponsorship revenue push next summer. Full capture: `brainstorms/2026-07-24_through-the-gap-direction.md`.
 - **Norway trip:** given a formal priority slot (constant background project, not the main focus) -- family member gave real travel/equipment/food info, prep session still pending.
 
 ---
 
 ## Today's Completed
+
+1. **Weekly review (2026-07-24) processed** -- worked through the first automated `/weekly-review` report. Full priorities re-derivation in `context/current-priorities.md` (Through the Gap elevated, D&D confirmed dead, EcoTraders reframed, Norway trip given a Priority 5 slot), `context/goals.md` retargeted (Energy Program -> Aug 22, Graduate -> Aug 15), cruft cleanup (`job-tracker.py` moved to `scripts/`, `desktop-setup.sh` archived), decisions logged.
+
+2. **Through the Gap rebuilt as "Window Winners"** -- full discovery session (`brainstorms/2026-07-24_through-the-gap-direction.md`) replacing the football-inequality newsletter with a Premier League transfer-window prediction game: hybrid model (Omri's own squad-fit/impact scoring + a credibility-weighted valuation aggregator built from news/social reports, deliberately not scraped from Transfermarkt after a real legal check on EU database rights) plus fan predictions and a leaderboard for shareability. Strategic call: traction + technical growth over revenue for now, rough v1 targeted before Sept 8, real scale-up planned for the January window and a creator-sponsorship revenue model next summer. `projects/through-the-gap/README.md` and `tracker.md` rewritten to match.
 
 ---
 
