@@ -2,6 +2,10 @@
 
 Standalone scripts that run from the command line (no MCP / no Claude needed).
 
+## job-tracker.py - Job opportunity tracker automation
+
+Moved here 2026-07-24 from `.claude/skills/` (skills are .md trigger files; this is the actual automation code). Job search is paused for the Sept-Dec trip -- dormant until active search resumes. See `job_tracker_skill.md` memory for the framework this supports.
+
 ## sync_jobs.py - Bidirectional sync with the "Job Applications" Notion DB
 
 One-time setup:

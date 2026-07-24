@@ -7,10 +7,10 @@
 
 ## Current Priority
 
-- **University:** Economics paper presentation -- script finalized, first-draft slide deck built and sent to Tomer for messaging/storytelling feedback. Thursday July 30 presentation, review + lecturer call Tuesday 7/28. Final LCA (due Aug 1) -- full draft + submission-ready .docx built, handed to Omri for his own final edits in Word. Final Sustainability Project (due Aug 15, still TBD).
-- **EcoTraders tax incentive model:** Rafi data-request email sent (numbers-only, CC Daniel). Now writing the tax incentive **chapter** for the national program -- market analysis (the macro view) is the heart of it; methodology brainstormed with Claude, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`. Next actions: check the model's analysis sheet for the fiscal-cost calc, then build the chiller market-sizing engine.
-- Through the Gap: football-economics angle isn't landing for Omri -- looking for a different revenue-potential side project
-- Norway trip: family member gave real travel/equipment/food info -- prep session still pending
+- **University:** Economics paper presentation -- script finalized, first-draft slide deck built and sent to Tomer for messaging/storytelling feedback. Thursday July 30 presentation. Prep call with lecturer Osnat proposed for Tuesday 7/28 -- Omri asked to move it earlier to 14:30, no reply yet as of 7/24. Final LCA (due Aug 1) -- full draft + submission-ready .docx built, handed to Omri for his own final edits in Word (functionally done). Final Sustainability Project (due Aug 15) is the one real assignment left in the whole degree, still TBD.
+- **EcoTraders tax incentive model:** Rafi data-request email sent (numbers-only, CC Daniel). Now writing the tax incentive **chapter** for the national program -- market analysis (the macro view) is the heart of it; methodology brainstormed with Claude, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`. Next actions: check the model's analysis sheet for the fiscal-cost calc, then build the chiller market-sizing engine. No career future here (coasting) but genuinely engaged -- interesting Excel modeling work, goal is to finish the chapter + model before Aug 22.
+- **Through the Gap:** elevated priority -- football-economics angle isn't landing for Omri, brainstorming a new revenue-potential direction today (7/24).
+- **Norway trip:** given a formal priority slot (constant background project, not the main focus) -- family member gave real travel/equipment/food info, prep session still pending.
 
 ---
 
@@ -70,9 +70,9 @@
 
 ## This Week's Focus
 
-1. **Through the Gap** - Decide on the tool/app direction (or continue the newsletter as-is)
-2. **University** - Get briefs for the Final LCA Assignment (due Aug 1) and Final Sustainability Project (due Aug 15) and start once details are in hand
-3. **Energy Program** - Opportunistic only: review baseline data with Daniel when there's a natural moment; not a push priority
+1. **Through the Gap** - Brainstorm a new direction (football-economics angle dropped 7/17); elevated priority, working on it 7/24
+2. **University** - Final Sustainability Project (due Aug 15) is the one assignment left in the degree; get the brief once details land
+3. **Energy Program** - Active: finish the tax incentive chapter + model before Aug 22 departure
 
 ---
 

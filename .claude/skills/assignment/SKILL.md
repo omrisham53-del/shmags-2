@@ -141,6 +141,12 @@ Author, A. (Year). Title. *Journal*, volume(issue). https://doi.org/...
 
 ---
 
+### Document Formatting (docx generation)
+
+When converting a draft to `.docx` (via a script like `md_to_docx.py`), all body paragraphs — everything that isn't a heading — should be fully justified (aligned on both edges), not left-aligned. Headers stay as-is (not justified). Confirmed correct by Omri on the Final LCA Assignment docx (2026-07-23) — apply to every future assignment docx.
+
+---
+
 ### Citations
 
 Build citations directly from `sources.md`. For every factual claim, data point, or number in the draft, cite the source inline. Do not leave any claim unsourced.

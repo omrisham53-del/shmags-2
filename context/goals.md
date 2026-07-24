@@ -11,17 +11,17 @@
 - MoonActive (gaming) still technically open but reconsidering whether gaming is the right sector
 - Key metrics: Offers received, companies engaged, interviews completed (paused until post-trip)
 
-## Goal 2: Deliver Energy Program (Jun 2026)
-- Finish all national energy efficiency program deliverables
-- Complete Excel analysis and related documents
+## Goal 2: Deliver Energy Program (target updated 2026-07-24: before Aug 22 departure, was Jun 2026)
+- Grants program chapter and loan fund position paper both finished and sent to the Ministry (2026-07-12)
+- Tax incentive chapter + model is the last piece Omri owns -- goal is to finish both before his last day at EcoTraders (Aug 22, 2026)
 - Get sign-off from Daniel and Ministry of Energy
-- Transition work cleanly before summer
+- Original June 2026 date has passed; this is now the real target
 
-## Goal 3: Graduate with Strong Performance (May 2026)
-- Complete all university coursework
-- Maintain strong grades
+## Goal 3: Graduate with Strong Performance (target updated 2026-07-24: Aug 15 2026, was May 2026)
+- Coursework functionally complete -- Energy Policy final exam (final exam of the whole degree) taken 2026-07-20
+- Final LCA (due Aug 1) is done in substance, awaiting Omri's own edits + Moodle submission
+- Final Sustainability Project (due Aug 15) is the one real assignment left in the entire degree
 - Build professional network with peers and professors
-- Finish HW #2 by May 18
 
 ## Goal 4: Strengthen Analytical Brand
 - Across all three work areas (energy, job search, academics)

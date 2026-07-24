@@ -41,7 +41,54 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 
 ## Gear, Food & Trip Prep
 
-Omri consulted a family member (2026-07-20) with real hands-on experience -- travel logistics, gear, and food for the Jotunheimen/Breheimen trek. Prep session to work through it in detail planned for tomorrow (Tue 7/21) -- not yet captured here.
+Omri consulted a family member with real hands-on experience -- travel logistics, gear, and food for the Jotunheimen/Breheimen trek. Captured 2026-07-22.
+
+### General
+
+- Jotunheimen is a great starting point -- recommended to hike Galdhøpiggen (Norway's highest peak) while there.
+- Check weather constantly throughout the whole trip, including mid-trek -- no problem waiting a day or two in a cabin for better weather rather than pushing through.
+- Weather is very unpredictable.
+- If weather turns heavy, stay in a cabin rather than a tent.
+- Tent is still the default though -- saves cost and is a real challenge Omri wants. Only fun if the weather actually allows it.
+- Cabins sometimes sell extra supplies (food, firewood for heating) that make the stay and the trek nicer -- worth checking on arrival.
+
+### Equipment
+
+**Footwear**
+- Hiking shoes: Salomon recommended, below-ankle, light but still supportive with good grip. Waterproof is essential regardless of brand.
+- Pants need to cover the top of the shoe and be waterproof, for warmth and dryness.
+
+**Clothing**
+- 2 sets of hiking shirts + pants (Omri can bring more shirts).
+- Sweat-wicking boxer briefs.
+- Socks at 3 temperature tiers: 2 regular, 2 medium, 2 extreme cold.
+- Thermal base layers.
+- A hat/hood covering the back of the neck for sun protection.
+- Thin but very warm beanie -- essential.
+- A buff -- essential.
+- Sunglasses.
+- Gloves.
+
+**Gear**
+- Walking sticks -- essential.
+- Very waterproof tent.
+- Small inflatable pillow.
+- Waterproof bags for packing clothing sets and for electronics that need to stay dry.
+- First aid kit + toiletry bag.
+- Small plastic shovel for outdoor defecation.
+
+### Food & Cooking
+
+- Portable gas stove.
+- Minimal cooking tools.
+- Water purification tablets.
+- Spices.
+- Prioritize dry, light, high-calorie/high-protein food.
+
+**Meal plan**
+- Breakfast -- no-cook rotation (Omri doesn't like oatmeal, skipped the family member's suggestion): tahini + halva on crackers, cream cheese + jam/honey on crackers, trail mix (nuts/dried fruit), hard cheese + crackers + dried dates/apricots, protein/energy bars for fast-start mornings. Mix of sweet and savory so it doesn't repeat lunch.
+- Lunch -- tortillas/crackers with cream cheese and smoked salmon/salami/ham.
+- Dinner -- small pasta (orzo/Israeli ptitim, brought from home) with an optional small soup/sauce.
 
 ---
 
