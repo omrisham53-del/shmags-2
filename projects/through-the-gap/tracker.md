@@ -12,20 +12,23 @@ Newsletter direction dropped. New product: **Window Winners** -- a Premier Leagu
 - [x] Name locked: Window Winners
 - [x] Scope locked: Premier League only for v1
 - [x] Data strategy locked: licensed stats API (football-data.org / API-Football) + own credibility-weighted valuation engine (not scraped from Transfermarkt)
+- [x] **Launch target locked (2026-07-25): Friday Aug 21, 2026 (PL 2026/27 season kickoff)**, not the transfer-window close
+- [x] **v1 scope cut to fit 4-week timeline**: fan prediction game + leaderboard + sharing ships in full; valuation uses a manually curated list of ~15-20 marquee transfers instead of the full automated aggregation engine (that becomes a post-launch upgrade). Estimated ~40-55 hours / ~10-14 hrs/week over the 4 weeks.
 - [ ] Technical architecture / build plan (not yet started)
-- [ ] Data pipeline (automated transfer + stats ingestion)
-- [ ] Valuation aggregation engine (news/social source weighting)
+- [ ] Data pipeline (automated fixtures/squads/stats ingestion via licensed API)
+- [ ] Manually curated valuation list (~15-20 transfers) for v1
 - [ ] Scoring model (squad fit / likely position / XI impact)
-- [ ] Fan prediction + sharing UX
-- [ ] Launch (target: before Sept 8, ahead of Omri's trip departure -- rough v1 for the current summer window)
+- [ ] Fan prediction + leaderboard + sharing UX
+- [ ] Launch by Aug 21, 2026
 
 ## Window Winners - Milestones
 
 | Milestone | Target | Status |
 |-----------|--------|--------|
-| v1 rough launch (Premier League, current summer window) | Before Sept 8, 2026 | Not started |
+| v1 launch (Premier League, scoped-down valuation, full prediction/leaderboard/sharing) | Aug 21, 2026 (season kickoff) | Not started |
+| Automated valuation-aggregation engine (upgrade from manual list) | During trip, before Jan window | Not started |
 | Continued build during trip | Sept 2026 - Jan 2027 | Not started |
-| Real launch for winter window | January 2027 | Not started |
+| Real launch for winter window (full automated pipeline) | January 2027 | Not started |
 | Traction goal: real usage/sharing established | By next summer window | Not started |
 | Revenue: creator-sponsorship model | Next summer window (~2027) | Parked -- deliberately not the near-term focus (traction + technical growth prioritized first, per Omri's own trilemma call) |
 
