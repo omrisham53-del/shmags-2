@@ -129,3 +129,67 @@ Sections moved from today.md when "Recent Work" exceeded 3 dates. Append-only.
 4. **Style consistency audit + fix** - Audit found real em-dash violations across memory files, project docs, and a D&D session plan. Root cause: `dnd-session-prep/SKILL.md` had no Style section. Fixed: added Style section to dnd-session-prep, added a "Skill-Owned Style" principle + output-type register table to `communication-style.md`, and baked the requirement into `skill-creator/SKILL.md`'s checklist so future skills get it by default.
 
 5. **Chess given a full project + two-stage automation** - Created `projects/chess/README.md` + `tracker.md`. Built two scheduled cloud routines: "Chess tracker auto-update" (every 3 days, flags candidate games from chess.com metadata) and "Chess bi-weekly Stockfish analysis" (1st and 16th of each month, real depth-18 analysis). Omri still writes the actual hook/annotation himself.
+
+---
+
+## Recent Work (July 12)
+
+1. **Grants program chapter and loan fund position paper finished and sent to the Ministry of Energy client** - Both documents completed and sent directly to the client after review (not routed through Daniel first). Closes out two of the three incentive-section chapters Omri owns (grants, tax incentive, loan fund) -- tax incentive model is the one still in progress.
+
+2. **Tax incentive model -- chiller section fully completed with real grant-program data** - Merged the unmerged `claude/tax-incentive-data-points-iy616v` branch (was sitting unpushed, holding the original baseline-technology-data.md). Locked chiller kW/ton baseline-vs-efficient split (ASHRAE 90.1 code-minimum vs. DOE FEMP efficient tier at 500 RT; reciprocating vs. screw/scroll at 100 RT) with hours locked at 3,000 (working number, above the ~2,080-8,760 range an EcoTraders engineer gave verbally). Then Omri uploaded `capex_all_rounds_annotated.xlsx` with a chiller-specific sheet (96 real line items from the 2017-2022 grant rounds) -- used the real median 4,186 ILS/ton for efficient CapEx, and derived an estimated 3,562 ILS/ton baseline CapEx by backing it out through a sourced 10-25% efficiency cost premium (DOE FEMP + market commentary), since grant data structurally can't contain a baseline-tier price. Chillers are now the most complete technology in `projects/energy-program/baseline-technology-data.md`.
+
+3. **Heat pump baseline corrected from electric resistance to mazut/diesel-fired boilers, then re-sourced with real capacity/COP data** - Rafi's notes (per Omri's re-check) confirmed heat pumps replace mazut/diesel ovens, not electric water heaters as originally assumed and as still hardcoded in `generate_tax_model.py`. Rebuilt as a fuel-combustion-vs-electric comparison (reusing electric steam's 82-85% ASME PTC4 combustion efficiency), added real MRV-sourced fuel caloric values from Omri's Excel (diesel 0.085 ton/MWh, mazut 0.088 ton/MWh). Corrected and split heat pump (1a) and boiler (1b) data into separate tables. Heat pump hours (3,000-4,000) and CapEx both remain open.
+
+4. **CapEx sourcing strategy resolved after a same-day reversal** - Omri clarified he already has real CapEx pulled from the grant program rounds (the June 1 `capex_pipeline.py` extraction work) and uses that directly for heat pumps, VSD, and electric steam. Chillers are the one exception, kept in `baseline-technology-data.md` directly.
+
+5. **Reviewed Omri's latest tax-incentive-model Excel draft, found real issues** - No real market fuel price (ILS/ton) for diesel/mazut anywhere in the workbook. Every discounted-cashflow formula in the analysis sheet has a broken #REF! reference where the discount rate should be. The heat pump baseline row label was manually renamed but the underlying formula still computes OPEX as electricity kWh x electricity price -- the structural fuel-vs-electric code fix genuinely hasn't been done yet, just cosmetically relabeled.
+
+6. **Wrote 3 prompts for Omri's pre-send document review workflow** - A Word-extension prompt checking for unresolved tracked changes/comments, placeholder text, inconsistent terminology, and broken citations; and two short client-email-drafting prompts (one each for the grants program chapter and the loan fund chapter).
+
+7. **September trip route reordered for a London meetup** - Swapped to Norway -> London -> Scotland -> Ireland -> Portugal since Norway's 4-week leg already ends ~Oct 5, right before the ~Oct 8 London meetup. Oslo confirmed as the flight destination.
+
+8. **Trip promoted to a full project** - Created `projects/travel/` (README + tracker). `september_trip` memory now points to it as the live record.
+
+9. **Trip budget analyzed and built into an Excel tracker** - Funding: 15,000 ILS military service grant + 3,000 ILS savings = 18,000 ILS confirmed baseline. Estimated real cost range: 15,800 (frugal) to 24,100 (moderate comfort) -- Norway flagged as the main risk. Built `projects/travel/Travel_Budget_Tracker.xlsx` with 5 linked tabs.
+
+10. **Session pushed to master** - Committed and pushed all of the above (commit dd93edf).
+
+---
+
+## Recent Work (July 14)
+
+1. **Started `projects/claude-code-lessons/` to capture lessons from the 6-hour Claude Code manual** - README + tracker built for a multi-session, multi-day backlog. Wired `/save-context` to also auto-feed it with Claude Code meta-lessons from regular work sessions, not just the manual.
+
+2. **Built an explicit "AI Kill List" in communication-style.md** - First lesson from the manual. Concrete banned buzzwords/phrases/structural patterns (AI slop), replacing the old vague "keep it real" line.
+
+3. **Audited SHMAGS 2 for leaked secrets** - Confirmed clean: `.env` gitignored and never committed, zero real secret hits across all 225 tracked files and full git history.
+
+4. **Installed and fully configured the gws CLI (googleworkspace/cli)** - Full Google Workspace access (Drive, Gmail, Calendar, Sheets, Docs, Slides, Tasks, Chat) from the terminal. Installed via npm, set up Google Cloud SDK + a new GCP project (`omri-gws-cli`, 44 APIs enabled), manually created the OAuth consent screen + client in Cloud Console, logged in as omrisham53@gmail.com. Known limitation: Testing-mode refresh tokens expire every 7 days, re-login needed weekly (open item, not yet resolved).
+
+5. **VS Code settings tuned** - New Claude Code sessions default to terminal view (`claudeCode.useTerminal`); all `.md` files default to rendered Preview instead of raw source (`workbench.editorAssociations`).
+
+6. **Built a visual 9-slide Google Slides deck for Itai showcasing Claude Code + gws** - Rebuilt with knowledge-graph diagram, hub-and-spoke app grid, terminal mockups, comparison pills, security flow diagram, bar chart, pipeline flow, and numbered stepper. Navy/gold/Playfair Display design system. Saved as a durable `slide_deck_preferences` memory so future decks start visual-first by default.
+
+7. **Emailed and shared the deck with Itai via gws** - Sent through `gws gmail +send`. First draft had the wrong tone; corrected and saved as a `feedback_friend_emails` memory.
+
+---
+
+## Recent Work (July 15)
+
+1. **Built a new England vs Argentina edition of the World Cup party quiz for tonight** - New guest (`world-cup-eng-arg.html`) and host (`world-cup-eng-arg-host.html`) versions alongside the original files, routed via `vercel.json`. Same proven structure with fixture-specific trivia and knockout-stage fields.
+
+2. **Hardened the WhatsApp share flow for the iPhone sharing issue flagged from last time** - Rebuilt the share section with a direct `https://wa.me/?text=` deep link and an always-visible "copy text" fallback, replacing the old `navigator.share()` with no fallback. Added iOS web-app meta tags.
+
+---
+
+## Recent Work (July 17)
+
+1. **Energy Policy final exam surfaced and tracked** - Discovered mid-session it's the final exam of the whole degree, Monday July 20. Added to `projects/university/tracker.md`, promoted to temporary Priority 1. Course materials uploaded (12 lecture decks + sample exam) and mapped against the sample exam's structure.
+
+2. **gws OAuth 7-day re-login issue fixed for good** - Published the app from Testing to Production in Cloud Console (no formal Google verification needed for personal single-user use), re-authenticated, verified live.
+
+3. **Final LCA assignment unblocked** - Real brief surfaced. Topic locked to a comparative EPD analysis: ready-mix concrete, Interbeton (Greece) vs. JSW (India), both under PCR 2019:14 + c-PCR-003. Found a genuine methodological gap between the two EPDs (different declared system boundaries despite citing the identical PCR version) to build the comparative analysis around.
+
+4. **Travel: flight confirmed booked, Norway route planning** - Confirmed the Sept 8 Oslo flight is booked. Decided on the overnight sleeper train to Oslo area. Researched every Norway trek candidate against real season/hut-closure constraints.
+
+5. **Travel: Bergen dropped entirely, full Oslo->Jotunheimen->Breheimen route locked with real dates** - Omri picked two published hut-to-hut routes ("6 Days in Jotunheimen's Peaks" and "From Fjord to Mountain in Breheimen"). Cross-referenced every hut on both routes against the official DNT maps. Found the route's Day 5 night (Sept 14, Memurubu) falls one day past the confirmed Sept 13 DNT closure date -- flagged as the top question for Omri's planned in-person DNT center visit in Oslo on Sept 9. Full itinerary logged in `projects/travel/tracker.md`.
