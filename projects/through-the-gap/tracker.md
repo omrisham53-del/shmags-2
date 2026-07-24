@@ -6,6 +6,12 @@
 
 Newsletter direction dropped. New product: **Window Winners** -- a Premier League transfer-window prediction game. Full reasoning and discovery process in `brainstorms/2026-07-24_through-the-gap-direction.md`. Old newsletter milestones below are superseded (kept for history, not active).
 
+## Recurring Work Schedule (set 2026-07-24)
+
+Two weekly recurring calendar blocks for Window Winners build time, created via `gws calendar`:
+- **Tuesday evenings, 19:00-21:00** (starting 2026-07-28)
+- **Friday late mornings, 10:00-12:00** (starting 2026-07-31)
+
 ## Window Winners - Setup Status
 
 - [x] Concept locked: transfer-window prediction game, hybrid model+fan mechanic

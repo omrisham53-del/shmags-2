@@ -1,6 +1,6 @@
 # Claude Code Lessons Tracker
 
-**Last Updated:** July 21, 2026
+**Last Updated:** July 25, 2026
 
 Backlog of lessons/ideas from the 6-hour Claude Code manual, plus meta-lessons that surface organically during regular work sessions (auto-fed by `/save-context`). Add new rows as lessons come up; work them in any order across sessions.
 
@@ -188,6 +188,22 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Habit-workflow</td>
 <td><strong>Done</strong></td>
 <td>Caught two would-be errors in the Rafi email (asking for data we already had / for a technology no longer in the model). openpyxl exposes both cell values and fill fgColor.rgb, so a color-coded legend in a workbook is machine-readable, not just visual.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-24</td>
+<td>A skill file can exist in <code>.claude/skills/</code> with correct frontmatter (e.g. <code>grill-me.md</code>) yet not appear in a given session's "available skills" system-reminder listing.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Wanted to run the Through the Gap brainstorm via the grill-me skill's discovery-interview process, but it wasn't in this session's skill listing. Rather than risk an invalid <code>Skill</code> tool call, found the file directly with Glob, read its instructions, and followed the same one-question-at-a-time/checkpoint-to-file method manually without invoking the Skill tool. Worked fine -- a skill's *content* is just a markdown file you can read and follow even if the harness didn't surface it as invocable that session.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-25</td>
+<td><code>gws calendar +insert</code> (the simple helper) has no recurrence option -- creating a recurring weekly event requires the raw <code>gws calendar events insert --json</code> command with an explicit <code>recurrence: ["RRULE:FREQ=WEEKLY;BYDAY=..."]</code> field, and that raw command also needs <code>--params '{"calendarId":"primary"}'</code> explicitly (unlike the helper, which defaults it).</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Used <code>--dry-run</code> first to validate the request body before actually inserting. Created two real recurring events this way (Window Winners Tuesday/Friday work blocks) on Omri's primary calendar.</td>
 </tr>
 
 </tbody>
