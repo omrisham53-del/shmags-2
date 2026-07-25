@@ -1,6 +1,6 @@
 # Claude Code Lessons Tracker
 
-**Last Updated:** July 25, 2026
+**Last Updated:** July 25, 2026 (evening)
 
 Backlog of lessons/ideas from the 6-hour Claude Code manual, plus meta-lessons that surface organically during regular work sessions (auto-fed by `/save-context`). Add new rows as lessons come up; work them in any order across sessions.
 
@@ -204,6 +204,38 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Habit-workflow</td>
 <td><strong>Done</strong></td>
 <td>Used <code>--dry-run</code> first to validate the request body before actually inserting. Created two real recurring events this way (Window Winners Tuesday/Friday work blocks) on Omri's primary calendar.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-25</td>
+<td>CSS custom properties (<code>var(--x)</code>) do NOT resolve inside SVG presentation attributes (<code>fill=</code>, <code>stroke=</code>, <code>font-family=</code>) -- they only work in a CSS/<code>style</code> context. Using them as attribute values fails silently and falls back to defaults.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Caught while building the Itai Vol.2 HTML deck -- every inline-SVG illustration rendered black because colors were set as <code>fill="var(--ember)"</code>. Fix: use literal hex/values (or inline <code>style="fill:var(--x)"</code>) in SVG attributes; keep <code>var()</code> for the stylesheet only. Verified with a grep for <code>="var(--</code> after replacing.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-25</td>
+<td>An SVG <code>&lt;pattern patternUnits="userSpaceOnUse"&gt;</code> tiles from the SVG coordinate origin (0,0), NOT from the position of the element it fills. A checkerboard/grid rect placed at arbitrary coords renders off-phase.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Chess pieces "sat between squares" because the board rect was at x28/y38 (28 mod 18 = 10px off the tile grid). Fix: align the filled rect's origin to a multiple of the tile size so the squares line up, then place pieces on true cell centers.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-25</td>
+<td>Public sharing of claude.ai Artifacts is blocked on Omri's account ("This version can't be shared publicly", persists after republishing a fresh version). An artifact URL can't be opened by anyone but Omri.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Blocked delivery of the Vol.2 deck to Itai. Workaround: email the underlying self-contained HTML file as an attachment (works offline in any browser), not the artifact link -- also honors Omri's "no Google Slides" preference for the Itai decks. gws quirk: stage the file into cwd before <code>+send -a</code>. Saved as the <code>artifact_sharing_blocked</code> memory.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-25</td>
+<td>gws Gmail message search/read syntax: list is <code>gws gmail users messages list --params '{"userId":"me","q":"...","maxResults":N}'</code> (there is no <code>--q</code> flag, and <code>gws gmail messages list</code> is invalid); read a message with <code>gws gmail +read --id &lt;ID&gt; --headers</code>. Helpers: <code>+send / +read / +triage / +reply / +forward</code>.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Used to find Itai's email address (itaikrymolowski@gmail.com) from prior sent mail before sending the Vol.2 deck. Reinforces the known <code>+send -a</code> cwd-staging quirk for attachments.</td>
 </tr>
 
 </tbody>
