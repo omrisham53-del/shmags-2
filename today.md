@@ -1,14 +1,14 @@
-# Today - 2026-07-23
+# Today - 2026-07-26
 
-**Date:** 2026-07-23
-**Updated:** 2026-07-23
+**Date:** 2026-07-26
+**Updated:** 2026-07-26
 
 ---
 
 ## Current Priority
 
 - **University:** Economics paper presentation -- script finalized, first-draft slide deck built and sent to Tomer for messaging/storytelling feedback. Thursday July 30 presentation, review + lecturer call Tuesday 7/28. Final LCA (due Aug 1) -- full draft + submission-ready .docx built, handed to Omri for his own final edits in Word. Final Sustainability Project (due Aug 15, still TBD).
-- **EcoTraders tax incentive model:** Rafi replied with all four data points. Mapping to model cells worked out with Claude: furnace baseline CapEx ~479 ₪/kW pre-VAT / 560 incl-VAT (row 39), incremental maintenance = 0 for all 3 techs (chillers/VSD same, heat pump actually cheaper so conservative 0), VSD degradation to 0 (screw compressors don't degrade), VSD hours down to ~5,000 (his 24/7 compressor-hours; 6,400 was too high). Open: confirm VAT basis matches the efficient/grant CapEx, and that efficient CapEx is complete-installed not equipment-only. Next: apply the four changes to the live model, check the ניתוח sheet for the fiscal-cost calc, then the tax incentive chapter market analysis (chillers engine first). Methodology capture: `brainstorms/2026-07-22_tax-incentive-market-analysis.md`.
+- **EcoTraders tax incentive model:** Rafi's 4 data points applied to the model (furnace CapEx 479 ₪/kW net, maintenance delta 0, VSD degradation 0, VSD hours 5,000). Also built Daniel's A-C invest-or-not row (as C−A + verdict + summary cols, green/red/amber CF). Big finding from replicating the model: with current inputs every technology is already NPV-positive without the incentive (B−A > 0 everywhere), so the incentive is deadweight under a pure-NPV adoption rule, and this is robust to the electricity-tariff fix. This forces the additionality question to the front. Recommended reframe: make adoption trigger a payback-period threshold (2-3 yr hurdle) not a 20-yr NPV sign, which restores real additionality. Two minor pre-existing model issues noted: degradation input cell (row 44) not wired into cashflows, and its hardcoded factor runs the wrong direction. Next: build the payback-threshold version for Daniel; still fix the electricity tariff (Daniel's comment #1) and the fiscal-cost check (state cost = C−B ≈ NPV of deferred tax, already in the model). Methodology capture: `brainstorms/2026-07-22_tax-incentive-market-analysis.md`.
 - Through the Gap: football-economics angle isn't landing for Omri -- looking for a different revenue-potential side project
 - Norway trip: family member gave real travel/equipment/food info -- prep session still pending
 
