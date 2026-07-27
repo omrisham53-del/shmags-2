@@ -33,8 +33,7 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 **Mon Jul 27 (today, FULL)** -- close out the model's last two structural gaps
 - [x] Electricity tariff -> תעו"ז average (39.54 agorot/kWh) -- done 2026-07-26, recovered from the merged branch.
 - [x] Payback-threshold adoption row + decision test per block -- already live in the model (this replaced the originally-planned A-C row as the adoption signal).
-- [ ] 9:00-10:30 -- Run the C-A row + fiscal-cost row prompt (below) through the Excel extension.
-- [ ] 10:30-12:00 -- Verify the extension's output: confirm C-A = (B-A) + (C-B) in each of the 6 blocks, confirm the fiscal-cost row is far smaller than the full CapEx deduction, confirm conditional formatting rendered.
+- [x] Added the C-A row (NPV of the incentivized investment vs. doing nothing) and the fiscal-cost row (direct reference to C-B, per the dual-reporting decision) to all 6 blocks, plus two summary-table columns and a totals row (L305 = ₪71,491 total fiscal cost across all technologies). Verified: C-A = (B-A)+(C-B) in all 6 rows, fiscal cost matches C-B exactly, conditional formatting live (green confirmed on all 6 -- everything's currently positive, so the red branch is unverified but the rule is present).
 - [ ] 13:00-14:30 -- kW/ton unit consistency sanity-check across all 6 blocks (ton/kW vs kW/ton mix-ups) -- not confirmed done anywhere in the recovered history, still worth a pass.
 - [ ] 14:30-16:00 -- Confirm/complete the sensitivity-analysis build (hours per technology + depreciation multiplier across all 6 blocks) -- the brainstorm capture says this was "scoped and a build prompt sent to the extension" but never confirmed finished.
 - [ ] 16:00-17:30 -- If today's Daniel meeting produced new decisions, log them (decisions/log.md) and fold anything schedule-relevant into this tracker.
