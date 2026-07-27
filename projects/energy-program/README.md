@@ -18,6 +18,8 @@
 
 **Day-by-day schedule for the remaining work (Jul 27 -- Aug 20):** see `tracker.md`.
 
+**Handoff briefing for the work-account Claude session (loan fund chapter):** see `work-handoff.md` -- paste it as the opening message when starting that work on the company account, since that session can't see this repo. Kept current from this side.
+
 **What's Included:**
 - Techno-economic analysis in Excel
 - Supporting documents
