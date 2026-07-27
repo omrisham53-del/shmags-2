@@ -11,10 +11,10 @@ Work happens in parallel across all 3, but the model comes first because the tax
 
 ---
 
-## Two things to confirm before trusting this schedule
+## Confirmed
 
-1. **Aug 22 is a Saturday.** Your normal work days are Sun/Mon/Wed (full) + Thu (half) -- Saturday isn't one of them. That makes **Thursday Aug 20 your last real working day**, not Aug 22, unless the plan is to come in specially on a Saturday. This schedule assumes Aug 20 is the real cutoff. Flag if that's wrong.
-2. **Thursday Jul 30 is presentation day** (economics seminar, distinction track). It's also a normal half-work-day on the EcoTraders schedule. Scheduled light on purpose -- move blocks if the day gets eaten entirely.
+1. **Thursday Aug 20 is the real last working day** (confirmed 2026-07-27) -- Aug 22 itself is a Saturday, not a work day.
+2. **Thursday Jul 30 is presentation day** (economics seminar, distinction track) as well as a normal half-work-day. Scheduled light on purpose -- move blocks if the day gets eaten entirely.
 
 ---
 
