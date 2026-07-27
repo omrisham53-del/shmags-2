@@ -36,14 +36,16 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [x] Added the C-A row (NPV of the incentivized investment vs. doing nothing) and the fiscal-cost row (direct reference to C-B, per the dual-reporting decision) to all 6 blocks, plus two summary-table columns and a totals row (L305 = ₪71,491 total fiscal cost across all technologies). Verified: C-A = (B-A)+(C-B) in all 6 rows, fiscal cost matches C-B exactly, conditional formatting live (green confirmed on all 6 -- everything's currently positive, so the red branch is unverified but the rule is present).
 - [x] kW/ton (and kW/100cfm for VSD) unit consistency check across all 6 blocks -- recomputed every efficiency/consumption/CapEx-per-unit figure by hand against the model's cached values, all consistent, no ton/kW mix-ups. Chillers scale via capacity x kW/ton x hours; VSD's specific-power comparison is correctly applied as a % savings on top of capacity x hours, not multiplied directly (would have been dimensionally wrong if it had been).
 - [x] Confirmed the sensitivity-analysis build (hours per technology, all 6 blocks) -- all 6 Data Tables exist and their "current hours" row matches the live model's actual result in 5 of 6 blocks. Two things caught and resolved along the way: (1) an accidental click into a Data Table cell briefly corrupted all 6 tables -- fixed by Ctrl+Z, but left one stale value behind (VSD 45kW's 5,000hr row showed payback-B as 0.63 when the table's own internal pattern and the live reference value both say 0.62 -- needs Ctrl+Alt+F9 forced recalc to clear); (2) HP70's 1,000hr row showed payback-B as exactly "3.00" with a verdict that only makes sense if it's over the 3yr threshold -- checked full precision, it's 3.00218, so the verdict is correct, not a bug. Depreciation-multiplier table not yet separately confirmed.
-- [ ] 16:00-17:30 -- If today's Daniel meeting produced new decisions, log them (decisions/log.md) and fold anything schedule-relevant into this tracker.
+- [ ] 16:00-17:30 -- Daniel meeting moved to Wed Jul 29 (didn't happen today) -- loan fund appendix instead: pull the existing position paper, adapt/format into the appendix version. Fast, independent of the model and the meeting -- get it off the list now that there's a free slot.
 
-**Wed Jul 29 (FULL)** -- quick win + tax chapter kickoff
-- [ ] 9:00-10:30 -- Loan fund appendix: pull the existing position paper, adapt/format into the appendix version. Should be fast -- get it off the list.
-- [ ] 10:30-12:00 -- Tax chapter: outline the full chapter, mirroring the grant chapter's structure. Note which sections already exist (international review) vs. need writing.
-- [ ] 13:00-14:30 -- Tax chapter: write the background / policy-basis section (accelerated depreciation, מפעל מאושר mechanism in Israel).
-- [ ] 14:30-16:00 -- Tax chapter: write the מפעל מאושר (approved factory) method explanation section.
-- [ ] 16:00-17:30 -- Tax chapter: slot in the already-written international review doc, light edit pass so the tone matches the rest.
+**Wed Jul 29 (FULL)** -- Daniel meeting day + tax chapter kickoff
+- [ ] Daniel meeting (time TBD -- block real time around it once scheduled). Afterward: log any new decisions (decisions/log.md) and fold anything schedule-relevant into this tracker, same as today's now-cancelled slot was meant to cover.
+- [ ] Tax chapter: outline the full chapter, mirroring the grant chapter's structure. Note which sections already exist (international review) vs. need writing.
+- [ ] Tax chapter: write the background / policy-basis section (accelerated depreciation, מפעל מאושר mechanism in Israel).
+- [ ] Tax chapter: write the מפעל מאושר (approved factory) method explanation section.
+- [ ] Tax chapter: slot in the already-written international review doc, light edit pass so the tone matches the rest.
+
+(If the loan fund appendix already got done in today's freed-up block, that's one less thing competing for Wednesday's time around the meeting.)
 
 **Thu Jul 30 (HALF -- presentation day, keep it light)**
 - [ ] Block 1 -- Chiller market sizing: pull CBS non-residential construction-starts data, last 5 years.
