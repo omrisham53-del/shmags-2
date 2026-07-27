@@ -8,11 +8,13 @@
 
 **Key Dates:**
 - **Deadline:** June 30, 2026 (slipped)
+- Daniel confirmed 2026-07-26: no new assignments before Omri's Aug 22 last day at EcoTraders — remaining scope on this project is fixed to the 3 items below.
 
 **Incentive-section chapters (Omri owns 3):**
-- Grants program chapter — sent to client 2026-07-12
-- Loan fund position paper — sent to client 2026-07-12
-- Tax incentive model — in progress (see `baseline-technology-data.md` + `next-steps.md`)
+- Grants program chapter — sent to client 2026-07-12 (done)
+- Loan fund — position paper (sent to client 2026-07-12) covers the appendix version; the full chapter for the actual national program document still needs to be written
+- Tax incentive model, including the market analysis — in progress (see `baseline-technology-data.md` + `next-steps.md`)
+- Tax incentive chapter for the national program — not yet written (methodology brainstormed, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`)
 
 **What's Included:**
 - Techno-economic analysis in Excel
