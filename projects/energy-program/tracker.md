@@ -66,7 +66,7 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [ ] 9:00-10:30 -- Tax chapter: write the methodology section intro (mirrors the sizing engines + adoption logic + fiscal-cost approach).
 - [ ] 10:30-12:00 -- Tax chapter: methodology section -- chillers + heat pumps write-up.
 - [ ] 13:00-14:30 -- Tax chapter: methodology section -- VSD + the fiscal-cost timing explanation (why it's cheaper per tCO2 than the grant, if that's how it lands).
-- [ ] 14:30-16:00 -- Model: sensitivity pass -- chiller/heat pump operating hours, discount rate (6% social vs 10% private).
+- [ ] 14:30-16:00 -- Model: sensitivity pass -- chiller/heat pump operating hours.
 - [ ] 16:00-17:30 -- Chase/check Rafi's data (CapEx of the mazut/diesel furnace, incremental maintenance delta, degradation rate, confirmed hours). Incorporate anything that's landed.
 
 **Thu Aug 6 (HALF)**
@@ -140,7 +140,7 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - Equipment degradation rate (0.5% placeholder)
 - Confirmed annual operating hours (5,475 heat pump / 3,000 chiller / 6,400 VSD)
 
-**Daniel's decision pending:** discount rate -- 6% (social/national) vs. 10% (private/industrial).
+**Discount rate:** resolved at 6% with Daniel back on 2026-07-13 (set in `generate_tax_model_v2.py`) -- this tracker previously had it listed as still-pending, caught during the 2026-07-27 branch-merge cleanup. Worth flagging to Daniel/Rafi whether 6% is meant to represent the social rate only, or the single rate the whole model uses for both the firm's private decision and the state's fiscal-cost calc -- that distinction matters once the payback-threshold adoption logic (private decision) and fiscal-cost NPV (state cost) are both live in the model.
 
 **Full open-flags list (sourcing gaps, unresolved assumptions):** see `baseline-technology-data.md`.
 
