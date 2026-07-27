@@ -190,6 +190,38 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Caught two would-be errors in the Rafi email (asking for data we already had / for a technology no longer in the model). openpyxl exposes both cell values and fill fgColor.rgb, so a color-coded legend in a workbook is machine-readable, not just visual.</td>
 </tr>
 
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-26</td>
+<td>LibreOffice (soffice) is broken in this cloud sandbox -- it fails to load even a trivial 3-cell xlsx, not just complex ones -- so there is no live Excel recalculation available here. When a formula's correctness needs verifying, replicate the calculation logic independently in Python rather than trusting an unverifiable recalc.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Confirmed by testing on both the real tax-incentive model and a freshly-created 3-cell test file, ruling out the model file itself as the cause. Independent Python replication of the model's NPV/payback logic caught the additionality finding and verified the payback formulas were correct before trusting them.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-26</td>
+<td>Excel array-formula matrix trick for cumulative sums: SEQUENCE(n) already returns a column vector by default, so wrapping it in TRANSPOSE() flips it to a row and breaks the implicit broadcast against a row vector (needed to build a triangular matrix via MMULT for a cumulative-crossover calculation). Use SEQUENCE(n,1) directly instead of TRANSPOSE(SEQUENCE(n)).</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>The Claude Excel extension building the payback-period formula caught and fixed this itself (diagnosed rather than patched blind), confirming with LET/SEQUENCE/MMULT/dynamic arrays all being available in that Excel version.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-07-26</td>
+<td>reportlab's ListFlowable with bulletType='bullet' does not decode an HTML entity (e.g. &amp;bull;) passed as the 'start' parameter -- it renders as literal text smashed into the list item. Pass bulletText='&bull;' directly on the Paragraph object instead for reliably-rendered bullet lists.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Caught by rendering the PDF to an image with PyMuPDF and visually inspecting it before delivering -- the literal "&amp;bull;" text was overlapping the first word of every bullet. Fixed by switching to per-Paragraph bulletText and verifying the re-render.</td>
+</tr>
+
+<tr style="background-color:#eaeaea;">
+<td>2026-07-26</td>
+<td>This cloud/web Claude Code session only has Gmail and Notion connectors available (checked via ListConnectors) -- no Google Drive, unlike the local work-PC setup which has the gws CLI for full Workspace access. Uploading a file to Drive from this cloud session isn't directly possible; the workaround is emailing it via Gmail (one-click Save to Drive from there) or connecting a dedicated Drive connector.</td>
+<td>Settings config</td>
+<td><strong>Not Started</strong></td>
+<td>Flagged to Omri rather than assumed; he hasn't yet chosen email-to-self vs. connecting Drive properly for this session.</td>
+</tr>
+
 </tbody>
 </table>
 
