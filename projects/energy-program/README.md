@@ -13,8 +13,10 @@
 **Incentive-section chapters (Omri owns 3):**
 - Grants program chapter — sent to client 2026-07-12 (done)
 - Loan fund — position paper (sent to client 2026-07-12) covers the appendix version; the full chapter for the actual national program document still needs to be written
-- Tax incentive model, including the market analysis — in progress (see `baseline-technology-data.md` + `next-steps.md`)
+- Tax incentive model, including the market analysis — in progress (see `baseline-technology-data.md` + `tracker.md`)
 - Tax incentive chapter for the national program — not yet written (methodology brainstormed, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`)
+
+**Day-by-day schedule for the remaining work (Jul 27 -- Aug 20):** see `tracker.md`.
 
 **What's Included:**
 - Techno-economic analysis in Excel
