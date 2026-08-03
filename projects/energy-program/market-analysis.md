@@ -57,6 +57,8 @@ Decision (2026-08-03): no single blended figure -- Daniel's original scoping ass
 
 Full source links and the weakest-link discussion (the two proxy categories) are in Section 3 of the workbook and Section 5's notes.
 
+**Open question flagged by Omri (2026-08-03):** the 400 sq ft/ton proxy makes Industry & storage the *least* cooling-intensive category of the 7 -- counterintuitive, since industrial process cooling can be far more intensive than office/retail comfort cooling. This is a real tension, not a solved question: CBS's category bundles active industrial floor space (which could need intensive process cooling) with pure storage (often not cooled at all -- roughly 45% of warehouses aren't refrigerated per one source checked). Which way the blended average actually leans depends on whether this model's "chillers" are scoped to building comfort cooling or also cover industrial process cooling -- CBS's data can't answer that. One piece of supporting evidence for the comfort-cooling-only scope: Daniel already confirmed the core tax model's 3,000 hrs/year assumption is a good one "especially for comfort chillers," which implies the model's chiller technology is comfort-scoped, and comfort-scoped industrial floor space (offices/control rooms within a factory, not the production floor) genuinely wouldn't be cooling-intensive. Not resolved -- needs a direct conversation with Daniel/Rafi on the chiller technology's actual scope before treating either direction as settled.
+
 ### 1d. Sizing calc -- BUILT (Section 4 of the workbook)
 
 Per-category RT = (category m², thousand) x 1000 / (category m²/RT). Summed across the 7 categories = total new chiller capacity (RT) added that year.
