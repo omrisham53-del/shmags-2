@@ -1,11 +1,11 @@
 # Energy Program -- Schedule & Status
 
-**Last updated:** 2026-07-27
+**Last updated:** 2026-08-03
 **Scope locked 2026-07-26 (Daniel):** no new assignments before Omri's Aug 22 last day. Exactly 3 deliverables remain, in priority order:
 
 1. **Tax incentive model, including the market analysis** (Priority 1)
 2. **Tax incentive chapter** for the national program (Priority 2 -- results section depends on the model)
-3. **Loan fund chapter** for the national program (Priority 3 -- appendix version reuses the existing position paper; the full chapter still needs writing)
+3. **Loan fund chapter** for the national program (Priority 3 -- appendix version done 2026-08-03, adapted from the existing position paper; the full chapter still needs writing)
 
 Work happens in parallel across all 3, but the model comes first because the tax chapter's results section pulls numbers straight from it.
 
@@ -18,6 +18,7 @@ Work happens in parallel across all 3, but the model comes first because the tax
 3. **Additionality split resolved (2026-07-26, recovered from a branch that wasn't merged until 2026-07-27):** the adoption rule is now a 3-year payback-period threshold (Rafi's own number), not a 20-year NPV sign. At that threshold, only chillers (100RT/500RT) show real additionality -- heat pumps and VSD clear the bar with or without the incentive (deadweight). This changes the schedule below: chillers get the full rigorous market-sizing treatment, heat pumps/VSD get a lighter order-of-magnitude pass (they only need to support the fiscal-cost/deadweight number, not an impact claim). Full reasoning: `brainstorms/2026-07-26_payback-threshold-and-meeting-prep.md`.
 4. **Fiscal cost reporting is dual, not single:** total fiscal cost = the incentive's tax-shield benefit (C-B) summed across every adopting unit in all 3 technologies (the tax break doesn't discriminate on additionality). Cost-effectiveness (₪/tCO2, ₪/MWh) can only be honestly computed for chillers, where there's real additional abatement to divide by -- dividing HP/VSD's cost by non-additional savings would credit the policy for reductions it didn't cause.
 5. **PRTR (Ministry of Environmental Protection facility-level data) identified as a better source** than the borrowed international benchmarks (DOE/Radgen 10% compressed-air share, unsourced low-temp heat share) for narrowing the heat-pump/VSD addressable pool. Not yet pulled -- worth checking whether EcoTraders has existing portal/contact access.
+6. **Schedule slipped ~1 week (confirmed 2026-08-03):** the Wed Jul 29 Daniel meeting never happened -- it's today, Mon Aug 3 at 15:30, and it's specifically about the market analysis. Thu Jul 30's chiller-sizing blocks (presentation day) didn't happen either, and the Week 2 Sun Aug 2 blocks (chiller sizing, HP/VSD light pass, PRTR check, fiscal-cost rollup) are also not done -- none of the market-sizing work has started yet. Loan fund appendix got pulled forward instead and is done. Today's block plan below is rebuilt around this reality; the rest of the multi-week schedule further down is stale by about a week and will get re-sequenced as work actually lands rather than rewritten speculatively now.
 
 ---
 
@@ -36,37 +37,32 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [x] Added the C-A row (NPV of the incentivized investment vs. doing nothing) and the fiscal-cost row (direct reference to C-B, per the dual-reporting decision) to all 6 blocks, plus two summary-table columns and a totals row (L305 = ₪71,491 total fiscal cost across all technologies). Verified: C-A = (B-A)+(C-B) in all 6 rows, fiscal cost matches C-B exactly, conditional formatting live (green confirmed on all 6 -- everything's currently positive, so the red branch is unverified but the rule is present).
 - [x] kW/ton (and kW/100cfm for VSD) unit consistency check across all 6 blocks -- recomputed every efficiency/consumption/CapEx-per-unit figure by hand against the model's cached values, all consistent, no ton/kW mix-ups. Chillers scale via capacity x kW/ton x hours; VSD's specific-power comparison is correctly applied as a % savings on top of capacity x hours, not multiplied directly (would have been dimensionally wrong if it had been).
 - [x] Confirmed the sensitivity-analysis build (hours per technology, all 6 blocks) -- all 6 Data Tables exist and their "current hours" row matches the live model's actual result in 5 of 6 blocks. Two things caught and resolved along the way: (1) an accidental click into a Data Table cell briefly corrupted all 6 tables -- fixed by Ctrl+Z, but left one stale value behind (VSD 45kW's 5,000hr row showed payback-B as 0.63 when the table's own internal pattern and the live reference value both say 0.62 -- needs Ctrl+Alt+F9 forced recalc to clear); (2) HP70's 1,000hr row showed payback-B as exactly "3.00" with a verdict that only makes sense if it's over the 3yr threshold -- checked full precision, it's 3.00218, so the verdict is correct, not a bug. Depreciation-multiplier table not yet separately confirmed.
-- [ ] 16:00-17:30 -- Daniel meeting moved to Wed Jul 29 (didn't happen today) -- loan fund appendix instead: pull the existing position paper, adapt/format into the appendix version. Fast, independent of the model and the meeting -- get it off the list now that there's a free slot.
+- [x] Loan fund appendix -- pull the existing position paper, adapt/format into the appendix version. (Slipped past today's original slot; completed 2026-08-03.)
 
-**Wed Jul 29 (FULL)** -- Daniel meeting day + tax chapter kickoff
-- [ ] Daniel meeting (time TBD -- block real time around it once scheduled). Afterward: log any new decisions (decisions/log.md) and fold anything schedule-relevant into this tracker, same as today's now-cancelled slot was meant to cover.
+**Wed Jul 29 (FULL)** -- ~~Daniel meeting day + tax chapter kickoff~~ -- did not happen as scheduled. Meeting moved to Mon Aug 3, 15:30. Tax chapter kickoff tasks below carry forward, not yet started:
 - [ ] Tax chapter: outline the full chapter, mirroring the grant chapter's structure. Note which sections already exist (international review) vs. need writing.
 - [ ] Tax chapter: write the background / policy-basis section (accelerated depreciation, מפעל מאושר mechanism in Israel).
 - [ ] Tax chapter: write the מפעל מאושר (approved factory) method explanation section.
 - [ ] Tax chapter: slot in the already-written international review doc, light edit pass so the tone matches the rest.
 
-(If the loan fund appendix already got done in today's freed-up block, that's one less thing competing for Wednesday's time around the meeting.)
+**Thu Jul 30 (HALF -- presentation day)** -- day went to the presentation as expected, market-sizing blocks below carry forward, not yet started:
+- [ ] Chiller market sizing: pull CBS non-residential construction-starts data, last 5 years.
+- [ ] Chiller market sizing: source a real RT/m2 figure (ASHRAE rule-of-thumb or Israeli standard SI 5282) -- pull an actual citation, don't pick a number.
 
-**Thu Jul 30 (HALF -- presentation day, keep it light)**
-- [ ] Block 1 -- Chiller market sizing: pull CBS non-residential construction-starts data, last 5 years.
-- [ ] Block 2 -- Chiller market sizing: source a real RT/m2 figure (ASHRAE rule-of-thumb or Israeli standard SI 5282) -- pull an actual citation, don't pick a number.
-- [ ] Block 3 -- open/flex, in case the presentation runs long.
+**Sun Aug 2 (FULL)** -- did not happen (or wasn't market-sizing work) -- all blocks below carry forward into today, Mon Aug 3, unstarted:
+- [ ] Chiller engine: pull CBS non-residential construction-starts data (last 5 years) + a sourced RT/m2 figure (ASHRAE rule-of-thumb or Israeli standard SI 5282).
+- [ ] Chiller engine: build the sizing calc (construction trend x RT/m2 -> installed cooling capacity by year) + replacement-demand sensitivity (existing stock RT / lifetime).
+- [ ] Heat pump + VSD sizing (light pass, order-of-magnitude only -- they only need to support the fiscal-cost/deadweight number, not an impact claim): pull national energy balance data (CBS/Ministry of Energy industrial mazut/diesel heat use) for heat pumps, national industrial electricity x ~10% compressed-air-share benchmark for VSD.
+- [ ] Check the PRTR lead: is facility-level fuel/electricity consumption data actually accessible (portal or an existing EcoTraders contact)? If yes, use it to narrow the heat-pump/VSD addressable fraction instead of the borrowed international benchmarks; if not, document the international benchmarks as the fallback and move on -- don't let this become a rigor sink on a deadweight technology.
+- [ ] Build the dual fiscal-cost rollup: total fiscal cost (sum the C-B row across all 6 blocks x each block's adoption count) and the separate chillers-only cost-effectiveness ratio (₪/tCO2, ₪/MWh, same ruler as the grant chapter).
 
-### Week 2 (Aug 2 -- Aug 6)
-
-**Sun Aug 2 (FULL)** -- chiller engine gets the rigor; HP/VSD get the light pass
-- [ ] 9:00-10:30 -- Chiller engine: pull CBS non-residential construction-starts data (last 5 years) + a sourced RT/m2 figure (ASHRAE rule-of-thumb or Israeli standard SI 5282) -- this was Thu Jul 30's flex block, do it here if it didn't happen.
+**Mon Aug 3 (FULL, TODAY)** -- market sizing kicks off, built around the 15:30 Daniel meeting (this is the working session on the market analysis, not a review of finished work -- nothing above is done yet)
+- [ ] 9:00-10:30 -- Chiller market sizing: pull CBS non-residential construction-starts data (last 5 years) + source a real RT/m2 figure (ASHRAE rule-of-thumb or Israeli standard SI 5282).
 - [ ] 10:30-12:00 -- Chiller engine: build the sizing calc (construction trend x RT/m2 -> installed cooling capacity by year) + replacement-demand sensitivity (existing stock RT / lifetime).
-- [ ] 13:00-14:30 -- Heat pump + VSD sizing (light pass, order-of-magnitude only -- they only need to support the fiscal-cost/deadweight number, not an impact claim): pull national energy balance data (CBS/Ministry of Energy industrial mazut/diesel heat use) for heat pumps, national industrial electricity x ~10% compressed-air-share benchmark for VSD.
-- [ ] 14:30-16:00 -- Check the PRTR lead: is facility-level fuel/electricity consumption data actually accessible (portal or an existing EcoTraders contact)? If yes, use it to narrow the heat-pump/VSD addressable fraction instead of the borrowed international benchmarks; if not, document the international benchmarks as the fallback and move on -- don't let this become a rigor sink on a deadweight technology.
-- [ ] 16:00-17:30 -- Build the dual fiscal-cost rollup: total fiscal cost (sum the C-B row across all 6 blocks x each block's adoption count) and the separate chillers-only cost-effectiveness ratio (₪/tCO2, ₪/MWh, same ruler as the grant chapter).
-
-**Mon Aug 3 (FULL)** -- tax chapter starts early (freed up by the lighter HP/VSD pass)
-- [ ] 9:00-10:30 -- Link each technology's sizing output to its per-unit model results (NPV, MWh saved, tCO2 saved, fiscal cost) -- finish anything left over from Sunday.
-- [ ] 10:30-12:00 -- Tax chapter: write the methodology section intro (mirrors the sizing engines + adoption logic + fiscal-cost approach) -- flag plainly that chillers carry the impact claim and HP/VSD are deadweight, same asymmetry the grant chapter avoided by not claiming additionality at all.
-- [ ] 13:00-14:30 -- Tax chapter: methodology section -- chillers write-up (the rigorous half).
-- [ ] 14:30-16:00 -- Tax chapter: methodology section -- HP/VSD write-up (light) + the fiscal-cost timing explanation (why it's cheaper per tCO2 than the grant, if that's how the dual reporting lands).
-- [ ] 16:00-17:30 -- Model: sensitivity pass -- chiller/heat pump operating hours, depreciation multiplier -- if not already finished from Monday's block.
+- [ ] 13:00-14:30 -- Heat pump + VSD sizing (light pass, order-of-magnitude): national energy balance data (CBS/Ministry of Energy industrial mazut/diesel heat use) for heat pumps, national industrial electricity x ~10% compressed-air-share benchmark for VSD.
+- [ ] 14:30-15:30 -- Meeting prep: consolidate today's chiller + HP/VSD sizing progress and open questions into short talking points for Daniel -- PRTR access (does EcoTraders have a portal/contact?), whether he wants the accelerated-depreciation multiplier restricted to chillers only (the policy recommendation that falls out of the additionality split), confirm the adoption-count methodology per technology.
+- [ ] 15:30 -- Daniel meeting (market analysis of the tax incentives).
+- [ ] After the meeting -- log any new decisions (decisions/log.md), fold outcomes into this tracker, use any remaining time before end of day on whatever the meeting unblocked.
 
 **Wed Aug 5 (FULL)** -- model hardening + chapter continues
 - [ ] 9:00-10:30 -- Chase/check Rafi's data (CapEx of the mazut/diesel furnace, incremental maintenance delta, degradation rate, confirmed hours). Incorporate anything that's landed.
