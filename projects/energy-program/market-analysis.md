@@ -23,7 +23,7 @@ Units: thousand m². Real CBS categories, annual, 2021-2025:
 
 Non-res total = sum of the 9 category columns (CBS's own definition, confirmed by re-summing).
 
-**Live, sourced Excel version:** `chiller-market-sizing.xlsx` (same folder) -- Section 1 has all 15 raw CBS columns entered exactly as published plus a live SUM check against CBS's own reported non-res total; Section 2 derives the chiller-relevant series and 5-year average via formulas that reference Section 1 directly (change a raw input, the derived numbers recalculate). Note: LibreOffice can't recalc in this sandbox (same limitation hit on 2026-07-26 with the tax model), so cached values aren't baked in -- Excel/LibreOffice on Omri's machine will compute them on open. Every formula's output was independently verified in plain Python before delivery and matches the table below exactly.
+**Live, sourced Excel version:** `chiller-market-sizing.xlsx` (same folder, 5 sections) -- Section 1 has all 15 raw CBS columns entered exactly as published plus a live SUM check against CBS's own reported non-res total; Section 2 derives the chiller-relevant series and 5-year average via formulas that reference Section 1 directly; Section 3 sources RT/m² per category; Section 4 derives installed chiller capacity by category and year (weighted); Section 5 is notes/open questions. Change a raw input in Section 1 and everything downstream recalculates. Note: LibreOffice can't recalc in this sandbox (same limitation hit on 2026-07-26 with the tax model), so cached values aren't baked in -- Excel/LibreOffice on Omri's machine will compute them on open. Every formula's output was independently verified in plain Python before delivery and matches the tables below exactly.
 
 ### 1b. Chiller-relevant construction starts (derived)
 
@@ -41,13 +41,37 @@ Per the methodology's own category list (offices, commercial, hotels, institutio
 
 **OPEN QUESTION for Daniel:** should "industry & storage" be split (only the "industry" portion needs comfort/process cooling; pure storage/warehousing often doesn't)? CBS's own category bundles them together with no further breakdown available at this level -- would need a different data source to split it. Flagging as a methodology call rather than guessing a split.
 
-### 1c. RT/m² -- NOT YET SOURCED
+### 1c. RT/m² -- SOURCED, weighted by CBS category
 
-Next step: pull a real cooling-load-density figure (ASHRAE rule-of-thumb or Israeli standard SI 5282) to convert m² -> installed cooling capacity (RT). Needs to vary by building type ideally (office vs. industrial cooling-load density differs a lot) -- or a single blended figure if a type-specific breakdown isn't available/practical.
+Decision (2026-08-03): no single blended figure -- Daniel's original scoping assumed one, but cooling-load density genuinely varies by building type (roughly 10-37 m²/RT across the sources found), so each of the 7 chiller-relevant CBS categories gets its own sourced sq ft/ton figure, weighted by that category's actual construction share each year. SI 5282 was checked and ruled out -- it's a building energy-rating standard (envelope/glazing/orientation score), not an equipment-capacity sizing standard, so it has no RT/m² figure to cite.
 
-### 1d. Sizing calc -- NOT YET BUILT
+| CBS category | sq ft/ton | m²/RT | Source | Basis |
+|---|---|---|---|---|
+| Other public buildings | 400 | 37.16 | Trane (general commercial catch-all) | Proxy -- no source specific to civic/municipal buildings found |
+| Health | 275 | 25.55 | HVAC-ENG.com (patient rooms & medical offices, 250-300 range midpoint) | Sourced -- matches category directly |
+| Education | 213 | 19.79 | cfm Distributors (Brad Telker, VP Sales -- classrooms, stated design assumptions) | Sourced -- matches category directly |
+| Industry & storage | 400 | 37.16 | Trane (general commercial catch-all) | Proxy -- CBS bundles active industrial floor with pure storage, no disaggregated source found |
+| Commercial | 321 | 29.82 | cfm Distributors (retail sales floor) | Sourced -- matches category directly |
+| Offices | 373 | 34.65 | cfm Distributors (office space) | Sourced -- matches category directly |
+| Hotels | 362.5 | 33.68 | HVAC-ENG.com (unweighted average of public spaces 250-300 and guest rooms 400-500 midpoints) | Sourced but blended -- no floor-area split between the two sourced |
 
-Once RT/m² is sourced: chiller-relevant m²/year x RT/m² -> installed cooling capacity added per year. Plus the replacement-demand sensitivity (existing stock RT / lifetime, per the model's own 15-17yr lifetime rows).
+Full source links and the weakest-link discussion (the two proxy categories) are in Section 3 of the workbook and Section 5's notes.
+
+### 1d. Sizing calc -- BUILT (Section 4 of the workbook)
+
+Per-category RT = (category m², thousand) x 1000 / (category m²/RT). Summed across the 7 categories = total new chiller capacity (RT) added that year.
+
+| Year | Other public | Health | Education | Industry & storage | Commercial | Offices | Hotels | Total (RT) | Blended m²/RT (check) |
+|---|---|---|---|---|---|---|---|---|---|
+| 2021 | 6,808 | 5,245 | 35,779 | 26,668 | 15,660 | 33,562 | 4,573 | 128,293 | 30.17 |
+| 2022 | 7,965 | 2,231 | 32,342 | 36,301 | 18,108 | 36,014 | 5,196 | 138,158 | 31.17 |
+| 2023 | 11,141 | 1,761 | 31,685 | 37,432 | 16,766 | 39,044 | 6,414 | 144,243 | 31.52 |
+| 2024 | 7,104 | 1,566 | 22,235 | 25,995 | 16,297 | 23,548 | 5,286 | 102,030 | 31.28 |
+| 2025 | 9,418 | 8,846 | 32,747 | 29,305 | 27,597 | 16,651 | 5,761 | 130,324 | 30.00 |
+
+**5-year average: ~128,610 RT/year installed chiller capacity from new non-residential construction.** The blended m²/RT this implies each year stays fairly stable (~30-31.5) despite the category mix shifting year to year, since Education (dense, ~19.8 m²/RT) and the two proxy categories (less dense, ~37.2 m²/RT) partly offset.
+
+**Not yet built:** the replacement-demand sensitivity (existing stock RT / lifetime, per the model's own 15-17yr lifetime rows) -- this covers new-construction demand only, the conservative base case per the methodology doc.
 
 ---
 
