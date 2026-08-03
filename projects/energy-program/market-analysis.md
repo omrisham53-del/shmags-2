@@ -23,6 +23,8 @@ Units: thousand m². Real CBS categories, annual, 2021-2025:
 
 Non-res total = sum of the 9 category columns (CBS's own definition, confirmed by re-summing).
 
+**Live, sourced Excel version:** `chiller-market-sizing.xlsx` (same folder) -- Section 1 has all 15 raw CBS columns entered exactly as published plus a live SUM check against CBS's own reported non-res total; Section 2 derives the chiller-relevant series and 5-year average via formulas that reference Section 1 directly (change a raw input, the derived numbers recalculate). Note: LibreOffice can't recalc in this sandbox (same limitation hit on 2026-07-26 with the tax model), so cached values aren't baked in -- Excel/LibreOffice on Omri's machine will compute them on open. Every formula's output was independently verified in plain Python before delivery and matches the table below exactly.
+
 ### 1b. Chiller-relevant construction starts (derived)
 
 Per the methodology's own category list (offices, commercial, hotels, institutional, industry -- explicitly excludes agriculture and infrastructure), chiller-relevant floor area = **non-res total minus Agriculture minus Transport & communications**. Agriculture (barns, greenhouses, farm structures) and transport/communications infrastructure don't carry comfort-cooling loads the way office/commercial/institutional/industrial floor area does.
