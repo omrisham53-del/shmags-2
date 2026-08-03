@@ -1,6 +1,6 @@
 # Claude Code Lessons Tracker
 
-**Last Updated:** July 25, 2026 (evening)
+**Last Updated:** August 3, 2026
 
 Backlog of lessons/ideas from the 6-hour Claude Code manual, plus meta-lessons that surface organically during regular work sessions (auto-fed by `/save-context`). Add new rows as lessons come up; work them in any order across sessions.
 
@@ -268,6 +268,14 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Settings config</td>
 <td><strong>Not Started</strong></td>
 <td>Flagged to Omri rather than assumed; he hasn't yet chosen email-to-self vs. connecting Drive properly for this session.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-08-03</td>
+<td>Excel's own AutoCorrect silently converts <code>--</code> (double hyphen) into a real em dash (—) when a cell is edited further -- the repo-wide no-em-dash convention of writing <code>--</code> as a substitute backfires specifically in .xlsx deliverables, since the file itself ships clean but violates the rule the moment Omri edits it in Excel.</td>
+<td>CLAUDE.md rule</td>
+<td><strong>Done</strong></td>
+<td>Caught on <code>chiller-market-sizing.xlsx</code> -- verified the delivered file had zero em/en dash characters (grepped every cell), so the conversion happened client-side during Omri's own editing. Added an Excel-specific exception to the Kill List in <code>.claude/rules/communication-style.md</code>: use <code>:</code> for header/label separators or <code>&nbsp;-&nbsp;</code> (single hyphen, spaced) for inline asides in any future xlsx build, never <code>--</code>.</td>
 </tr>
 
 </tbody>
