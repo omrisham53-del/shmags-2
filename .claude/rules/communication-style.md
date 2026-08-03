@@ -23,6 +23,7 @@ A living list of AI-tell words, phrases, and structural patterns Omri never want
 **Characters & Formatting**
 - No emojis
 - No em dashes (—)
+- In Excel/.xlsx deliverables specifically: never use `--` (double hyphen) as a text separator in cell values, even though it's the standard substitute everywhere else in this repo. Excel's own AutoCorrect silently converts `--` into a real em dash (—) the moment the cell is edited further (confirmed 2026-08-03 on `chiller-market-sizing.xlsx` -- the delivered file had zero em dashes, but they appeared after Omri started editing it in Excel). Use a colon (`:`) for header/label separators, or a single hyphen with spaces (` - `) for inline asides -- neither triggers the autocorrect. This applies to every future xlsx build, not just the one that surfaced it.
 
 **Buzzwords & Filler Phrases**
 - "it's important to note that" / "it's worth noting that"
