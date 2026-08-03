@@ -77,9 +77,34 @@ Per-category RT = (category m², thousand) x 1000 / (category m²/RT). Summed ac
 
 ---
 
-## 2. Heat pump engine -- NOT STARTED
+## 2. Heat pump engine -- IN PROGRESS
 
 Sizing base: national energy balance (CBS/Ministry of Energy) industrial mazut/diesel heat use, bounded by the heat pump's low-temp ceiling (~80-90C). See methodology doc for the hard constraint reasoning.
+
+### 2a. Industrial mazut/diesel consumption (CBS energy balance) -- SOURCED
+
+**Source:** Israel CBS, Energy Balance 2019, physical units (מאזן אנרגיה 2019, יחידות פיזיות), published 10-2023.
+https://www.cbs.gov.il/he/publications/doclib/2021/energy_balance_2020/energy_fis9.xlsx (real xlsx, not scraped from PDF text -- found the Excel sibling of the media-release PDF and read it directly with openpyxl for reliable cell extraction).
+
+Manufacturing/Industry sector (תעשייה), final consumption, 2019:
+
+| Fuel | Tons | Caloric factor (ton/MWh, from the tax model's own 2026-07-08 sourcing) | MWh |
+|---|---|---|---|
+| Diesel/Gas Oil (סולר) | 48,995 | 0.085 | ~576,400 |
+| Fuel Oil (מזוט) | 131,167 | 0.088 | ~1,490,500 |
+| **Total addressable pool (pre-temperature-ceiling)** | | | **~2,067,000 MWh/year (~2.07 TWh)** |
+
+Column mapping (K=סולר, L=מזוט) verified two ways: read directly off the source header row text, and cross-checked by pattern-matching the Transport sector row's Motor Gasoline (3,082,419 tons) and Diesel (2,615,737 tons) figures against known real-world magnitudes for Israeli transport fuel use -- both land exactly where expected, confirming the column alignment.
+
+**Scope match:** only Diesel and Fuel Oil pulled, consistent with the tax model's own heat pump baseline (diesel/mazut-fired ovens/boilers). Industry's LPG consumption (184,842 tons, same row) is excluded -- different baseline technology, not something this model claims to displace. Flag if that should be reconsidered.
+
+**OPEN QUESTIONS:**
+- **Data year:** 2019 is the most recent CBS energy balance edition found so far (guessed URL patterns for 2020-2023 editions all resolved to the site's 404 page, not real files) -- worth a gap check against the model's other (2024-vintage) data if Omri or Rafi has access to a newer release.
+- **Low-temp ceiling fraction:** heat pumps only reach ~80-90C (rare high-temp models ~150C); much industrial fuel goes to high-temp process heat/steam a heat pump can't serve. This fraction (what share of the 2.07 TWh pool is actually low-temp-addressable) is still unsourced -- the next step, and the single biggest lever shrinking this market. Needs a real source or Rafi's engineering judgment.
+
+### 2b. Sizing calc -- NOT YET BUILT
+
+Once the low-temp fraction is sourced: 2.07 TWh x low-temp share -> addressable heat-pump market (MWh/year).
 
 ## 3. VSD engine -- NOT STARTED
 
