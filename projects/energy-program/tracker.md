@@ -70,10 +70,10 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [x] Standard-efficiency heat pump baseline sourced (real ASHRAE 90.1/DOE FEMP minimum COP, 3.3 at 47°F, both capacity points) -- real tension found and flagged (the already-sourced "efficient" 70kW unit's COP is at or below this new baseline, needs resolving before usable). CapEx premium not cleanly sourced this pass.
 - [x] Built the Claude-in-Excel extension prompt for the TAOZ tariff calculation, with real sourced Israel Electricity Authority rates (effective 1.1.2026) -- `taoz-calculation-extension-prompt.md`, ready to hand to the extension whenever Omri runs it on the live model.
 - [x] Yaniv Giat + Amos (Ministry of Energy) email sent 2026-08-05, cc Daniel -- import data request for all three technologies (chillers, heat pumps, VSD), industry-sector scope, framed as Daniel's suggestion to check customs import data. Waiting on a reply.
-- [ ] Tax chapter: outline the full chapter, mirroring the grant chapter's structure -- not blocked by the market-sizing pause (background/method sections don't need adoption numbers).
-- [ ] Tax chapter: write the background / policy-basis section (accelerated depreciation, מפעל מאושר mechanism).
-- [ ] Loan fund full chapter: gap-check -- what does the existing position paper NOT cover that the full national-program chapter needs?
-- [ ] Update the Rafi data-request list (Reference section below) -- furnace CapEx/maintenance ask is obsolete now, replace with standard-efficiency heat pump CapEx if Rafi's a better source than another web pass.
+- [x] Tax chapter: outline built -- `tax-chapter-outline.md`. 5 sections (background/policy context, mechanism, international review, methodology, results), mirroring the grants chapter's confirmed structure convention from `work-handoff.md`. Folds in today's pivot (per-1,000-units methodology, payback-threshold confirmed, Cyprus multiplier explicitly excluded). Flagged 4 open items, incl. locating the real grants chapter + international review files on the work computer for a side-by-side check.
+- [ ] Tax chapter: write the background / policy-basis section (accelerated depreciation, מפעל מאושר mechanism) -- deferred to tomorrow, kept today calm per Omri's call.
+- [ ] Loan fund full chapter: gap-check -- deferred to tomorrow.
+- [ ] Update the Rafi data-request list (Reference section below) -- deferred to tomorrow.
 
 **Thu Aug 6 (HALF)**
 - [ ] Block 1 -- Tax chapter: keep drafting (background/method sections should be close to done by now given the freed-up time).
