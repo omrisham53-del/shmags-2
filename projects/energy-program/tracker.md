@@ -68,8 +68,8 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 **Wed Aug 5 (FULL, TODAY)** -- post-meeting pivot: close out today's action items, then chapter work that isn't blocked by the market-sizing pause
 - [x] Log the meeting pivot (decisions/log.md, tracker.md, market-analysis.md, baseline-technology-data.md) -- done first thing.
 - [x] Standard-efficiency heat pump baseline sourced (real ASHRAE 90.1/DOE FEMP minimum COP, 3.3 at 47°F, both capacity points) -- real tension found and flagged (the already-sourced "efficient" 70kW unit's COP is at or below this new baseline, needs resolving before usable). CapEx premium not cleanly sourced this pass.
-- [ ] Build the Claude-in-Excel extension prompt for the TAOZ tariff calculation (Daniel wants the underlying calc shown, not just the final 39.54 agorot/kWh figure) -- hand off for Omri to run.
-- [ ] Draft + send the Yaniv Giat email (Ministry of Energy, cc Daniel) requesting import data for chillers/heat pumps/VSD, industry-sector scope.
+- [x] Built the Claude-in-Excel extension prompt for the TAOZ tariff calculation, with real sourced Israel Electricity Authority rates (effective 1.1.2026) -- `taoz-calculation-extension-prompt.md`, ready to hand to the extension whenever Omri runs it on the live model.
+- [x] Yaniv Giat + Amos (Ministry of Energy) email sent 2026-08-05, cc Daniel -- import data request for all three technologies (chillers, heat pumps, VSD), industry-sector scope, framed as Daniel's suggestion to check customs import data. Waiting on a reply.
 - [ ] Tax chapter: outline the full chapter, mirroring the grant chapter's structure -- not blocked by the market-sizing pause (background/method sections don't need adoption numbers).
 - [ ] Tax chapter: write the background / policy-basis section (accelerated depreciation, מפעל מאושר mechanism).
 - [ ] Loan fund full chapter: gap-check -- what does the existing position paper NOT cover that the full national-program chapter needs?
