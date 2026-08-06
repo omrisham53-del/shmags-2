@@ -1,13 +1,13 @@
-# Today - 2026-08-05
+# Today - 2026-08-06
 
-**Date:** 2026-08-05
-**Updated:** 2026-08-05
+**Date:** 2026-08-06
+**Updated:** 2026-08-06
 
 ---
 
 ## Current Priority
 
-- **EcoTraders (scope locked 2026-07-26, active daily schedule):** Daniel confirmed no new assignments before Omri's Aug 22 last day -- exactly 3 deliverables remain: (1) finish the tax incentive model incl. the market analysis, (2) write the tax incentive chapter, (3) write the loan fund chapter (appendix version done 2026-08-03, full chapter still to write). Model already has the payback-threshold reframe live (3-year hurdle) -- only chillers show genuine additionality, heat pumps/VSD are deadweight. **Today: market-sizing work kicks off (chillers, then HP/VSD light pass), building toward a 15:30 Daniel meeting on the market analysis** -- see today's block plan in `projects/energy-program/tracker.md`. Schedule has slipped ~1 week (presentation week ate the planned Jul 29/30 + Aug 2 blocks) -- being resequenced as work actually lands rather than rewritten speculatively.
+- **EcoTraders (scope locked 2026-07-26, active daily schedule):** Daniel confirmed no new assignments before Omri's Aug 22 last day -- exactly 3 deliverables remain: (1) finish the tax incentive model incl. the market analysis, (2) write the tax incentive chapter, (3) write the loan fund chapter (appendix version done 2026-08-03, full chapter still to write). **Major pivot at the Aug 5 Daniel meeting:** real per-technology market sizing is paused (none of the three approaches answered "how many projects per year"), chapter now shows savings per 1,000 units per technology as a placeholder, heat pump baseline changed to a standard-efficiency heat pump, and an import-data request went to the Ministry of Energy (Yaniv + Amos, cc Daniel) -- if that lands, sizing gets revisited. The 3-year payback threshold was confirmed by Daniel as the chapter's strongest conclusion. Tax chapter first draft written; sections 1-3 expanded 2026-08-05/06. See `projects/energy-program/tracker.md`.
 - **University:** Economics seminar presentation (distinction track, with Tomer) happened Thursday July 30 -- **went great**. LinkedIn post planned once EcoTraders wraps up (not now). Final LCA -- **submitted**, confirmed 2026-08-03. Final Sustainability Project (due Aug 15) is now the one real assignment left in the whole degree, brief still TBD.
 - **Through the Gap -> "Window Winners":** newsletter direction dropped entirely. New concept locked via a full discovery session (7/24): a Premier League transfer-window prediction game -- hybrid model (Omri's own scoring engine for squad fit/impact + a credibility-weighted valuation aggregator from news/social, not scraped from Transfermarkt for legal reasons) plus fan predictions and a leaderboard. Traction + technical growth prioritized over revenue for now. **Launch target locked (7/25): Aug 21, 2026 -- PL season kickoff**, not Sept 1. Full v1 sized at ~85-115 hours (too much alongside the Sustainability Project + EcoTraders wind-down), so scoped down: prediction game/leaderboard/sharing ships in full, valuation uses a manually curated list of ~15-20 transfers instead of the full automated aggregation engine (that becomes a post-launch upgrade). Revised estimate ~40-55 hours (~10-14 hrs/week) over the 4 weeks to launch. Full capture: `brainstorms/2026-07-24_through-the-gap-direction.md`.
 - **Norway trip:** given a formal priority slot (constant background project, not the main focus) -- family member gave real travel/equipment/food info, prep session still pending.
@@ -15,6 +15,20 @@
 ---
 
 ## Today's Completed
+
+---
+
+## Recent Work (August 5)
+
+1. **Daniel meeting: major market-analysis pivot.** Real per-technology market sizing paused across all three technologies -- the chiller RT/m² engine (built, ~128,600 RT/year), the heat pump CBS fuel-balance approach, and the VSD compressed-air benchmark all size a *stock* or floor-area base, not the annual *flow* of projects the model actually needs. Chapter now shows savings per 1,000 units per technology as an explicit placeholder, chillers included for consistency. Fiscal cost unchanged in method (NPV difference between options B and C), just scaled to 1,000 units. The 3-year payback threshold was confirmed by Daniel as "probably the strongest conclusion we can provide." The Cyprus-style chillers-only differentiated multiplier was rejected as too narrow to recommend.
+
+2. **Heat pump baseline changed to a standard-efficiency heat pump** (was a mazut/diesel furnace) -- same structure as chillers, baseline vs. efficient tier of the same technology. Sourced the real code-minimum COP (3.3 at 47°F, ASHRAE 90.1-2019 / DOE FEMP, covering both 40kW and 70kW capacity points). **Real tension flagged:** the already-sourced "efficient" 70kW unit (COP 3.23-3.24) sits at or below this new baseline, which would break the B-vs-C comparison for that block -- needs resolving (likely different test conditions, or a better product example) before the change is usable. CapEx premium not cleanly sourced; added to the Rafi ask list.
+
+3. **TAOZ tariff calculation built into the live model.** Wrote an extension prompt with the real Israel Electricity Authority high-voltage rates (effective 1.1.2026); Omri ran it, and the weighted calculation landed at **44.60 agorot/kWh**, superseding the earlier 39.54 figure. Daniel's ask was to show the underlying calculation rather than a bare number -- done.
+
+4. **Import-data request sent to the Ministry of Energy** (Yaniv Giat + Amos, cc Daniel) for chillers, heat pumps and VSD, industry-sector scope, framed as Daniel's own suggestion to check customs data. Awaiting reply -- this is what would unblock real market sizing.
+
+5. **Tax incentive chapter: outline + first draft.** Five sections mirroring the grants chapter. Sections 1 (background), 2 (mechanism) and 4 (methodology) drafted in full Hebrew prose; sections 3 and 5 left as explicit placeholders rather than fabricated. Sections 1-3 then substantially expanded per Omri's feedback: section 1 rebuilt around the מפעל מאושר history and the existing 200%/400%/250% accelerated-depreciation provisions in the 1959 Encouragement of Capital Investments Law, section 2 expanded to explain how the incentive shifts industrial investment decisions, and the international review condensed from ~5 pages to ~1 to fit the 4-page chapter ceiling. One legal question flagged for verification: whether the new benefit attaches to existing מפעל מאושר/מועדף status or stands alone.
 
 ---
 
