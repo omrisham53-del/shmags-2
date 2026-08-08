@@ -278,6 +278,38 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Caught on <code>chiller-market-sizing.xlsx</code> -- verified the delivered file had zero em/en dash characters (grepped every cell), so the conversion happened client-side during Omri's own editing. Added an Excel-specific exception to the Kill List in <code>.claude/rules/communication-style.md</code>: use <code>:</code> for header/label separators or <code>&nbsp;-&nbsp;</code> (single hyphen, spaced) for inline asides in any future xlsx build, never <code>--</code>.</td>
 </tr>
 
+<tr style="background-color:#d4f4dd;">
+<td>2026-08-08</td>
+<td>Once Omri hand-edits a file I generated, that file becomes the source of truth -- regenerating from the source script/markdown silently destroys his work. Always diff first, then patch his file rather than rebuilding it. Assume his verbal list of edits is incomplete.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Near miss on the Final Sustainability Project docx. He mentioned filling in the instructor names; diffing turned up <strong>four further changes he never mentioned</strong> (two wording fixes, a retitled section, a deleted paragraph). Regenerating to add the appendix would have reverted all of it, likely unnoticed until after submission. Fix applied both ways: appended to his file, synced <code>draft.md</code> backwards, reproduced his logo + instructor names inside the generator, and added a warning header to <code>md_to_docx.py</code>. Saved as the <code>feedback_regenerating_edited_files</code> memory.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-08-08</td>
+<td>Backticks inside a <code>bash -c</code> / heredoc command trigger shell command substitution and silently delete the enclosed text. Hit twice in one session, both times swallowing Hebrew filenames wrapped in markdown code ticks.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>First occurrence blanked a Hebrew report name mid-sentence in <code>today.md</code>; second aborted a tracker edit outright. Neither raised a visible error beyond a stray "command not found". Rule going forward: for any text containing backticks, use the <strong>Edit tool</strong>, or a <code>python - &lt;&lt;'PY'</code> heredoc with a <em>quoted</em> delimiter, never inline <code>python -c "..."</code>.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-08-08</td>
+<td>Visual verification needs enough resolution to actually verify. Rasterizing a Hebrew PDF at ~105 dpi made correct RTL text look reversed and nearly produced a false bug report.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Concluded twice that the RTL layout was broken; re-rendering the same page at 230 dpi showed it was correct all along. Reliable cross-check: extract the PDF text layer (<code>page.get_text()</code>) to a UTF-8 file -- if the stored string reads correctly the document is fine and the apparent mirroring is a preview artifact. Folded into the <code>hebrew_academic_rendering</code> memory along with the note that poppler/<code>pdftoppm</code> is absent, so PyMuPDF is the only rasterization path.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;">
+<td>2026-08-08</td>
+<td>Doing a skill's job from memory instead of invoking the skill loses the parts of it that aren't top of mind. Freelancing <code>/save-context</code> covered 3 of its 5 steps.</td>
+<td>Habit-workflow</td>
+<td><strong>Done</strong></td>
+<td>Omri noticed and asked directly. I had updated <code>decisions/log.md</code>, <code>today.md</code> and pushed, plus project trackers the command doesn't even specify -- but skipped the memory-file update and this very lessons tracker, and produced no structured report. The command's value is that it is a checklist that does not forget. Rule: when a skill exists for the task, invoke it rather than reproducing it from memory, even when the work feels already done.</td>
+</tr>
+
 </tbody>
 </table>
 
