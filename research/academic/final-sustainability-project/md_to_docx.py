@@ -9,6 +9,12 @@ Style guide (references/academic-style-guide.md, Hebrew Mode):
   - section headers bold + underlined, right-aligned
   - body text justified
   - RTL paragraph direction throughout; LTR only where explicitly needed
+
+WARNING: running this OVERWRITES the shipped .docx. The shipped file is the
+live one and carries edits made directly in Word. draft.md has been synced
+with those edits, and the cover logo + instructor names are reproduced here,
+but re-running this drops the meeting-log appendix. If you regenerate, run
+append_meeting_log.py straight afterwards.
 """
 import os
 import re
@@ -121,8 +127,18 @@ def set_table_rtl(table):
 
 # --------------------------------------------------------------- cover page
 def build_cover(doc):
-    for _ in range(4):
-        add_para(doc, space_after=0)
+    logo = os.path.join(HERE, "..", "..", "..", "references", "brand-assets",
+                        "university-logos", "reichman-sustainability-logo.png")
+    logo = os.path.normpath(logo)
+    if os.path.exists(logo):
+        p = doc.add_paragraph()
+        p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        p.paragraph_format.space_after = Pt(18)
+        p.add_run().add_picture(logo, width=Cm(5.2))
+    else:
+        print("  ! logo not found at", logo)
+        for _ in range(4):
+            add_para(doc, space_after=0)
 
     add_para(doc, "מים צלולים", size=30, bold=True,
              align=WD_ALIGN_PARAGRAPH.CENTER, space_after=6, color=NAVY)
@@ -148,7 +164,7 @@ def build_cover(doc):
 
     add_para(doc, "אוניברסיטת רייכמן", size=12,
              align=WD_ALIGN_PARAGRAPH.CENTER, space_after=3)
-    add_para(doc, "מרצה: [שם המרצה]", size=12,
+    add_para(doc, "פרופ' יואב יאיר | ד\"ר שירי צמח שמיר", size=12,
              align=WD_ALIGN_PARAGRAPH.CENTER, space_after=3)
     add_para(doc, "תאריך הגשה: 13/08/2026", size=12,
              align=WD_ALIGN_PARAGRAPH.CENTER, space_after=0)
