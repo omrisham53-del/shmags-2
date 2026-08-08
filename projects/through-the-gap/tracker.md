@@ -20,12 +20,30 @@ Two weekly recurring calendar blocks for Window Winners build time, created via 
 - [x] Data strategy locked: licensed stats API (football-data.org / API-Football) + own credibility-weighted valuation engine (not scraped from Transfermarkt)
 - [x] **Launch target locked (2026-07-25): Friday Aug 21, 2026 (PL 2026/27 season kickoff)**, not the transfer-window close
 - [x] **v1 scope cut to fit 4-week timeline**: fan prediction game + leaderboard + sharing ships in full; valuation uses a manually curated list of ~15-20 marquee transfers instead of the full automated aggregation engine (that becomes a post-launch upgrade). Estimated ~40-55 hours / ~10-14 hrs/week over the 4 weeks.
-- [ ] Technical architecture / build plan (not yet started)
-- [ ] Data pipeline (automated fixtures/squads/stats ingestion via licensed API)
-- [ ] Manually curated valuation list (~15-20 transfers) for v1
-- [ ] Scoring model (squad fit / likely position / XI impact)
+- [x] **Technical architecture locked (2026-07-28)** -- see below
+- [x] **Data coverage scope revised (2026-07-28)**: full PL transfer list at launch (not just 15-20), auto-scored wherever API-Football has a real reported fee, rest shown as "not yet graded" -- see below
+- [ ] Data pipeline (automated transfer list + fee ingestion via API-Football)
+- [ ] Scoring model (squad fit / likely position / XI impact) -- design session planned
 - [ ] Fan prediction + leaderboard + sharing UX
+- [ ] Repo scaffold (React + Vite + PWA + Supabase)
 - [ ] Launch by Aug 21, 2026
+
+## Technical Architecture (locked 2026-07-28)
+
+**Stack:** React + Vite (frontend) + Supabase (Postgres DB, auto-generated API, no custom backend code) + Vercel/Netlify (hosting). Chosen for being the least new-concept path for someone new to backend work -- Supabase tables are defined in a web UI and queried directly from React, no server to write or run.
+
+**App-like feel, cross-device:** PWA via `vite-plugin-pwa` -- installs to home screen on iOS/Android, runs full-screen, no app store needed. Predictions/leaderboard live in Supabase (shared, not local storage), so it's genuinely one competition across everyone's phones, not siloed per device.
+
+**Auth:** No email signup for v1 -- nickname + a device-local ID (stored in browser) mapped to a Supabase row. Removes signup friction that would kill shareability.
+
+**Data model (3 tables):**
+1. `transfers` -- full Premier League transfer list, pulled automatically from API-Football's transfers endpoint (player, from/to club, date, fee). Fee comes back as a formatted field: a real amount ("EUR 45M") when publicly reported, or Free/Loan/N/A when not. Where a real fee exists, the scoring model runs automatically against it (position fit, XI impact, valuation verdict). Where it's N/A, the transfer still shows in the list but is marked "not yet graded" rather than faked or skipped.
+2. `predictions` -- nickname/device_id + transfer_id + fan's guess + timestamp.
+3. Leaderboard is not a stored table -- it's a query comparing `predictions` against the `transfers` verdict (and later, real season outcomes once the season plays out).
+
+**Resolves the "full PL coverage" ask (2026-07-28)** without reopening the 85-115 hour full-automation estimate that got cut on 2026-07-25 -- auto-pulling the transfer list + auto-scoring wherever real fee data exists is a much smaller lift than the credibility-weighted news/social aggregation pipeline that's still deferred as a post-launch upgrade.
+
+**Next session:** scoring model design -- look at reference points (FPL-style points systems, media "grading the transfer window" formats, WhoScored/Sofascore rating methodology) before shaping Omri's own formula, since this is the real technical-growth centerpiece of the project.
 
 ## Window Winners - Milestones
 

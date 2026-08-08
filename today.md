@@ -1,7 +1,7 @@
-# Today - 2026-08-07
+# Today - 2026-08-08
 
-**Date:** 2026-08-07
-**Updated:** 2026-08-07
+**Date:** 2026-08-08
+**Updated:** 2026-08-08
 
 ---
 
@@ -15,6 +15,14 @@
 ---
 
 ## Today's Completed
+
+1. **Final Sustainability Project: full Hebrew paper built end to end** -- identified the project (פרוייקט יישומי קיימות, Herzliya Marina urban stormwater runoff) and found the real deadline risk: the brief says "יום חמישי 15.8" but 15/08/2026 is a **Saturday**, so the printed spiral-bound copy due at the Dean's office secretariat realistically has to land **Thursday 13/08**. Existing material was much thinner than the folder suggested: a 6-page lit review with 3 sources (one a KKL blog) and a NotebookLM pitch deck, with no business plan, market survey, competitor analysis or team meeting log despite the brief referencing them. Built the whole thing: research folder with notes.md + sources.md, a 13-page Hebrew RTL paper (draft.md -> docx -> PDF, visually verified by rasterizing), 4 charts from real cited data only, and a meeting-log template. Deliverables copied to the course folder.
+
+2. **Research breakthrough: the Herzliya city auditor's own 2021 report** -- pulled and read all 36 pages of "דוח ביקורת בנושא מניעת זיהום חופים וים", which documents precisely the gap the project addresses and converts its premise from plausible to evidenced: 4 outlets draining 3 basins, named by the auditor as "גורם סיכון לזיהום מי הים והחופים"; **zero of 4** outlets have any solid-waste capture; only **1 of 4** has a summer-water (מי קיץ) solution; no maintenance procedure was presented at all. Plus the quantitative core: enterococcus exceedances 8-18% of tests, Q1 trend rising to 15%, bathing-season exceedances 3% (2019) -> 6.8% (2020), a 126% jump and the highest of any coastal city that year bar Kiryat Yam, with first-rains-quarter exceedances high **relative to peer coastal authorities**.
+
+3. **Business model grounded in a real funded programme** -- the Ministry of Environmental Protection's "חוף נקי" allocates ~₪9.7M/year to coastal authorities, explicitly covering facilities to stop stormwater-borne waste reaching the sea across 166 drainage points / 153 km of beach, and the auditor already recommended Herzliya pursue exactly that route. Also built the differentiation argument the brief demands and the old draft lacked: the Israeli מי קיץ dry-season problem has no analogue in either Australian case study, this is a retrofit into built-out infrastructure rather than a greenfield install with allocated land, and the receiving body is a semi-enclosed marina where pollutants concentrate rather than disperse.
+
+4. **Declined to fabricate the team meeting log** -- the brief requires תיעוד המפגשים across both semesters and none was ever written. Built a reconstruction template anchored to real file timestamps for the 5 team members to fill from WhatsApp and calendar, rather than inventing records for a graded appendix.
 
 ---
 
@@ -39,6 +47,8 @@
 1. **Itai "Built with Claude Code, Vol. 2" deck built and delivered** -- a flashy, self-contained 12-slide HTML slide deck (keyboard/click/dot nav + fullscreen), framed as prepared by the SHMAGS 2 assistant, with a new "control room / field report" visual identity (warm plum-ink, ember + mint/coral accents, Georgia serif + monospace) replacing Vol.1's navy+gold. Content Omri picked from a menu: four builds (uni LCA assignment, tax model, weekly review, chess scout), a sub-agent primer, and two lessons (a scheduled agent that ran green but silently did nothing because the sandbox blocked chess.com; sub-agents not inheriting a tool declared in their own config). Custom per-slide SVG illustrations plus two flow charts, an Excel-realistic spreadsheet, and a real chessboard with pieces. Built as a claude.ai Artifact (private) but public sharing is blocked on Omri's account, so delivered to Itai (itaikrymolowski@gmail.com) as the self-contained HTML file attached to an email written in SHMAGS 2's own voice. Two build gotchas + the sharing block logged to the Claude Code lessons tracker; `artifact_sharing_blocked` memory saved. Deck file is ephemeral (scratchpad).
 
 2. **Window Winners launch date locked + v1 scope cut, recurring build schedule set** -- confirmed the real PL 2026/27 season start (Aug 21, 2026, ~10 days earlier than the Sept 1 transfer-window-close originally assumed) and used it as the hard launch target. Sized the full-scope build at ~85-115 hours -- too much alongside the Sustainability Project and EcoTraders wind-down -- so cut v1 to ship the fan prediction/leaderboard/sharing UX in full while replacing the automated valuation-aggregation engine with a manually curated list of ~15-20 transfers (automation becomes a post-launch upgrade). Revised estimate ~40-55 hours (~10-14 hrs/week). Created two recurring Google Calendar work blocks via `gws calendar` for the 4-week build: Tuesdays 19:00-21:00 (starting 7/28) and Fridays 10:00-12:00 (starting 7/31).
+
+3. **Roni's IDF discharge certificate photo cleaned + straightened (personal task)** -- turned a hand-held WhatsApp photo into a clean, dead-straight A4 scan (hand removed, background/shadows whitened, page rectified). Declined the original ask (rebuild it as an editable, text-matched reconstruction) because that is a forgeable template of an official military record; did a genuine photo cleanup instead. Whole pipeline is deterministic image processing (geometry + brightness), so no text/number/stamp is ever regenerated -- directly answers Omri's worry that the text would change. Anchored the straighten to text orientation (verified residual 0.1 degrees). Saved to `C:\עמרי ורוני\Roni_discharge_certificate_clean.png` and `.pdf`; pipeline captured in the `document_photo_cleanup` memory.
 
 ---
 

@@ -1,6 +1,6 @@
 # University Assignments Tracker
 
-**Last Updated:** August 3, 2026
+**Last Updated:** August 8, 2026
 **Term:** Spring 2026
 **Total Assignments:** Track all coursework, deadlines, and status
 
@@ -20,15 +20,17 @@
 
 ---
 
-### Final Sustainability Project
+### Final Sustainability Project (פרוייקט יישומי קיימות)
 
 | Field | Value |
 |-------|-------|
-| **Course** | [Course TBD] |
-| **Due** | August 15, 2026 |
-| **Status** | Not Started |
+| **Course** | פרוייקט יישומי קיימות (Applied Sustainability Project) -- year-long, two semesters |
+| **Due** | **Effective deadline Thursday August 13, 2026** (brief says "יום חמישי 15.8", but 15/08/2026 is a Saturday -- Thursday is the 13th, and the printed copy goes to a secretariat that is closed Saturday). Confirm with course staff. |
+| **Status** | Draft complete 2026-08-08 -- full 13-page Hebrew paper built, docx + PDF generated and visually verified |
 | **Grade** | Pending |
-| **Notes** | Details TBD (brief, scope, research needs) -- flagged 2026-07-10, not yet reviewed. |
+| **Submission** | Two channels: PDF uploaded to the course site, **plus one printed spiral-bound copy** delivered to the school secretariat at the Dean's office. The physical copy is the binding constraint. |
+| **Files** | `research/academic/final-sustainability-project/` (draft.md, notes.md, sources.md, build_charts.py, md_to_docx.py, charts/) + deliverables copied to `C:\עמרי\אוניברסיטה\שנה ג\פרוייקט יישומי קיימות\` |
+| **Notes** | Group project, 5 members: תום גינל, תומר טסה, אבישי מאייר, עמרי שמגר, יונתן חורי. **Omri wrote the whole paper solo.** Topic: treating urban stormwater runoff at the four drainage outlets discharging into Herzliya Marina, via a combined treatment train (gross-solids capture + settling, then media filter or biofilter selected per outlet by available space). Pre-existing material was thin: a 6-page lit review with only 3 sources (one a KKL blog post) and a 10-slide NotebookLM pitch deck. No business plan, market survey, competitor analysis, or team meeting log existed despite the brief referencing them; all written from scratch. Survey designed but never run -- need-validation instead rests on the auditor's public-complaint data plus literature, flagged as a limitation. Brief requirements: lit review proving the need (Israel + world), explicit argument for why the solution beats published case studies, project logic, business/economic model, milestones, competitors and collaborations, ≤20 pages at 1.15 spacing font 12 excluding appendices/bibliography, plus team meeting documentation across both semesters. **Research breakthrough: the Herzliya city auditor's own 2021 report** (`דוח ביקורת בנושא מניעת זיהום חופים וים`) documents exactly the gap the project addresses -- 4 outlets draining 3 basins, described as "גורם סיכון לזיהום מי הים והחופים"; solid-waste capture at 0 of 4 outlets; summer-water (מי קיץ) solution at only 1 of 4; no maintenance procedure presented at all. It also carries the killer quantitative evidence: enterococcus exceedances 8-18% of tests, Q1 trend rising to 15%, bathing-season exceedances 3% (2019) → 6.8% (2020), a 126% jump and the highest of any coastal city that year except Kiryat Yam, with Q4 (first-rains quarter) exceedances high *relative to peer coastal authorities* -- which the auditor himself attributes to the drainage outlets. **Business model is grounded, not invented:** the Ministry of Environmental Protection's "חוף נקי" programme allocates ~₪9.7M/year to coastal authorities with the budget explicitly covering facilities to stop stormwater-borne waste reaching the sea, across 166 drainage points / 153 km of beach, and the auditor already recommended the city pursue exactly that route. Differentiation vs. the two case studies (Drapper & Hornbuckle 2018 Queensland media filter; KKL Kfar Saba biofilter) rests on three honest points: the Israeli מי קיץ dry-season flow problem has no analogue in either Australian case; this is a retrofit into built-out infrastructure rather than a new development with allocated land; and the receiving body is a semi-enclosed marina basin where pollutants concentrate rather than disperse. 4 charts built from real cited data only (matplotlib + python-bidi + Segoe UI). **Open items for Omri:** team meeting log must be reconstructed from WhatsApp/calendar by the 5 members (template at `meeting-log-template.md` -- deliberately NOT pre-filled, fabricating it would be dishonest); instructor name is a placeholder on the cover; the survey could still be run in 48h if wanted. |
 
 ---
 
