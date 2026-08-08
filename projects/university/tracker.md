@@ -26,7 +26,7 @@
 |-------|-------|
 | **Course** | פרוייקט יישומי קיימות (Applied Sustainability Project) -- year-long, two semesters |
 | **Due** | **Effective deadline Thursday August 13, 2026** (brief says "יום חמישי 15.8", but 15/08/2026 is a Saturday -- Thursday is the 13th, and the printed copy goes to a secretariat that is closed Saturday). Confirm with course staff. |
-| **Status** | Draft complete 2026-08-08 -- full 13-page Hebrew paper built, docx + PDF generated and visually verified |
+| **Status** | **Complete 2026-08-08.** 14-page Hebrew paper finished, docx + PDF delivered. Printing, spiral-binding, secretariat delivery and the course-site upload delegated by Omri to another team member. |
 | **Grade** | Pending |
 | **Submission** | Two channels: PDF uploaded to the course site, **plus one printed spiral-bound copy** delivered to the school secretariat at the Dean's office. The physical copy is the binding constraint. |
 | **Files** | `research/academic/final-sustainability-project/` (draft.md, notes.md, sources.md, build_charts.py, md_to_docx.py, charts/) + deliverables copied to `C:\עמרי\אוניברסיטה\שנה ג\פרוייקט יישומי קיימות\` |
@@ -79,6 +79,7 @@ When a new assignment is announced, add it here:
 | Economics Final Paper: CBA – Data Center Energy Sourcing (with Tomer) | Economics (final paper) | ~7/2026 | Pending | ✅ Submitted (confirmed 2026-07-10) |
 | Economics Seminar Poster + Distinction Presentation (with Tomer) | Economics seminar | Presented 7/30/2026 | Pending | ✅ Presented -- went great |
 | Final LCA Assignment: Comparative EPD (ready-mix concrete) | Industrial Ecology and LCA | 8/1/2026 | Pending | ✅ Submitted -- confirmed 2026-08-03. Full build detail in `research/academic/final-lca-assignment/` |
+| Final Sustainability Project: Herzliya Marina stormwater treatment (group of 5, written solo) | פרוייקט יישומי קיימות | 8/13/2026 | Pending | ✅ Written and finished 2026-08-08 -- **last assignment of the degree**. Submission logistics handed to a teammate. Build detail in `research/academic/final-sustainability-project/` |
 
 ---
 

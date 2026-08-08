@@ -18,11 +18,13 @@
 - Get sign-off from Daniel and Ministry of Energy
 - Original June 2026 date has passed; this is now the real target
 
-## Goal 3: Graduate with Strong Performance (target updated 2026-07-24: Aug 15 2026, was May 2026)
-- Coursework functionally complete -- Energy Policy final exam (final exam of the whole degree) taken 2026-07-20
-- Final LCA (due Aug 1) is done in substance, awaiting Omri's own edits + Moodle submission
-- Final Sustainability Project (due Aug 15) is the one real assignment left in the entire degree
-- Build professional network with peers and professors
+## Goal 3: Graduate with Strong Performance -- ACHIEVED 2026-08-08 (all coursework complete)
+- Energy Policy final exam (final exam of the whole degree) taken 2026-07-20
+- Final LCA submitted 2026-08-03
+- Economics seminar distinction-track presentation delivered 2026-07-30, went great
+- **Final Sustainability Project finished 2026-08-08** -- last assignment of the degree; submission logistics handed to a teammate
+- All grades still pending; nothing further to produce
+- Remaining (ongoing, not a blocker): build professional network with peers and professors
 
 ## Goal 4: Strengthen Analytical Brand
 - Across all three work areas (energy, job search, academics)
