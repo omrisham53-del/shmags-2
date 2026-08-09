@@ -2,9 +2,15 @@
 
 Working file for the market-sizing engines (chillers / heat pumps / VSD). Methodology: `brainstorms/2026-07-22_tax-incentive-market-analysis.md`. Feeds the tax incentive chapter's results section; numbers here get multiplied by the model's per-unit results (NPV, MWh saved, tCO2 saved, fiscal cost) to produce market-level totals.
 
+**PIVOT (2026-08-05, Daniel's call at the market-analysis meeting):** real per-technology market sizing (this whole file) is paused for now. The chapter will show savings **per 1,000 units, per technology** as a placeholder in place of a true national total -- applies to chillers too, to keep the three technologies consistent, even though chillers had a real construction-based sizing engine built (Section 1 below). Fiscal cost follows the same logic: still the NPV difference between options B and C (the existing C-B tax-shield calc), just scaled to a flat 1,000-unit basis rather than multiplied by an estimated adoption count.
+
+Reason for the pivot: none of the three sizing approaches attempted so far (chiller RT/m², heat-pump CBS fuel-balance, VSD compressed-air-share) reliably answers the real question, which is *how many projects happen per year* (a flow), not how big an existing stock or floor-area base is. Going forward, the plan is to ask Yaniv Giat (Ministry of Energy, Senior Engineering/Licensing/Standards) for import data on all three technologies -- if a clean annual import count exists, that's a direct flow figure, and (internally, not stated to Yaniv) every imported unit can reasonably be assumed to replace an existing one, which would also help validate the market's overall size. Once that reply lands, real market sizing gets revisited with Daniel. Sections 1, 2, and 3 below are kept as-is (not deleted) since the underlying sourcing work may still be useful once real adoption-count data exists to pair with it.
+
+The payback-threshold adoption rule (3-year hurdle) itself was separately confirmed by Daniel as "probably the strongest conclusion we can provide" -- that finding stands independent of this market-sizing pivot.
+
 ---
 
-## 1. Chiller engine
+## 1. Chiller engine -- PAUSED (2026-08-05, see pivot note above)
 
 ### 1a. Non-residential construction starts (CBS, last 5 years) -- SOURCED
 
@@ -77,9 +83,13 @@ Per-category RT = (category m², thousand) x 1000 / (category m²/RT). Summed ac
 
 ---
 
-## 2. Heat pump engine -- IN PROGRESS
+## 2. Heat pump engine -- PAUSED (2026-08-05, see pivot note above), baseline also changed
 
-Sizing base: national energy balance (CBS/Ministry of Energy) industrial mazut/diesel heat use, bounded by the heat pump's low-temp ceiling (~80-90C). See methodology doc for the hard constraint reasoning.
+**Baseline change (2026-08-05, Daniel's call):** the heat pump baseline is now a **standard-efficiency heat pump**, not a mazut/diesel-fired oven -- same structure as the chiller engine (baseline = less efficient unit of the same technology, efficient = higher-efficiency unit of the same technology). This is a separate decision from the market-sizing pause above: even setting aside how many projects happen per year, the *comparison itself* changed. Full sourcing for the new baseline (real ASHRAE 90.1/DOE FEMP minimum COP, plus a real tension worth resolving before this is usable) is in `baseline-technology-data.md`, section 1c.
+
+Sections 2a/2b below (national energy balance, low-temp ceiling) are the now-superseded fuel-based sizing approach -- kept for reference, not deleted, not being pursued further right now.
+
+Sizing base (superseded): national energy balance (CBS/Ministry of Energy) industrial mazut/diesel heat use, bounded by the heat pump's low-temp ceiling (~80-90C). See methodology doc for the hard constraint reasoning.
 
 ### 2a. Industrial mazut/diesel consumption (CBS energy balance) -- SOURCED
 
@@ -106,12 +116,12 @@ Column mapping (K=סולר, L=מזוט) verified two ways: read directly off the
 
 Once the low-temp fraction is sourced: 2.07 TWh x low-temp share -> addressable heat-pump market (MWh/year).
 
-## 3. VSD engine -- NOT STARTED
+## 3. VSD engine -- PAUSED (2026-08-05, see pivot note above)
 
-Sizing base: national industrial electricity x ~10% compressed-air-share benchmark (DOE/Radgen & Blaustein 2001), narrowed to variable-load compressors only.
+Sizing base (superseded): national industrial electricity x ~10% compressed-air-share benchmark (DOE/Radgen & Blaustein 2001), narrowed to variable-load compressors only. Never started building this; pausing before starting rather than after, same reasoning as chillers and heat pumps.
 
 ---
 
-## 4. Fiscal cost rollup -- NOT STARTED
+## 4. Fiscal cost rollup, per-1,000-units basis
 
-Total fiscal cost (sum C-B row x adoption count, all 6 blocks) + chillers-only cost-effectiveness ratio (₪/tCO2, ₪/MWh). See `tracker.md` for the block schedule.
+Per Daniel: fiscal cost is still the same underlying calc (NPV difference between options B and C, the existing C-B tax-shield formula in the live model), just scaled to a flat 1,000-unit basis per technology instead of an estimated real adoption count. No separate work needed here beyond applying the existing C-B logic x 1,000 once the per-1,000-units results section is drafted -- this is a chapter-writing task, not a sourcing task.

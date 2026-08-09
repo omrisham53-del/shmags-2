@@ -1,6 +1,6 @@
 # Energy Program -- Schedule & Status
 
-**Last updated:** 2026-08-03
+**Last updated:** 2026-08-05
 **Scope locked 2026-07-26 (Daniel):** no new assignments before Omri's Aug 22 last day. Exactly 3 deliverables remain, in priority order:
 
 1. **Tax incentive model, including the market analysis** (Priority 1)
@@ -19,6 +19,7 @@ Work happens in parallel across all 3, but the model comes first because the tax
 4. **Fiscal cost reporting is dual, not single:** total fiscal cost = the incentive's tax-shield benefit (C-B) summed across every adopting unit in all 3 technologies (the tax break doesn't discriminate on additionality). Cost-effectiveness (₪/tCO2, ₪/MWh) can only be honestly computed for chillers, where there's real additional abatement to divide by -- dividing HP/VSD's cost by non-additional savings would credit the policy for reductions it didn't cause.
 5. **PRTR (Ministry of Environmental Protection facility-level data) identified as a better source** than the borrowed international benchmarks (DOE/Radgen 10% compressed-air share, unsourced low-temp heat share) for narrowing the heat-pump/VSD addressable pool. Not yet pulled -- worth checking whether EcoTraders has existing portal/contact access.
 6. **Schedule slipped ~1 week (confirmed 2026-08-03):** the Wed Jul 29 Daniel meeting never happened -- it's today, Mon Aug 3 at 15:30, and it's specifically about the market analysis. Thu Jul 30's chiller-sizing blocks (presentation day) didn't happen either, and the Week 2 Sun Aug 2 blocks (chiller sizing, HP/VSD light pass, PRTR check, fiscal-cost rollup) are also not done -- none of the market-sizing work has started yet. Loan fund appendix got pulled forward instead and is done. Today's block plan below is rebuilt around this reality; the rest of the multi-week schedule further down is stale by about a week and will get re-sequenced as work actually lands rather than rewritten speculatively now.
+7. **Daniel meeting happened 2026-08-05 (moved from Aug 3) -- major market-analysis pivot.** Full outcomes in decisions/log.md. Summary: (a) the 3-year payback threshold confirmed as "probably the strongest conclusion we can provide" -- the core reframe stands; (b) real per-technology market sizing (chiller RT/m², heat pump fuel-balance, VSD compressed-air-share) is paused -- none of them reliably answer "how many projects happen per year," a flow, and all three were sizing a stock instead; (c) the chapter now shows savings **per 1,000 units, per technology** as a placeholder, chillers included, fiscal cost the same C-B calc x 1,000; (d) heat pump baseline changed from a mazut/diesel furnace to a **standard-efficiency heat pump** (same structure as chillers: baseline vs. efficient tier of the same technology) -- this makes most of Rafi's still-owed furnace data (CapEx, maintenance delta) obsolete, see the updated Reference section below; (e) the Cyprus-style chillers-only differentiated-multiplier recommendation was rejected by Daniel as too narrow to propose; (f) plan going forward is an email to Yaniv Giat (Ministry of Energy) asking for import data on all three technologies -- if that lands, it's a real annual flow figure and market sizing gets revisited with Daniel.
 
 ---
 
@@ -32,7 +33,7 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 ### Week 1 (Jul 27 -- Jul 30)
 
 **Mon Jul 27 (today, FULL)** -- close out the model's last two structural gaps
-- [x] Electricity tariff -> תעו"ז average (39.54 agorot/kWh) -- done 2026-07-26, recovered from the merged branch.
+- [x] Electricity tariff -> תעו"ז average (39.54 agorot/kWh) -- done 2026-07-26, recovered from the merged branch. **Superseded 2026-08-05:** the TAOZ extension prompt built the underlying weighted calculation live in the model, sourced from IEC's own tariff page (https://www.iec.co.il/content/tariffs/contentpages/taozb-gavoaa), and it landed at **44.60 agorot/kWh**. The model now uses 44.60, with the calculation shown transparently per Daniel's ask.
 - [x] Payback-threshold adoption row + decision test per block -- already live in the model (this replaced the originally-planned A-C row as the adoption signal).
 - [x] Added the C-A row (NPV of the incentivized investment vs. doing nothing) and the fiscal-cost row (direct reference to C-B, per the dual-reporting decision) to all 6 blocks, plus two summary-table columns and a totals row (L305 = ₪71,491 total fiscal cost across all technologies). Verified: C-A = (B-A)+(C-B) in all 6 rows, fiscal cost matches C-B exactly, conditional formatting live (green confirmed on all 6 -- everything's currently positive, so the red branch is unverified but the rule is present).
 - [x] kW/ton (and kW/100cfm for VSD) unit consistency check across all 6 blocks -- recomputed every efficiency/consumption/CapEx-per-unit figure by hand against the model's cached values, all consistent, no ton/kW mix-ups. Chillers scale via capacity x kW/ton x hours; VSD's specific-power comparison is correctly applied as a % savings on top of capacity x hours, not multiplied directly (would have been dimensionally wrong if it had been).
@@ -64,12 +65,15 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [ ] 15:30 -- Daniel meeting (market analysis of the tax incentives).
 - [ ] After the meeting -- log any new decisions (decisions/log.md), fold outcomes into this tracker, use any remaining time before end of day on whatever the meeting unblocked.
 
-**Wed Aug 5 (FULL)** -- model hardening + chapter continues
-- [ ] 9:00-10:30 -- Chase/check Rafi's data (CapEx of the mazut/diesel furnace, incremental maintenance delta, degradation rate, confirmed hours). Incorporate anything that's landed.
-- [ ] 10:30-12:00 -- Model: full QA pass on formulas/units across all 6 blocks.
-- [ ] 13:00-14:30 -- Tax chapter: continue methodology / results section drafting with whatever model numbers are locked.
-- [ ] 14:30-16:00 -- Tax chapter: continue drafting.
-- [ ] 16:00-17:30 -- Loan fund full chapter: gap-check -- what does the existing position paper NOT cover that the full national-program chapter needs?
+**Wed Aug 5 (FULL, TODAY)** -- post-meeting pivot: close out today's action items, then chapter work that isn't blocked by the market-sizing pause
+- [x] Log the meeting pivot (decisions/log.md, tracker.md, market-analysis.md, baseline-technology-data.md) -- done first thing.
+- [x] Standard-efficiency heat pump baseline sourced (real ASHRAE 90.1/DOE FEMP minimum COP, 3.3 at 47°F, both capacity points) -- real tension found and flagged (the already-sourced "efficient" 70kW unit's COP is at or below this new baseline, needs resolving before usable). CapEx premium not cleanly sourced this pass.
+- [x] Built the Claude-in-Excel extension prompt for the TAOZ tariff calculation, with real sourced Israel Electricity Authority rates (effective 1.1.2026) -- `taoz-calculation-extension-prompt.md`, ready to hand to the extension whenever Omri runs it on the live model.
+- [x] Yaniv Giat + Amos (Ministry of Energy) email sent 2026-08-05, cc Daniel -- import data request for all three technologies (chillers, heat pumps, VSD), industry-sector scope, framed as Daniel's suggestion to check customs import data. Waiting on a reply.
+- [x] Tax chapter: outline built -- `tax-chapter-outline.md`. 5 sections (background/policy context, mechanism, international review, methodology, results), mirroring the grants chapter's confirmed structure convention from `work-handoff.md`. Folds in today's pivot (per-1,000-units methodology, payback-threshold confirmed, Cyprus multiplier explicitly excluded). Flagged 4 open items, incl. locating the real grants chapter + international review files on the work computer for a side-by-side check.
+- [x] Tax chapter: first draft written (Hebrew, .docx, RTL-verified) -- `tax-chapter-draft.docx`. Sections 1 (background/policy), 2 (mechanism), and 4 (methodology, all 4 sub-sections) drafted in full prose. Sections 3 (international review) and 5 (results) are marked placeholders, not fabricated -- 3 needs the real file from the work computer, 5 is blocked on final per-1,000-units model numbers. One open flag inside section 1: the exact legal basis (same Government Decision 1261 as the grants chapter, or separate) isn't confirmed in this repo's notes. Omri's own call to extend past the original "outline only, keep it calm" plan.
+- [ ] Loan fund full chapter: gap-check -- deferred to tomorrow.
+- [ ] Update the Rafi data-request list (Reference section below) -- deferred to tomorrow.
 
 **Thu Aug 6 (HALF)**
 - [ ] Block 1 -- Tax chapter: keep drafting (background/method sections should be close to done by now given the freed-up time).
@@ -138,11 +142,12 @@ Both chapters started earlier than originally planned (tax chapter Mon Aug 3, lo
 
 ## Reference -- open items carried forward
 
-**Rafi is still owed (email sent 2026-07-22):**
-- CapEx of the mazut/diesel furnace (heat pump baseline)
-- Incremental annual maintenance cost, efficient vs. baseline, all 3 techs
+**Rafi is still owed (email sent 2026-07-22), updated 2026-08-05 for the baseline change:**
+- ~~CapEx of the mazut/diesel furnace~~ -- OBSOLETE, the heat pump baseline is no longer a furnace (2026-08-05 pivot, see Confirmed #7). Replace with: CapEx of a standard-efficiency heat pump (40kW/70kW) -- not cleanly sourced from a web pass either, see `baseline-technology-data.md` section 1c. Worth asking Rafi directly rather than continuing to search.
+- Incremental annual maintenance cost, efficient vs. baseline heat pump (was efficient-vs-furnace, now efficient-vs-standard-heat-pump -- same open ask, different baseline technology)
 - Equipment degradation rate (0.5% placeholder)
 - Confirmed annual operating hours (5,475 heat pump / 3,000 chiller / 6,400 VSD)
+- **NEW:** his read on the real tension flagged in `baseline-technology-data.md` 1c -- the sourced "efficient" 70kW heat pump (COP 3.23-3.24) is at or below the new code-minimum baseline (COP 3.3). Needs resolving before the baseline change is usable.
 
 **Discount rate:** resolved at 6% with Daniel back on 2026-07-13 (set in `generate_tax_model_v2.py`) -- this tracker previously had it listed as still-pending, caught during the 2026-07-27 branch-merge cleanup. Worth flagging to Daniel/Rafi whether 6% is meant to represent the social rate only, or the single rate the whole model uses for both the firm's private decision and the state's fiscal-cost calc -- that distinction matters once the payback-threshold adoption logic (private decision) and fiscal-cost NPV (state cost) are both live in the model.
 
@@ -150,4 +155,4 @@ Both chapters started earlier than originally planned (tax chapter Mon Aug 3, lo
 
 **Market analysis methodology (full reasoning behind the sizing engines above):** see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`.
 
-**Parked for a later Daniel discussion:** additionality/deadweight was resolved 2026-07-26 (payback-threshold reframe, chillers-only additionality) -- what's still open is whether Daniel wants to restrict the accelerated-depreciation multiplier to chillers specifically going forward (a policy recommendation that falls out of the finding, precedented by Cyprus's differentiated-multiplier design), or keep one uniform multiplier across all technologies. Not blocking this schedule.
+**Resolved 2026-08-05 (was "parked for a later Daniel discussion"):** additionality/deadweight was resolved 2026-07-26 (payback-threshold reframe, chillers-only additionality) and the payback-threshold rule itself was confirmed by Daniel 2026-08-05 as the chapter's strongest conclusion. The chillers-only differentiated-multiplier policy recommendation (Cyprus precedent) was raised and rejected -- Daniel felt it would look "a bit silly" to recommend a tax incentive scoped to only one of three technologies, too narrow. Drop this from future chapter drafts.
