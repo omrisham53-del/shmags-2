@@ -4,6 +4,8 @@
 **Date:** 2026-07-06
 **Purpose:** First-pass baseline reference points for the tax incentive model, per technology. All figures are international open-source averages — not yet validated against actual Israeli grant-fund installations or Rafi's engineering judgment.
 
+**Capacity collapse (2026-08-12):** each technology below is now modeled at 1 averaged capacity point instead of 2 (plain midpoint of the two points still documented here) -- see `2026-08-12-morning-model-fixes.md` for the computed averaged values (heat pump 55kW, chillers 300RT, VSD 97.5kW) and which parameters carried over flat vs. needed averaging. The 2-point tables below are kept as the sourcing record, not replaced.
+
 **CapEx sourcing (2026-07-12, corrected):** CapEx comes from Omri's own grant-program-rounds extraction, not from this file. An open-source CapEx pass was attempted and then removed once Omri clarified he already has real CapEx data pulled from the grant program rounds and will use that directly — no need to source or estimate CapEx here. This file covers efficiency, capacity, hours, and fuel data only.
 
 Each technology below uses its own industry-standard efficiency metric (not a blanket COP), and every data point carries a source link. Where a value differs across the two capacity points, or is given as a range, the reasoning is stated explicitly — capacity and efficiency are kept as separate, independent axes unless there's a real documented reason to link them.
