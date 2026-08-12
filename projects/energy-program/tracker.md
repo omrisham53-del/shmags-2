@@ -1,6 +1,6 @@
 # Energy Program -- Schedule & Status
 
-**Last updated:** 2026-08-05
+**Last updated:** 2026-08-12
 **Scope locked 2026-07-26 (Daniel):** no new assignments before Omri's Aug 22 last day. Exactly 3 deliverables remain, in priority order:
 
 1. **Tax incentive model, including the market analysis** (Priority 1)
@@ -82,33 +82,20 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 
 ### Week 3 (Aug 9 -- Aug 13)
 
-Both chapters started earlier than originally planned (tax chapter Mon Aug 3, loan fund Thu Aug 6) since the lighter HP/VSD sizing pass freed up time in Week 2 -- treat the blocks below as "finish drafting" rather than "start drafting," and lean on the buffer blocks if Week 2 ran long instead.
+**Reality check (2026-08-12):** Aug 9-10 did not happen as scheduled below -- university (Sustainability Project) took that time instead, zero EcoTraders progress those two days. Real work did happen on the work computer separately, tracked through the company-account chat rather than this file: tax chapter sections 1, 2, 3, 4 are drafted (further along than the Aug 5/6 log here shows), but a company-chat status report surfaced real problems -- 6 pages used against a 4-page ceiling for sections 1-4 alone (before results exist), the additionality finding has no section, section 4.5 overstates how far market sizing has actually gotten, section 2 lost its technology/capacity list mid-edit, footnotes from the international review aren't carried in, and the Excel model has 13 flagged issues plus a capacity-collapse restructure (see below) that were never confirmed fixed. Loan fund chapter: still zero progress since Aug 6. The Aug 9-12 block plan below is retired -- replaced by the plan under "Wed Aug 12" further down, built around this real state instead.
 
-**Sun Aug 9 (FULL)** -- loan fund chapter drafting continues
-- [ ] 9:00-10:30 -- Loan fund chapter: write background/context section (mirrors grant + tax chapter structure).
-- [ ] 10:30-12:00 -- Loan fund chapter: write the mechanism/how-it-works section.
-- [ ] 13:00-14:30 -- Loan fund chapter: methodology section.
-- [ ] 14:30-16:00 -- Tax chapter: draft the results section off whatever model numbers are locked so far -- flag placeholders for anything still pending Rafi.
-- [ ] 16:00-17:30 -- Model: incorporate any new Rafi data that's landed, re-run affected numbers.
+~~**Sun Aug 9 (FULL)** -- loan fund chapter drafting continues~~ -- did not happen.
+~~**Mon Aug 10 (FULL)**~~ -- did not happen.
 
-**Mon Aug 10 (FULL)**
-- [ ] 9:00-10:30 -- Loan fund chapter: continue drafting (numbers/impact section).
-- [ ] 10:30-12:00 -- Loan fund chapter: continue drafting.
-- [ ] 13:00-14:30 -- Tax chapter: finish the results section, ₪/MWh & ₪/tCO2 comparison against the grant chapter.
-- [ ] 14:30-16:00 -- Model: end-to-end test -- walk one technology fully through sizing -> adoption -> fiscal cost, check nothing breaks.
-- [ ] 16:00-17:30 -- Buffer: whichever of the 3 deliverables is furthest behind.
+**Wed Aug 12 (FULL, TODAY)** -- model rebuild + tax chapter triage, loan fund gets nothing today
+- [ ] 9:00-10:30 -- Capacity collapse: rebuild all 3 technology blocks from 2 capacity points to 1 averaged point each (heat pump 55kW, chillers 300RT, VSD 97.5kW -- plain midpoint, Omri's call). Full computed values in `2026-08-12-morning-model-fixes.md`.
+- [ ] 10:30-12:00 -- Quick/confirmed model fixes (same file, section 2): heat pump baseline swap to standard-efficiency HP (flag #3), OPEX-אחר `#REF!` fix (flag #9), doc note 2.5->3yr (flag #13), depreciation-schedule rounding (flag #5), VSD payback-C empty formula (flag #4), OPEX degradation sign flip (flag #1), winter-peak weighting (flag #8).
+- [ ] 13:00-14:30 -- Add MWh-saved/tCO2-saved output rows (flag #10) -- unblocks the chapter's Results section.
+- [ ] 14:30-16:00 -- Tax chapter: page-budget trim pass (6 pages -> 4-page ceiling, sections 1-4), restore section 2's technology/capacity list off the new averaged points, add the missing additionality section, reword section 4.5 to future/conditional tense on market sizing, re-attach international-review footnotes.
+- [ ] 16:00-17:30 -- Tax chapter: start the Results section with whatever model output is ready.
+- [ ] End of day -- consolidate the Daniel/Rafi list: flags #2 (asymmetric lifespans, no salvage), #6 (VSD load-following, needs Rafi), #7 (tariff weighting conservative for chillers), #12 (heat pump hours load-bearing), #11 (fiscal-cost discount rate). These are decisions, not fixes -- don't try to resolve them today.
 
-**Wed Aug 12 (FULL)** -- first full drafts done
-- [ ] 9:00-10:30 -- Loan fund chapter: finish first full draft.
-- [ ] 10:30-12:00 -- Tax chapter: finish first full draft.
-- [ ] 13:00-14:30 -- Model: polish pass -- formatting, labels, comments for Daniel's review.
-- [ ] 14:30-16:00 -- Cross-check: chapter numbers match model outputs exactly, no drift.
-- [ ] 16:00-17:30 -- Buffer.
-
-**Thu Aug 13 (HALF)**
-- [ ] Block 1 -- Loan fund chapter: review/edit pass.
-- [ ] Block 2 -- Tax chapter: review/edit pass.
-- [ ] Block 3 -- Send model + both chapter drafts to Daniel for review.
+**Thu Aug 13 (HALF)** -- carries whatever slips from today, re-plan at end of Wed Aug 12 once real progress is known.
 
 ### Week 4 (Aug 16 -- Aug 20) -- revisions + wrap-up buffer
 
