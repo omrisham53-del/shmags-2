@@ -1,14 +1,14 @@
-# Today - 2026-08-10
+# Today - 2026-08-12
 
-**Date:** 2026-08-10
-**Updated:** 2026-08-10
+**Date:** 2026-08-12
+**Updated:** 2026-08-12
 
 ---
 
 ## Current Priority
 
 - **EcoTraders (scope locked 2026-07-26, active daily schedule):** Daniel confirmed no new assignments before Omri's Aug 22 last day -- exactly 3 deliverables remain: (1) finish the tax incentive model incl. the market analysis, (2) write the tax incentive chapter, (3) write the loan fund chapter (appendix version done 2026-08-03, full chapter still to write). **Major pivot at the Aug 5 Daniel meeting:** real per-technology market sizing is paused (none of the three approaches answered "how many projects per year"), chapter now shows savings per 1,000 units per technology as a placeholder, heat pump baseline changed to a standard-efficiency heat pump, and an import-data request went to the Ministry of Energy (Yaniv + Amos, cc Daniel) -- if that lands, sizing gets revisited. The 3-year payback threshold was confirmed by Daniel as the chapter's strongest conclusion. Tax chapter first draft written; sections 1-3 expanded 2026-08-05/06. See `projects/energy-program/tracker.md`.
-- **University: DONE -- degree complete.** Economics seminar presentation (distinction track, with Tomer) happened Thursday July 30, **went great**. Final LCA **submitted** 2026-08-03. **Final Sustainability Project finished 2026-08-08** (Herzliya Marina stormwater, 14-page Hebrew paper written solo for a team of 5) -- the last assignment of the entire degree. Print/bind/secretariat delivery and the course-site upload delegated to a teammate; real cutoff is **Thursday 13/08**, not the 15/08 printed in the brief (that is a Saturday). All grades pending, nothing further to produce. LinkedIn post still planned once EcoTraders wraps up.
+- **University: DONE -- degree complete, fully closed out.** Economics seminar presentation (distinction track, with Tomer) happened Thursday July 30, **went great**. Final LCA **submitted** 2026-08-03. **Final Sustainability Project finished 2026-08-08, submitted 2026-08-12** (Herzliya Marina stormwater, 14-page Hebrew paper written solo for a team of 5) -- the last assignment of the entire degree. Both submission channels (printed spiral-bound copy to the secretariat, course-site PDF upload) confirmed delivered, ahead of the real Aug 13 deadline. All grades pending, nothing further to produce. LinkedIn post still planned once EcoTraders wraps up.
 - **Through the Gap -> "Window Winners":** newsletter direction dropped entirely. New concept locked via a full discovery session (7/24): a Premier League transfer-window prediction game -- hybrid model (Omri's own scoring engine for squad fit/impact + a credibility-weighted valuation aggregator from news/social, not scraped from Transfermarkt for legal reasons) plus fan predictions and a leaderboard. Traction + technical growth prioritized over revenue for now. **Launch target locked (7/25): Aug 21, 2026 -- PL season kickoff**, not Sept 1. Full v1 sized at ~85-115 hours (too much alongside the Sustainability Project + EcoTraders wind-down), so scoped down: prediction game/leaderboard/sharing ships in full, valuation uses a manually curated list of ~15-20 transfers instead of the full automated aggregation engine (that becomes a post-launch upgrade). Revised estimate ~40-55 hours (~10-14 hrs/week) over the 4 weeks to launch. Full capture: `brainstorms/2026-07-24_through-the-gap-direction.md`.
 - **Norway trip:** given a formal priority slot (constant background project, not the main focus) -- family member gave real travel/equipment/food info, prep session still pending.
 

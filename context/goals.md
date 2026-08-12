@@ -18,11 +18,11 @@
 - Get sign-off from Daniel and Ministry of Energy
 - Original June 2026 date has passed; this is now the real target
 
-## Goal 3: Graduate with Strong Performance -- ACHIEVED 2026-08-08 (all coursework complete)
+## Goal 3: Graduate with Strong Performance -- ACHIEVED 2026-08-08, fully closed out 2026-08-12
 - Energy Policy final exam (final exam of the whole degree) taken 2026-07-20
 - Final LCA submitted 2026-08-03
 - Economics seminar distinction-track presentation delivered 2026-07-30, went great
-- **Final Sustainability Project finished 2026-08-08** -- last assignment of the degree; submission logistics handed to a teammate
+- **Final Sustainability Project written 2026-08-08, submitted 2026-08-12** -- last assignment of the degree, both submission channels confirmed
 - All grades still pending; nothing further to produce
 - Remaining (ongoing, not a blocker): build professional network with peers and professors
 
