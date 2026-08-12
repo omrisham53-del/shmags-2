@@ -95,7 +95,14 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [ ] Tax chapter: explicitly disclose the heat pump baseline CapEx assumption (₪875/kW, derived by analogy to chiller/VSD premiums, not a heat-pump-specific source) in the chapter text -- Omri's requirement, not yet drafted.
 - [ ] Tax chapter: page-budget trim pass (6 pages -> 4-page ceiling, sections 1-4), restore section 2's technology/capacity list off the new averaged points, add the missing additionality section, reword section 4.5 to future/conditional tense on market sizing, re-attach international-review footnotes.
 - [ ] Tax chapter: start the Results section with whatever model output is ready.
-- [ ] Still open, not today's fix: flag #7 (tariff weighting conservative for chillers specifically -- the technology carrying the additionality claim; needs a chiller-specific weighted tariff or at least a documented caveat, raise with Daniel).
+- [x] Flag #7 robustness-checked: verdict only flips above ~55 agorot/kWh (~26% jump from 43.63) -- still a real caveat to raise with Daniel, but not a fragile result. Still open, not today's fix.
+
+**Real sequencing for the rest of the model + chapter (Omri's call, 2026-08-12 afternoon)** -- trim happens LAST, once all real content exists, not before:
+1. Transition the tax incentive model into the national program model's format (this is also where MWh/tCO2 gets handled -- that format has built-in emissions calcs off energy savings, so no separate conversion layer needed in the standalone model).
+2. Insert the per-1,000-units calculation, all 3 technologies -- NPV, MWh saved, tCO2 saved, fiscal cost, all just the existing single-unit calc x 1,000 (methodology already locked, see `market-analysis.md` section 4 and `tax-chapter-outline.md`).
+3. Rebuild sensitivity analyses (Data Tables) against the new consolidated capacity points.
+4. Put the real results into the tax chapter (section 5).
+5. Trim the whole chapter to the 4-page ceiling, now that all content actually lives in it.
 
 **Thu Aug 13 (HALF)** -- carries whatever slips from today, re-plan at end of Wed Aug 12 once real progress is known.
 
