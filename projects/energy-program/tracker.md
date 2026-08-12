@@ -98,11 +98,11 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [x] Flag #7 robustness-checked: verdict only flips above ~55 agorot/kWh (~26% jump from 43.63) -- still a real caveat to raise with Daniel, but not a fragile result. Still open, not today's fix.
 
 **Real sequencing for the rest of the model + chapter (Omri's call, 2026-08-12 afternoon)** -- trim happens LAST, once all real content exists, not before:
-1. Transition the tax incentive model into the national program model's format (this is also where MWh/tCO2 gets handled -- that format has built-in emissions calcs off energy savings, so no separate conversion layer needed in the standalone model).
-2. Insert the per-1,000-units calculation, all 3 technologies -- NPV, MWh saved, tCO2 saved, fiscal cost, all just the existing single-unit calc x 1,000 (methodology already locked, see `market-analysis.md` section 4 and `tax-chapter-outline.md`).
+1. Transition the tax incentive model into the national program model's format (company account) -- this is also where MWh/tCO2 gets handled (that format has built-in emissions calcs off energy savings, so no separate conversion layer needed in the standalone model) and where the discount-rate fix (3% government rate, confirmed real) gets applied.
+2. [x] Insert the per-1,000-units calculation, all 3 technologies -- done via `2026-08-12-per-1000-units-extension-prompt.md`, run through the Claude-in-Excel extension, Omri now has a formatted result. Final structure landed on an additionality-gated design, not a flat x1,000: fiscal cost per 1,000 units always shown (deadweight still costs real money, rational firms claim the accelerated-depreciation election regardless), a single "economic value" column that reads as (C−A)−fiscal cost = B−A (the real efficiency gain) when the incentive flipped the decision, or just the fiscal cost when it didn't (Option A, one shared column per Omri's call), MWh saved gated the same way as economic value (no crediting the policy with savings it didn't cause). tCO2e still deferred to the format transition.
 3. Rebuild sensitivity analyses (Data Tables) against the new consolidated capacity points.
-4. Put the real results into the tax chapter (section 5).
-5. Trim the whole chapter to the 4-page ceiling, now that all content actually lives in it.
+4. Put the real results into the tax chapter (section 5) -- company account.
+5. Trim the whole chapter to the 4-page ceiling, now that all content actually lives in it -- company account.
 
 **Thu Aug 13 (HALF)** -- carries whatever slips from today, re-plan at end of Wed Aug 12 once real progress is known.
 
