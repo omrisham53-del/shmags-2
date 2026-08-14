@@ -1,7 +1,7 @@
-# Today - 2026-08-13
+# Today - 2026-08-14
 
-**Date:** 2026-08-13
-**Updated:** 2026-08-13
+**Date:** 2026-08-14
+**Updated:** 2026-08-14
 
 ---
 
@@ -61,24 +61,6 @@
 5. **Deep, point-by-point prep session for the Daniel meeting** -- worked through market-sizing methodology (chillers off construction per Daniel's method, heat pumps/VSD off energy consumption since they're process equipment not building equipment), the additionality/payback reframe, which technologies the market analysis should emphasize given the additionality split, and how fiscal cost needs dual reporting (total spend across all techs vs. cost-effectiveness for chillers only). Researched real Israeli data sources for the heat-pump/VSD market-sizing gap: fetched and read CBS's own energy-balance chapter directly (confirmed it's macro-level only, not granular enough), then identified Israel's PRTR (Pollutant Release and Transfer Register) as a much more promising facility-level lead to raise with Daniel.
 
 6. **Built and delivered a 3-page PDF meeting-prep document** -- six sections plus a 10-item consolidated decision punch list for Daniel. Google Drive upload requested but not available from this cloud session (only Gmail + Notion connectors); offered Omri the email-to-self path or connecting a real Drive connector instead. Full capture: `brainstorms/2026-07-26_payback-threshold-and-meeting-prep.md`.
-
----
-
-## Recent Work (July 25)
-
-1. **Itai "Built with Claude Code, Vol. 2" deck built and delivered** -- a flashy, self-contained 12-slide HTML slide deck (keyboard/click/dot nav + fullscreen), framed as prepared by the SHMAGS 2 assistant, with a new "control room / field report" visual identity (warm plum-ink, ember + mint/coral accents, Georgia serif + monospace) replacing Vol.1's navy+gold. Content Omri picked from a menu: four builds (uni LCA assignment, tax model, weekly review, chess scout), a sub-agent primer, and two lessons (a scheduled agent that ran green but silently did nothing because the sandbox blocked chess.com; sub-agents not inheriting a tool declared in their own config). Custom per-slide SVG illustrations plus two flow charts, an Excel-realistic spreadsheet, and a real chessboard with pieces. Built as a claude.ai Artifact (private) but public sharing is blocked on Omri's account, so delivered to Itai (itaikrymolowski@gmail.com) as the self-contained HTML file attached to an email written in SHMAGS 2's own voice. Two build gotchas + the sharing block logged to the Claude Code lessons tracker; `artifact_sharing_blocked` memory saved. Deck file is ephemeral (scratchpad).
-
-2. **Window Winners launch date locked + v1 scope cut, recurring build schedule set** -- confirmed the real PL 2026/27 season start (Aug 21, 2026, ~10 days earlier than the Sept 1 transfer-window-close originally assumed) and used it as the hard launch target. Sized the full-scope build at ~85-115 hours -- too much alongside the Sustainability Project and EcoTraders wind-down -- so cut v1 to ship the fan prediction/leaderboard/sharing UX in full while replacing the automated valuation-aggregation engine with a manually curated list of ~15-20 transfers (automation becomes a post-launch upgrade). Revised estimate ~40-55 hours (~10-14 hrs/week). Created two recurring Google Calendar work blocks via `gws calendar` for the 4-week build: Tuesdays 19:00-21:00 (starting 7/28) and Fridays 10:00-12:00 (starting 7/31).
-
-3. **Roni's IDF discharge certificate photo cleaned + straightened (personal task)** -- turned a hand-held WhatsApp photo into a clean, dead-straight A4 scan (hand removed, background/shadows whitened, page rectified). Declined the original ask (rebuild it as an editable, text-matched reconstruction) because that is a forgeable template of an official military record; did a genuine photo cleanup instead. Whole pipeline is deterministic image processing (geometry + brightness), so no text/number/stamp is ever regenerated -- directly answers Omri's worry that the text would change. Anchored the straighten to text orientation (verified residual 0.1 degrees). Saved to `C:\עמרי ורוני\Roni_discharge_certificate_clean.png` and `.pdf`; pipeline captured in the `document_photo_cleanup` memory.
-
----
-
-## Recent Work (July 24)
-
-1. **Weekly review (2026-07-24) processed** -- worked through the first automated `/weekly-review` report. Full priorities re-derivation in `context/current-priorities.md` (Through the Gap elevated, D&D confirmed dead, EcoTraders reframed, Norway trip given a Priority 5 slot), `context/goals.md` retargeted (Energy Program -> Aug 22, Graduate -> Aug 15), cruft cleanup (`job-tracker.py` moved to `scripts/`, `desktop-setup.sh` archived), decisions logged.
-
-2. **Through the Gap rebuilt as "Window Winners"** -- full discovery session (`brainstorms/2026-07-24_through-the-gap-direction.md`) replacing the football-inequality newsletter with a Premier League transfer-window prediction game: hybrid model (Omri's own squad-fit/impact scoring + a credibility-weighted valuation aggregator built from news/social reports, deliberately not scraped from Transfermarkt after a real legal check on EU database rights) plus fan predictions and a leaderboard for shareability. Strategic call: traction + technical growth over revenue for now, rough v1 targeted before Sept 8, real scale-up planned for the January window and a creator-sponsorship revenue model next summer. `projects/through-the-gap/README.md` and `tracker.md` rewritten to match.
 
 ---
 
