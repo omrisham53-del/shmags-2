@@ -1,4 +1,4 @@
-# Morning Model Fixes -- 2026-08-12
+# Morning Model Fixes -- 2026-08-16
 
 Brief to take into the work-computer session. Two parts: (1) capacity collapse, (2) the 7 quick/confirmed fixes from the company-chat status report. Everything below references the model's live sheet as described in that report (`מודל_פחת_מואץ_0_1.xlsx`).
 

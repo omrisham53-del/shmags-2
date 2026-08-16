@@ -1,6 +1,6 @@
 # Energy Program -- Schedule & Status
 
-**Last updated:** 2026-08-12
+**Last updated:** 2026-08-16
 **Scope locked 2026-07-26 (Daniel):** no new assignments before Omri's Aug 22 last day. Exactly 3 deliverables remain, in priority order:
 
 1. **Tax incentive model, including the market analysis** (Priority 1)
@@ -82,38 +82,33 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 
 ### Week 3 (Aug 9 -- Aug 13)
 
-**Reality check (2026-08-12):** Aug 9-10 did not happen as scheduled below -- university (Sustainability Project) took that time instead, zero EcoTraders progress those two days. Real work did happen on the work computer separately, tracked through the company-account chat rather than this file: tax chapter sections 1, 2, 3, 4 are drafted (further along than the Aug 5/6 log here shows), but a company-chat status report surfaced real problems -- 6 pages used against a 4-page ceiling for sections 1-4 alone (before results exist), the additionality finding has no section, section 4.5 overstates how far market sizing has actually gotten, section 2 lost its technology/capacity list mid-edit, footnotes from the international review aren't carried in, and the Excel model has 13 flagged issues plus a capacity-collapse restructure (see below) that were never confirmed fixed. Loan fund chapter: still zero progress since Aug 6. The Aug 9-12 block plan below is retired -- replaced by the plan under "Wed Aug 12" further down, built around this real state instead.
+**Reality check (2026-08-16):** Aug 9-10 did not happen as scheduled below -- university (Sustainability Project) took that time instead, zero EcoTraders progress those two days. Real work did happen on the work computer separately, tracked through the company-account chat rather than this file: tax chapter sections 1, 2, 3, 4 are drafted (further along than the Aug 5/6 log here shows), but a company-chat status report surfaced real problems -- 6 pages used against a 4-page ceiling for sections 1-4 alone (before results exist), the additionality finding has no section, section 4.5 overstates how far market sizing has actually gotten, section 2 lost its technology/capacity list mid-edit, footnotes from the international review aren't carried in, and the Excel model has 13 flagged issues plus a capacity-collapse restructure that were never confirmed fixed. Loan fund chapter: still zero progress since Aug 6. **Wed Aug 12 and Thu Aug 13's real status isn't tracked in this repo** -- this file was mistakenly worked on as if Aug 12 were "today" for that whole session (a stale in-file "TODAY" label got trusted over the actual date), so whatever happened those two real days, if anything, isn't captured here. The real model-rebuild work below happened Sun Aug 16, correctly dated after catching the mislabel.
 
 ~~**Sun Aug 9 (FULL)** -- loan fund chapter drafting continues~~ -- did not happen.
 ~~**Mon Aug 10 (FULL)**~~ -- did not happen.
+**Wed Aug 12 / Thu Aug 13** -- status unknown, not tracked here (see reality-check note above).
 
-**Wed Aug 12 (FULL, TODAY)** -- model rebuild + tax chapter triage, loan fund gets nothing today
+### Week 4 (Aug 16 -- Aug 20) -- revisions + wrap-up buffer
+
+**Sun Aug 16 (FULL, TODAY)** -- model rebuild + tax chapter triage, loan fund gets nothing today
 - [x] 9:00-10:30 -- Capacity collapse: rebuilt all 3 technology blocks from 2 capacity points to 1 averaged point each (heat pump 55kW, chillers 300RT, VSD 97.5kW -- plain midpoint). Heat pump baseline COP averaged to 3.68; new standard-efficiency-HP baseline COP is flat at 3.3 either way.
 - [x] 10:30-12:00 -- All 7 quick/confirmed model fixes applied in the same rebuild (more efficient than a second pass over the same cells): heat pump baseline swapped to standard-efficiency HP (flag #3, baseline CapEx derived at ₪875/kW by the same premium-based method already used for chiller/VSD baseline CapEx, flagged peach/estimated not green/sourced -- still needs a firmer number from Rafi/Daniel), OPEX-אחר hardcoded to 0 instead of a broken `#REF!` (flag #9), depreciation schedule now always sums to exactly 100% via a last-year rounding plug (flag #5), payback-C array formula generated for every block so none are empty anymore (flag #4), OPEX degradation sign fixed to `(1+degr)^(i-1)` (flag #1), winter-peak TAOZ weighting fixed to the same 5/7 factor as the other seasons -- tariff moves from 44.60 to 43.63 agorot/kWh as expected (flag #8), methodology note corrected from "2.5 years" to "3 years" to match the live F21 parameter (flag #13). New file: `generate_tax_model_v4.py` / `tax_incentive_model_v4.xlsx`.
 - [x] **Verification:** LibreOffice recalc (the usual automated check) hung/timed out repeatedly in this session's sandbox, confirmed unrelated to the file itself (even a trivial one-formula test file hung -- looks like a font-directory symlink loop breaking headless LO startup here). Independently re-implemented the full formula chain in Python instead and cross-checked: depreciation schedule sums to exactly CapEx, TAOZ average lands at 43.63 agorot/kWh as expected, and the qualitative finding holds -- chillers show real additionality (payback flips from 3.88yrs to 2.43yrs, crossing the 3yr threshold), heat pumps and VSD clear the threshold with or without the incentive (deadweight), matching the original per-capacity-point model's core conclusion. **Not yet opened in real Excel -- do a first-open check for stray `#REF!`/`#NAME?` before trusting it fully**, since automated verification wasn't possible this session.
 - [x] **Afternoon: Omri working directly in the live Excel file** (not the repo's v4 copy, which is now stale relative to it -- do not regenerate blind). Resolved: flag #2 (asymmetric lifespans) -- heat pump and chiller lifespans both equalized (heat pump 15/15, was 15/10; chiller equalized, was 15/17), removing a real distortion (~166K of a 495K NPV gap for heat pumps alone traced to it). Flag #6 (VSD load-following representation) -- confirmed fine after a Rafi conversation, closed. Flag #12 (heat pump hours) -- lowered from 5,475 to 5,000, still Rafi's number, not independently re-verified. Flag #10 (MWh/tCO2 rows) and flag #11 (discount-rate fix, real government rate confirmed at 3%) both deferred on purpose to a later "format transition" into the national program model, which already has built-in emissions calcs off energy savings -- not being built into this workbook. Sensitivity Data Tables being rebuilt by Omri directly in Excel, not a repo task.
+- [x] Flag #7 robustness-checked: verdict only flips above ~55 agorot/kWh (~26% jump from 43.63) -- still a real caveat to raise with Daniel, but not a fragile result. Still open, not today's fix.
+
+**Real sequencing for the rest of the model + chapter (Omri's call, 2026-08-16 afternoon)** -- trim happens LAST, once all real content exists, not before:
+1. [x] Transition the tax incentive model into the national program model's format -- done, company account. This is also where MWh/tCO2 and the discount-rate fix (3% government rate, confirmed real) get handled, per that format's built-in emissions calcs off energy savings.
+2. [x] Insert the per-1,000-units calculation, all 3 technologies -- done via `2026-08-16-per-1000-units-extension-prompt.md`, run through the Claude-in-Excel extension, Omri now has a formatted result. Final structure landed on an additionality-gated design, not a flat x1,000: fiscal cost per 1,000 units always shown (deadweight still costs real money, rational firms claim the accelerated-depreciation election regardless), a single "economic value" column that reads as (C−A)−fiscal cost = B−A (the real efficiency gain) when the incentive flipped the decision, or just the fiscal cost when it didn't (Option A, one shared column per Omri's call), MWh saved gated the same way as economic value (no crediting the policy with savings it didn't cause). tCO2e still deferred to the format transition.
+3. [x] **Format transition finished, company account -- generating a detailed section-by-section report now** for review before moving to the tax chapter.
+4. [ ] Rebuild sensitivity analyses (Data Tables) against the new consolidated capacity points.
+5. [ ] Put the real results into the tax chapter (section 5) -- company account.
+6. [ ] Trim the whole chapter to the 4-page ceiling, now that all content actually lives in it -- company account.
 - [ ] Tax chapter: explicitly disclose the heat pump baseline CapEx assumption (₪875/kW, derived by analogy to chiller/VSD premiums, not a heat-pump-specific source) in the chapter text -- Omri's requirement, not yet drafted.
 - [ ] Tax chapter: page-budget trim pass (6 pages -> 4-page ceiling, sections 1-4), restore section 2's technology/capacity list off the new averaged points, add the missing additionality section, reword section 4.5 to future/conditional tense on market sizing, re-attach international-review footnotes.
 - [ ] Tax chapter: start the Results section with whatever model output is ready.
-- [x] Flag #7 robustness-checked: verdict only flips above ~55 agorot/kWh (~26% jump from 43.63) -- still a real caveat to raise with Daniel, but not a fragile result. Still open, not today's fix.
 
-**Real sequencing for the rest of the model + chapter (Omri's call, 2026-08-12 afternoon)** -- trim happens LAST, once all real content exists, not before:
-1. [x] Transition the tax incentive model into the national program model's format -- done, company account. This is also where MWh/tCO2 and the discount-rate fix (3% government rate, confirmed real) get handled, per that format's built-in emissions calcs off energy savings.
-2. [x] Insert the per-1,000-units calculation, all 3 technologies -- done via `2026-08-12-per-1000-units-extension-prompt.md`, run through the Claude-in-Excel extension, Omri now has a formatted result. Final structure landed on an additionality-gated design, not a flat x1,000: fiscal cost per 1,000 units always shown (deadweight still costs real money, rational firms claim the accelerated-depreciation election regardless), a single "economic value" column that reads as (C−A)−fiscal cost = B−A (the real efficiency gain) when the incentive flipped the decision, or just the fiscal cost when it didn't (Option A, one shared column per Omri's call), MWh saved gated the same way as economic value (no crediting the policy with savings it didn't cause). tCO2e still deferred to the format transition.
-3. Rebuild sensitivity analyses (Data Tables) against the new consolidated capacity points.
-4. Put the real results into the tax chapter (section 5) -- company account.
-5. Trim the whole chapter to the 4-page ceiling, now that all content actually lives in it -- company account.
-
-**Thu Aug 13 (HALF)** -- carries whatever slips from today, re-plan at end of Wed Aug 12 once real progress is known.
-
-### Week 4 (Aug 16 -- Aug 20) -- revisions + wrap-up buffer
-
-**Sun Aug 16 (FULL)**
-- [ ] 9:00-10:30 -- Model: revisions from Daniel's feedback.
-- [ ] 10:30-12:00 -- Model: revisions cont'd.
-- [ ] 13:00-14:30 -- Tax chapter: revisions from Daniel's feedback.
-- [ ] 14:30-16:00 -- Loan fund chapter: revisions from Daniel's feedback.
-- [ ] 16:00-17:30 -- Buffer.
+**Omri's plan (2026-08-16):** finish the tax model and tax chapter today; loan fund chapter by end of this week (last real working day Thu Aug 20).
 
 **Mon Aug 17 (FULL)**
 - [ ] 9:00-10:30 -- Finalize model.
