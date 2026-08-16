@@ -6,6 +6,10 @@ Format: [YYYY-MM-DD] DECISION: ... | REASONING: ... | CONTEXT: ...
 
 ---
 
+[2026-08-16] DECISION: Chiller capacity corrected from 300 RT to 120 RT (rounded from the real grant-program median of 117 RT) | REASONING: Omri noticed chillers were contributing the large majority of the program's total benefit (₪294M of ₪315.7M economic value, ~93%) and cross-checked the chosen capacity against actual funded-project data -- 300 RT was too high, the real median across the grant rounds is 117 RT. All chiller ₪/kWh figures scale linearly with capacity (CapEx and OPEX are both rate x capacity), so payback period is scale-invariant -- the additionality verdict is unaffected, only the absolute magnitude of chiller's contribution shrinks by 0.4x (120/300) | CONTEXT: full computed impact in `2026-08-16-chiller-capacity-and-chapter-additions-extension-prompt.md` -- new program totals: economic value ₪315.7M -> ₪139.3M, fiscal cost ₪21.1M -> ₪10.2M, CO2e avoided 820,897t -> ~360,935t. Chiller remains the larger of the two additional technologies even after the correction (₪117.6M vs heat pump's ₪23.8M)
+
+---
+
 [2026-08-16] DECISION: Daniel added a 4th EcoTraders deliverable -- a documentation file for the grants model AND a matching one for the tax model, covering all assumptions, calculation methods, and source data files used in each. Sequenced after the tax chapter, before the loan fund chapter (Omri's call) | REASONING: this expands the scope Daniel locked 2026-07-26 (3 deliverables, no new assignments before Omri's Aug 22 last day). Omri chose to finish the tax chapter first since it's already in progress and closest to done, then build the two info files, then close with the loan fund chapter -- pushing loan fund from priority 3 to priority 4 | CONTEXT: `projects/energy-program/tracker.md` scope section updated same day; no content built yet for either info file
 
 ---
