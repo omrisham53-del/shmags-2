@@ -181,9 +181,9 @@ Known and on your list. Given finding 3, hours-sensitivity for the heat pump is 
 
 - [x] **1. Wire `R318`** -- done, externality savings also applied to the economy-wide benefit row.
 - [x] **5. Tariff** -- resolved, industrial HV rate approved by Daniel.
-- [x] **6. Discount rate** -- answered: 6% for the firm's adoption test, 3% for fiscal cost + externalities + economy-wide benefit. Fiscal cost needs its own row (can no longer be `=C−B`). Drops the total ~41%, to ~₪21.1M.
-- [ ] **4. Degradation asymmetry** -- decide, then re-check the heat pump verdict (it moves 3.374 → 3.179, still additional on its own, but flips to non-additional if combined with hours back at 5,475).
-- [ ] **3/13. Hours sensitivity** -- now load-bearing, since heat pump additionality sits ~12% above the threshold. Also supplies the min/max range (finding 12).
+- [x] **6. Discount rate** -- applied and verified 2026-08-16 (v0.3, second upload): fiscal cost now its own SUMPRODUCT at 3% (rows 145/210/275), confirmed exactly ₪835.75 / ₪18,173.77 / ₪2,116.51 per unit, total ₪21,126,029 -- matches the predicted -41% exactly. $F$32 now referenced 3 times (was 0). Firm's adoption test correctly untouched at 6%.
+- [x] **4. Degradation asymmetry** -- applied and verified 2026-08-16: both sides of all 3 comparisons now degrade symmetrically (rows 117/182/247 and the cohort blocks 149:163/214:228/279:290). Heat pump payback moved 3.374 → 3.179 exactly as predicted, still additional -- **now only 6% of headroom above the 3.0 threshold, the tightest of the three verdicts.** Chiller 4.652 → 4.414 (additional, comfortable). VSD unchanged (degr=0). No verdicts flipped. Electricity saved rose to 1,882,791,244 kWh (was 1,514,774,236) and emissions to 820,897 tCO2e, since savings no longer shrink over time.
+- [ ] **3/13. Hours sensitivity** -- now the single most important open item. Heat pump additionality is the tightest verdict in the model (6% headroom) and this is the one number that can still move it. Also supplies the min/max range (finding 12).
 - [ ] **7. Cohort discounting** -- check what the grants chapter does before finalising, they must match.
 - [ ] **2. Chapter rewrite** -- the headline changed from "only chillers" to "chillers and heat pumps," with the heat pump caveat stated plainly.
 - [ ] **10. Double-counting vs. grants/loan fund** -- needs Daniel regardless of timing.

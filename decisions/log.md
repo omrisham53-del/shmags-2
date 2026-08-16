@@ -6,6 +6,10 @@ Format: [YYYY-MM-DD] DECISION: ... | REASONING: ... | CONTEXT: ...
 
 ---
 
+[2026-08-16] DECISION: Daniel added a 4th EcoTraders deliverable -- a documentation file for the grants model AND a matching one for the tax model, covering all assumptions, calculation methods, and source data files used in each. Sequenced after the tax chapter, before the loan fund chapter (Omri's call) | REASONING: this expands the scope Daniel locked 2026-07-26 (3 deliverables, no new assignments before Omri's Aug 22 last day). Omri chose to finish the tax chapter first since it's already in progress and closest to done, then build the two info files, then close with the loan fund chapter -- pushing loan fund from priority 3 to priority 4 | CONTEXT: `projects/energy-program/tracker.md` scope section updated same day; no content built yet for either info file
+
+---
+
 [2026-08-16] DECISION: Tax incentive model collapsed from 2 capacity points per technology to 1 averaged point per technology (heat pump 40/70kW -> 55kW, chillers 100/500RT -> 300RT, VSD 45/150kW -> 97.5kW), using a plain arithmetic midpoint with no weighting | REASONING: decided in the company-account chat session (not this repo) as a follow-on to the Aug 5 pivot to a per-1,000-units placeholder figure per technology -- carrying 2 capacity points through the model no longer served a purpose once market sizing paused and the chapter output collapsed to one figure per tech anyway. Most parameters (CapEx rates, hours, VSD specific power) were already flat across the two original capacity points, so only the capacity value itself and any genuinely capacity-linked efficiency figure (chiller kW/ton, heat pump COP) needed averaging -- accepted side effect: this blurs the real reciprocating-vs-centrifugal chiller compressor-class distinction and softens (doesn't resolve) the flagged heat-pump COP-vs-baseline tension at the old 70kW point | CONTEXT: full computed values in `projects/energy-program/2026-08-16-morning-model-fixes.md`; section 2 of the tax chapter (which lost its technology/capacity list when this collapse started) gets restored off these new single points once the model rebuild is done
 
 ---
