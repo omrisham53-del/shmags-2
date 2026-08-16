@@ -8,7 +8,9 @@ Reviewed 2026-08-16 against everything agreed in prior sessions. File: `מודל
 
 ## Blockers -- fix before results go into the chapter
 
-### 1. Emissions and external-cost savings are zero. Row 318 was never wired up.
+### 1. Emissions and external-cost savings are zero. Row 318 was never wired up. -- FIXED 2026-08-16
+
+**Resolution:** Omri wired the electricity row and applied the resulting externality savings to the economy-wide economic benefit row. Original finding below for the record.
 
 The whole reason for the format transition was that this format has built-in emissions calculations off energy savings. Those calculations exist and are correct -- but their input is not connected.
 
@@ -66,7 +68,9 @@ Since the Aug 5 baseline change, both sides of every comparison are the **same t
 
 Same asymmetry appears in the savings rows (`R149:R163` etc.), consistently -- so it's one decision applied throughout, not a stray cell.
 
-### 5. Tariff diverges from the national program's own shared assumption -- and it's the most consequential number in the model
+### 5. Tariff diverges from the national program's own shared assumption -- RESOLVED: approved by Daniel
+
+**Resolution (2026-08-16):** Omri confirmed the industrial high-voltage TAOZ rate (36.97 agorot/kWh ex-VAT) is already approved by Daniel. The divergence from the shared sheet's 54.51 is deliberate. Keeping the analysis below since the sensitivity it documents is still worth knowing -- it shows how much rides on this parameter.
 
 The model computes its own industrial high-voltage TAOZ average (36.97 agorot/kWh ex-VAT). The national program's shared assumptions sheet carries electricity at **54.51 agorot/kWh ex-VAT** (`F84`, ביתי וכללי), which this model never references.
 
@@ -81,7 +85,30 @@ At the shared rate, the chapter would have essentially **no robust additionality
 
 *(The ex-VAT conversion itself is correct and deliberate -- all six TAOZ rates divided by exactly 1.18. Right call, since firms reclaim VAT.)*
 
-### 6. Social discount rate is defined but never used
+### 6. Social discount rate is defined but never used — RESOLVED 2026-08-16, see below
+
+**Resolution (answered in session):** the rate follows whose money the number represents.
+
+*Stays at 6% (private):* the firm's cash flows as used for the adoption test, payback B and C, the verdict row, the additionality factor. A firm discounts at its own cost of capital; using 3% here would model a firm that doesn't exist, and would shorten paybacks enough to lose legitimate additionality findings.
+
+*Moves to 3% (social):* the fiscal cost (deferred tax revenue is a government stream), the external-cost savings, and the economy-wide benefit feeding the national program.
+
+**Structural consequence:** once the two rates differ, fiscal cost can no longer be `=C−B` — that identity only held under one shared rate. It needs its own row: the annual difference between the accelerated and standard tax shields (`מגן מס מואץ − מגן מס סטנדרטי`), discounted at 3% and summed.
+
+**Impact (verified against the workbook — the 6% figure reproduces F136 = ₪1,414 exactly):**
+
+| | at 6% | at 3% | change |
+|---|---|---|---|
+| Heat pump / unit | ₪1,414 | ₪836 | −41% |
+| Chiller / unit | ₪30,750 | ₪18,174 | −41% |
+| VSD / unit | ₪3,581 | ₪2,117 | −41% |
+| Total × 1,000 units | ₪35.7M | ₪21.1M | −41% |
+
+Uniform −41%, because the lower rate discounts the state's later recoupment less. Cost-effectiveness improves from ~₪54 to **~₪32 per tCO2e** against the ~660,000 tCO2e unlocked by the row-318 fix. **Check the grants chapter's own discount rate before quoting that ratio** — the comparison is only meaningful if both chapters use the same one.
+
+**Open caveat, flagged not fixed:** the economy-wide benefit currently reuses B−A, which includes tax shields. Those are transfers between firm and state, not real resource flows, so strictly they don't belong in a societal benefit figure. A clean version would be −ΔCapEx + energy savings + external benefits, all at 3%, with no tax terms. Agreed to state this as a methodology limitation in the chapter rather than restructure an already-formatted row.
+
+### 6a. Original finding (for the record)
 
 `F32` = 3% (the real government rate confirmed earlier today) sits in the sheet **unreferenced**. All 225 discounting formulas use `F31` = 6%, the private rate.
 
@@ -150,13 +177,15 @@ Known and on your list. Given finding 3, hours-sensitivity for the heat pump is 
 
 ---
 
-## Suggested order for today
+## Status / remaining order
 
-1. Wire `R318` (5 minutes, unlocks all emissions/external-cost output -- finding 1).
-2. Decide the tariff question with Daniel (finding 5) -- it determines whether the chapter has one additionality finding or two.
-3. Decide the degradation asymmetry (finding 4) and re-check the heat pump verdict.
-4. Run the hours sensitivity (finding 13), which also gives you the min/max range (finding 12).
-5. Discount-rate decision (finding 6) and check the grants chapter's cohort-discounting convention (finding 7).
-6. Then write the results section, with the heat pump caveat stated plainly.
+- [x] **1. Wire `R318`** -- done, externality savings also applied to the economy-wide benefit row.
+- [x] **5. Tariff** -- resolved, industrial HV rate approved by Daniel.
+- [x] **6. Discount rate** -- answered: 6% for the firm's adoption test, 3% for fiscal cost + externalities + economy-wide benefit. Fiscal cost needs its own row (can no longer be `=C−B`). Drops the total ~41%, to ~₪21.1M.
+- [ ] **4. Degradation asymmetry** -- decide, then re-check the heat pump verdict (it moves 3.374 → 3.179, still additional on its own, but flips to non-additional if combined with hours back at 5,475).
+- [ ] **3/13. Hours sensitivity** -- now load-bearing, since heat pump additionality sits ~12% above the threshold. Also supplies the min/max range (finding 12).
+- [ ] **7. Cohort discounting** -- check what the grants chapter does before finalising, they must match.
+- [ ] **2. Chapter rewrite** -- the headline changed from "only chillers" to "chillers and heat pumps," with the heat pump caveat stated plainly.
+- [ ] **10. Double-counting vs. grants/loan fund** -- needs Daniel regardless of timing.
 
-Findings 8, 9, 11, 12 are cleanup and can be done alongside. Finding 10 needs Daniel regardless of timing.
+Findings 8, 9, 11 are cleanup and can ride alongside.
