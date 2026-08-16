@@ -1,6 +1,6 @@
 # Chapter References — Sourced Links for Footnotes
 
-Every item below has a real, working URL to the actual page the number/claim comes from. Two items genuinely have no linkable public page — flagged at the bottom instead of a fake link.
+Every item below has a real, working URL to the actual page the number/claim comes from. A few items genuinely have no linkable public page — flagged inline or at the bottom instead of a fake link.
 
 Paste this into the extension alongside the chapter (or hand it directly to Daniel/reviewers) — for each row, insert a footnote at the anchor text with the citation + URL as the footnote content.
 
@@ -18,6 +18,51 @@ Base law page (all citations below are sections/amendments within this one docum
 | תיקון 68 | חוק לעידוד השקעות הון (תיקון מס' 68), ס"ח תשע"א מס' 2271, מיום 6.1.2011. https://www.nevo.co.il/law_html/law01/p181_001.htm |
 
 **Flag, unresolved:** I couldn't confirm via WebFetch which specific clause of sections 42/43 maps to the accelerated-depreciation percentages cited in the chapter (network access to this specific page kept failing after 3 attempts). Since you have the page open already, worth a quick manual check that the section number cited next to each percentage (200%/400%/250%) is actually correct before this goes to Daniel — the base URL above is right, only the in-page section anchor is unverified.
+
+---
+
+## §3 — International review (sourced from the international-review document's own footnotes)
+
+Pulled directly from the footnotes already in the uploaded international-review docx — reusing what's already cited there rather than re-sourcing from scratch, per your instruction.
+
+### Ireland (ACA)
+
+| Anchor text | Footnote content |
+|---|---|
+| ...דלקים מאובנים התואמות את יעדי האקלים הלאומיים (סעיף 285A, Taxes Consolidation Act 1997) | SEAI (Sustainable Energy Authority of Ireland), Accelerated Capital Allowance for Energy Efficient Equipment. https://www.seai.ie/grants/business-grants/accelerated-capital-allowance |
+| ...רכבים חשמליים מסחריים ותשתיות טעינה המיועדים לשימוש העסק (רשימת Triple E) | Irish Revenue, Accelerated Capital Allowances for Energy-Efficient Equipment (Tax and Duty Manual, Part 09-02-04). https://www.revenue.ie/en/tax-professionals/tdm/income-tax-capital-gains-tax-corporation-tax/part-09/09-02-04.pdf |
+| ...החברה עלולה להידרש להחזיר חלק מהטבת המס | Same as above — Irish Revenue TDM Part 09-02-04. https://www.revenue.ie/en/tax-professionals/tdm/income-tax-capital-gains-tax-corporation-tax/part-09/09-02-04.pdf |
+
+### Canada (AII / Class 43.1, 43.2)
+
+| Anchor text | Footnote content |
+|---|---|
+| ...מגוון קטגוריות טכנולוגיות (Class 43.1, Class 43.2) | Canada Revenue Agency, Classes of Depreciable Property (Capital Cost Allowance). https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/sole-proprietorships-partnerships/report-business-income-expenses/claiming-capital-cost-allowance/classes-depreciable-property.html |
+| ...הטכנולוגיות המזכות תחת סיווגי 43.1 ו-43.2 (הגדרת הציוד הזכאי) | Canada Revenue Agency, Income Tax Folio S3-F8-C2: Tax Incentives for Clean Energy Equipment. https://www.canada.ca/en/revenue-agency/services/tax/technical-information/income-tax/income-tax-folios-index/series-3-property-investments-savings-plans/series-3-property-investments-savings-plan-folio-8-resource-properties/income-tax-folio-s3-f8-c2-tax-incentives-clean-energy-equipment.html |
+| ...מבנה מדורג זה משמש ככלי מדיניות אקטיבי (100% → 75% → 55% → ביטול ב-2028) | Canada Revenue Agency, Accelerated Investment Incentive. https://www.canada.ca/en/revenue-agency/services/tax/businesses/topics/sole-proprietorships-partnerships/report-business-income-expenses/claiming-capital-cost-allowance/accelerated-investment-incentive.html |
+
+### Singapore (Section 19A)
+
+| Anchor text | Footnote content |
+|---|---|
+| ...הבסיס החוקי להטבה זו מצוי בסעיף 19A לחוק מס ההכנסה (Income Tax Act 1947) | Singapore Statutes Online, Income Tax Act 1947, Section 19A. https://sso.agc.gov.sg/Act/ITA1947?ProvIds=pr7-.%2Cpr19A-. — supplementary: IRAS, Capital Allowances. https://www.iras.gov.sg/taxes/corporate-income-tax/income-deductions-for-companies/claiming-allowances/capital-allowances |
+
+### Spain (Freedom to Amortize)
+
+| Anchor text | Footnote content |
+|---|---|
+| ...לחברות לבחור באופן חופשי כיצד הן פורסות את הפחת עבור השקעות העומדות בתנאי הסף | UNCTAD Investment Policy Hub, Spain Introduces New Incentives for Investments in Renewable Energy. https://investmentpolicy.unctad.org/investment-policy-monitor/measures/4154/spain-introduces-new-incentives-for-investments-in-renewable-energy |
+| ...תוך הצמדת ההטבה הכלכלית להישגים סביבתיים מוגדרים | Agencia Tributaria (Spanish Tax Agency), Libertad de amortización en instalaciones que utilicen energía procedente de fuentes renovables. https://sede.agenciatributaria.gob.es/Sede/en_gb/ayuda/manuales-videos-folletos/manuales-practicos/manual-sociedades-2024/principales-novedades-impuesto-sobre-sociedades-2024/libertad-amortizacion-instalaciones-utilicen-energia-renovables.html |
+| ...הצגת תעודת ביצועים אנרגטיים (מנגנון האימות ב-kWh) | No external source in the original document — this is a definitional footnote explaining the verification mechanism, not a citation. Leave as a plain explanatory footnote. |
+
+### Cyprus (Law N.45(I)/2024)
+
+| Anchor text | Footnote content |
+|---|---|
+| ...קידום התחבורה החשמלית במדינה (Law N.45(I)/2024) | KPMG Cyprus, Green Tax Incentives: Increase in Capital Allowances. https://kpmg.com/cy/en/insights/tax-alerts/green-tax-incentives-increase-in-capital-allowances.html |
+| ...רכבים חשמליים מסחריים ותשתיות טעינה (מדרגות 7% / 20% / 33.3%) | PwC Cyprus, Environment-Friendly Assets: Amendments to Cyprus Income Tax Law. https://www.pwc.com.cy/en/publications/direct-tax-updates-2024/N-5-2024.pdf |
+
+**Flag — citation-chain error in the source document, worth fixing before submission:** three footnotes in the original international-review docx (covering Canada's legal basis in the "based on the Fall's broader environmental commitments" sentence, Canada's declining benefit schedule, and the entire Singapore background paragraph) are written as "ראה הפניה 1 המוזכרת לעיל" / "ראה הפניה 4 המוזכרת לעיל" ("see reference 1/4 above") — but reference 1 is the Ireland SEAI page. As written, those three claims about Canada and Singapore currently cite Ireland's SEAI page, which is almost certainly a copy-paste numbering error in the original document, not a real cross-reference. I've replaced them above with real, on-topic sources (Canada's own CRA folio + Accelerated Investment Incentive page; Singapore's actual Section 19A statute + IRAS page) rather than preserving the broken chain — worth a quick sanity check against the original document's intent before this goes to Daniel, since I'm inferring what each footnote was probably supposed to cite rather than confirming it with whoever wrote the original review.
 
 ---
 
@@ -81,4 +126,4 @@ These four explain a term/method rather than citing a source. No link to attach 
 
 ---
 
-**Still pending:** international review (§3) footnotes — waiting on you to upload the original standalone international-review document so citations can be pulled from what's already sourced there instead of re-sourcing from scratch.
+**Still pending:** legal citation for the Israeli law's §42/43 clause mapping (see §1 flag above) — needs your manual check against the Nevo page.
