@@ -1,10 +1,15 @@
-# Work-Account Handoff -- Loan Fund Chapter + Grants Model Documentation File
+# Work-Account Handoff -- Grants Model Documentation File
 
 **Purpose:** Paste this whole file as the opening message on the EcoTraders/company Claude
 account when starting this work. It's the context that account has no way to see on its own --
 this file lives in Omri's personal second-brain repo, not on the work computer.
 
-**Keep this file scoped to these two deliverables only.** Don't fold in personal, non-EcoTraders
+**Scope note (2026-08-17):** the loan fund chapter is being handled in a separate project/session
+on the work computer, not through this handoff. This file is scoped to the grants model
+documentation file only. Don't fold in the loan fund work here even though it was in scope
+in an earlier version of this file.
+
+**Keep this file scoped to this one deliverable.** Don't fold in personal, non-EcoTraders
 content when updating it -- that's a hard boundary, not a style preference.
 
 ---
@@ -29,29 +34,9 @@ before then beyond what's described here.
   for the grants model documentation file below -- same section order, same table format, same
   tone. Don't reinvent the shape, just fill it with grants-model content.
 
-## The two remaining deliverables
+## The deliverable
 
-### 1. Loan fund chapter -- due tomorrow (2026-08-18)
-
-Two parts:
-- **Appendix version** -- reuses the loan fund **position paper** that was already written
-  and sent to the Ministry client on 2026-07-12. Light adaptation work (reformatting/trimming
-  to fit an appendix slot), not a rewrite.
-- **Full chapter** -- a genuinely new, complete write-up for the body of the actual national
-  program document. Real writing work, not adaptation.
-
-**Structure convention to match:** mirror the grants program chapter (finished -- locate and
-read it as the actual template for tone and section layout). Broadly: background/policy context
-for the loan fund instrument, how the mechanism works, methodology (how impact/cost-effectiveness
-is measured), results. The tax incentive chapter (also finished now, attached) is a second
-reference point for section layout and tone, since all 3 chapters should read as one coherent
-document -- particularly its structure: 1) background/policy, 2) how the mechanism works,
-3) international review, 4) methodology, 5) results, 6) summary/conclusions. The loan fund
-mechanism differs enough from a tax deduction that the methodology section will look different
-in substance, but the shape (background -> mechanism -> methodology -> results -> conclusions)
-should carry over.
-
-### 2. Grants model documentation file
+### Grants model documentation file
 
 Same purpose as `tax-model-documentation.docx` (attached): a standalone file listing every
 assumption, calculation method, and source data file the grants model actually uses, so someone
@@ -67,19 +52,16 @@ who never built the model can audit it. Structure to copy from the attached tax 
 
 ## What's NOT known from this side (needs the actual work files)
 
-The grants model's actual structure, the grants chapter's finished prose, the loan fund position
-paper, and the national program document's own template/formatting requirements all live on the
-work computer, not here. **Upload these before starting:**
-- Loan fund position paper (sent to the Ministry 2026-07-12)
-- Grants program chapter (finished doc)
-- Grants model (Excel workbook)
-- Tax incentive chapter (final, attached from this handoff) and `tax-model-documentation.docx`
-  (attached) -- for structure/tone reference, not re-editing
+The grants model's actual structure and the national program document's own template/formatting
+requirements live on the work computer, not here. **Upload these before starting:**
+- Grants model (Excel workbook) -- the primary source, read it before anything else
+- `tax-model-documentation.docx` (attached) -- structure/style template to copy exactly:
+  same section order, same table format, same tone, just filled with grants-model content
 
-Read all of those before writing anything.
+Read both before writing anything.
 
 ---
 
 *Last updated: 2026-08-17. Update this file (from Omri's personal account, not the company
-one) whenever these two deliverables' scope, status, or the sibling chapters' progress
-materially changes -- so the next work-account session pastes in something current, not stale.*
+one) whenever this deliverable's scope or status materially changes -- so the next
+work-account session pastes in something current, not stale.*

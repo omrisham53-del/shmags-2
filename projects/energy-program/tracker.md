@@ -3,12 +3,11 @@
 **Last updated:** 2026-08-16
 **Scope locked 2026-07-26 (Daniel), amended 2026-08-16:** originally 3 deliverables before Omri's Aug 22 last day; Daniel added a 4th today. In priority/sequencing order (Omri's call, 2026-08-16):
 
-1. **Tax incentive model, including the market analysis** (Priority 1) -- model itself essentially done, see Confirmed #8 below.
-2. **Tax incentive chapter** for the national program (Priority 2 -- results section depends on the model) -- IN PROGRESS NOW.
-3. **NEW (Daniel, 2026-08-16): documentation file for the grants model AND a matching one for the tax model** -- all assumptions, calculation methods, and source data files used in each. Sequenced after the tax chapter, before the loan fund chapter.
-4. **Loan fund chapter** for the national program (Priority 4, was 3 -- appendix version done 2026-08-03, adapted from the existing position paper; the full chapter still needs writing) -- pushed to last per Omri's sequencing call today.
-
-Work happens in parallel across all 4 in general, but this specific order is Omri's explicit plan for the rest of this week.
+1. **Tax incentive model, including the market analysis** -- DONE, submitted to Daniel 2026-08-17.
+2. **Tax incentive chapter** for the national program -- DONE, submitted to Daniel 2026-08-17 alongside the model.
+3. **Tax model documentation file** (Daniel's 4th deliverable, 2026-08-16) -- DONE 2026-08-17, `tax-model-documentation.docx`. Built on the personal account from the final submitted model + chapter.
+4. **Grants model documentation file** -- IN PROGRESS, moved to the work computer/company account (personal account doesn't have the grants model or chapter). See `work-handoff.md`, scoped to this deliverable only as of 2026-08-17.
+5. **Loan fund chapter** -- moved to a separate project/session on the work computer as of 2026-08-17, not tracked in this file's day-by-day schedule anymore. Appendix version was done 2026-08-03 (adapted from the existing position paper); the full chapter is the remaining piece.
 
 ---
 
