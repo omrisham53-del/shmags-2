@@ -110,12 +110,13 @@ Pulled directly from the footnotes already in the uploaded international-review 
 
 ## Concept-explanation footnotes (no external source — self-contained definitions)
 
-These four explain a term/method rather than citing a source. No link to attach — write as a plain definitional footnote, not a citation:
+Items 1-4 explain a term/method rather than citing a source — no link to attach, write as a plain definitional footnote, not a citation. Item 5 (COP) does have a real citable source, added below.
 
 1. **תקופת החזר (Payback Period)** — הגדרת מספר השנים הנדרש עד שסך תזרים המזומנים המהוון החיובי משווה את ההשקעה הראשונית.
 2. **ערך נוכחי נקי (NPV)** — הגדרת סכום תזרימי המזומנים העתידיים, מהוונים לערכם הנוכחי, בניכוי ההשקעה הראשונית.
 3. **שיעור היוון פרטי מול חברתי** — הסבר קצר להבדל בין 6% (שיעור התשואה הנדרש על ידי משקיע פרטי/חברה) לבין 3% (השיעור החברתי-ממשלתי המשמש להערכת עלות פיסקלית).
 4. **תוספתיות (Additionality)** — הגדרת העיקרון שלפיו התועלת הכלכלית של ההטבה נזקפת רק לטכנולוגיות שבהן ההטבה בפועל שינתה את החלטת ההשקעה (חצתה את סף תקופת ההחזר), להבדיל מהעלות הפיסקלית שחלה על כלל הטכנולוגיות ללא תלות בתוספתיות.
+5. **מקדם ביצוע (COP - Coefficient of Performance)** — יחס בין כמות האנרגיה התרמית המסופקת (חימום או קירור) לבין כמות האנרגיה החשמלית הנצרכת להפעלת המערכת. לדוגמה, COP של 3 משמעו שהמערכת מספקת שלוש יחידות חום עבור כל יחידת חשמל שהיא צורכת. מקור: U.S. Department of Energy, Heat Pump Pool Heaters. https://www.energy.gov/energysaver/heat-pump-pool-heaters
 
 ---
 
