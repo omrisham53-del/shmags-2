@@ -20,7 +20,11 @@
 
 2. **Status swept across the whole project.** The tracker had ~30 unchecked boxes that would have read as outstanding work to anyone opening it later; restructured into a final status table plus an honest "Unresolved at handoff" section (Rafi data that never arrived, the heat pump COP tension, cohort-discounting convention, sensitivity tables never rebuilt, market sizing paused not solved). README, current-priorities, goals and today.md all updated to match.
 
-3. **Pending:** closing email to Daniel with the tax model documentation, the grants model documentation, and the loan fund chapter.
+3. **Status confirmed across every open item.** Model bugs all fixed, sensitivity tables rebuilt, lifespans equalized, all five flagged tax-chapter content issues closed. The tax chapter shipped as a ~10-page appendix version rather than being trimmed to the 4-page in-body ceiling. Loan fund landed at ~4 pages on the lossless pass alone. Yaniv's import data never came, Rafi never responded further, PRTR turned out not to be relevant, so market sizing stays a documented placeholder. Only genuinely open item: the cohort-discounting convention, now low-stakes since the cross-chapter cost-effectiveness comparison was dropped.
+
+4. **Pending, and order matters:** closing email to Daniel with the tax model documentation, the grants model documentation, and the loan fund chapter. All three attachments are on the work PC, which goes back today, so the email has to go out first.
+
+5. **Also pending:** pension fund release letter (מכתב שחרור) and unused vacation payout, both still not done, both worth raising alongside the reference letter in today's meeting with Ron rather than chasing from abroad later.
 
 ---
 
