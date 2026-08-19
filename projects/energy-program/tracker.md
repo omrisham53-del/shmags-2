@@ -7,7 +7,7 @@
 2. **Tax incentive chapter** for the national program -- DONE, submitted to Daniel 2026-08-17 alongside the model.
 3. **Tax model documentation file** (Daniel's 4th deliverable, 2026-08-16) -- DONE 2026-08-17, `tax-model-documentation.docx`. Built on the personal account from the final submitted model + chapter.
 4. **Grants model documentation file** -- IN PROGRESS, moved to the work computer/company account (personal account doesn't have the grants model or chapter). See `work-handoff.md`, scoped to this deliverable only as of 2026-08-17.
-5. **Loan fund chapter** -- moved to a separate project/session on the work computer as of 2026-08-17, not tracked in this file's day-by-day schedule anymore. Appendix version was done 2026-08-03 (adapted from the existing position paper); the full chapter is the remaining piece.
+5. **Loan fund chapter** -- final deliverable, being finished today (2026-08-19, Omri's real final working day). Appendix version was done 2026-08-03 (adapted from the existing position paper); the full chapter is the remaining piece. Structure + stage plan built this session: `loan-chapter-outline.md`. Actual writing happens on the work computer against the real position paper/grants chapter files -- handoff briefing at `loan-fund-work-handoff.md`.
 
 ---
 
@@ -122,12 +122,13 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [ ] 14:30-16:00 -- Final QA across all 3.
 - [ ] 16:00-17:30 -- Buffer.
 
-**Wed Aug 19 (FULL)**
-- [ ] 9:00-10:30 -- Final polish pass, all 3 deliverables.
-- [ ] 10:30-12:00 -- Prepare final versions for the Ministry/client.
-- [ ] 13:00-14:30 -- Any leftover handoff notes (no formal handoff plan exists yet -- worth writing a short one even informally).
-- [ ] 14:30-16:00 -- Buffer.
-- [ ] 16:00-17:30 -- Buffer.
+**Wed Aug 19 (FULL) -- loan fund chapter, the final deliverable**
+- [x] Structure + stage plan built (`loan-chapter-outline.md`) -- section-by-section outline mirroring the grants/tax chapter convention, plus an 8-step stage plan for finishing the chapter today. Work-computer handoff briefing built alongside it (`loan-fund-work-handoff.md`) since the position paper, appendix version, and grants chapter all live there, not in this repo.
+- [ ] 9:00-10:30 -- On the work computer: read the loan fund position paper + appendix version + grants chapter, confirm the real mechanism (direct loan / guarantee / interest subsidy) and fiscal-cost basis before writing prose (stages 1-2 of the outline).
+- [ ] 10:30-12:00 -- Draft sections 1-2 (background, mechanism) -- should move fastest, position paper already covers this ground.
+- [ ] 13:00-14:30 -- Decide on section 3 (international review, only if real material exists) and draft section 4 (methodology) -- the section most likely to need real thought.
+- [ ] 14:30-16:00 -- Assemble section 5 (results) from the position paper's existing figures; full-chapter read-through against the national program document's page limit.
+- [ ] 16:00-17:30 -- Send to Daniel. Closes out all 4 locked EcoTraders deliverables.
 
 **Thu Aug 20 (HALF -- last real working day)**
 - [ ] Block 1 -- Final sign-off tasks.
