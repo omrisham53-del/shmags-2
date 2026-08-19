@@ -28,46 +28,40 @@ There are 3 such chapters: grants program, tax incentive, and loan fund. Omri ow
 
 **This is the only remaining deliverable.**
 
-## The deliverable: loan fund chapter (full version)
+## The deliverable: trim the loan fund chapter from 6 pages to 3
+
+**Correction (2026-08-19):** this is NOT a drafting task. All content already exists -- the
+appendix version (done 2026-08-03) is essentially the position paper with minor tweaks, and
+every required section is already there. The only remaining work is trimming it from its
+current ~6 pages down to ~3, to fit the national program document's chapter length.
 
 **Already done, don't redo:**
 - Loan fund position paper -- written and sent to the Ministry client 2026-07-12.
-- Appendix version -- done 2026-08-03, adapted directly from the position paper.
+- Appendix version -- done 2026-08-03, adapted directly from the position paper. All sections
+  present. This is the file to edit directly.
 
-**What's actually needed:** the full chapter for the national program document itself, in the
-same structural convention as the grants and tax chapters (background / mechanism /
-methodology / results -- see `loan-chapter-outline.md`, attached/synced from the personal
-account, for the proposed section-by-section breakdown and stage-by-stage plan). The appendix
-reuses the position paper's content as-is; the full chapter needs to fit the national-program
-document's format, which the appendix doesn't.
+**Trim strategy (full detail in `loan-chapter-outline.md`, synced from the personal account):**
+cut in this order -- redundant explanation the reader already got from the grants/tax chapters,
+then non-load-bearing examples/narrative, then compress any international comparison into a
+table if it isn't one already, then tighten background prose, and only as a last resort cut
+from the mechanism/methodology sections themselves. Keep every real number and the framing of
+where this instrument sits among the 3 (grants = cash outlay, tax = timing benefit, loan fund =
+access to financing).
 
 ## Files to open first, in this order
 
-1. **Loan fund position paper** (sent 2026-07-12) -- primary source, read in full before
-   writing anything.
-2. **Appendix version** (done 2026-08-03) -- shows what's already been adapted once.
-3. **Grants program chapter** (finished, sent 2026-07-12) -- structural template to mirror,
-   same as the tax chapter did.
-4. **Tax incentive chapter, final version** (`tax-chapter-draft-with-results.docx`, submitted
-   2026-08-17) -- second reference for section tone/table format, since it's the most recently
-   finished chapter and the one built most carefully against the national-program format.
-5. The national program document's own template -- check its page limit for this chapter early.
-   The tax chapter's 4-page ceiling was caught late in that process; don't repeat that here.
+1. **Appendix version** (done 2026-08-03) -- this is the file to trim directly, not the
+   position paper.
+2. **Grants program chapter** and **tax incentive chapter, final version**
+   (`tax-chapter-draft-with-results.docx`, submitted 2026-08-17) -- check the page-format
+   convention (font, spacing, margins) they use, so "3 pages" here means the same thing.
 
-## What's NOT known from the personal-account side (confirm before writing section 2 and 4)
+## What's NOT known from the personal-account side
 
-- The actual loan fund mechanism -- direct loan, loan guarantee, or interest-rate subsidy.
-  Don't assume; confirm from the position paper.
-- Whether a loan-fund international review exists anywhere (the tax chapter had one already
-  written for accelerated depreciation across 5 countries; unclear if an equivalent exists for
-  loan funds). If not, scope section 3 out rather than fabricating one under today's time
-  pressure.
-- Whether the fiscal-cost basis is a subsidy-cost NPV (interest differential x loan volume) or
-  an expected-loss calc on guarantees -- these are structurally different from the tax chapter's
-  deferred-tax-timing calc, don't reuse that logic blind.
-- Whether the position paper already has usable results/market-sizing figures. If so, this
-  chapter may be much closer to done than the tax chapter was, since the tax chapter had to
-  build its market analysis from scratch.
+- Whether the national program document's actual page-limit convention for this chapter is
+  confirmed at exactly 3 pages, or whether that's Omri's own target -- worth a quick check
+  before finalizing.
+- If any cut costs a real number or claim, flag it to Daniel rather than silently dropping it.
 
 ## When done
 

@@ -7,7 +7,7 @@
 2. **Tax incentive chapter** for the national program -- DONE, submitted to Daniel 2026-08-17 alongside the model.
 3. **Tax model documentation file** (Daniel's 4th deliverable, 2026-08-16) -- DONE 2026-08-17, `tax-model-documentation.docx`. Built on the personal account from the final submitted model + chapter.
 4. **Grants model documentation file** -- IN PROGRESS, moved to the work computer/company account (personal account doesn't have the grants model or chapter). See `work-handoff.md`, scoped to this deliverable only as of 2026-08-17.
-5. **Loan fund chapter** -- final deliverable, being finished today (2026-08-19, Omri's real final working day). Appendix version was done 2026-08-03 (adapted from the existing position paper); the full chapter is the remaining piece. Structure + stage plan built this session: `loan-chapter-outline.md`. Actual writing happens on the work computer against the real position paper/grants chapter files -- handoff briefing at `loan-fund-work-handoff.md`.
+5. **Loan fund chapter** -- final deliverable, being finished today (2026-08-19, Omri's real final working day). **Correction:** not a drafting task -- the appendix version (done 2026-08-03) already has every section, this is a trim from ~6 pages to ~3. Trim plan built this session: `loan-chapter-outline.md`. Actual editing happens on the work computer against the real appendix file -- handoff briefing at `loan-fund-work-handoff.md`.
 
 ---
 
@@ -122,13 +122,13 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 - [ ] 14:30-16:00 -- Final QA across all 3.
 - [ ] 16:00-17:30 -- Buffer.
 
-**Wed Aug 19 (FULL) -- loan fund chapter, the final deliverable**
-- [x] Structure + stage plan built (`loan-chapter-outline.md`) -- section-by-section outline mirroring the grants/tax chapter convention, plus an 8-step stage plan for finishing the chapter today. Work-computer handoff briefing built alongside it (`loan-fund-work-handoff.md`) since the position paper, appendix version, and grants chapter all live there, not in this repo.
-- [ ] 9:00-10:30 -- On the work computer: read the loan fund position paper + appendix version + grants chapter, confirm the real mechanism (direct loan / guarantee / interest subsidy) and fiscal-cost basis before writing prose (stages 1-2 of the outline).
-- [ ] 10:30-12:00 -- Draft sections 1-2 (background, mechanism) -- should move fastest, position paper already covers this ground.
-- [ ] 13:00-14:30 -- Decide on section 3 (international review, only if real material exists) and draft section 4 (methodology) -- the section most likely to need real thought.
-- [ ] 14:30-16:00 -- Assemble section 5 (results) from the position paper's existing figures; full-chapter read-through against the national program document's page limit.
-- [ ] 16:00-17:30 -- Send to Daniel. Closes out all 4 locked EcoTraders deliverables.
+**Wed Aug 19 (FULL) -- loan fund chapter, the final deliverable -- a trim, not a draft**
+- [x] Trim plan built (`loan-chapter-outline.md`) -- correction from this morning's original plan: the appendix version (done 2026-08-03) already has every required section, this is purely a 6-page -> 3-page trim. Cut order: redundant explanation first, then non-load-bearing examples, then compress any international comparison to a table, then tighten background prose, mechanism/methodology sections last. Work-computer handoff updated to match (`loan-fund-work-handoff.md`).
+- [ ] 9:00-10:00 -- On the work computer: open the appendix version, confirm the page-format convention (font/spacing/margins) against the grants/tax chapters so "3 pages" matches, running page-count check as you read.
+- [ ] 10:00-12:00 -- Cut passes 1-3: redundant explanation, non-load-bearing examples, international comparison to table form. Re-check page count after each pass.
+- [ ] 13:00-14:30 -- Cut pass 4 (background tightening) if still over target; only touch mechanism/methodology as a last resort. Stop as soon as 3 pages is hit.
+- [ ] 14:30-15:30 -- Full read-through of the trimmed version -- confirm it reads as a complete chapter, not fragments. Flag to Daniel any real number/claim that had to be cut.
+- [ ] 15:30-17:30 -- Send to Daniel. Closes out all 4 locked EcoTraders deliverables -- the whole Energy Program scope for Omri's tenure.
 
 **Thu Aug 20 (HALF -- last real working day)**
 - [ ] Block 1 -- Final sign-off tasks.
