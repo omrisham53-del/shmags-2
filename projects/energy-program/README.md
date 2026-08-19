@@ -3,22 +3,26 @@
 **Description:** Excel analysis and documentation for Israel's national energy efficiency program funding and policy recommendations.
 
 **Client:** Ministry of Energy (via EcoTraders)  
-**Status:** Active  
+**Status:** COMPLETE: closed out 2026-08-19, Omri's last working day  
 **Manager:** Daniel
 
 **Key Dates:**
-- **Deadline:** June 30, 2026 (slipped)
-- Daniel confirmed 2026-07-26: no new assignments before Omri's Aug 22 last day at EcoTraders — remaining scope on this project is fixed to the 3 items below.
+- **Original deadline:** June 30, 2026 (slipped)
+- Daniel confirmed 2026-07-26: no new assignments before Omri's Aug 22 last day at EcoTraders: scope fixed to the items below, later amended with 2 model documentation files (2026-08-16).
+- **All deliverables shipped by 2026-08-19.** See `tracker.md` for the final status table and the list of limitations left unresolved at handoff.
 
-**Incentive-section chapters (Omri owns 3):**
-- Grants program chapter — sent to client 2026-07-12 (done)
-- Loan fund — position paper (sent to client 2026-07-12) covers the appendix version (done 2026-08-03); the full chapter is the final deliverable, being finished 2026-08-19 — structure/stage plan at `loan-chapter-outline.md`
-- Tax incentive model, including the market analysis — in progress (see `baseline-technology-data.md` + `tracker.md`)
-- Tax incentive chapter for the national program — not yet written (methodology brainstormed, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`)
+**Deliverables (all complete):**
+- Grants program chapter: sent to client 2026-07-12
+- Loan fund position paper: sent to client 2026-07-12; appendix version done 2026-08-03
+- Loan fund chapter (full): trimmed from ~6 pages toward ~3 and finished 2026-08-19
+- Tax incentive model, including the market analysis: submitted to Daniel 2026-08-17
+- Tax incentive chapter for the national program: submitted to Daniel 2026-08-17
+- Tax model documentation: `tax-model-documentation.docx`, 2026-08-17
+- Grants model documentation: built on the company account, confirmed 2026-08-19
 
-**Day-by-day schedule for the remaining work (Jul 27 -- Aug 20):** see `tracker.md`.
+**Final status table and unresolved limitations:** see `tracker.md`.
 
-**Handoff briefing for the work-account Claude session (loan fund chapter, final deliverable):** see `loan-fund-work-handoff.md` -- paste it as the opening message when starting that work on the company account, since that session can't see this repo. Kept current from this side. (`work-handoff.md` covers the earlier grants-model documentation deliverable, now done.)
+**Historical handoff briefings** (both deliverables now done, kept for the record): `work-handoff.md` (grants model documentation), `loan-fund-work-handoff.md` and `2026-08-19-final-day-prompt.md` (loan fund chapter trim). These were pasted into the company-account Claude session, which couldn't see this repo.
 
 **What's Included:**
 - Techno-economic analysis in Excel
@@ -73,7 +77,7 @@ controls, infrastructure). Rather than auto-average and bake in wrong tags, the
 pipeline hands you one CSV to review:
 1. Open `capex_lineitems.csv` in Excel.
 2. Filter/sort on `suggested_technology` and `component`; delete junk rows, fix any wrong tags.
-3. Total the survivors with `AVERAGEIF` per technology — those are the model numbers.
+3. Total the survivors with `AVERAGEIF` per technology: those are the model numbers.
 
 ### 4 model technologies and their source categories
 | Model technology | Category (col F in CSV) |
@@ -87,9 +91,9 @@ pipeline hands you one CSV to review:
 Point the script at a single round folder (e.g. `...\בקשות לבדיקה` for 2017). The category CSV filter applies regardless of which round.
 
 ### First two things to check after running
-1. The console "Matched X / unmatched Y" line — a low match rate means the IDs in the table don't line up with the folder names. Unmatched requests from other rounds are expected.
-2. The `source_file` column in `capex_lineitems.csv` — spot-check that the file pulled per request is the right one (the latest/reviewed version), not an older draft.
+1. The console "Matched X / unmatched Y" line: a low match rate means the IDs in the table don't line up with the folder names. Unmatched requests from other rounds are expected.
+2. The `source_file` column in `capex_lineitems.csv`: spot-check that the file pulled per request is the right one (the latest/reviewed version), not an older draft.
 
 ### What this does NOT cover
-- `CapEx — ציוד קיים (בסיסי)` (model row 30): grant files only have the efficient equipment cost. Baseline needs Rafi's data.
+- The baseline-CapEx row in the model, `CapEx` / `ציוד קיים (בסיסי)` (row 30): grant files only have the efficient equipment cost. Baseline needs Rafi's data.
 - OPEX rows (35-42): separate data source needed.

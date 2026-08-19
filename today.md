@@ -7,7 +7,7 @@
 
 ## Current Priority
 
-- **EcoTraders (scope locked 2026-07-26, active daily schedule):** Daniel confirmed no new assignments before Omri's Aug 22 last day -- exactly 3 deliverables remain: (1) finish the tax incentive model incl. the market analysis, (2) write the tax incentive chapter, (3) write the loan fund chapter (appendix version done 2026-08-03, full chapter still to write). **Major pivot at the Aug 5 Daniel meeting:** real per-technology market sizing is paused (none of the three approaches answered "how many projects per year"), chapter now shows savings per 1,000 units per technology as a placeholder, heat pump baseline changed to a standard-efficiency heat pump, and an import-data request went to the Ministry of Energy (Yaniv + Amos, cc Daniel) -- if that lands, sizing gets revisited. The 3-year payback threshold was confirmed by Daniel as the chapter's strongest conclusion. Tax chapter first draft written; sections 1-3 expanded 2026-08-05/06. See `projects/energy-program/tracker.md`.
+- **EcoTraders: DONE -- job finished, all deliverables shipped.** Today (2026-08-19) was Omri's last working day. Everything in the locked scope is complete: grants chapter + loan fund position paper (Ministry, 2026-07-12), tax incentive model + chapter (Daniel, 2026-08-17), tax and grants model documentation files, and the full loan fund chapter (trimmed 6 pages toward 3, finished today). **One thing left:** the closing email to Daniel bundling the two model documentation files and the loan fund chapter. Known limitations left unresolved at handoff are written up in `projects/energy-program/tracker.md`.
 - **University: DONE -- degree complete, fully closed out.** Economics seminar presentation (distinction track, with Tomer) happened Thursday July 30, **went great**. Final LCA **submitted** 2026-08-03. **Final Sustainability Project finished 2026-08-08, submitted 2026-08-12** (Herzliya Marina stormwater, 14-page Hebrew paper written solo for a team of 5) -- the last assignment of the entire degree. Both submission channels (printed spiral-bound copy to the secretariat, course-site PDF upload) confirmed delivered, ahead of the real Aug 13 deadline. All grades pending, nothing further to produce. LinkedIn post still planned once EcoTraders wraps up.
 - **Through the Gap -> "Window Winners":** newsletter direction dropped entirely. New concept locked via a full discovery session (7/24): a Premier League transfer-window prediction game -- hybrid model (Omri's own scoring engine for squad fit/impact + a credibility-weighted valuation aggregator from news/social, not scraped from Transfermarkt for legal reasons) plus fan predictions and a leaderboard. Traction + technical growth prioritized over revenue for now. **Launch target locked (7/25): Aug 21, 2026 -- PL season kickoff**, not Sept 1. Full v1 sized at ~85-115 hours (too much alongside the Sustainability Project + EcoTraders wind-down), so scoped down: prediction game/leaderboard/sharing ships in full, valuation uses a manually curated list of ~15-20 transfers instead of the full automated aggregation engine (that becomes a post-launch upgrade). Revised estimate ~40-55 hours (~10-14 hrs/week) over the 4 weeks to launch. Full capture: `brainstorms/2026-07-24_through-the-gap-direction.md`.
 - **Norway trip:** given a formal priority slot (constant background project, not the main focus) -- family member gave real travel/equipment/food info, prep session still pending.
@@ -15,6 +15,12 @@
 ---
 
 ## Today's Completed
+
+1. **EcoTraders closed out -- last working day.** All deliverables shipped. The final one, the full loan fund chapter, turned out to be a trim rather than a drafting job: the appendix version already had every section, so the work was cutting ~6 pages toward ~3. Planned it in two phases with a decision gate, lossless cuts (redundant explanation, narrative around examples, prose-to-table compression, background tightening) made first, and anything that would cost real substance escalated as a ranked list for Omri to decide rather than cut on the model's own judgment.
+
+2. **Status swept across the whole project.** The tracker had ~30 unchecked boxes that would have read as outstanding work to anyone opening it later; restructured into a final status table plus an honest "Unresolved at handoff" section (Rafi data that never arrived, the heat pump COP tension, cohort-discounting convention, sensitivity tables never rebuilt, market sizing paused not solved). README, current-priorities, goals and today.md all updated to match.
+
+3. **Pending:** closing email to Daniel with the tax model documentation, the grants model documentation, and the loan fund chapter.
 
 ---
 
@@ -80,7 +86,7 @@
 
 ## This Week's Focus
 
-1. **Energy Program** - Active, daily blocks running: market-sizing work + Daniel meeting today, tax chapter next, loan fund full chapter after
+1. **Energy Program / EcoTraders** - DONE. All deliverables shipped, job finished 2026-08-19. Only the closing email to Daniel remains.
 2. **Window Winners** - Build not yet started; recurring Tue/Fri blocks locked, launch Aug 21
 3. **University** - Final Sustainability Project (due Aug 15) is the one assignment left in the degree; get the brief once details land
 
