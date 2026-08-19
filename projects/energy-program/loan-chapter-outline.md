@@ -11,11 +11,19 @@ let that happen here on the last deliverable; trim today, not "later."
 
 ---
 
-## Trim strategy, in order of highest-value cuts first
+## Trim strategy: two phases, with a decision gate between them
 
 Cutting a full-content 6-page document to half its length by trimming sentences everywhere
-usually reads worse than cutting whole low-value chunks and tightening what's left. Work in
-this order:
+usually reads worse than cutting whole low-value chunks and tightening what's left.
+
+**The gate matters more than the order.** Cuts 1-4 below remove redundancy and padding, so they
+cost no substance and can just be made. Cut 5 is different in kind: it takes real content out
+of the chapter. So Phase 1 is cuts 1-4, then stop and see where the page count landed. If it's
+still over target, the remaining options get listed with what each one loses, ranked least to
+most damaging, and Omri picks how far down to go. Better to ship slightly over length than
+silently missing something the Ministry needs.
+
+Work in this order:
 
 1. **Cut redundant explanation, not unique content.** Anything the position paper explains that
    the grants or tax chapter already establishes for the reader (e.g. the shared policy
@@ -31,8 +39,9 @@ this order:
    stand alone, persuade a reader with no other context) carries the most fat once it's one
    chapter among three siblings the reader has already read. Cut scene-setting, keep the actual
    policy mechanism and numbers.
-5. **Last resort: cut detail from the mechanism/methodology sections themselves.** Only after
-   1-4 are exhausted -- these are the sections that actually carry the chapter's substance.
+5. **Phase 2 only, and only on Omri's call: cut detail from the mechanism/methodology sections
+   themselves.** These carry the chapter's substance, so this isn't a cut to make unilaterally
+   after 1-4 fall short -- it's the decision point described above.
 
 ## What NOT to cut
 
@@ -48,10 +57,11 @@ this order:
    end) -- know where the 3 pages need to land before starting to cut.
 2. Apply the cut order above: redundant explanation first, then examples, then international
    comparison to table form, then background tightening.
-3. Re-check page count after each pass rather than guessing all the cuts up front -- stop as
-   soon as 3 pages is hit, don't over-cut past the target.
+3. Re-check page count after each pass rather than guessing all the cuts up front. Stop at the
+   end of Phase 1 regardless of where it landed, don't roll straight into substance cuts.
 4. Read the trimmed version once straight through -- confirm it still reads as a complete
-   chapter, not a list of surviving fragments.
+   chapter, not a list of surviving fragments. If still over 3 pages, build the ranked Phase 2
+   options list (what it is, length saved, what's lost) rather than continuing to cut.
 5. Check the national program document's actual page-limit convention (font/spacing/margins)
    against what's already been used, so "3 pages" means the same thing here as it does in the
    grants and tax chapters.

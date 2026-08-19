@@ -6,8 +6,8 @@
 1. **Tax incentive model, including the market analysis** -- DONE, submitted to Daniel 2026-08-17.
 2. **Tax incentive chapter** for the national program -- DONE, submitted to Daniel 2026-08-17 alongside the model.
 3. **Tax model documentation file** (Daniel's 4th deliverable, 2026-08-16) -- DONE 2026-08-17, `tax-model-documentation.docx`. Built on the personal account from the final submitted model + chapter.
-4. **Grants model documentation file** -- IN PROGRESS, moved to the work computer/company account (personal account doesn't have the grants model or chapter). See `work-handoff.md`, scoped to this deliverable only as of 2026-08-17.
-5. **Loan fund chapter** -- final deliverable, being finished today (2026-08-19, Omri's real final working day). **Correction:** not a drafting task -- the appendix version (done 2026-08-03) already has every section, this is a trim from ~6 pages to ~3. Trim plan built this session: `loan-chapter-outline.md`. Actual editing happens on the work computer against the real appendix file -- handoff briefing at `loan-fund-work-handoff.md`.
+4. **Grants model documentation file** -- DONE (confirmed 2026-08-19). Built on the work computer/company account. `work-handoff.md` is the briefing that drove it, kept for the record.
+5. **Loan fund chapter** -- the last remaining deliverable, being finished today (2026-08-19, Omri's real final working day). **Correction:** not a drafting task -- the appendix version (done 2026-08-03) already has every section, this is a trim from ~6 pages toward ~3. Run in two phases: lossless cuts first (redundancy, padding, prose-to-table compression), then stop and report; anything still over target after that costs real substance, so the remaining cuts get prioritized and Omri decides how far down the list to go rather than the trim continuing on its own judgment. Plan: `loan-chapter-outline.md`. Paste-ready company-account prompt: `2026-08-19-final-day-prompt.md`.
 
 ---
 
