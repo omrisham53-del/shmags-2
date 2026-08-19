@@ -12,13 +12,13 @@
 
 **Incentive-section chapters (Omri owns 3):**
 - Grants program chapter — sent to client 2026-07-12 (done)
-- Loan fund — position paper (sent to client 2026-07-12) covers the appendix version; the full chapter for the actual national program document still needs to be written
+- Loan fund — position paper (sent to client 2026-07-12) covers the appendix version (done 2026-08-03); the full chapter is the final deliverable, being finished 2026-08-19 — structure/stage plan at `loan-chapter-outline.md`
 - Tax incentive model, including the market analysis — in progress (see `baseline-technology-data.md` + `tracker.md`)
 - Tax incentive chapter for the national program — not yet written (methodology brainstormed, see `brainstorms/2026-07-22_tax-incentive-market-analysis.md`)
 
 **Day-by-day schedule for the remaining work (Jul 27 -- Aug 20):** see `tracker.md`.
 
-**Handoff briefing for the work-account Claude session (loan fund chapter):** see `work-handoff.md` -- paste it as the opening message when starting that work on the company account, since that session can't see this repo. Kept current from this side.
+**Handoff briefing for the work-account Claude session (loan fund chapter, final deliverable):** see `loan-fund-work-handoff.md` -- paste it as the opening message when starting that work on the company account, since that session can't see this repo. Kept current from this side. (`work-handoff.md` covers the earlier grants-model documentation deliverable, now done.)
 
 **What's Included:**
 - Techno-economic analysis in Excel
