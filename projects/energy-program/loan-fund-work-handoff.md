@@ -23,10 +23,10 @@ There are 3 such chapters: grants program, tax incentive, and loan fund. Omri ow
 - Grants program chapter -- finished, sent to the Ministry client 2026-07-12.
 - Tax incentive model + chapter -- finished, submitted to Daniel 2026-08-17.
 - Tax model documentation file -- done 2026-08-17 (`tax-model-documentation.docx`).
-- Grants model documentation file -- done, built on this same work-computer account per the
-  earlier grants-model handoff.
+- Grants model documentation file -- status uncertain from the personal-account side; the
+  tracker still reads IN PROGRESS on the work computer. Confirm before assuming it's closed.
 
-**This is the only remaining deliverable.**
+**This chapter is the last deliverable, alongside the grants model doc file if that's still open.**
 
 ## The deliverable: trim the loan fund chapter from 6 pages to 3
 
