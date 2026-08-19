@@ -1,13 +1,36 @@
 # Energy Program -- Schedule & Status
 
-**Last updated:** 2026-08-16
-**Scope locked 2026-07-26 (Daniel), amended 2026-08-16:** originally 3 deliverables before Omri's Aug 22 last day; Daniel added a 4th today. In priority/sequencing order (Omri's call, 2026-08-16):
+**Last updated:** 2026-08-19
+**STATUS: CLOSED. All deliverables complete.** Omri's last working day at EcoTraders was
+2026-08-19. Everything in the locked scope shipped. The day-by-day schedule further down this
+file is kept as a historical record, not a live to-do list: its unchecked boxes are stale
+schedule entries, not outstanding work. See "Unresolved at handoff" at the bottom for the real
+known limitations that were never closed.
+
+**Scope locked 2026-07-26 (Daniel), amended 2026-08-16:** originally 3 deliverables before Omri's Aug 22 last day; Daniel added a 4th. In priority/sequencing order (Omri's call, 2026-08-16):
 
 1. **Tax incentive model, including the market analysis** -- DONE, submitted to Daniel 2026-08-17.
 2. **Tax incentive chapter** for the national program -- DONE, submitted to Daniel 2026-08-17 alongside the model.
 3. **Tax model documentation file** (Daniel's 4th deliverable, 2026-08-16) -- DONE 2026-08-17, `tax-model-documentation.docx`. Built on the personal account from the final submitted model + chapter.
 4. **Grants model documentation file** -- DONE (confirmed 2026-08-19). Built on the work computer/company account. `work-handoff.md` is the briefing that drove it, kept for the record.
-5. **Loan fund chapter** -- the last remaining deliverable, being finished today (2026-08-19, Omri's real final working day). **Correction:** not a drafting task -- the appendix version (done 2026-08-03) already has every section, this is a trim from ~6 pages toward ~3. Run in two phases: lossless cuts first (redundancy, padding, prose-to-table compression), then stop and report; anything still over target after that costs real substance, so the remaining cuts get prioritized and Omri decides how far down the list to go rather than the trim continuing on its own judgment. Plan: `loan-chapter-outline.md`. Paste-ready company-account prompt: `2026-08-19-final-day-prompt.md`.
+5. **Loan fund chapter** -- DONE 2026-08-19. Not a drafting task in the end: the appendix version (done 2026-08-03) already had every section, so this was a trim from ~6 pages toward ~3. Run in two phases, lossless cuts first (redundancy, padding, prose-to-table compression) with a decision gate before anything that would cost substance. Plan: `loan-chapter-outline.md`. Company-account prompt used: `2026-08-19-final-day-prompt.md`.
+
+---
+
+## Final status (2026-08-19)
+
+| Deliverable | Status | Where it went |
+|---|---|---|
+| Grants program chapter | Done | Sent to Ministry client 2026-07-12 |
+| Loan fund position paper | Done | Sent to Ministry client 2026-07-12 |
+| Tax incentive model | Done | Submitted to Daniel 2026-08-17 |
+| Tax incentive chapter | Done | Submitted to Daniel 2026-08-17 |
+| Tax model documentation | Done | Built 2026-08-17, `tax-model-documentation.docx` |
+| Grants model documentation | Done | Built on the company account, confirmed 2026-08-19 |
+| Loan fund chapter (full) | Done | Trimmed and finished 2026-08-19 |
+
+**Remaining action:** one closing email to Daniel bundling the tax model documentation, the
+grants model documentation, and the loan fund chapter. Nothing else is outstanding.
 
 ---
 
@@ -24,7 +47,20 @@
 
 ---
 
-## Daily block schedule (Jul 27 -- Aug 20)
+## Daily block schedule (Jul 27 -- Aug 20) -- HISTORICAL, CLOSED
+
+**Read this before trusting any checkbox below.** This section is a record of how the work was
+planned, not of what remains. Every deliverable shipped (see Final status above). The unchecked
+boxes fall into three groups, none of which is outstanding work:
+
+- **Deliberately abandoned:** all the chiller / heat pump / VSD market-sizing blocks. Killed by
+  the Aug 5 Daniel pivot, which replaced real per-technology sizing with the per-1,000-units
+  placeholder. They were never done because they were called off, not because they slipped.
+- **Done on the company account:** the tax chapter sections, the chapter trim, the Aug 17
+  finalization blocks, and the Aug 19 loan fund trim. The work happened on the work computer,
+  so it was never checked off in this repo.
+- **Overtaken by the calendar:** the Thu Aug 20 blocks. Aug 19 turned out to be the real last
+  working day, so Aug 20 never ran.
 
 Full days (Sun/Mon/Wed, 9:00-18:00 with a 1hr lunch at 12): 5 blocks -- 2 morning (90 min each), 3 afternoon (90 min each), 30 min buffer at the end of the day.
 Half days (Thu, 4.5hrs): 3 blocks of 90 min.
@@ -137,16 +173,48 @@ Check off blocks as you go. Order within a day is a suggestion, not a hard rule 
 
 ---
 
-## Reference -- open items carried forward
+## Unresolved at handoff (2026-08-19)
 
-**Rafi is still owed (email sent 2026-07-22), updated 2026-08-05 for the baseline change:**
-- ~~CapEx of the mazut/diesel furnace~~ -- OBSOLETE, the heat pump baseline is no longer a furnace (2026-08-05 pivot, see Confirmed #7). Replace with: CapEx of a standard-efficiency heat pump (40kW/70kW) -- not cleanly sourced from a web pass either, see `baseline-technology-data.md` section 1c. Worth asking Rafi directly rather than continuing to search.
-- Incremental annual maintenance cost, efficient vs. baseline heat pump (was efficient-vs-furnace, now efficient-vs-standard-heat-pump -- same open ask, different baseline technology)
-- Equipment degradation rate (0.5% placeholder)
-- Confirmed annual operating hours (5,475 heat pump / 3,000 chiller / 6,400 VSD)
-- **NEW:** his read on the real tension flagged in `baseline-technology-data.md` 1c -- the sourced "efficient" 70kW heat pump (COP 3.23-3.24) is at or below the new code-minimum baseline (COP 3.3). Needs resolving before the baseline change is usable.
+Everything shipped, but these were never closed. They're documented in the model documentation
+files where they affect a number, so this list is a summary, not the only record. Whoever picks
+this project up should read them before treating any of these figures as settled.
 
-**Discount rate:** resolved at 6% with Daniel back on 2026-07-13 (set in `generate_tax_model_v2.py`) -- this tracker previously had it listed as still-pending, caught during the 2026-07-27 branch-merge cleanup. Worth flagging to Daniel/Rafi whether 6% is meant to represent the social rate only, or the single rate the whole model uses for both the firm's private decision and the state's fiscal-cost calc -- that distinction matters once the payback-threshold adoption logic (private decision) and fiscal-cost NPV (state cost) are both live in the model.
+**Data that was requested from Rafi and never fully arrived** (email sent 2026-07-22, updated
+2026-08-05 when the heat pump baseline changed):
+- CapEx of a standard-efficiency heat pump baseline. Never cleanly sourced from Rafi or from a
+  web pass, so the model uses ₪875/kW derived by the same premium-based method used for the
+  chiller and VSD baselines. Flagged in the workbook as estimated, not sourced.
+- Incremental annual maintenance cost, efficient vs. baseline heat pump. Set to 0 across all
+  three technologies on Rafi's earlier answer; never revisited for the new baseline.
+- Equipment degradation rate: still a 0.5% placeholder.
+- Annual operating hours: heat pump lowered to 5,000 as a working correction, still Rafi's
+  number and never independently re-verified.
+- The COP tension in `baseline-technology-data.md` 1c: the sourced "efficient" 70kW heat pump
+  (COP 3.23-3.24) sits at or below the code-minimum baseline (COP 3.3). The 2026-08-16 capacity
+  collapse to a single averaged point softened this but did not resolve it.
+
+**Methodology questions never settled with Daniel:**
+- Cohort-discounting convention: total benefit is per-cohort NPV summed without cross-cohort
+  re-discounting to 2026. Flagged as needing to match the grants chapter's convention; never
+  confirmed either way.
+- Double-counting across the grants, tax, and loan fund instruments: raised, never resolved.
+- Chiller lifespan was truncated rather than equalized, the opposite treatment from heat pumps.
+- Tariff weighting (flag #7): the model uses a flat blended rate. A chiller-specific
+  peak-weighted tariff would be higher. Robustness-checked 2026-08-16: the chiller additionality
+  verdict only flips above ~55 agorot/kWh against the current 43.63, so it is a real caveat but
+  not a fragile result.
+
+**Never rebuilt:** the sensitivity Data Tables were not reconstructed against the consolidated
+single-capacity-point blocks after the 2026-08-16 restructure.
+
+**Market sizing:** paused, not solved. The chapter reports per 1,000 units as an explicit
+placeholder. The import-data request to Yaniv Giat and Amos at the Ministry of Energy (sent
+2026-08-05, cc Daniel) was the route to a real annual flow figure. If a reply ever lands, that
+is what unblocks genuine market sizing.
+
+**Discount rates, for the record:** 6% private rate for the firm's own adoption decision
+(payback, verdict, additionality), 3% social rate for the state's fiscal cost. Split confirmed
+and implemented 2026-08-16.
 
 **Full open-flags list (sourcing gaps, unresolved assumptions):** see `baseline-technology-data.md`.
 

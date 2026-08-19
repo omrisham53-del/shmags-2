@@ -11,12 +11,13 @@
 - MoonActive (gaming) still technically open but reconsidering whether gaming is the right sector
 - Key metrics: Offers received, companies engaged, interviews completed (paused until post-trip)
 
-## Goal 2: Deliver Energy Program (target updated 2026-07-26: before Aug 22 departure, was Jun 2026)
+## Goal 2: Deliver Energy Program -- ACHIEVED 2026-08-19
 - Grants program chapter and loan fund position paper both finished and sent to the Ministry (2026-07-12)
-- Daniel confirmed (2026-07-26) no new assignments before Omri's last day -- remaining scope locked to 3 items: tax incentive model (incl. market analysis), tax incentive chapter, and the loan fund chapter for the national program (appendix version reuses the existing position paper; full chapter still needs writing)
-- Goal is to finish all 3 before his last day at EcoTraders (Aug 22, 2026)
-- Get sign-off from Daniel and Ministry of Energy
-- Original June 2026 date has passed; this is now the real target
+- Tax incentive model and tax incentive chapter submitted to Daniel (2026-08-17)
+- Tax model and grants model documentation files both built (Daniel's 4th deliverable, added 2026-08-16)
+- Full loan fund chapter trimmed and finished (2026-08-19)
+- **Every deliverable in the locked scope shipped before the last working day.** Original June 2026 target slipped; the revised "before departure" target was met.
+- Remaining: one closing email to Daniel with the two documentation files and the loan fund chapter. Known limitations left unresolved are documented in `projects/energy-program/tracker.md`.
 
 ## Goal 3: Graduate with Strong Performance -- ACHIEVED 2026-08-08, fully closed out 2026-08-12
 - Energy Policy final exam (final exam of the whole degree) taken 2026-07-20
