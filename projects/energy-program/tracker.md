@@ -24,13 +24,17 @@ known limitations that were never closed.
 | Grants program chapter | Done | Sent to Ministry client 2026-07-12 |
 | Loan fund position paper | Done | Sent to Ministry client 2026-07-12 |
 | Tax incentive model | Done | Submitted to Daniel 2026-08-17 |
-| Tax incentive chapter | Done | Submitted to Daniel 2026-08-17 |
+| Tax incentive chapter | Done | Submitted to Daniel 2026-08-17. Shipped as an **appendix version, ~10 pages**, not trimmed to the 4-page in-body ceiling. All the flagged content issues were closed first: ₪875/kW baseline CapEx disclosed, technology/capacity list added ahead of Results, footnotes added, section 4.5 rewritten as an explicit placeholder, checked in real Word |
 | Tax model documentation | Done | Built 2026-08-17, `tax-model-documentation.docx` |
 | Grants model documentation | Done | Built on the company account, confirmed 2026-08-19 |
-| Loan fund chapter (full) | Done | Trimmed and finished 2026-08-19 |
+| Loan fund chapter (full) | Done | Trimmed 2026-08-19, landed at ~4 pages (from ~6) on the lossless pass alone, no substance cuts needed |
 
 **Remaining action:** one closing email to Daniel bundling the tax model documentation, the
 grants model documentation, and the loan fund chapter. Nothing else is outstanding.
+
+**Sequencing constraint (2026-08-19):** the work PC goes back today and all three attachments
+live on it. The email has to be sent, and confirmed sent with attachments, before the machine
+is returned.
 
 ---
 
@@ -44,6 +48,24 @@ grants model documentation, and the loan fund chapter. Nothing else is outstandi
 6. **Schedule slipped ~1 week (confirmed 2026-08-03):** the Wed Jul 29 Daniel meeting never happened -- it's today, Mon Aug 3 at 15:30, and it's specifically about the market analysis. Thu Jul 30's chiller-sizing blocks (presentation day) didn't happen either, and the Week 2 Sun Aug 2 blocks (chiller sizing, HP/VSD light pass, PRTR check, fiscal-cost rollup) are also not done -- none of the market-sizing work has started yet. Loan fund appendix got pulled forward instead and is done. Today's block plan below is rebuilt around this reality; the rest of the multi-week schedule further down is stale by about a week and will get re-sequenced as work actually lands rather than rewritten speculatively now.
 7. **Daniel meeting happened 2026-08-05 (moved from Aug 3) -- major market-analysis pivot.** Full outcomes in decisions/log.md. Summary: (a) the 3-year payback threshold confirmed as "probably the strongest conclusion we can provide" -- the core reframe stands; (b) real per-technology market sizing (chiller RT/m², heat pump fuel-balance, VSD compressed-air-share) is paused -- none of them reliably answer "how many projects happen per year," a flow, and all three were sizing a stock instead; (c) the chapter now shows savings **per 1,000 units, per technology** as a placeholder, chillers included, fiscal cost the same C-B calc x 1,000; (d) heat pump baseline changed from a mazut/diesel furnace to a **standard-efficiency heat pump** (same structure as chillers: baseline vs. efficient tier of the same technology) -- this makes most of Rafi's still-owed furnace data (CapEx, maintenance delta) obsolete, see the updated Reference section below; (e) the Cyprus-style chillers-only differentiated-multiplier recommendation was rejected by Daniel as too narrow to propose; (f) plan going forward is an email to Yaniv Giat (Ministry of Energy) asking for import data on all three technologies -- if that lands, it's a real annual flow figure and market sizing gets revisited with Daniel.
 8. **Model verified essentially complete 2026-08-16, national-program-format version (v0.3):** all findings from `2026-08-16-formatted-model-review.md` closed except items requiring the hours sensitivity (which is now load-bearing, not a nicety -- heat pump additionality sits at payback 3.179 against a 3.0 threshold, the closest of the three to flipping). Verified independently (Python re-implementation, matches every cell exactly, zero formula errors in the workbook): tariff (36.97 agorot/kWh industrial HV, ex-VAT) approved by Daniel; row-318 emissions wiring fixed (820,897 tCO2e, ₪226,762,267 external costs unlocked); degradation now symmetric across baseline and efficient equipment on all 3 technologies; fiscal cost moved to the 3% social discount rate as its own deferred-tax calculation (no longer `=C-B`, since that identity only held under one shared rate) -- total fiscal cost dropped 41% to ₪21,126,029; firm's own adoption decision (payback, verdict, additionality) correctly stays at the 6% private rate. All 3 verdicts held through both fixes: chillers and heat pumps show additionality, VSD is deadweight. Still open: hours sensitivity, cohort-discounting convention (must match the grants chapter), double-counting vs. grants/loan fund (Daniel question), chiller lifespan inconsistency (truncated not equalized, opposite treatment from heat pumps).
+
+---
+
+## Exit logistics (status 2026-08-19)
+
+Separate from the deliverables. These are Omri's own, not EcoTraders'.
+
+| Item | Status |
+|---|---|
+| Final hours reported in Fireberry | Done |
+| Work PC returned | Today. **Send the closing email before handing it back** -- all 3 attachments are on it |
+| Handoff documentation | Not needed. Omri asked Daniel directly; Daniel wanted only the technical documentation |
+| Reference / employment letter | Being asked for 2026-08-19, meeting with Ron |
+| Pension fund release letter (מכתב שחרור) | **NOT DONE** |
+| Unused vacation payout | **NOT DONE** |
+
+The last two are money owed and are much harder to chase as a former employee, especially with
+the Sept 8 departure for Europe. They belong in the same conversation as the reference letter.
 
 ---
 
@@ -179,8 +201,9 @@ Everything shipped, but these were never closed. They're documented in the model
 files where they affect a number, so this list is a summary, not the only record. Whoever picks
 this project up should read them before treating any of these figures as settled.
 
-**Data that was requested from Rafi and never fully arrived** (email sent 2026-07-22, updated
-2026-08-05 when the heat pump baseline changed):
+**Data requested from Rafi that never arrived.** No further response after 2026-07-26, so all of
+the below stand as they are in the shipped model (email sent 2026-07-22, updated 2026-08-05 when
+the heat pump baseline changed):
 - CapEx of a standard-efficiency heat pump baseline. Never cleanly sourced from Rafi or from a
   web pass, so the model uses ₪875/kW derived by the same premium-based method used for the
   chiller and VSD baselines. Flagged in the workbook as estimated, not sourced.
@@ -193,24 +216,34 @@ this project up should read them before treating any of these figures as settled
   (COP 3.23-3.24) sits at or below the code-minimum baseline (COP 3.3). The 2026-08-16 capacity
   collapse to a single averaged point softened this but did not resolve it.
 
-**Methodology questions never settled with Daniel:**
-- Cohort-discounting convention: total benefit is per-cohort NPV summed without cross-cohort
-  re-discounting to 2026. Flagged as needing to match the grants chapter's convention; never
-  confirmed either way.
-- Double-counting across the grants, tax, and loan fund instruments: raised, never resolved.
-- Chiller lifespan was truncated rather than equalized, the opposite treatment from heat pumps.
-- Tariff weighting (flag #7): the model uses a flat blended rate. A chiller-specific
-  peak-weighted tariff would be higher. Robustness-checked 2026-08-16: the chiller additionality
-  verdict only flips above ~55 agorot/kWh against the current 43.63, so it is a real caveat but
-  not a fragile result.
+**Methodology, confirmed status 2026-08-19:**
+- **Still open: cohort-discounting convention.** Total benefit is per-cohort NPV summed without
+  re-discounting each cohort back to a common 2026 base. Never confirmed against the grants
+  chapter's convention. Low stakes in practice, since the cross-chapter cost-effectiveness
+  comparison was dropped (below), but it would matter if anyone puts the tax chapter's totals
+  next to the grants chapter's on the same ruler.
+- Double-counting across the grants, tax, and loan fund instruments: raised with Daniel.
+- Tariff weighting (flag #7): raised with Daniel as a caveat. The model uses a flat blended
+  rate; a chiller-specific peak-weighted tariff would be higher. Robustness-checked 2026-08-16:
+  the chiller additionality verdict only flips above ~55 agorot/kWh against the current 43.63,
+  so it is a real caveat but not a fragile result.
+- Chiller lifespan: RESOLVED. All lifespans equalized, consistent with the heat pump treatment.
+- Cost-effectiveness (₪23.2/tCO2e, additionality-restricted): not used in the end, not needed.
+  The open question about matching the grants chapter's ruler is therefore moot.
 
-**Never rebuilt:** the sensitivity Data Tables were not reconstructed against the consolidated
-single-capacity-point blocks after the 2026-08-16 restructure.
+**Sensitivity Data Tables: rebuilt** against the consolidated single-capacity-point blocks.
 
-**Market sizing:** paused, not solved. The chapter reports per 1,000 units as an explicit
-placeholder. The import-data request to Yaniv Giat and Amos at the Ministry of Energy (sent
-2026-08-05, cc Daniel) was the route to a real annual flow figure. If a reply ever lands, that
-is what unblocks genuine market sizing.
+**Model bugs: all fixed.** The v4 workbook was opened and checked in real Excel; no stray
+`#REF!` / `#NAME?` survived. (This was flagged as unverifiable from the repo side, since
+LibreOffice was broken in the sandbox.)
+
+**Market sizing:** paused, not solved, and both routes out of it closed.
+- The import-data request to Yaniv Giat and Amos at the Ministry of Energy (sent 2026-08-05, cc
+  Daniel) never got a reply. That was the route to a real annual flow figure.
+- PRTR (Ministry of Environmental Protection facility-level data) was checked and turned out not
+  to be relevant.
+- The chapter therefore reports per 1,000 units as an explicit placeholder. Section 4.5 is
+  written as a placeholder with a comment rather than claiming active sizing work.
 
 **Discount rates, for the record:** 6% private rate for the firm's own adoption decision
 (payback, verdict, additionality), 3% social rate for the state's fiscal cost. Split confirmed
