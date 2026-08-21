@@ -1,7 +1,7 @@
-# Today - 2026-08-19
+# Today - 2026-08-21
 
-**Date:** 2026-08-19
-**Updated:** 2026-08-19
+**Date:** 2026-08-21
+**Updated:** 2026-08-21
 
 ---
 
@@ -15,6 +15,10 @@
 ---
 
 ## Today's Completed
+
+---
+
+## Recent Work (August 19)
 
 1. **EcoTraders closed out -- last working day.** All deliverables shipped. The final one, the full loan fund chapter, turned out to be a trim rather than a drafting job: the appendix version already had every section, so the work was cutting ~6 pages toward ~3. Planned it in two phases with a decision gate, lossless cuts (redundant explanation, narrative around examples, prose-to-table compression, background tightening) made first, and anything that would cost real substance escalated as a ranked list for Omri to decide rather than cut on the model's own judgment.
 
@@ -58,23 +62,7 @@
 
 ---
 
-## Recent Work (July 26)
-
-1. **Rafi's four data points applied to the live tax incentive model** -- worked through his email answers (furnace CapEx 37,000-75,000 ₪ incl. VAT per 100kW -> 479 ₪/kW net; maintenance delta 0 for all 3 techs since heat pumps are actually cheaper to maintain than a furnace and chiller/VSD show no difference; VSD degradation 0 since screw compressors don't degrade; VSD hours 6,400 -> ~5,000, his real 24/7 compressor-hours ceiling) and applied them via a Claude-in-Excel extension working directly on the live file. Built Daniel's requested A-C invest-or-not decision row and verdict per technology block, plus summary columns, with green/red/amber conditional formatting.
-
-2. **Major finding: the incentive is pure deadweight under a 20-year NPV adoption rule, and this is robust** -- replicated the whole model independently in Python (LibreOffice is broken in this sandbox, no live recalc available) and confirmed every technology is already NPV-positive without the incentive. Stress-tested three ways, all still deadweight: fixing the electricity tariff, extending to 25 years, and adding 50%-of-CapEx replacement costs. Reverted the 25-year/replacement experiment back to the plain 20-year model per Omri's call, since that realism belongs to the eventual national-program analysis, not to checking Rafi's numbers.
-
-3. **Fixed the adoption rule: payback-period threshold instead of NPV sign** -- real firms use short internal payback hurdles, not 20-year NPV; threshold set to 3 years, sourced to Rafi's own number from his first-ever conversation with Omri about this model. Result: only chillers (100RT and 500RT) show genuine additionality; heat pumps and VSD clear the bar without any incentive (worth it anyway). Implemented as a single self-contained array formula per block (no cluttering helper rows), a transpose bug in the first formula draft was caught and fixed by the Excel extension itself, all 12 payback values verified byte-identical to an intermediate row-based version before that version was removed. Sensitivity analysis (hours per technology, incentive multiplier across all 6) scoped and a build prompt sent to the extension.
-
-4. **Electricity tariff corrected to 39.54 ₪/kWh** (real average High Voltage תעו"ז rate), closing Daniel's comment #1 -- confirmed via independent unit-cost sanity check that heat pumps genuinely do beat diesel furnaces by ~3.4x per unit of delivered heat (COP 4.13 vs 83.5% combustion efficiency), not a model bug.
-
-5. **Deep, point-by-point prep session for the Daniel meeting** -- worked through market-sizing methodology (chillers off construction per Daniel's method, heat pumps/VSD off energy consumption since they're process equipment not building equipment), the additionality/payback reframe, which technologies the market analysis should emphasize given the additionality split, and how fiscal cost needs dual reporting (total spend across all techs vs. cost-effectiveness for chillers only). Researched real Israeli data sources for the heat-pump/VSD market-sizing gap: fetched and read CBS's own energy-balance chapter directly (confirmed it's macro-level only, not granular enough), then identified Israel's PRTR (Pollutant Release and Transfer Register) as a much more promising facility-level lead to raise with Daniel.
-
-6. **Built and delivered a 3-page PDF meeting-prep document** -- six sections plus a 10-item consolidated decision punch list for Daniel. Google Drive upload requested but not available from this cloud session (only Gmail + Notion connectors); offered Omri the email-to-self path or connecting a real Drive connector instead. Full capture: `brainstorms/2026-07-26_payback-threshold-and-meeting-prep.md`.
-
----
-
-## Pending — Needs Rafi's Data
+## Pending -- Needs Rafi's Data
 
 - Annual energy consumption per technology (kWh/year)
 - Equipment degradation rate (%/year)
