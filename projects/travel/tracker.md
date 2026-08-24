@@ -125,7 +125,7 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 
 **Foil emergency blanket:** a mylar sheet that reflects body heat if stranded, injured, or waiting out bad weather or rescue. Near-zero weight and bulk. Standard just-in-case item given solo travel and the exposed sections (Besseggen, the wire-assisted stretches), not something used day to day.
 
-### Sort out in Norway, cannot be done from home
+### Sort out in Norway -- deferred, handled on the Sep 9 Oslo DNT visit
 
 - [ ] **DNT key**, collected at the Oslo DNT center Sep 9 morning. Breheimen is 4 consecutive self-service nights (Navarsete, Vigdalstøl, Fast, Arentzbu) and those cabins are locked without it. Borrowed against a 100 NOK refundable deposit, requires valid DNT membership (bring card, app, or confirmation email). Also collectable/returnable at any DNT staffed lodge.
 - [ ] **DNT membership itself purchased before Sep 9** (~€60), since the key depends on it
