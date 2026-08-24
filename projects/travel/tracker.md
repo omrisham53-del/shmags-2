@@ -80,20 +80,23 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 - [x] Pants that cover the top of the shoe and are waterproof -- have two pairs
 - [ ] Gaiters -- buying in Israel, not waiting on the DNT visit
 
-### Clothing
+### Clothing -- reviewed 08-24
 
-- [ ] 2 sets of hiking shirts + pants (can bring more shirts)
-- [ ] Sweat-wicking boxer briefs
-- [ ] Socks at 3 temperature tiers: 2 regular, 2 medium, 2 extreme cold
-- [ ] Thermal base layers
-- [ ] Fleece or equivalent mid-layer (added 08-24: list jumped straight from base layer to shell)
-- [ ] Insulated jacket, light down or synthetic (added 08-24)
-- [ ] Waterproof shell jacket (added 08-24: list specified waterproof pants but never a jacket)
-- [ ] Hat/hood covering the back of the neck for sun protection
-- [ ] Thin but very warm beanie -- essential
-- [ ] Buff -- essential
-- [ ] Sunglasses
-- [ ] Gloves
+- [ ] Shirts: 1 hiking shirt to buy, rest regular t-shirts to buy
+- [x] Pants that cover the shoe, waterproof -- have 2 (same item as the Footwear section, listed there too)
+- [ ] Sweat-wicking boxer briefs -- buying in Israel
+- [x] Socks at 3 temperature tiers -- have regular, medium, and thermal/extreme-cold, all covered
+- [x] Thermal base layers -- have
+- [x] Fleece or equivalent mid-layer -- have, a thin one
+- [ ] Insulated jacket, light down or synthetic (added 08-24) -- **open, see note below**
+- [ ] Waterproof shell jacket (added 08-24) -- **open, see note below**
+- [x] Hat/hood covering the back of the neck for sun protection -- have
+- [x] Thin but very warm beanie -- have, wants to double check it's warm enough
+- [ ] Buff -- buying in Israel
+- [x] Sunglasses -- have
+- [x] Gloves -- have
+
+**Insulated jacket / rain jacket, not resolved yet:** Omri thinks the rain jacket he already owns is "very warming" and might cover both the waterproof-shell role and the insulated-jacket role, skipping a separate puffy. Need to confirm before marking this closed: is it a genuine 3-in-1 jacket with a zip-out insulated liner, or a single-layer shell that's just well-built? A single shell, however good, insulates by trapping air in one layer -- it's not the same as a shell plus a true insulating layer (down/synthetic fill) for standing around at exposed high points or cold nights in unheated self-service cabins, especially combined with only a thin fleece as the other mid-layer. If it's a real 3-in-1, this is fine as-is. If it's a single shell, the gap stands and either a second thicker mid-layer or a light puffy should be added.
 
 ### Gear
 
