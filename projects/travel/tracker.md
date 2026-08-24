@@ -88,7 +88,7 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 - [x] Socks at 3 temperature tiers -- have regular, medium, and thermal/extreme-cold, all covered
 - [x] Thermal base layers -- have
 - [x] Fleece or equivalent mid-layer -- have, a thin one
-- [ ] Insulated jacket, light down or synthetic (added 08-24) -- **open, see note below**
+- [ ] Insulated jacket, light down or synthetic -- leaning toward buying, Uniqlo Ultra Light Down under consideration, see note below
 - [ ] Waterproof shell jacket (added 08-24) -- **open, see note below**
 - [x] Hat/hood covering the back of the neck for sun protection -- have
 - [x] Thin but very warm beanie -- have, wants to double check it's warm enough
@@ -96,27 +96,34 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 - [x] Sunglasses -- have
 - [x] Gloves -- have
 
-**Insulated jacket / rain jacket, not resolved yet:** Omri thinks the rain jacket he already owns is "very warming" and might cover both the waterproof-shell role and the insulated-jacket role, skipping a separate puffy. Need to confirm before marking this closed: is it a genuine 3-in-1 jacket with a zip-out insulated liner, or a single-layer shell that's just well-built? A single shell, however good, insulates by trapping air in one layer -- it's not the same as a shell plus a true insulating layer (down/synthetic fill) for standing around at exposed high points or cold nights in unheated self-service cabins, especially combined with only a thin fleece as the other mid-layer. If it's a real 3-in-1, this is fine as-is. If it's a single shell, the gap stands and either a second thicker mid-layer or a light puffy should be added.
+**Insulated jacket / rain jacket:** still checking whether the existing rain jacket is a genuine 3-in-1 with a zip-out liner or just a well-built single shell, but leaning toward buying a separate insulated jacket regardless (Uniqlo Ultra Light Down under consideration). A Uniqlo lightweight down jacket is a reasonable, genuinely warm choice for this and packs down small -- but it's not very water-resistant on its own, so it works as a mid-layer worn under or with the rain shell, not as a standalone outer layer, and down loses insulating power once wet. Once the rain jacket is checked, if it turns out to be a real 3-in-1 the Uniqlo purchase may not be needed after all.
 
-### Gear
+### Gear -- reviewed 08-24
 
-- [ ] Walking sticks -- essential
-- [ ] Very waterproof tent
-- [ ] Waterproof bags for packing clothing sets and for electronics that need to stay dry
-- [ ] First aid kit + toiletry bag
-- [ ] Blister kit specifically: Compeed or leukotape (added 08-24, 156km loaded across both treks)
-- [ ] Small plastic shovel for outdoor defecation
-- [ ] Toilet paper (added 08-24: shovel was listed, paper wasn't)
-- [ ] Trash bags, pack it out (added 08-24, huts require it)
-- [ ] Headlamp + spare batteries (added 08-24: sunset drops 19:50 to 19:10 across the trek window, self-service cabins have no electricity)
-- [ ] Paper map, Norge-serien 1:50,000 sheets, + compass (added 08-24: nothing on the original list. Offline ut.no/Norgeskart as backup, not primary, solo above the treeline in fog)
-- [ ] Power bank (added 08-24: no charging at self-service huts, cold drains batteries)
-- [ ] Plug adapter, Israeli Type H does not fit Norwegian Type C/F (added 08-24)
-- [ ] Repair kit: duct tape, tent pole splint, mat patch, spare cord (added 08-24)
-- [ ] Quick-dry towel (added 08-24)
-- [ ] Earplugs for shared hut dorms (added 08-24)
-- [ ] Whistle + foil emergency blanket (added 08-24)
-- [ ] Small NOK cash as backup (added 08-24)
+- [x] Walking sticks -- have
+- [x] Very waterproof tent -- have, might upgrade to a new one
+- [ ] Waterproof bags -- need to buy
+- [ ] **First aid kit -- needs a real build-out, see checklist below**
+- [ ] Small plastic shovel -- need to buy
+- [ ] Toilet paper -- need to buy
+- [ ] Trash bags for pack-it-out waste, separate from the general plastic bags -- need to buy, see note below
+- [x] Headlamp -- have, new one
+- [ ] Paper map (Norge-serien 1:50,000) + compass -- need to buy
+- [ ] Power bank, light but serious capacity -- need to buy (old phone, battery drains faster than normal)
+- [x] Plug adapter -- have
+- [ ] Repair kit -- need to buy
+- [x] Quick-dry towel -- have
+- ~~Earplugs~~ -- not wanted
+- [ ] Whistle + foil emergency blanket -- see note below
+- Cash -- will get in Norway, not before departure
+
+**First aid / muscle & minor injury kit, needs building:** pain relief and anti-inflammatory (ibuprofen or paracetamol), muscle rub or arnica gel for soreness after the long days, blister kit (Compeed or leukotape -- real need across ~156km loaded over both treks), antiseptic wipes or gel, adhesive bandages in a few sizes, sterile gauze, medical tape, tweezers, any personal prescription meds, plus the toiletry bag. The whistle and emergency blanket below fold into this kit too.
+
+**Trash bags vs. general plastic bags:** worth having both, different jobs. General bags (ziplock/plastic) are for organizing gear and keeping wet or dirty items separate. A few sturdy trash bags are specifically for packing out waste, since huts require it and it can get wet -- a heavy-duty liner inside the pack stops a leak from reaching everything else.
+
+**Whistle:** standard mountain distress signal -- three blasts is the international call for help, carries far further than shouting and costs no energy to repeat if injured. Check the pack's sternum strap buckle first, a lot of hiking packs already have one built in before buying a separate one.
+
+**Foil emergency blanket:** a mylar sheet that reflects body heat if stranded, injured, or waiting out bad weather or rescue. Near-zero weight and bulk. Standard just-in-case item given solo travel and the exposed sections (Besseggen, the wire-assisted stretches), not something used day to day.
 
 ### Sort out in Norway, cannot be done from home
 
