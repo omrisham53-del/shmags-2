@@ -74,11 +74,11 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 - [ ] **Sleeping bag liner (lakenpose) -- mandatory at every DNT cabin, still needs buying.** Duvets and pillows are not washed between guests and cannot be used uncovered. Applies to all 11 nights, staffed and self-service. Staffed lodges rent linen, self-service cabins do not.
 - ~~Small inflatable pillow~~ -- not needed, the mattress bought comes with one
 
-### Footwear
+### Footwear -- reviewed 08-24
 
-- [ ] Hiking shoes: Salomon recommended, below-ankle, light but still supportive with good grip. Waterproof is essential regardless of brand. **Flagged for a second look, see Open Judgment Calls below.**
-- [ ] Pants that cover the top of the shoe and are waterproof, for warmth and dryness
-- [ ] Gaiters, if the DNT visit flags early snow (added 08-24)
+- [ ] Hiking shoes: Salomon recommended, below-ankle, light but still supportive with good grip. Waterproof is essential regardless of brand. **Still need to buy. Flagged for a second look, see Open Judgment Calls below.**
+- [x] Pants that cover the top of the shoe and are waterproof -- have two pairs
+- [ ] Gaiters -- buying in Israel, not waiting on the DNT visit
 
 ### Clothing
 
