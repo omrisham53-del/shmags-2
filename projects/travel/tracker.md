@@ -65,14 +65,14 @@ Items tagged `(added 08-24)` were missing from the original list. Everything els
 - Tent is still the default though -- saves cost and is a real challenge Omri wants. Only fun if the weather actually allows it.
 - Cabins sometimes sell extra supplies (food, firewood for heating) that make the stay and the trek nicer -- worth checking on arrival.
 
-### Sleep system (added 08-24, was missing entirely)
+### Sleep system (added 08-24, was missing entirely) -- reviewed 08-24
 
 The original list had a tent and a pillow but nothing to sleep in or on.
 
-- [ ] Sleeping bag, 3-season, roughly -5°C comfort rating
-- [ ] Sleeping mat, R-value 3 or higher (September ground, not a summer pad)
-- [ ] **Sleeping bag liner (lakenpose) -- mandatory at every DNT cabin.** Duvets and pillows are not washed between guests and cannot be used uncovered. Applies to all 11 nights, staffed and self-service. Staffed lodges rent linen, self-service cabins do not.
-- [ ] Small inflatable pillow
+- [x] Sleeping bag -- have a good one already
+- [x] Sleeping mat -- bought
+- [ ] **Sleeping bag liner (lakenpose) -- mandatory at every DNT cabin, still needs buying.** Duvets and pillows are not washed between guests and cannot be used uncovered. Applies to all 11 nights, staffed and self-service. Staffed lodges rent linen, self-service cabins do not.
+- ~~Small inflatable pillow~~ -- not needed, the mattress bought comes with one
 
 ### Footwear
 
