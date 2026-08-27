@@ -43,6 +43,7 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 - Whether reversing the 6-day loop direction (hit Memurubu/Gjendebu earlier, save Glitterheim/Spiterstulen for later) would be safer given the actual 2026 dates.
 - The Gjendesheim-area exit → Gaupne bridging leg for the Jotunheimen→Breheimen transition (likely via Sognefjellsvegen, visually confirmed as a real connecting corridor on both maps) -- exact bus schedule/duration, unconfirmed.
 - Current snow/weather conditions for early-mid September 2026, given the trip lands right at the edge of the safe season.
+- **Are microspikes needed for Breheimen specifically, given the Sept 17-21 dates?** (added 08-27) DNT's own staffed season there ends Sept 13, four days before arrival, and the "late June to early September" safe-hiking window cited generally for the park ends before these dates too. A real trip report of an early-September Breheimen trek (earlier than these dates) hit icy, at-times-impossible-to-ascend snowfields and flagged microspikes as the minimum next time, with other hikers on that trek carrying crampons and ice axes. Not confirmed conditions for this specific year, but every reference point available puts these dates past the safe window, not inside it -- ask directly rather than folding into the general conditions question above.
 - Night train Oslo→Bergen is no longer relevant (Bergen dropped) -- but Oslo Central Station bag storage is still needed for the Sep 8 layover before the Sep 9 morning DNT visit and Otta train.
 - Whether the Breheimen self-service cabins stock a provision store (dry/canned food, honor-system payment). If they do, it materially cuts the food weight carried over those 4 nights.
 
@@ -98,8 +99,10 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 
 **Insulated jacket / rain jacket:** still checking whether the existing rain jacket is a genuine 3-in-1 with a zip-out liner or just a well-built single shell, but leaning toward buying a separate insulated jacket regardless (Uniqlo Ultra Light Down under consideration). A Uniqlo lightweight down jacket is a reasonable, genuinely warm choice for this and packs down small -- but it's not very water-resistant on its own, so it works as a mid-layer worn under or with the rain shell, not as a standalone outer layer, and down loses insulating power once wet. Once the rain jacket is checked, if it turns out to be a real 3-in-1 the Uniqlo purchase may not be needed after all.
 
-### Gear -- reviewed 08-24
+### Gear -- reviewed 08-24, updated 08-27
 
+- [x] Backpack with rain cover (added 08-27, was missing from the list entirely) -- have a good one
+- [ ] Camp/hut shoes to change into (added 08-27, route-specific gear guidance flags this) -- checking if anything on hand works, not yet confirmed
 - [x] Walking sticks -- have
 - [x] Very waterproof tent -- have, might upgrade to a new one
 - [ ] Waterproof bags -- need to buy
