@@ -71,7 +71,7 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 
 - [x] Sleeping bag -- have a good one already
 - [x] Sleeping mat -- bought
-- [ ] **Sleeping bag liner (lakenpose) -- mandatory at every DNT cabin, still needs buying.** Duvets and pillows are not washed between guests and cannot be used uncovered. Applies to all 11 nights, staffed and self-service. Staffed lodges rent linen, self-service cabins do not.
+- [x] Sleeping bag liner (lakenpose) -- have. Mandatory at every DNT cabin: duvets and pillows are not washed between guests and cannot be used uncovered. Applies to all 11 nights, staffed and self-service. Staffed lodges rent linen, self-service cabins do not.
 - ~~Small inflatable pillow~~ -- not needed, the mattress bought comes with one
 
 ### Footwear -- reviewed 08-24
@@ -102,16 +102,15 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 
 - [x] Walking sticks -- have
 - [x] Very waterproof tent -- new one-man tent bought 2026-08-31, durable and light
-- [ ] Waterproof bags -- need to buy
+- [ ] Waterproof bags -- need to buy, ~5, one ziplock-style bag per clothing set
 - [ ] **First aid kit -- needs a real build-out, see checklist below**
 - [ ] Small plastic shovel -- need to buy
-- [ ] Toilet paper -- need to buy
-- [ ] Trash bags for pack-it-out waste, separate from the general plastic bags -- need to buy, see note below
+- [x] Toilet paper -- have
+- [x] Trash bags for pack-it-out waste, separate from the general plastic bags -- have, see note below
 - [x] Headlamp -- have, new one
-- [ ] Paper map (Norge-serien 1:50,000) + compass -- need to buy
-- [ ] Power bank, light but serious capacity -- need to buy (old phone, battery drains faster than normal)
 - [x] Plug adapter -- have
 - [ ] Repair kit -- need to buy
+- [ ] Power bank, light but serious capacity -- **have one, but it may belong to someone else and need to be returned -- likely still need to buy a replacement.** Confirm before departure.
 - [x] Quick-dry towel -- have
 - ~~Earplugs~~ -- not wanted
 - [ ] Whistle + foil emergency blanket -- see note below
@@ -130,15 +129,16 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 - [ ] **DNT key**, collected at the Oslo DNT center Sep 9 morning. Breheimen is 4 consecutive self-service nights (Navarsete, Vigdalstøl, Fast, Arentzbu) and those cabins are locked without it. Borrowed against a 100 NOK refundable deposit, requires valid DNT membership (bring card, app, or confirmation email). Also collectable/returnable at any DNT staffed lodge.
 - [ ] **DNT membership itself purchased before Sep 9** (~€60), since the key depends on it
 - [ ] **Gas canister** bought in Oslo (XXL or the DNT shop). Canisters are banned from flights outright; the stove itself is fine checked. Confirm the valve type matches the stove before leaving Israel.
+- [ ] **Paper map (Norge-serien 1:50,000) + compass** -- buying in Norway, not before departure
 
-### Food & Cooking
+### Food & Cooking -- reviewed 09-01
 
-- [ ] Portable gas stove (fuel bought in Norway, see above)
-- [ ] Minimal cooking tools
-- [ ] Water bottles or bladder (added 08-24: tablets were listed but nothing to carry water in)
-- [ ] Water purification tablets
-- [ ] Spices
-- [ ] Sunscreen + SPF lip balm (added 08-24: hat and sunglasses were listed, sunscreen wasn't)
+- [x] Portable gas stove -- have (fuel/canister bought in Norway, see above)
+- [x] Minimal cooking tools -- have
+- [x] Water bottles or bladder -- have
+- [ ] Water purification tablets -- still need to buy
+- [x] Spices -- have, not yet packed
+- [x] Sunscreen + SPF lip balm -- have
 - Prioritize dry, light, high-calorie/high-protein food.
 
 **Meal plan**
