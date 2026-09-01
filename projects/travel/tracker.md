@@ -76,7 +76,7 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 
 ### Footwear -- reviewed 08-24
 
-- [ ] Hiking shoes: Salomon recommended, below-ankle, light but still supportive with good grip. Waterproof is essential regardless of brand. **Still need to buy. Flagged for a second look, see Open Judgment Calls below.**
+- [x] Hiking shoes -- bought 2026-08-31, excellent pair. Still worth testing loaded before departure, see Open Judgment Calls below.
 - [x] Pants that cover the top of the shoe and are waterproof -- have two pairs
 - [ ] Gaiters -- buying in Israel, not waiting on the DNT visit
 
@@ -84,11 +84,11 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 
 - [ ] Shirts: 1 hiking shirt to buy, rest regular t-shirts to buy
 - [x] Pants that cover the shoe, waterproof -- have 2 (same item as the Footwear section, listed there too)
-- [ ] Sweat-wicking boxer briefs -- buying in Israel
-- [x] Socks at 3 temperature tiers -- have regular, medium, and thermal/extreme-cold, all covered
+- [x] Sweat-wicking boxer briefs -- bought 2026-08-31, 2 pairs, breathable
+- [x] Socks at 3 temperature tiers -- have regular and thermal/extreme-cold; medium tier bought 2026-08-31, 2 pairs -- all covered
 - [x] Thermal base layers -- have
 - [x] Fleece or equivalent mid-layer -- have, a thin one
-- [ ] Insulated jacket, light down or synthetic -- leaning toward buying, Uniqlo Ultra Light Down under consideration, see note below
+- [x] Insulated jacket, light down or synthetic -- bought 2026-08-31, Rab, see note below
 - [ ] Waterproof shell jacket (added 08-24) -- **open, see note below**
 - [x] Hat/hood covering the back of the neck for sun protection -- have
 - [x] Thin but very warm beanie -- have, wants to double check it's warm enough
@@ -96,12 +96,12 @@ The original list had a tent and a pillow but nothing to sleep in or on.
 - [x] Sunglasses -- have
 - [x] Gloves -- have
 
-**Insulated jacket / rain jacket:** still checking whether the existing rain jacket is a genuine 3-in-1 with a zip-out liner or just a well-built single shell, but leaning toward buying a separate insulated jacket regardless (Uniqlo Ultra Light Down under consideration). A Uniqlo lightweight down jacket is a reasonable, genuinely warm choice for this and packs down small -- but it's not very water-resistant on its own, so it works as a mid-layer worn under or with the rain shell, not as a standalone outer layer, and down loses insulating power once wet. Once the rain jacket is checked, if it turns out to be a real 3-in-1 the Uniqlo purchase may not be needed after all.
+**Insulated jacket:** bought 2026-08-31, a Rab insulated jacket -- resolves the earlier Uniqlo-vs-3-in-1 question, that purchase is no longer needed. Still worth checking whether Rab's insulation is water-resistant enough to double as a light outer layer or whether it still needs the rain shell over it in wet conditions -- most synthetic/down insulated jackets aren't fully waterproof on their own.
 
 ### Gear -- reviewed 08-24
 
 - [x] Walking sticks -- have
-- [x] Very waterproof tent -- have, might upgrade to a new one
+- [x] Very waterproof tent -- new one-man tent bought 2026-08-31, durable and light
 - [ ] Waterproof bags -- need to buy
 - [ ] **First aid kit -- needs a real build-out, see checklist below**
 - [ ] Small plastic shovel -- need to buy
