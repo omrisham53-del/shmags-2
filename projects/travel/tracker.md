@@ -84,6 +84,23 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 
 ---
 
+## Weather Watch -- decision gate Sept 5-6 (added 2026-09-01)
+
+A family member currently in Lofoten reported persistent cloud and rain, and inferred from a wet summer that the rest of the season will stay that way. Researched it; the conclusion is **hold the plan and decide on Sept 5-6**, not now.
+
+- **Lofoten is the wrong proxy.** It's ~900km north, maritime, and September is climatologically its wettest month (~141mm over ~24 rain days). What he's seeing is a normal Lofoten September.
+- **Jotunheimen is in Norway's driest region.** Lom averages 321mm/year (Bergen ~2,250mm); published precipitation climatology puts inland areas east of the watershed below 400mm/yr, naming upper Gudbrandsdalen specifically.
+- **No forecast for the trek window exists yet.** Trek runs Sept 10-21; useful model skill runs ~7-10 days. Deciding today means deciding blind.
+- **"Wet summer therefore wet autumn" isn't valid.** Mid-latitude precipitation anomalies don't persist across seasons. Copernicus autumn 2026 guidance: above-average temperature is the high-confidence signal, rainfall skill is low, and the wetter lean is aimed at southern/western Europe.
+- **September climatology matches what was already planned for** -- ~44% chance of precipitation per day, 7°C/1°C, ~29% clear sky. Same as the family member's own July advice. Nothing has actually changed.
+- **The bigger threat stays the Sept 13 hut closure**, not the clouds. Days 5-6 (Bukkelægeret wires, Besseggen) are the genuinely weather-sensitive ones, and those are morning-of calls from a hut.
+
+**Gate actions:** hold the DNT membership purchase (~€60) until Sept 5-6; book nothing southward before then; on Sept 5-6 pull the real 7-day forecast for Gjendesheim/Glitterheim/Spiterstulen and chase the Memurubu Sept 14 question by email. If it's a genuine washout, the only alternatives that cover the full Sept 10 - Oct 5 window are **Picos de Europa** (real mountain terrain, season runs May-October) and **Madeira** (year-round, but day-hiking not hut-to-hut) -- every Alpine option (Dolomites, Julian Alps, Pyrenees) hits its own hut-closure wall at almost exactly the same time as Norway. Oslo escape flights are cheap (Milan/Venice/Barcelona ~€20-55 one-way).
+
+Full research writeup with sources: artifact `Norway or South` (https://claude.ai/code/artifact/92d4a054-6a2d-46ab-91a6-f6c75a191fa9).
+
+---
+
 ## Trip Prep Notes
 
 - Jotunheimen is a great starting point -- recommended to hike Galdhøpiggen (Norway's highest peak) while there.
