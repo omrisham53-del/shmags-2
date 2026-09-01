@@ -1,6 +1,42 @@
-# Travel Tracker
+# Travel — September Europe Trip
 
-Route, dates, flights, and open logistics for the September Europe trip.
+Solo backpacking trip through Northern/Western Europe, Sept 8 - ~Dec 8 2026 (~13 weeks). Doubles as the mechanism for [Career Direction Exploration](../job-search/tracker.md) -- alumni/professor conversations along the way, not a fixed job search.
+
+**Status:** Active -- Norway leg starts Sept 8
+**Travel style:** Solo, backpacking budget
+**Equipment:** full packing checklist in `equipment-list.md`
+
+---
+
+## Route
+
+**Norway → London → Scotland → Ireland → Portugal**
+
+Reordered 2026-07-12 from the original Norway → Scotland → London → Ireland → Portugal after a London friends-meetup landed around Oct 8 -- see the Route & Dates table below and `decisions/log.md` (2026-07-01 for the original lock, 2026-07-12 for the reorder).
+
+**Why this order:** Norway first while trekking season is open (September is peak, trails close in October); drift south as weather worsens; UK legs cluster in the middle; Portugal closes the trip warm, cheap, with peak Atlantic surf season.
+
+**Flex destinations discussed and set aside:** Iceland, Faroe Islands, Basque Country, Galicia, Azores
+
+## Core Interests This Trip
+
+- **Trekking** (serious -- multi-day hut routes, not day hikes)
+- **Surfing**
+- **Football** (Premier League + Scottish Premiership)
+- **Socializing**
+- **Alone time**
+
+## Norway Specifics
+
+- DNT membership (~€60) for the hut network -- essential for multi-day routes
+- Allemannsretten (right to roam) = free wild camping, 150m from any house
+- Budget warning: Norway is the most expensive leg by far (~€80-100/day if not careful)
+- Shop at Kiwi or REMA 1000 (cheap supermarkets)
+- Oslo confirmed as the entry point; Bergen dropped from the route entirely (2026-07-18) -- see Route & Dates below
+
+## Portugal Specifics
+
+Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trail ends at Sagres (a surf hub) -- trekking and surfing converge naturally at the close of the trip. Porto/Lisbon for cities, Peniche/Ericeira for surf.
 
 ---
 
@@ -8,7 +44,7 @@ Route, dates, flights, and open logistics for the September Europe trip.
 
 | Leg | Dates | Duration | Notes |
 |---|---|---|---|
-| Norway | Sept 8 – ~Oct 5 | 4 weeks | Bergen dropped entirely -- straight to trekking. Jotunheimen (6 days) then Breheimen (5 days), back to back, done as fast as the season allows (see Logistics below). ~13 days open after Sept 21 for whatever's next before Oct 5. |
+| Norway | Sept 8 – ~Oct 5 | 4 weeks | Bergen dropped entirely -- straight to trekking. Jotunheimen (6 days) then Breheimen (5 days), back to back, done as fast as the season allows (see Norway Route below). ~13 days open after Sept 21 for whatever's next before Oct 5. |
 | London | ~Oct 5 – Oct 19 | 1.5 weeks | Friends meetup ~Oct 8, Premier League football |
 | Scotland | ~Oct 19 – Nov 2 | 2 weeks | West Highland Way, Edinburgh/Glasgow |
 | Ireland | ~Nov 2 – Nov 16 | 2 weeks | Galway/Connemara, west coast surf (Bundoran, Lahinch) |
@@ -48,15 +84,7 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 
 ---
 
-## Gear, Food & Trip Prep
-
-Base advice came from a family member with real hands-on experience in the Jotunheimen/Breheimen area (captured 2026-07-22). Reviewed and gap-checked 2026-08-24 against the actual route: 11 hut nights, 4 of them DNT self-service, September at 1,400-2,000m, solo.
-
-Items tagged `(added 08-24)` were missing from the original list. Everything else is the family member's own advice, unchanged.
-
-**Buy-before-departure deadline: Sept 8.** Two items can only be sorted in Norway (DNT key, gas canister) and are flagged as such.
-
-### General
+## Trip Prep Notes
 
 - Jotunheimen is a great starting point -- recommended to hike Galdhøpiggen (Norway's highest peak) while there.
 - Check weather constantly throughout the whole trip, including mid-trek -- no problem waiting a day or two in a cabin for better weather rather than pushing through.
@@ -65,100 +93,17 @@ Items tagged `(added 08-24)` were missing from the original list. Everything els
 - Tent is still the default though -- saves cost and is a real challenge Omri wants. Only fun if the weather actually allows it.
 - Cabins sometimes sell extra supplies (food, firewood for heating) that make the stay and the trek nicer -- worth checking on arrival.
 
-### Sleep system (added 08-24, was missing entirely) -- reviewed 08-24
-
-The original list had a tent and a pillow but nothing to sleep in or on.
-
-- [x] Sleeping bag -- have a good one already
-- [x] Sleeping mat -- bought
-- [x] Sleeping bag liner (lakenpose) -- have. Mandatory at every DNT cabin: duvets and pillows are not washed between guests and cannot be used uncovered. Applies to all 11 nights, staffed and self-service. Staffed lodges rent linen, self-service cabins do not.
-- ~~Small inflatable pillow~~ -- not needed, the mattress bought comes with one
-
-### Footwear -- reviewed 08-24
-
-- [x] Hiking shoes -- bought 2026-08-31, excellent pair. Still worth testing loaded before departure, see Open Judgment Calls below.
-- [x] Pants that cover the top of the shoe and are waterproof -- have two pairs
-- [ ] Gaiters -- buying in Israel, not waiting on the DNT visit
-
-### Clothing -- reviewed 08-24
-
-- [ ] Shirts: 1 hiking shirt to buy, rest regular t-shirts to buy
-- [x] Pants that cover the shoe, waterproof -- have 2 (same item as the Footwear section, listed there too)
-- [x] Sweat-wicking boxer briefs -- bought 2026-08-31, 2 pairs, breathable
-- [x] Socks at 3 temperature tiers -- have regular and thermal/extreme-cold; medium tier bought 2026-08-31, 2 pairs -- all covered
-- [x] Thermal base layers -- have
-- [x] Fleece or equivalent mid-layer -- have, a thin one
-- [x] Insulated jacket, light down or synthetic -- bought 2026-08-31, Rab, see note below
-- [ ] Waterproof shell jacket (added 08-24) -- **open, see note below**
-- [x] Hat/hood covering the back of the neck for sun protection -- have
-- [x] Thin but very warm beanie -- have, wants to double check it's warm enough
-- [ ] Buff -- buying in Israel
-- [x] Sunglasses -- have
-- [x] Gloves -- have
-
-**Insulated jacket:** bought 2026-08-31, a Rab insulated jacket -- resolves the earlier Uniqlo-vs-3-in-1 question, that purchase is no longer needed. Still worth checking whether Rab's insulation is water-resistant enough to double as a light outer layer or whether it still needs the rain shell over it in wet conditions -- most synthetic/down insulated jackets aren't fully waterproof on their own.
-
-### Gear -- reviewed 08-24
-
-- [x] Walking sticks -- have
-- [x] Very waterproof tent -- new one-man tent bought 2026-08-31, durable and light
-- [ ] Waterproof bags -- need to buy, ~5, one ziplock-style bag per clothing set
-- [ ] **First aid kit -- needs a real build-out, see checklist below**
-- [ ] Small plastic shovel -- need to buy
-- [x] Toilet paper -- have
-- [x] Trash bags for pack-it-out waste, separate from the general plastic bags -- have, see note below
-- [x] Headlamp -- have, new one
-- [x] Plug adapter -- have
-- [ ] Repair kit -- need to buy
-- [ ] Power bank, light but serious capacity -- **have one, but it may belong to someone else and need to be returned -- likely still need to buy a replacement.** Confirm before departure.
-- [x] Quick-dry towel -- have
-- ~~Earplugs~~ -- not wanted
-- [ ] Whistle + foil emergency blanket -- see note below
-- Cash -- will get in Norway, not before departure
-
-**First aid / muscle & minor injury kit, needs building:** pain relief and anti-inflammatory (ibuprofen or paracetamol), muscle rub or arnica gel for soreness after the long days, blister kit (Compeed or leukotape -- real need across ~156km loaded over both treks), antiseptic wipes or gel, adhesive bandages in a few sizes, sterile gauze, medical tape, tweezers, any personal prescription meds, plus the toiletry bag. The whistle and emergency blanket below fold into this kit too.
-
-**Trash bags vs. general plastic bags:** worth having both, different jobs. General bags (ziplock/plastic) are for organizing gear and keeping wet or dirty items separate. A few sturdy trash bags are specifically for packing out waste, since huts require it and it can get wet -- a heavy-duty liner inside the pack stops a leak from reaching everything else.
-
-**Whistle:** standard mountain distress signal -- three blasts is the international call for help, carries far further than shouting and costs no energy to repeat if injured. Check the pack's sternum strap buckle first, a lot of hiking packs already have one built in before buying a separate one.
-
-**Foil emergency blanket:** a mylar sheet that reflects body heat if stranded, injured, or waiting out bad weather or rescue. Near-zero weight and bulk. Standard just-in-case item given solo travel and the exposed sections (Besseggen, the wire-assisted stretches), not something used day to day.
-
-### Sort out in Norway -- deferred, handled on the Sep 9 Oslo DNT visit
-
-- [ ] **DNT key**, collected at the Oslo DNT center Sep 9 morning. Breheimen is 4 consecutive self-service nights (Navarsete, Vigdalstøl, Fast, Arentzbu) and those cabins are locked without it. Borrowed against a 100 NOK refundable deposit, requires valid DNT membership (bring card, app, or confirmation email). Also collectable/returnable at any DNT staffed lodge.
-- [ ] **DNT membership itself purchased before Sep 9** (~€60), since the key depends on it
-- [ ] **Gas canister** bought in Oslo (XXL or the DNT shop). Canisters are banned from flights outright; the stove itself is fine checked. Confirm the valve type matches the stove before leaving Israel.
-- [ ] **Paper map (Norge-serien 1:50,000) + compass** -- buying in Norway, not before departure
-
-### Food & Cooking -- reviewed 09-01
-
-- [x] Portable gas stove -- have (fuel/canister bought in Norway, see above)
-- [x] Minimal cooking tools -- have
-- [x] Water bottles or bladder -- have
-- [ ] Water purification tablets -- still need to buy
-- [x] Spices -- have, not yet packed
-- [x] Sunscreen + SPF lip balm -- have
-- Prioritize dry, light, high-calorie/high-protein food.
-
 **Meal plan**
 - Breakfast -- no-cook rotation (Omri doesn't like oatmeal, skipped the family member's suggestion): tahini + halva on crackers, cream cheese + jam/honey on crackers, trail mix (nuts/dried fruit), hard cheese + crackers + dried dates/apricots, protein/energy bars for fast-start mornings. Mix of sweet and savory so it doesn't repeat lunch.
 - Lunch -- tortillas/crackers with cream cheese and smoked salmon/salami/ham.
 - Dinner -- small pasta (orzo/Israeli ptitim, brought from home) with an optional small soup/sauce.
 
-**Worth confirming at the DNT visit:** self-service cabins stock a provision store (dry/canned food, honor-system payment). If Breheimen's four self-service huts are stocked, that materially cuts the food weight carried on that leg.
-
-### Non-gear necessities (added 08-24)
-
-- [ ] **Travel insurance that explicitly covers multi-day mountain trekking.** Norwegian mountain rescue itself is free (state-run), but treatment, evacuation and repatriation are not, and Israeli policies commonly exclude technical hiking or cap rescue low. Read the actual exclusions rather than just buying a policy.
-- [ ] Itinerary + hut dates left with someone at home, given the trek is solo
-- [ ] Passport
-
 ### Open judgment calls
 
 **Footwear.** The family member recommended below-ankle shoes. For this specific route the common recommendation runs the other way (ankle support) because of wet terrain, river crossings and boulder fields, and the route includes the Besseggen scramble and wire-assisted sections carried with a loaded multi-day pack. Not a reason to override the advice, but worth testing the chosen pair loaded before committing.
 
-**The 13-week problem.** This whole list is built for Norway, but it gets carried through London, Scotland, Ireland and Portugal. Scotland reuses most of it for the West Highland Way, so nothing is dead weight until early November, but the tent, stove and winter layers become baggage for the surf legs. Worth deciding now whether anything ships home after Scotland, since that changes what's worth buying.
+**The 13-week problem.** The Norway equipment list gets carried through London, Scotland, Ireland and Portugal too. Scotland reuses most of it for the West Highland Way, so nothing is dead weight until early November, but the tent, stove and winter layers become baggage for the surf legs. Worth deciding now whether anything ships home after Scotland, since that changes what's worth buying.
+
 ---
 
 ## Norway Route: Oslo → Jotunheimen → Breheimen
