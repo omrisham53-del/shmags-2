@@ -20,18 +20,18 @@ Base advice came from a family member with real hands-on experience in the area;
 
 - [ ] Hiking shoes -- test loaded before departure (below-ankle vs. ankle support is an open judgment call given river crossings, boulder fields, and the Besseggen scramble with a full pack)
 - [ ] Waterproof pants that cover the top of the shoe (2 pairs)
-- [ ] Gaiters **(NEED TO BUY)**
+- [ ] Gaiters
 
 ## Clothing
 
-- [ ] Hiking shirt, 1 **(NEED TO BUY)**
-- [ ] Regular t-shirts, 2-3 **(NEED TO BUY)**
+- [ ] Regular t-shirts, 2-3
+- [ ] Dri-fit shirts, 2 **(NEED TO BUY)**
 - [ ] Sweat-wicking boxer briefs (2 pairs)
 - [ ] Socks -- 3 temperature tiers: regular, medium, thermal/extreme-cold
 - [ ] Thermal base layers
 - [ ] Fleece or equivalent mid-layer (thin one)
 - [ ] Insulated jacket (Rab)
-- [ ] Waterproof shell jacket **(CHECK FIRST** -- only needed if the existing rain jacket isn't a genuine hardshell/3-in-1; also worth checking whether the Rab jacket needs a shell over it in wet conditions, since insulated jackets usually aren't fully waterproof on their own**)**
+- [ ] Waterproof shell jacket **(NEED TO BUY** -- confirmed needed, the Rab jacket isn't waterproof on its own and needs a rain shell over it in wet conditions**)**
 - [ ] Hat/hood, sun protection for the back of the neck
 - [ ] Warm beanie **(CHECK FIRST** -- confirm it's warm enough**)**
 - [ ] Buff **(NEED TO BUY)**
@@ -73,7 +73,7 @@ Base advice came from a family member with real hands-on experience in the area;
 
 - [ ] Repair kit -- duct tape wrapped on a pole, tent pole splint, needle and strong thread, spare buckle, superglue **(NEED TO BUY)**
 - [ ] Small plastic shovel **(NEED TO BUY)**
-- [ ] Whistle **(CHECK FIRST** -- a lot of packs have one built into the sternum strap buckle, check before buying a separate one**)**
+- [ ] Whistle **(NEED TO BUY** -- checked, the pack's sternum strap doesn't have one built in**)**
 - [ ] Foil emergency blanket **(NEED TO BUY** -- reflects body heat if stranded, injured, or waiting out weather/rescue; near-zero weight, just-in-case item given solo travel and the exposed sections**)**
 
 ## Food & Cooking
