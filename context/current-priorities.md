@@ -1,44 +1,58 @@
 # Current Priorities
 
-*Last updated: 2026-08-03 (light patch -- University's temporary #1 status resolved as planned; full re-derivation still 2026-07-24, see decisions/log.md)*
-*Previous full re-derivation: 2026-07-10 -- see decisions/log.md for reasoning behind each reorder.*
+*Last updated: 2026-09-03 (full re-derivation -- Window Winners killed, EcoTraders and University retired as delivery priorities, trip promoted to #1 with departure 5 days out)*
+*Previous full re-derivation: 2026-07-24 -- see decisions/log.md for reasoning behind each reorder.*
 
-## Priority 1: EcoTraders (Work) -- DONE. Job finished, all deliverables shipped.
-Gave notice 2026-07-06; **last working day was 2026-08-19** (Aug 22, the formal last day, is a Saturday). Every deliverable in the locked scope shipped: grants chapter and loan fund position paper (sent to the Ministry 2026-07-12), tax incentive model and chapter (submitted to Daniel 2026-08-17), tax and grants model documentation files, and the full loan fund chapter (trimmed and finished 2026-08-19). Nothing outstanding except one closing email to Daniel bundling the two documentation files and the loan fund chapter.
+## Priority 1: Norway leg / departure -- Sept 8, five days out
+The Sept 8 - ~Dec 8 Europe trip is now the main event, not a background project. Norway is the first leg: Oslo (1 night) -> Jotunheimen (6 days) -> Breheimen (5 days). Gear list is largely closed out (`projects/travel/equipment-list.md`); the live questions are route and logistics, not kit.
 
-Worth keeping for the record: the tax incentive model was the part Omri genuinely enjoyed -- a real Excel modeling problem (market-analysis engine, additionality logic, fiscal-cost calc) worked through with Claude, and the skill-building from it is the thing that carries forward, not the job. Known limitations left unresolved at handoff are documented in `projects/energy-program/tracker.md`.  
-**Owner:** EcoTraders (Manager: Daniel)
-**Status:** Closed 2026-08-19. Retire this priority at the next full re-derivation -- it's here only until the final email goes out.
+**Two open decisions, both with real dates:**
+- **Whether to trek Jotunheimen at all.** Omri has seen a cloudy forecast over the trek dates and is genuinely reconsidering. The plan of record (`projects/travel/tracker.md`, weather-watch section added 2026-09-01) is to hold and decide on **Sept 5-6**, once the forecast actually covers the Sept 10-21 window. He will also put the question to DNT staff in person in Oslo. Both inputs land before anything is committed.
+- **The Sept 13 DNT hut closure**, which remains the harder constraint than the weather. The planned Memurubu night on Sept 14 falls one day past the confirmed DNT-wide staffed-season cutoff. Top question for the Oslo DNT visit on Sept 9, alongside collecting the DNT key (blocking for Breheimen), the gas canister, and membership.
 
-## Priority 2: Through the Gap -> "Window Winners" -- new direction + launch date locked 2026-07-24/25
-Launched July 7 as a football-economics Substack newsletter; dropped entirely 2026-07-24 after a full discovery session (`brainstorms/2026-07-24_through-the-gap-direction.md`). New concept: **Window Winners**, a Premier League transfer-window prediction game -- Omri builds a real scoring model (squad fit, likely position/XI impact, business context) plus his own credibility-weighted valuation engine (aggregated from news/social reports, deliberately not scraped from Transfermarkt after checking EU database-rights exposure), fans make predictions alongside it, and a leaderboard settles who was right once results play out. Omri's own strategic call: of traction / technical growth / revenue, this project is strongest on the first two -- revenue is explicitly secondary for now.  
-**Launch target: Friday Aug 21, 2026 (Premier League season kickoff)**, not the transfer-window close. Full-scope v1 sized at ~85-115 hours -- too much alongside the Final Sustainability Project (due Aug 15) and EcoTraders wind-down, so scoped down: prediction game + leaderboard + sharing ships in full, valuation uses a manually curated list of ~15-20 marquee transfers instead of the full automated news/social aggregation engine (that becomes a post-launch upgrade, built during the trip toward the January window). Revised estimate ~40-55 hours (~10-14 hrs/week) over the 4 weeks to launch.  
-**Status:** Direction + launch date + scope locked; build not yet started.
+**Status:** Active, highest priority until departure.
 
-## Priority 3: University -- DONE. Degree complete, fully closed out.
-Energy Policy final exam (final exam of the entire degree) taken 2026-07-20, went well. Economics seminar distinction-track presentation with Tomer happened Thursday July 30 -- went great. Final LCA submitted 2026-08-03. **Final Sustainability Project written 2026-08-08, submitted 2026-08-12** -- the Herzliya Marina stormwater project (`פרוייקט יישומי קיימות`), a 14-page Hebrew paper Omri wrote solo for a 5-person team. Both submission channels (printed spiral-bound copy to the Dean's office secretariat, PDF upload to the course site) confirmed delivered, ahead of the real Aug 13 deadline.  
-**Status:** Nothing academic left to do, nothing pending. This was the last assignment of the degree. Priority 3 is fully retired -- fold it out of the next full re-derivation.
+## Priority 2: EcoTraders exit logistics -- must close before Sept 8
+The job itself is finished (last working day 2026-08-19, every deliverable in the locked scope shipped). What is left is Omri's own, not EcoTraders': money owed and paperwork, all of it much harder to chase as a former employee from abroad.
 
-## Priority 4: Career Direction Exploration (was "Job Search") -- genuinely reconsidering the path
-This is not a paused job search waiting for logistics to clear -- Omri is genuinely using the Sept-Dec Northern Europe trip to reconsider his career direction: what actually interests him, what other directions exist, what future career he wants, and where to start once he's back. Mechanism: conversations with alumni and professors met in Europe, plus fellow travelers along the way. Formal applications/active search resume only after this reflection, not on a fixed calendar date. MoonActive (gaming) still technically open but not a settled direction. All prior active applications closed out as declined (2026-07-10).  
-**Goal:** Clarity on direction first, then resume active search (~Dec 2026 earliest)  
-**Key activities:** Alumni/professor conversations during the trip; open exploration, not outreach
+- **Reference letter from Ron** -- the live item. Omri is sending Ron a draft to react to, so Ron only has to edit and sign rather than write from scratch. Draft at `projects/energy-program/reference-letter-draft.md`.
+- **Pension fund release letter (מכתב שחרור)** -- raised with Ron 2026-08-19, outcome never logged. Status unknown, confirm.
+- **Unused vacation payout** -- same, status unknown, confirm.
+- **Closing email to Daniel** (tax model documentation, grants model documentation, loan fund chapter) -- flagged pending since 2026-08-19 when the work PC holding the attachments went back. Status unknown, confirm.
 
-## Priority 5: Norway trip prep -- constant background project, not the main focus
-Part of the Sept 8 - ~Dec 8 Europe trip; Norway is the first leg (Oslo -> Jotunheimen -> Breheimen) and departure is under 7 weeks out. Omri works on this steadily in the background (route locked, hut service levels cross-referenced, budget tracker built) but it isn't where his main energy goes day to day. Open items: DNT hut-closure question for the in-person Oslo visit (Sept 9), the family-logistics prep session still pending, post-Breheimen scoping (Sept 22 onward). See `projects/travel/tracker.md`.  
-**Status:** Ongoing, steady background work.
+**Status:** Hard deadline is departure. Known limitations left unresolved at handoff are documented in `projects/energy-program/tracker.md`.
+
+## Priority 3: Career Direction Exploration -- the actual purpose of the trip
+Not a paused job search waiting for logistics to clear. Omri is deliberately using the Sept-Dec trip to reconsider direction: what interests him, what other paths exist, and where to start once he is back. Mechanism is conversations with alumni and professors met in Europe, plus fellow travelers. Formal applications resume only after that reflection, not on a fixed date (~Dec 2026 earliest). All prior applications closed out as declined (2026-07-10).
+
+**Status:** Begins at departure. Nothing to action before then.
+
+## Priority 4: LinkedIn post on the EcoTraders work -- decide before flying
+Carried in today.md as "planned once EcoTraders wraps up" since before the job ended, with no slot and no date. EcoTraders wrapped 2026-08-19. It is either written in the next five days or explicitly deferred to post-trip. Left undecided it just keeps rolling forward as a background guilt item.
+
+**Status:** Needs a yes/no from Omri, not more planning.
 
 ---
 
 ## Dead / Shelved
 
-**D&D Campaign** -- Confirmed dead 2026-07-24 (was "on hold" since 2026-07-10). Session 2 ("Chains") has been fully prepped since 2026-06-09 and still hasn't been played, 6+ weeks later, with no scheduling activity since July 10. Not being actively revisited. The `.claude/skills/dnd-session-prep/` skill and campaign files are left in place in case it revives. See `projects/dnd-campaign/README.md`.
+**Through the Gap / Window Winners** -- Killed 2026-09-03 at Omri's explicit instruction: no work on it and no future work planned. The Aug 21 launch target passed with the build never started, and it had been flagged as stalled in three consecutive weekly reviews. The whole project folder moved to `archives/through-the-gap/`; both recurring build blocks (Tue 19:00, Fri 10:00) deleted from Google Calendar. This closes out the football side project entirely, newsletter and prediction game alike. Do not resurface it as a suggestion.
+
+**D&D Campaign** -- Confirmed dead 2026-07-24 (was "on hold" since 2026-07-10). Session 2 ("Chains") has been fully prepped since 2026-06-09 and was never played. The `.claude/skills/dnd-session-prep/` skill and campaign files are left in place in case it revives. See `projects/dnd-campaign/README.md`.
+
+---
+
+## Retired (completed, kept for the record)
+
+**EcoTraders delivery work** -- Closed 2026-08-19. Grants chapter and loan fund position paper to the Ministry (2026-07-12), tax incentive model and chapter to Daniel (2026-08-17), both model documentation files, and the full loan fund chapter. The tax incentive model was the part Omri genuinely enjoyed, a real modeling problem worked through end to end, and the skill-building from it is what carries forward rather than the job. Exit logistics live on as Priority 2.
+
+**University** -- Degree complete. Final Sustainability Project submitted 2026-08-12, both channels confirmed, ahead of the real Aug 13 deadline. All grades pending, nothing further to produce.
 
 ---
 
 ## Hobbies
 
-**Chess** -- Active hobby, not a career/work priority. shamgi on chess.com (Rapid 1223 PB, Tactics 1871, Blitz 852). Member of the Improvers Club (monthly Annotated Game / Post / Video competitions); July 2026 submission ready. Core improvement focus: closing the ~648-point gap between tactics and rapid ratings. See `projects/chess/README.md` and `projects/chess/tracker.md`.
+**Chess** -- Active hobby, not a career/work priority. shamgi on chess.com. Member of the Improvers Club (monthly Annotated Game / Post / Video competitions). Core improvement focus: closing the gap between tactics and rapid ratings. Ratings and submission cycle tracked live in `projects/chess/tracker.md`, updated automatically by the scheduled routines.
 
 ---
 

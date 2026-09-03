@@ -1,4 +1,9 @@
-# Through the Gap
+# Through the Gap [ARCHIVED -- DEAD]
+
+> **Killed 2026-09-03** on Omri's explicit instruction: no work on it, no future work planned.
+> The Aug 21 launch target passed with the build never started, and it had been flagged as
+> stalled in three consecutive weekly reviews. Both recurring calendar build blocks were deleted.
+> Everything below this line is historical record, not a live plan.
 
 Football side project. Skill 6 project: a passion-first revenue stream that runs through the September trip and beyond, and doubles as a public portfolio piece.
 

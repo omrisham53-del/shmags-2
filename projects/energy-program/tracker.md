@@ -60,9 +60,10 @@ Separate from the deliverables. These are Omri's own, not EcoTraders'.
 | Final hours reported in Fireberry | Done |
 | Work PC returned | Today. **Send the closing email before handing it back** -- all 3 attachments are on it |
 | Handoff documentation | Not needed. Omri asked Daniel directly; Daniel wanted only the technical documentation |
-| Reference / employment letter | Being asked for 2026-08-19, meeting with Ron |
-| Pension fund release letter (מכתב שחרור) | **NOT DONE** |
-| Unused vacation payout | **NOT DONE** |
+| Reference / employment letter | In progress. Asked for 2026-08-19 (Ron meeting). Draft written for Ron 2026-09-03: `reference-letter-draft.md`, English, all-round emphasis. Send before Sept 8 |
+| Pension fund release letter (מכתב שחרור) | **Status unknown.** Raised with Ron 2026-08-19, outcome never logged. Confirm |
+| Unused vacation payout | **Status unknown.** Same as above. Confirm |
+| Closing email to Daniel (2 doc files + loan fund chapter) | **Status unknown.** Pending since 2026-08-19 when the work PC went back. Confirm it actually went out |
 
 The last two are money owed and are much harder to chase as a former employee, especially with
 the Sept 8 departure for Europe. They belong in the same conversation as the reference letter.

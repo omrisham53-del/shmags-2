@@ -99,6 +99,10 @@ A family member currently in Lofoten reported persistent cloud and rain, and inf
 
 Full research writeup with sources: artifact `Norway or South` (https://claude.ai/code/artifact/92d4a054-6a2d-46ab-91a6-f6c75a191fa9).
 
+**Update 2026-09-03 (2-3 days before the gate):** Omri has now seen a forecast showing Jotunheimen very cloudy across the trek dates, and is genuinely weighing whether to go there at all. This is a different input from the Lofoten anecdote above: it is an actual forecast for the actual area, and at 7-18 days out the near end of it is starting to carry real skill. Two things still argue for holding to Sept 5-6 rather than deciding now. The Sept 10-21 trek window is still only partly inside the reliable range, so an early call would bin the back half of the trek on a forecast that cannot yet support it. And cloud is not the deciding variable on its own: the genuinely weather-sensitive days are 5-6 (Bukkelægeret wires, Besseggen), where the questions are wind, visibility, precipitation and whether the rock is wet, not overcast. Cloudy-but-dry is a walkable trek.
+
+**Second input, by Omri's own plan: ask DNT staff in person in Oslo.** They are the people who will know what the huts are actually reporting on the ground, and they can settle the Sept 13 closure and the Memurubu Sept 14 question at the same time. Note the sequencing problem: the Oslo DNT visit is **Sept 9**, which is *after* the Sept 5-6 gate. So the gate decision has to be made without them. Practical resolution is to keep the Sept 5-6 call reversible -- fly to Oslo either way, since Oslo is the hub for both the Norway plan and the southward escape, hold the DNT membership purchase and any southward booking until after the Sept 9 conversation, and treat Sept 5-6 as "is this still plausible" rather than "is this final."
+
 ---
 
 ## Trip Prep Notes
