@@ -24,12 +24,10 @@ Not a paused job search waiting for logistics to clear. Omri is deliberately usi
 
 **Status:** Begins at departure. Nothing to action before then.
 
-## Priority 4: LinkedIn post -- provenance unclear, probably delete
-A single line, "LinkedIn post still planned once EcoTraders wraps up," has been carried in today.md's Current Priority block for weeks and was flagged as a missing priority by two consecutive weekly reviews. Asked about it on 2026-09-03, Omri did not recognise it.
+## Priority 4: LinkedIn post on the economics seminar presentation -- write before Sept 8
+Source identified 2026-09-03: Omri's best guess is this was always about the distinction-track economics seminar presentation with Tomer (data-center energy sourcing CBA, presented July 30, went great), not the EcoTraders work -- the wording in today.md had just drifted into "once EcoTraders wraps up" over several rewrites with nothing anchoring it. Confirmed plan: write and post it before the Sept 8 flight.
 
-There is no other trace of it anywhere: no decision-log entry, no project file, no brainstorm. Best guess is that it was an offhand idea about posting on finishing the degree or the EcoTraders work that got written into the dashboard and then outlived the thought. Treat it as cruft unless Omri says otherwise; if he confirms he never meant it, delete this section rather than carrying it further.
-
-**Status:** Awaiting one word from Omri. Do not action it in the meantime.
+**Status:** Active, do it this week.
 
 ---
 

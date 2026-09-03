@@ -74,9 +74,8 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 
 **Questions:**
 
-- **Gjendebu and Memurubu exact 2026 closing dates** -- both show a confirmed DNT-wide staffed season ending Sept 13; the planned route has a night at Memurubu on Sept 14, one day past that cutoff. Highest-priority question.
-- **Memurubu, Gjendesheim, Spiterstulen, Juvasshytta are "private staffed lodges," not DNT cabins** (per the official DNT Jotunheimen map, `kart-jotunheimen-2024.webp`) -- do they run a different, possibly later season than DNT's own Sept 13 cabin-network cutoff? If yes, the Sept 14 Memurubu risk may be a non-issue.
-- Whether reversing the 6-day loop direction (hit Memurubu/Gjendebu earlier, save Glitterheim/Spiterstulen for later) would be safer given the actual 2026 dates.
+- ~~Gjendebu and Memurubu exact 2026 closing dates~~ -- **RESOLVED 2026-09-03: Memurubu closes Sept 13.** Route reversed in response (see Norway Route below); every hut now falls inside its season, no tent night needed.
+- Confirm the reversed-route trade-off with DNT anyway: Besseggen now lands on Day 1 in its harder (descending) direction, with no acclimatization day beforehand. Worth asking whether they'd suggest a rest day in Gjendesheim first.
 - The Gjendesheim-area exit → Gaupne bridging leg for the Jotunheimen→Breheimen transition (likely via Sognefjellsvegen, visually confirmed as a real connecting corridor on both maps) -- exact bus schedule/duration, unconfirmed.
 - Current snow/weather conditions for early-mid September 2026, given the trip lands right at the edge of the safe season.
 - Night train Oslo→Bergen is no longer relevant (Bergen dropped) -- but Oslo Central Station bag storage is still needed for the Sep 8 layover before the Sep 9 morning DNT visit and Otta train.
@@ -93,7 +92,7 @@ A family member currently in Lofoten reported persistent cloud and rain, and inf
 - **No forecast for the trek window exists yet.** Trek runs Sept 10-21; useful model skill runs ~7-10 days. Deciding today means deciding blind.
 - **"Wet summer therefore wet autumn" isn't valid.** Mid-latitude precipitation anomalies don't persist across seasons. Copernicus autumn 2026 guidance: above-average temperature is the high-confidence signal, rainfall skill is low, and the wetter lean is aimed at southern/western Europe.
 - **September climatology matches what was already planned for** -- ~44% chance of precipitation per day, 7°C/1°C, ~29% clear sky. Same as the family member's own July advice. Nothing has actually changed.
-- **The bigger threat stays the Sept 13 hut closure**, not the clouds. Days 5-6 (Bukkelægeret wires, Besseggen) are the genuinely weather-sensitive ones, and those are morning-of calls from a hut.
+- **The Sept 13 hut closure turned out to be the real, confirmed issue** (Memurubu closes exactly then), but Omri's read (2026-09-03) is that a night or two in an unstaffed hut isn't a big risk in itself -- the route has since been reversed so it's a non-issue either way (see Norway Route below). He'll still raise it with DNT staff on Sept 9 to confirm, mainly around the reversed route's own trade-off (Besseggen now in its harder direction, no warm-up day).
 
 **Gate actions:** hold the DNT membership purchase (~€60) until Sept 5-6; book nothing southward before then; on Sept 5-6 pull the real 7-day forecast for Gjendesheim/Glitterheim/Spiterstulen and chase the Memurubu Sept 14 question by email. If it's a genuine washout, the only alternatives that cover the full Sept 10 - Oct 5 window are **Picos de Europa** (real mountain terrain, season runs May-October) and **Madeira** (year-round, but day-hiking not hut-to-hut) -- every Alpine option (Dolomites, Julian Alps, Pyrenees) hits its own hut-closure wall at almost exactly the same time as Norway. Oslo escape flights are cheap (Milan/Venice/Barcelona ~€20-55 one-way).
 
@@ -142,6 +141,8 @@ Route: [6 Days in Jotunheimen's Peaks](https://www.solofemalewanderer.com/blog/6
 
 | Day | Date | Leg | Distance | Hut (per DNT map) |
 |---|---|---|---|---|
+**SUPERSEDED by the reversed order below (2026-09-03) -- Memurubu confirmed closing Sept 13, which breaks the Day 5 night in this direction. Kept for comparison.**
+
 | 1 | Sep 10 | Gjendesheim → Glitterheim | 21km | Glitterheim -- DNT staffed |
 | 2 | Sep 11 | Glitterheim → Spiterstulen | 15-16km | Spiterstulen -- private staffed |
 | 3 | Sep 12 | Spiterstulen → Leirvassbu | 14km | Leirvassbu -- DNT staffed |
@@ -150,6 +151,31 @@ Route: [6 Days in Jotunheimen's Peaks](https://www.solofemalewanderer.com/blog/6
 | 6 | Sep 15 | Memurubu → Gjendesheim (via Besseggen) | 14km | Exit day |
 
 Days 5-6 include the most technical terrain (wire-assisted exposed sections, Besseggen's hands-and-knees scramble) -- fits fine for an experienced hiker, but not a beginner route.
+
+---
+
+**CONFIRMED 2026-09-03: Memurubu (private lodge) closes Sept 13**, same date as the DNT staffed network -- so the Day 5 night above (Sep 14) genuinely fails, not just a risk to check with DNT. Two options: tent that one night, or reverse the whole loop so every hut lands inside its season. Reversed route below.
+
+### Jotunheimen reversed -- same 6 days, Sep 10-15, opposite direction
+
+Same legs, same total distance (95.3km / ~3,600m), run backwards so Memurubu and Glitterheim's self-service quarter both land on the correct side of Sept 13.
+
+| Day | Date | Leg | Distance | Hut (per DNT map) |
+|---|---|---|---|---|
+| 1 | Sep 10 | Gjendesheim → Memurubu (via Besseggen) | 14km | Memurubu -- private staffed, well inside its Sept 13 close |
+| 2 | Sep 11 | Memurubu → Gjendebu (via Bukkelægeret) | 13km | Gjendebu -- DNT staffed |
+| 3 | Sep 12 | Gjendebu → Leirvassbu | 18km | Leirvassbu -- DNT staffed |
+| 4 | Sep 13 | Leirvassbu → Spiterstulen | 14km | Spiterstulen -- private staffed, runs to ~Oct 15, no issue |
+| 5 | Sep 14 | Spiterstulen → Glitterheim | 15-16km | Glitterheim -- staffed season just ended (Sep 13), but self-service quarter is open Feb 15-Oct 15 and unlocks with the DNT key. Confirmed via dnt.no. |
+| 6 | Sep 15 | Glitterheim → Gjendesheim | 21km | Exit day |
+
+**This fully resolves the hut problem** -- nothing needs a tent, nothing needs a DNT confirmation, every night lands in a hut that's genuinely open on that date. Sources: [Glitterheim opening hours (dnt.no)](https://www.dnt.no/hytter/betjente/glitterheim/apningstider/), [Glitterheim self-service (ut.no)](https://ut.no/hytte/10902012/glitterheim-selvbetjent), [Spiterstulen](https://spiterstulen.no/en/).
+
+**Two real trade-offs, not free fixes:**
+- **Besseggen gets harder, not just earlier.** The ridge is the easier direction climbing from Memurubu toward Gjendesheim (facing the two-lake view the whole way up) and the harder direction descending it from Gjendesheim toward Memurubu. The original order did it the easy way on Day 6; reversing puts it on Day 1 in the harder direction. Fine for an experienced hiker, but it's a genuine downgrade, not a wash.
+- **The hardest terrain now comes with zero warm-up, and the longest day (21km) becomes the exit day instead of the first day.** Originally Bukkelægeret and Besseggen landed on Days 5-6, after four days of conditioning and altitude adjustment. Reversed, Day 1 is Besseggen (in its harder direction) straight off one night in Gjendesheim, and the 21km day -- the single longest leg -- lands last, on tired legs, rather than first, on fresh ones.
+
+Net: reversing is the right call given Memurubu's confirmed Sept 13 close, and it's still asking a lot less of the trip than pitching a tent at altitude on the exposed days. Still worth putting the trade-off to DNT on Sep 9 -- specifically whether they'd instead start with a rest/acclimatization day in Gjendesheim before Day 1, given the ridge is now front-loaded with no warm-up.
 
 ### Transition: Jotunheimen → Breheimen (Sep 16)
 

@@ -9,9 +9,11 @@
 
 **Five days to departure (Sept 8).** Everything below is either "close it before the flight" or "decide it before the flight."
 
-- **Norway leg -- two live decisions.** (1) **Whether to trek Jotunheimen at all**: Omri has seen a cloudy forecast over the trek dates and is genuinely reconsidering. Plan of record stands: hold, and decide on **Sept 5-6** once the forecast actually reaches the Sept 10-21 window, with the DNT staff in Oslo consulted in person as a second input. (2) **The Sept 13 hut closure**, still the harder constraint than the weather, since the planned Memurubu night on Sept 14 sits one day past the DNT staffed-season cutoff. Both go to DNT in Oslo on Sept 9, along with the DNT key (blocking for Breheimen), gas canister, and membership. See `projects/travel/tracker.md`.
+- **Norway leg -- Jotunheimen route reversed, one decision left.** **Confirmed 2026-09-03: Memurubu closes Sept 13**, breaking the original Day 5 night -- fixed by reversing the whole 6-day loop (see `projects/travel/tracker.md`), which lands every hut inside its season with no tent night needed. Trade-off: Besseggen now falls on Day 1 in its harder (descending) direction with no warm-up, worth flagging to DNT on Sept 9. Omri's read: an unstaffed hut for a night or two isn't a big risk on its own, so this was never really the blocking issue it looked like. **What's still open is the weather call on Sept 5-6** -- hold until the forecast actually reaches the Sept 10-21 window, DNT conversation in Oslo Sept 9 as a second input, keep the gate reversible since DNT comes after it.
 
-- **EcoTraders exit -- one item left.** The job is finished (last working day 2026-08-19, every deliverable shipped) and the exit is nearly closed. Confirmed 2026-09-03: the closing email to Daniel went out with the final two deliverables, the pension release letter was unnecessary, and the vacation payout was already settled. What remains is the **reference letter from Ron**: draft written for him to react to rather than write from scratch, at `projects/energy-program/reference-letter-draft.md`. Send it before the flight.
+- **EcoTraders exit -- one item left.** The job is finished (last working day 2026-08-19, every deliverable shipped) and the exit is closed except for one thing. Confirmed 2026-09-03: the closing email to Daniel went out with the final two deliverables, the pension release letter was unnecessary, and the vacation payout was already settled. What remains is the **reference letter from Ron**: draft written for him to react to rather than write from scratch, at `projects/energy-program/reference-letter-draft.md`. Send it before the flight.
+
+- **LinkedIn post on the economics seminar presentation -- write before Sept 8.** The stray "LinkedIn post" line that had been drifting through this file for weeks turned out to be about the distinction-track economics seminar presentation with Tomer (data-center energy CBA, presented July 30), not EcoTraders. Confirmed plan: write and post it this week.
 
 - **University: DONE, degree complete.** Final Sustainability Project submitted 2026-08-12, both channels confirmed. All grades pending, nothing further to produce.
 
@@ -27,7 +29,13 @@
 
 3. **Full priorities re-derivation.** The file still described the trip as "under 7 weeks out" and carried EcoTraders and University as active delivery priorities. Rewritten around what is actually live: trip and departure at #1, exit logistics at #2, career exploration at #3, LinkedIn as an explicit decide-or-defer item.
 
-4. **Reference letter draft written for Ron** -- English, all-round emphasis, at `projects/energy-program/reference-letter-draft.md`.
+4. **Reference letter draft written for Ron** -- English, all-round emphasis, at `projects/energy-program/reference-letter-draft.md`. Draft revised to drop the pension/vacation mention once Omri confirmed the letter to Ron he'd need to write in the meeting confirmed both were already handled.
+
+5. **EcoTraders exit closed to one item.** Omri confirmed the closing email to Daniel was sent with the final two deliverables, the pension release letter is unnecessary, and the vacation payout was already settled. Tracker, priorities and today.md all updated -- the reference letter is now the only open item.
+
+6. **Jotunheimen route reversed and verified.** Omri confirmed Memurubu (the private lodge, not a DNT cabin) closes Sept 13 -- the same date as the DNT staffed network -- which breaks the original plan's Day 5 night there outright, not just as a risk. Checked the two other borderline huts directly against dnt.no and spiterstulen.no rather than assume: Glitterheim's self-service quarter runs Feb 15-Oct 15 (closed only while staffed, so a Sept 14 night is fine), Spiterstulen runs to ~Oct 15. Built the reversed 6-day itinerary (same legs, same total distance, opposite direction) -- every hut now lands inside its season. Flagged the real cost of reversing rather than presenting it as free: Besseggen swaps from its easier climbing direction (Memurubu to Gjendesheim) to its harder descending direction (Gjendesheim to Memurubu) on Day 1, with no acclimatization day beforehand, and the single longest day (21km) moves from first to last.
+
+7. **LinkedIn post source identified.** Omri's best guess: it was always about the economics seminar presentation with Tomer, not EcoTraders -- the wording had just drifted over several today.md rewrites. Confirmed plan: write and post before the flight.
 
 ---
 
@@ -46,8 +54,10 @@
 ## This Week's Focus (Sept 3-8, pre-departure)
 
 1. **Send Ron the reference letter draft.** The last open EcoTraders item. Fill the three placeholders first (Ron's title, start date, whether to name the Ministry).
-2. **Sept 5-6: the Jotunheimen call** -- the forecast finally reaches the front half of the trek window then. Keep the call reversible; the DNT conversation is Sept 9, after the gate.
-3. **Final gear sweep** -- everything except the DNT key and gas canister has to be sourced before boarding. `projects/travel/equipment-list.md`.
+2. **Write and post the LinkedIn piece on the economics seminar presentation.**
+3. **Sept 5-6: the Jotunheimen weather call** -- forecast finally reaches the front half of the trek window then. Route itself is already fixed (reversed loop); this is purely the go/no-go on the trek as a whole. Keep it reversible; the DNT conversation is Sept 9, after the gate.
+4. **Sept 9 in Oslo:** raise the reversed-route trade-off with DNT (Besseggen's harder direction with no warm-up day, whether a rest day first makes sense), collect the DNT key, gas canister, confirm membership.
+5. **Final gear sweep** -- everything except the DNT key and gas canister has to be sourced before boarding. `projects/travel/equipment-list.md`.
 
 ---
 
