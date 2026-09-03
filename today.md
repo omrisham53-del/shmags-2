@@ -33,6 +33,10 @@
 
 5. **Full Norway route section of the tracker rebuilt** around both reversals, old plans marked superseded rather than deleted, and three concrete DNT questions queued (Day 1/5 real difficulty, Fivla's actual status, Luster Fjordhytter booking) for Sept 9 or an earlier email.
 
+6. **Checked whether I could get direct API access to Omri's UT.no account** -- no, that's a consumer account with no personal API/OAuth exposure. But the underlying data is a genuinely public API (Nasjonal Turbase, `developer.nasjonalturbase.no`), the same one referenced in the JSON Omri pulled -- flagged as worth a future signup so route-checking doesn't need manual browser extraction each time, not urgent before the trip.
+
+7. **Drafted the DNT email** (`projects/travel/dnt-questions-email-draft.md`) covering all four open questions (Besseggen's harder direction with no warm-up, the Gjendesheim taxi plan, Day 1/5 Breheimen difficulty, Fivla's status, Luster Fjordhytter booking) plus a conditions check, addressed to DNT Oslo og Omegn since they run the Breheimen huts and likely the Oslo center too. Sent ahead of Sept 9 specifically so there's still time to react if the answer changes anything.
+
 ---
 
 ## Recent Work (September 3)
@@ -70,8 +74,8 @@
 1. **Send Ron the reference letter draft.** The last open EcoTraders item. Fill the three placeholders first (Ron's title, start date, whether to name the Ministry).
 2. **Write and post the LinkedIn piece on the economics seminar presentation.**
 3. **Sept 5-6: the Jotunheimen weather call** -- forecast finally reaches the front half of the trek window then. Route itself is already fixed (reversed loop); this is purely the go/no-go on the trek as a whole. Keep it reversible; the DNT conversation is Sept 9, after the gate.
-4. **Consider emailing DNT before Sept 9** on the Breheimen questions specifically (Day 1/5 real difficulty, Fivla's status, Luster Fjordhytter booking) -- this route is now load-bearing enough that finding out something's wrong in person on Sept 9 leaves little room to adjust.
-5. **Sept 9 in Oslo:** raise the Jotunheimen trade-off (Besseggen's harder direction, no warm-up day) and the Breheimen questions with DNT, collect the DNT key, gas canister, confirm membership, book the Gjendesheim→Sota Sæter taxi through the lodge staff.
+4. **Send the DNT email** (drafted, `projects/travel/dnt-questions-email-draft.md`) -- ahead of Sept 9 so there's still time to react if the answer changes anything.
+5. **Sept 9 in Oslo:** follow up on the email in person if no reply yet, collect the DNT key, gas canister, confirm membership, book the Gjendesheim→Sota Sæter taxi through the lodge staff.
 6. **Final gear sweep** -- everything except the DNT key and gas canister has to be sourced before boarding. `projects/travel/equipment-list.md`.
 
 ---

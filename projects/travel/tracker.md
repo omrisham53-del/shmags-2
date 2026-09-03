@@ -219,6 +219,8 @@ From Slæom onward, the full route to Høyheimsvik was pulled directly from DNT'
 - Whether Fivla is genuinely just a pass-through waypoint or has any overnight use.
 - Whether Luster Fjordhytter needs booking ahead, and how to reach them.
 
+**Email draft written 2026-09-04:** `dnt-questions-email-draft.md`, addressed to DNT Oslo og Omegn (`info.oslo@dnt.no`, the chapter that runs the Breheimen huts and most likely also the Oslo center Omri's visiting Sept 9). Sent ahead of the in-person visit specifically so there's still time to react if the answer changes the route -- Sept 9 is Day -1, too late to absorb a real problem.
+
 ### After Sep 21 -- Odda / Trolltunga block (not yet locked)
 
 Sep 22 -- ~Oct 5 (14 calendar days / ~13 usable, since ~Oct 5 itself is likely a travel/transition day toward London -- date is still an estimate, not booked).
