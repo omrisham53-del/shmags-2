@@ -15,9 +15,11 @@ letter do any work, and they are the part Ron would otherwise have to reconstruc
 
 **Suggested framing when Omri sends it:** say plainly that this is a draft to save Ron time,
 that he should change anything that does not sound like him, and that Omri would rather have a
-shorter letter Ron is comfortable with than a longer one he is not. Raise the pension release
-letter (מכתב שחרור) and the unused vacation payout in the same message, since both are still
-unconfirmed and both are much harder to chase after departure on Sept 8.
+shorter letter Ron is comfortable with than a longer one he is not.
+
+**The letter is the only open exit item.** The pension release letter turned out to be
+unnecessary and the unused vacation payout was already settled (both confirmed 2026-09-03), so
+this message does not need to carry anything else.
 
 ---
 

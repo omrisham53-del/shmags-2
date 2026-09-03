@@ -11,9 +11,7 @@
 
 - **Norway leg -- two live decisions.** (1) **Whether to trek Jotunheimen at all**: Omri has seen a cloudy forecast over the trek dates and is genuinely reconsidering. Plan of record stands: hold, and decide on **Sept 5-6** once the forecast actually reaches the Sept 10-21 window, with the DNT staff in Oslo consulted in person as a second input. (2) **The Sept 13 hut closure**, still the harder constraint than the weather, since the planned Memurubu night on Sept 14 sits one day past the DNT staffed-season cutoff. Both go to DNT in Oslo on Sept 9, along with the DNT key (blocking for Breheimen), gas canister, and membership. See `projects/travel/tracker.md`.
 
-- **EcoTraders exit logistics -- money and paperwork, all much harder to chase from abroad.** The job itself is finished (last working day 2026-08-19, every deliverable shipped). Live item is the **reference letter from Ron**: draft written for him to react to rather than write from scratch, at `projects/energy-program/reference-letter-draft.md`. Three others have no logged outcome and need confirming, not planning: pension fund release letter (מכתב שחרור), unused vacation payout, and the closing email to Daniel with the two model documentation files and the loan fund chapter.
-
-- **LinkedIn post on the EcoTraders work -- decide, don't defer by accident.** Carried as "planned once EcoTraders wraps up" since before the job ended. Either it gets written this week or it is explicitly a post-trip item.
+- **EcoTraders exit -- one item left.** The job is finished (last working day 2026-08-19, every deliverable shipped) and the exit is nearly closed. Confirmed 2026-09-03: the closing email to Daniel went out with the final two deliverables, the pension release letter was unnecessary, and the vacation payout was already settled. What remains is the **reference letter from Ron**: draft written for him to react to rather than write from scratch, at `projects/energy-program/reference-letter-draft.md`. Send it before the flight.
 
 - **University: DONE, degree complete.** Final Sustainability Project submitted 2026-08-12, both channels confirmed. All grades pending, nothing further to produce.
 
@@ -47,11 +45,9 @@
 
 ## This Week's Focus (Sept 3-8, pre-departure)
 
-1. **Send Ron the reference letter draft** -- and raise the pension release letter and vacation payout in the same message, since both are still unconfirmed and both get harder once Omri is a former employee abroad.
-2. **Sept 5-6: the Jotunheimen call** -- the forecast finally covers the trek window then. Decide, don't decide early.
-3. **Confirm the closing email to Daniel actually went out** -- flagged pending since Aug 19, no outcome logged.
-4. **LinkedIn post: write it or defer it explicitly.**
-5. **Final gear sweep** -- everything except the DNT key and gas canister has to be sourced before boarding. `projects/travel/equipment-list.md`.
+1. **Send Ron the reference letter draft.** The last open EcoTraders item. Fill the three placeholders first (Ron's title, start date, whether to name the Ministry).
+2. **Sept 5-6: the Jotunheimen call** -- the forecast finally reaches the front half of the trek window then. Keep the call reversible; the DNT conversation is Sept 9, after the gate.
+3. **Final gear sweep** -- everything except the DNT key and gas canister has to be sourced before boarding. `projects/travel/equipment-list.md`.
 
 ---
 

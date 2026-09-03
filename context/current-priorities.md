@@ -12,25 +12,24 @@ The Sept 8 - ~Dec 8 Europe trip is now the main event, not a background project.
 
 **Status:** Active, highest priority until departure.
 
-## Priority 2: EcoTraders exit logistics -- must close before Sept 8
-The job itself is finished (last working day 2026-08-19, every deliverable in the locked scope shipped). What is left is Omri's own, not EcoTraders': money owed and paperwork, all of it much harder to chase as a former employee from abroad.
+## Priority 2: EcoTraders exit -- one item left, close it before Sept 8
+The job is finished (last working day 2026-08-19, every deliverable in the locked scope shipped) and the exit is nearly closed too. Confirmed 2026-09-03: the closing email to Daniel went out with the final two deliverables attached, the pension release letter turned out to be unnecessary, and the unused vacation payout was already settled.
 
-- **Reference letter from Ron** -- the live item. Omri is sending Ron a draft to react to, so Ron only has to edit and sign rather than write from scratch. Draft at `projects/energy-program/reference-letter-draft.md`.
-- **Pension fund release letter (מכתב שחרור)** -- raised with Ron 2026-08-19, outcome never logged. Status unknown, confirm.
-- **Unused vacation payout** -- same, status unknown, confirm.
-- **Closing email to Daniel** (tax model documentation, grants model documentation, loan fund chapter) -- flagged pending since 2026-08-19 when the work PC holding the attachments went back. Status unknown, confirm.
+**The one remaining item is the reference letter from Ron.** Omri is sending him a draft to react to, so Ron only has to edit and sign rather than write from scratch. Draft at `projects/energy-program/reference-letter-draft.md`. Three placeholders need filling: Ron's title, Omri's EcoTraders start date, and whether to name the Ministry of Energy as the client.
 
-**Status:** Hard deadline is departure. Known limitations left unresolved at handoff are documented in `projects/energy-program/tracker.md`.
+**Status:** Send before departure. Known limitations left unresolved at handoff are documented in `projects/energy-program/tracker.md`.
 
 ## Priority 3: Career Direction Exploration -- the actual purpose of the trip
 Not a paused job search waiting for logistics to clear. Omri is deliberately using the Sept-Dec trip to reconsider direction: what interests him, what other paths exist, and where to start once he is back. Mechanism is conversations with alumni and professors met in Europe, plus fellow travelers. Formal applications resume only after that reflection, not on a fixed date (~Dec 2026 earliest). All prior applications closed out as declined (2026-07-10).
 
 **Status:** Begins at departure. Nothing to action before then.
 
-## Priority 4: LinkedIn post on the EcoTraders work -- decide before flying
-Carried in today.md as "planned once EcoTraders wraps up" since before the job ended, with no slot and no date. EcoTraders wrapped 2026-08-19. It is either written in the next five days or explicitly deferred to post-trip. Left undecided it just keeps rolling forward as a background guilt item.
+## Priority 4: LinkedIn post -- provenance unclear, probably delete
+A single line, "LinkedIn post still planned once EcoTraders wraps up," has been carried in today.md's Current Priority block for weeks and was flagged as a missing priority by two consecutive weekly reviews. Asked about it on 2026-09-03, Omri did not recognise it.
 
-**Status:** Needs a yes/no from Omri, not more planning.
+There is no other trace of it anywhere: no decision-log entry, no project file, no brainstorm. Best guess is that it was an offhand idea about posting on finishing the degree or the EcoTraders work that got written into the dashboard and then outlived the thought. Treat it as cruft unless Omri says otherwise; if he confirms he never meant it, delete this section rather than carrying it further.
+
+**Status:** Awaiting one word from Omri. Do not action it in the meantime.
 
 ---
 
