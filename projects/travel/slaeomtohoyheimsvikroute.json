@@ -1,0 +1,105 @@
+{
+  "route": {
+    "name": "Slæom to Høyheimsvik (via Luster Fjordhytter)",
+    "source": "ut.no / DNT (Den Norske Turistforening)",
+    "tile_source": "https://cdn.dnt.org/prod/ut-no/map/tiles/routes-merged-v5.pmtiles",
+    "total_distance_m": 82999,
+    "total_distance_km": 83.0,
+    "type": "multi-day hiking route",
+    "region": "Breheimen / Luster, Western Norway"
+  },
+  "cabins": [
+    { "name": "Slæom",           "id": 10526,     "url": "https://ut.no/kart/hytte/10526/slom",               "type": "Selvbetjent DNT-hytte" },
+    { "name": "Sprongdalshytta", "id": 10718,     "url": "https://ut.no/kart/hytte/10718/sprongdalshytta",    "type": "Selvbetjent DNT-hytte" },
+    { "name": "Arentzbu",        "id": 101098,    "url": "https://ut.no/kart/hytte/101098/arentzbu",          "type": "Selvbetjent DNT-hytte" },
+    { "name": "Fast",            "id": 10717,     "url": "https://ut.no/kart/hytte/10717/fast",               "type": "Selvbetjent DNT-hytte" },
+    { "name": "Vigdalstøl",      "id": 101372,    "url": "https://ut.no/kart/hytte/101372/vigdalstol",        "type": "Selvbetjent DNT-hytte" },
+    { "name": "Fivla",           "id": 10671,     "url": "https://ut.no/kart/hytte/10671/fivla",              "type": "Ubetjent DNT-hytte"   },
+    { "name": "Navarsete",       "id": 10719,     "url": "https://ut.no/kart/hytte/10719/navarsete",          "type": "Selvbetjent DNT-hytte" },
+    { "name": "Luster Fjordhytter (Høyheimsvik)", "id": 101186857, "url": "https://ut.no/kart/hytte/101186857/luster-fjordhytter", "type": "Hytte" }
+  ],
+  "sections": [
+    {
+      "order": 1,
+      "from": "Slæom",
+      "to": "Sprongdalshytta",
+      "route_id": 1344523,
+      "code": "bre61",
+      "distance_m": 22118,
+      "distance_km": 22.1,
+      "ut_no_from_id": 10526,
+      "ut_no_to_id": 10718
+    },
+    {
+      "order": 2,
+      "from": "Sprongdalshytta",
+      "to": "Arentzbu",
+      "route_id": 136678,
+      "code": "bre18",
+      "distance_m": 15607,
+      "distance_km": 15.6,
+      "ut_no_from_id": 10718,
+      "ut_no_to_id": 101098
+    },
+    {
+      "order": 3,
+      "from": "Arentzbu",
+      "to": "Fast",
+      "route_id": 136082,
+      "code": "bre19",
+      "distance_m": 11462,
+      "distance_km": 11.5,
+      "ut_no_from_id": 101098,
+      "ut_no_to_id": 10717
+    },
+    {
+      "order": 4,
+      "from": "Fast",
+      "to": "Vigdalstøl",
+      "route_id": 136149,
+      "code": "bre23",
+      "distance_m": 13964,
+      "distance_km": 14.0,
+      "ut_no_from_id": 10717,
+      "ut_no_to_id": 101372
+    },
+    {
+      "order": 5,
+      "from": "Vigdalstøl",
+      "to": "Fivla",
+      "route_id": 135802,
+      "code": "bre24",
+      "distance_m": 4214,
+      "distance_km": 4.2,
+      "ut_no_from_id": 101372,
+      "ut_no_to_id": 10671
+    },
+    {
+      "order": 6,
+      "from": "Fivla",
+      "to": "Navarsete",
+      "route_id": 135894,
+      "code": "bre47",
+      "distance_m": 8096,
+      "distance_km": 8.1,
+      "ut_no_from_id": 10671,
+      "ut_no_to_id": 10719
+    },
+    {
+      "order": 7,
+      "from": "Navarsete",
+      "to": "Høyheimsvik (Luster Fjordhytter)",
+      "route_id": 137059,
+      "code": "bre48",
+      "distance_m": 7538,
+      "distance_km": 7.5,
+      "ut_no_from_id": 10719,
+      "ut_no_to_id": 101186857
+    }
+  ],
+  "notes": {
+    "track_data": "Route track geometries are stored in the PMTiles vector tile file at cdn.dnt.org. Each section can be fetched by route_id from the DNT/Nasjonal Turbase API.",
+    "route_codes": "Codes follow the Breheimen trail system (bre prefix). Routes are T-merket (waymarked with red T-marks).",
+    "dnauturbase_api": "Route track data may be available via Nasjonal Turbase API using the numeric route_id values above."
+  }
+}

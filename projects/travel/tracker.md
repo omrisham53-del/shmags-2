@@ -76,7 +76,7 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 
 - ~~Gjendebu and Memurubu exact 2026 closing dates~~ -- **RESOLVED 2026-09-03: Memurubu closes Sept 13.** Route reversed in response (see Norway Route below); every hut now falls inside its season, no tent night needed.
 - Confirm the reversed-route trade-off with DNT anyway: Besseggen now lands on Day 1 in its harder (descending) direction, with no acclimatization day beforehand. Worth asking whether they'd suggest a rest day in Gjendesheim first.
-- The Gjendesheim-area exit → Gaupne bridging leg for the Jotunheimen→Breheimen transition (likely via Sognefjellsvegen, visually confirmed as a real connecting corridor on both maps) -- exact bus schedule/duration, unconfirmed.
+- ~~The Gjendesheim-area exit → Gaupne bridging leg via Sognefjellsvegen~~ -- **RESOLVED 2026-09-03/04: that whole corridor's bus service is dead by September.** Breheimen reversed in response (see Norway Route below) -- taxi from Gjendesheim replaces it. Real remaining questions moved into the Breheimen reversed section: Day 1/Day 5 difficulty, Fivla's status, Luster Fjordhytter booking.
 - Current snow/weather conditions for early-mid September 2026, given the trip lands right at the edge of the safe season.
 - Night train Oslo→Bergen is no longer relevant (Bergen dropped) -- but Oslo Central Station bag storage is still needed for the Sep 8 layover before the Sep 9 morning DNT visit and Otta train.
 - Whether the Breheimen self-service cabins stock a provision store (dry/canned food, honor-system payment). If they do, it materially cuts the food weight carried over those 4 nights.
@@ -177,29 +177,53 @@ Same legs, same total distance (95.3km / ~3,600m), run backwards so Memurubu and
 
 Net: reversing is the right call given Memurubu's confirmed Sept 13 close, and it's still asking a lot less of the trip than pitching a tent at altitude on the exposed days. Still worth putting the trade-off to DNT on Sep 9 -- specifically whether they'd instead start with a rest/acclimatization day in Gjendesheim before Day 1, given the ridge is now front-loaded with no warm-up.
 
-### Transition: Jotunheimen → Breheimen (Sep 16)
+### Transition: Jotunheimen → Breheimen (Sep 16) -- SUPERSEDED, see below
 
-Bus via Lom, then a further bridging leg to Gaupne/Høyheimsvik (Breheimen's trailhead for this route) -- likely via the Sognefjellsvegen corridor. Exact schedule unconfirmed, see Open Questions.
+~~Bus via Lom, then a further bridging leg to Gaupne/Høyheimsvik via Sognefjellsvegen.~~ **Dead: confirmed 2026-09-03 that every seasonal mountain bus on this whole corridor (Lom-Gjendesheim, Lom-Sogndal, Bismo-Sota Sæter) stops running by Aug 16-30, weeks before this trip's September dates** -- verified directly against innlandstrafikk.no, not just trip aggregators. Fixed by reversing Breheimen the same way Jotunheimen was reversed: enter from the mountain (Lom/Sota Sæter) side by taxi, exit at the fjord (Høyheimsvik) side, which has real year-round transport (Norled express boat to Bergen, daily, no seasonal gap).
 
-### Breheimen -- 5 days, Sep 17-21
+### Breheimen -- SUPERSEDED original plan (Høyheimsvik → Nørdstedalseter), kept for comparison
 
-Route: [From Fjord to Mountain in Breheimen](https://www.solofemalewanderer.com/blog/from-fjord-to-mountain-in-breheimen-english-route) -- 61km total, 3,000m+ elevation gain. Not recommended by the source as a first cabin-to-cabin hike, but reasonable given 6 days of Jotunheimen hut-to-hut immediately beforehand. Open to swapping for a different Breheimen route if the DNT conversation surfaces something better.
+Route: [From Fjord to Mountain in Breheimen](https://www.solofemalewanderer.com/blog/from-fjord-to-mountain-in-breheimen-english-route) -- 61km total, 3,000m+ elevation gain.
 
 | Day | Date | Leg | Distance | Hut (per DNT map) |
 |---|---|---|---|---|
-| 1 | Sep 17 | Gaupne/Høyheimsvik → Navarsete | 7.5km | Navarsete -- DNT self-service (confirmed via dnt.no, not on the map crop) |
+| 1 | Sep 17 | Gaupne/Høyheimsvik → Navarsete | 7.5km | Navarsete -- DNT self-service |
 | 2 | Sep 18 | Navarsete → Vigdalstøl | 20.4km | Vigdalstøl -- DNT self-service |
 | 3 | Sep 19 | Vigdalstøl → Fast | 13.9km | Fast -- DNT self-service |
 | 4 | Sep 20 | Fast → Arentzbu | 11.6km | Arentzbu -- DNT self-service |
-| 5 | Sep 21 | Arentzbu → Nørdstedalseter | 15.5km | Nørdstedalseter -- DNT staffed (real meals after 4 self-catered nights) |
+| 5 | Sep 21 | Arentzbu → Nørdstedalseter | 15.5km | Nørdstedalseter -- DNT staffed |
 
-Exit from Nørdstedalseter: hike to Sota Sæter (also DNT staffed, confirmed on map) then shuttle to Bismo, near Lom -- convenient for the bus back to Oslo.
+Dead as a whole: it assumed reaching Høyheimsvik by bus (impossible in September) and exiting via the also-dead Sota Sæter shuttle.
+
+### Breheimen reversed -- CONFIRMED route, Sep 16-21
+
+**Sota Sæter is itself closed by these dates** (staffed season ends Sept 6, 2026, and it has no self-service quarters at all -- confirmed directly against dnt.no) -- it's a taxi drop-off / road-end landmark only, not a place to stay. First night is at **Slæom**, a real self-service DNT hut, via a 5-hour marked trail from Sota Sæter (2h gravel road + 3h trail, per DNT's own listing).
+
+From Slæom onward, the full route to Høyheimsvik was pulled directly from DNT's own map data (ut.no route IDs, saved at `slaeomtohoyheimsvikroute.json` in this folder) -- 83.0km across 7 waymarked (T-merket) sections, all sourced, not aggregator estimates:
+
+| Day | Date | Leg | Distance | Notes |
+|---|---|---|---|---|
+| 0 | Sep 16 | Taxi Gjendesheim → Sota Sæter, walk to **Slæom** | ~5h walk | Confirmed via dnt.no. Book the taxi through Gjendesheim's own staff rather than by phone -- no Norwegian number, and staffed lodges arrange this routinely |
+| 1 | Sep 17 | Slæom → **Sprongdalshytta** (bre61) | 22.1 km | Longest single leg, lands right after the Day 0 walk -- no elevation data, flagged for DNT |
+| 2 | Sep 18 | Sprongdalshytta → **Arentzbu** (bre18) | 15.6 km | |
+| 3 | Sep 19 | Arentzbu → **Fast** (bre19) | 11.5 km | |
+| 4 | Sep 20 | Fast → **Vigdalstøl** (bre23) | 14.0 km | |
+| 5 | Sep 21 | Vigdalstøl → Fivla (bre24, 4.2km) → Navarsete (bre47, 8.1km) → **Høyheimsvik / Luster Fjordhytter** (bre48, 7.5km) | 19.8 km combined | Fivla is "Ubetjent" (unattended, minimal), not "Selvbetjent" like the other huts -- passed through, not slept at |
+
+**This is a materially longer, harder route than the original plan** -- 83km plus the Day 0 walk (roughly 95-100km all in) versus the original's 61km, landing immediately after six already-hard days in Jotunheimen. Day 1 (22.1km, right after Day 0) and the combined Day 5 (19.8km, three legs) are the two days worth double-checking for actual difficulty, not just distance -- no elevation profile available from web research.
+
+**Luster Fjordhytter (the Høyheimsvik endpoint) is a private cabin/guesthouse, not a DNT hut** -- it's the one accommodation on this whole route that likely needs advance booking rather than walk-up DNT-key access. Confirm before Sep 21.
+
+**Questions for DNT (Sep 9, or by email sooner given how load-bearing this route now is):**
+- Real difficulty/elevation on Day 1 (Slæom→Sprongdalshytta, 22.1km) and Day 5 (the combined 19.8km exit) -- distance alone doesn't tell us if these are walkable in a single day this late in the season.
+- Whether Fivla is genuinely just a pass-through waypoint or has any overnight use.
+- Whether Luster Fjordhytter needs booking ahead, and how to reach them.
 
 ### After Sep 21 -- Odda / Trolltunga block (not yet locked)
 
 Sep 22 -- ~Oct 5 (14 calendar days / ~13 usable, since ~Oct 5 itself is likely a travel/transition day toward London -- date is still an estimate, not booked).
 
-**Transport in:** Lom/Bismo → Odda is ~9h45m by bus (via Sogndal and Voss, no direct train) -- treat as its own dedicated travel day, nothing else scheduled around it.
+**Transport in -- needs re-checking.** The exit point is now Høyheimsvik, on the Sognefjord near Sogndal, not Lom/Bismo. The old ~9h45m Lom/Bismo → Odda routing (via Sogndal and Voss) already passed through Sogndal, so starting there directly likely shortens this leg, but the exact saving hasn't been checked -- Sogndal does have a confirmed year-round Norled express boat toward Bergen, which may itself be part of a better path to Odda. Re-verify once the Breheimen exit is locked.
 
 **Trolltunga itself:** 7-15h round trip depending on parking start point, black-graded. Needs a night in/near Odda before and after -- not a same-day hike.
 
