@@ -76,7 +76,8 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 
 - ~~Gjendebu and Memurubu exact 2026 closing dates~~ -- **RESOLVED 2026-09-03: Memurubu closes Sept 13.**
 - ~~The Gjendesheim-area exit → Gaupne bridging leg via Sognefjellsvegen~~ -- **RESOLVED 2026-09-03/04.**
-- ~~Reversed-route trade-offs, Fivla's status, Luster Fjordhytter booking~~ -- **MOOT 2026-09-04.** DNT's reply replaced the whole route these questions were about; see "CONFIRMED PLAN" in the Norway Route section below.
+- ~~Reversed-route trade-offs, Fivla's status~~ -- **MOOT 2026-09-04.** DNT's reply replaced the whole route these questions were about; see "CONFIRMED PLAN" in the Norway Route section below.
+- **Luster Fjordhytter booking -- NOT moot, caught by the 2026-09-04 weekly review after I wrongly filed it as resolved.** It's still needed, just in a different role: arrival-night accommodation at Høyheimsvik on Sep 16 (after the Svalheim bus), the night before Day 1 of Breheimen starts Sep 17 -- not the exit-night accommodation the superseded Slæom route needed it for. It's a private cabin, not a DNT hut, so it likely needs advance booking. Book before departure.
 - **RESOLVED via DNT's 2026-09-04 email reply:** the summer river bridges near Gjendebu/Spiterstulen/Glitterheim/Gjendesheim are removed ~Sept 13 -- the original 6-hut loop (either direction) is genuinely unsafe that late, not just inconvenient. DNT proposed the route now in "CONFIRMED PLAN" instead.
 - **New, from the DNT reply:** confirm whether the Otta-Vågåmo-Gjendesheim bus for the existing Sep 9 arrival plan is real in September, or dead like the Lom-Gjendesheim route -- DNT's wording implies a bus exists but arrives too late for same-day hiking, which doesn't fully square with the earlier finding that Line 204 ends Aug 16.
 - **New:** Nørdstedalseter → Sota Sæter distance/time, for planning the Sept 22 exit day.
@@ -217,6 +218,8 @@ DNT's own wording ("the bus to Gjendesheim arrives too late... stay one night at
 ### Transition: Svalheim → Høyheimsvik (Sep 16)
 
 **Confirmed available via the transit app**: ~3.5 hours, several bus transfers. Treat as its own full travel day, nothing else scheduled -- same caution as the original Lom→Odda estimate, a multi-transfer regional bus day leaves little slack for a missed connection.
+
+**Arrival-night accommodation at Høyheimsvik needed for Sep 16, before Day 1 of Breheimen starts Sep 17.** Luster Fjordhytter (a private cabin/guesthouse, not a DNT hut) is the option identified so far -- likely needs advance booking, unlike everything else on this trip. Book before departure.
 
 ### Breheimen -- original direction, Sep 17-21 (reinstated)
 

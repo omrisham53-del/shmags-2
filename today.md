@@ -81,9 +81,9 @@
 
 1. **Send Ron the reference letter draft.** The last open EcoTraders item. Fill the three placeholders first (Ron's title, start date, whether to name the Ministry).
 2. **Write and post the LinkedIn piece on the economics seminar presentation.**
-3. **Sept 5-6: the Jotunheimen weather call** -- forecast finally reaches the front half of the trek window then. Route itself is already fixed (reversed loop); this is purely the go/no-go on the trek as a whole. Keep it reversible; the DNT conversation is Sept 9, after the gate.
-4. **Send the DNT email** (drafted, `projects/travel/dnt-questions-email-draft.md`) -- ahead of Sept 9 so there's still time to react if the answer changes anything.
-5. **Sept 9 in Oslo:** follow up on the email in person if no reply yet, collect the DNT key, gas canister, confirm membership, book the Gjendesheim→Sota Sæter taxi through the lodge staff.
+3. **Sept 5-6: the Jotunheimen weather call** -- forecast finally reaches the front half of the trek window then. Route itself is now DNT's own recommended one; this is purely the go/no-go on the trek as a whole. Keep it reversible.
+4. **Book Luster Fjordhytter for the night of Sept 16** (Høyheimsvik, arrival night before Day 1 of Breheimen) -- private cabin, not a DNT hut, likely needs advance booking. Caught by the weekly review after being wrongly marked resolved; genuinely still open.
+5. **Sept 9 in Oslo:** collect the DNT key, gas canister, confirm membership. Follow up with DNT in person on the two remaining open items (Otta-Vågåmo-Gjendesheim bus status for Sep 9, Nørdstedalseter→Sota Sæter exit distance) if no further reply by then.
 6. **Final gear sweep** -- everything except the DNT key and gas canister has to be sourced before boarding. `projects/travel/equipment-list.md`.
 
 ---
