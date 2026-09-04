@@ -66,6 +66,7 @@ Base advice came from a family member with real hands-on experience in the area;
 - [ ] Water purification tablets **(NEED TO BUY)**
 - [ ] Sunscreen + SPF lip balm
 - [ ] Toiletry bag / general toiletries
+- [ ] 3-in-1 body wash (shampoo/conditioner/body) **(NEED TO BUY)**
 - [ ] Toilet paper
 - [ ] Trash bags for pack-it-out waste -- heavy-duty, separate from the ziplocks above
 
