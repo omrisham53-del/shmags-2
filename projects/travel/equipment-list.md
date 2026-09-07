@@ -49,7 +49,7 @@ Base advice came from a family member with real hands-on experience in the area;
 ## Navigation, Power & Light
 
 - [ ] Headlamp
-- [ ] Power bank, light but serious capacity **(CHECK FIRST** -- the one on hand may belong to someone else and need returning; buy a replacement if so**)**
+- [x] Power bank, light but serious capacity -- bought 2026-09-07: Xiaomi 33W Power Bank 20,000mAh (integrated cable). ~74Wh, single unit, clears El Al's rule (1 power bank per passenger, <=100Wh, cabin only).
 - [ ] Plug adapter
 - [ ] Paper map (Norge-serien 1:50,000) + compass **(BUY IN NORWAY)**
 
