@@ -44,7 +44,7 @@ Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trai
 
 | Leg | Dates | Duration | Notes |
 |---|---|---|---|
-| Norway | Sept 8 – ~Oct 5 | 4 weeks | Bergen dropped entirely -- straight to trekking. Jotunheimen (6 days) then Breheimen (5 days), back to back, done as fast as the season allows (see Norway Route below). ~13 days open after Sept 21 for whatever's next before Oct 5. |
+| Norway | Sept 8 – ~Oct 6 | 4 weeks | Bergen dropped entirely -- straight to trekking. Jotunheimen (6 days) then Breheimen (5 days), back to back, done as fast as the season allows (see Norway Route below). Departure to Gjendesheim slipped one day to Sept 10 (2026-09-08, DNT center opens 10:00, conflicts with the 08:02 train) -- everything downstream shifted +1 day. ~13 days open after Sept 22 for whatever's next before Oct 6. |
 | London | ~Oct 5 – Oct 19 | 1.5 weeks | Friends meetup ~Oct 8, Premier League football |
 | Scotland | ~Oct 19 – Nov 2 | 2 weeks | West Highland Way, Edinburgh/Glasgow |
 | Ireland | ~Nov 2 – Nov 16 | 2 weeks | Galway/Connemara, west coast surf (Bundoran, Lahinch) |
@@ -135,10 +135,13 @@ Full research writeup with sources: artifact `Norway or South` (https://claude.a
 
 Bergen dropped entirely (2026-07-18) -- decided to focus on hiking the best locations as fast as possible before the season turns. Full details below.
 
-### Travel to Jotunheimen (Sep 8-9)
+### Travel to Jotunheimen (Sep 8-10) -- shifted 2026-09-08, one day later than originally planned
 
-1. **Sep 8:** Land Oslo, one night in Oslo (not the same-night rush to the mountains -- deliberate, so the Sep 9 morning is free for the DNT center visit).
-2. **Sep 9:** Only one daily train+bus connection reaches Gjendesheim: train Oslo→Otta (08:02–11:33), bus Otta→Vågåmo (11:50–12:20), bus Vågåmo→Gjendesheim (12:25–13:40). ~5.5h total, arriving **early afternoon, not evening** -- better than expected, leaves a few hours to settle in or start hiking that day.
+**Conflict caught on the ground 2026-09-08:** the original Sep 9 plan tried to do the DNT center errands (key, membership, gas canister) AND catch the 08:02 Oslo→Otta train the same morning. The DNT center opens at **10:00** -- after the train leaves. Can't do both. Fix: give Sep 9 fully to Oslo/DNT, take the train a day later.
+
+1. **Sep 8:** Land Oslo, one night in Oslo.
+2. **Sep 9:** Full day in Oslo. DNT center opens 10:00 -- do the errands there: collect the DNT key (100 NOK refundable deposit, bring membership card/app/confirmation), confirm membership is active, buy a gas canister (DNT shop or XXL, check the valve matches). No train today.
+3. **Sep 10 (Thu):** Only one daily train+bus connection reaches Gjendesheim: train Oslo→Otta (08:02–11:33), bus Otta→Vågåmo (11:50–12:20), bus Vågåmo→Gjendesheim (12:25–13:40). ~5.5h total, arriving **early afternoon**. Confirm this exact connection still runs on a Thursday before boarding -- times above were sourced for a general "daily" service, not verified day-of-week.
 
 ### Jotunheimen -- 6 days, Sep 10-15
 
@@ -200,40 +203,42 @@ Built 2026-09-03 on the assumption that reaching Høyheimsvik required a taxi fr
 
 Emailed DNT Oslo og Omegn before the Sept 9 visit (`dnt-questions-email-draft.md`) about the reversed Jotunheimen loop and the Gjendesheim-taxi Breheimen entry. Their reply surfaced something neither Omri nor this file had checked: **the summer river bridges between Gjendebu, Spiterstulen, Glitterheim and Gjendesheim are removed around Sept 13, the same date the nearby staffed cabins close** -- so the reversed 6-hut loop (or the original direction, for that matter) is genuinely unsafe that late in the season, not just inconvenient. DNT does not recommend it. They proposed a different route entirely, which Omri verified includes a real bus from its endpoint to Høyheimsvik (confirmed via the transit app: ~3.5h, several transfers).
 
-### Jotunheimen -- DNT-recommended route, Sep 10-15
+### Jotunheimen -- DNT-recommended route, Sep 11-16 (shifted +1 day 2026-09-08, see Travel to Jotunheimen note above)
 
 Avoids the bridge-removal huts entirely (Spiterstulen and Glitterheim are dropped from the route, not just reordered).
 
 | Day | Date | Leg | Distance | Notes |
 |---|---|---|---|---|
-| 1 | Sep 10 | Gjendesheim → Memurubu (via Besseggen) | 14 km | DNT: "not suitable for people with a strong fear of heights," otherwise a regular mountain hike. No acclimatization needed beyond the Sep 9 night at Gjendesheim -- DNT explicitly confirmed this |
-| 2 | Sep 11 | Memurubu → Gjendebu (via Bukkelægeret) | 13 km | |
-| 3 | Sep 12 | Gjendebu → Leirvassbu | 18 km | |
-| 4 | Sep 13 | Leirvassbu → Skogadalsbøen | ~19.5 km | ~6-6.5h, rated "Hard" by community sources. Skogadalsbøen staffed, open Apr 6-Oct 15, 2026 -- comfortably in season |
-| 5 | Sep 14 | Skogadalsbøen → Vettismorki | 10.6 km | ~3.5h. Vettismorki self-service, exists specifically to break up this long stage |
-| 6 | Sep 15 | Vettismorki → Svalheim (near Hjelle) | ~9-10 km | ~4h, backed into from a combined-stage figure, not independently confirmed |
+| 1 | Sep 11 | Gjendesheim → Memurubu (via Besseggen) | 14 km | DNT: "not suitable for people with a strong fear of heights," otherwise a regular mountain hike. No acclimatization needed beyond the Sep 10 night at Gjendesheim -- DNT explicitly confirmed this. Still well clear of Memurubu's Sept 13 close |
+| 2 | Sep 12 | Memurubu → Gjendebu (via Bukkelægeret) | 13 km | |
+| 3 | Sep 13 | Gjendebu → Leirvassbu | 18 km | |
+| 4 | Sep 14 | Leirvassbu → Skogadalsbøen | ~19.5 km | ~6-6.5h, rated "Hard" by community sources. Skogadalsbøen staffed, open Apr 6-Oct 15, 2026 -- comfortably in season |
+| 5 | Sep 15 | Skogadalsbøen → Vettismorki | 10.6 km | ~3.5h. Vettismorki self-service, exists specifically to break up this long stage |
+| 6 | Sep 16 | Vettismorki → Svalheim (near Hjelle) | ~9-10 km | ~4h, backed into from a combined-stage figure, not independently confirmed |
 
 DNT's own wording ("the bus to Gjendesheim arrives too late... stay one night at Gjendesheim first") implies a bus still reaches Gjendesheim in September on the east/Otta-Vågåmo approach, which sits oddly against the earlier finding that Line 204 (the Lom-Gjendesheim *west* approach) is dead by Aug 16 -- these may simply be different routes. Worth confirming which one actually serves the existing Sep 9 plan (train Oslo→Otta, bus Otta→Vågåmo→Gjendesheim) before relying on it; keep the Gjendesheim-staff-arranged-taxi fallback in mind regardless, it costs nothing to hold as backup.
 
-### Transition: Svalheim → Høyheimsvik (Sep 16)
+### Transition: Svalheim → Høyheimsvik (Sep 17, shifted +1 day)
 
 **Confirmed available via the transit app**: ~3.5 hours, several bus transfers. Treat as its own full travel day, nothing else scheduled -- same caution as the original Lom→Odda estimate, a multi-transfer regional bus day leaves little slack for a missed connection.
 
-**Arrival-night accommodation at Høyheimsvik needed for Sep 16, before Day 1 of Breheimen starts Sep 17.** Luster Fjordhytter (a private cabin/guesthouse, not a DNT hut) is the option identified so far -- likely needs advance booking, unlike everything else on this trip. Book before departure.
+**Arrival-night accommodation at Høyheimsvik needed for Sep 17, before Day 1 of Breheimen starts Sep 18.** Luster Fjordhytter (a private cabin/guesthouse, not a DNT hut) is the option identified so far -- likely needs advance booking, unlike everything else on this trip. Book before departure.
 
-### Breheimen -- original direction, Sep 17-21 (reinstated)
+### Breheimen -- original direction, Sep 18-22 (reinstated, shifted +1 day)
 
 Route: [From Fjord to Mountain in Breheimen](https://www.solofemalewanderer.com/blog/from-fjord-to-mountain-in-breheimen-english-route) -- 61km total, 3,000m+ elevation gain. DNT's own reply endorses this direction explicitly: "From Høyheimsvik, you can start your hike into Breheimen."
 
 | Day | Date | Leg | Distance | Hut (per DNT map) |
 |---|---|---|---|---|
-| 1 | Sep 17 | Høyheimsvik → Navarsete | 7.5km | Navarsete -- DNT self-service |
-| 2 | Sep 18 | Navarsete → Vigdalstøl | 20.4km | Vigdalstøl -- DNT self-service |
-| 3 | Sep 19 | Vigdalstøl → Fast | 13.9km | Fast -- DNT self-service |
-| 4 | Sep 20 | Fast → Arentzbu | 11.6km | Arentzbu -- DNT self-service |
-| 5 | Sep 21 | Arentzbu → Nørdstedalseter | 15.5km | Nørdstedalseter -- DNT staffed |
+| 1 | Sep 18 | Høyheimsvik → Navarsete | 7.5km | Navarsete -- DNT self-service |
+| 2 | Sep 19 | Navarsete → Vigdalstøl | 20.4km | Vigdalstøl -- DNT self-service |
+| 3 | Sep 20 | Vigdalstøl → Fast | 13.9km | Fast -- DNT self-service |
+| 4 | Sep 21 | Fast → Arentzbu | 11.6km | Arentzbu -- DNT self-service |
+| 5 | Sep 22 | Arentzbu → Nørdstedalseter | 15.5km | Nørdstedalseter -- DNT staffed |
 
-**Exit (Sep 22ish):** Nørdstedalseter → Sota Sæter (a real marked trail exists -- "Massiv Trail: Sota Sæter to Nørdstedalseter" -- but distance/time not yet confirmed) → **taxi from Sota Sæter to Lom** (real road confirmed, "bilveg helt fram," two EV chargers), since the Bismo shuttle that would normally cover this is dead (Route 2000 ends Aug 16). Sota Sæter itself is closed by these dates (staffed season ends Sept 6, no self-service) -- same as Day 0 in the superseded plan, it's a road-end taxi pickup point, not a place to stay. This reuses the taxi research already done: Taxi 03650 Lom (909 03 014) or Schøss Taxi (48 90 95 00), booked a day ahead given it's a remote pickup in shoulder season.
+**Exit (Sep 23ish):** Nørdstedalseter → Sota Sæter (a real marked trail exists -- "Massiv Trail: Sota Sæter to Nørdstedalseter" -- but distance/time not yet confirmed) → **taxi from Sota Sæter to Lom** (real road confirmed, "bilveg helt fram," two EV chargers), since the Bismo shuttle that would normally cover this is dead (Route 2000 ends Aug 16). Sota Sæter itself is closed by these dates (staffed season ends Sept 6, no self-service) -- same as Day 0 in the superseded plan, it's a road-end taxi pickup point, not a place to stay. This reuses the taxi research already done: Taxi 03650 Lom (909 03 014) or Schøss Taxi (48 90 95 00), booked a day ahead given it's a remote pickup in shoulder season.
+
+**Note:** this whole leg shifted +1 day on 2026-09-08 (see "Travel to Jotunheimen" above) -- dates in this section already reflect the shift.
 
 **Net effect of the whole DNT exchange:** back to something close to the very first plan -- shorter Breheimen route (61km vs. the superseded 83km), only one taxi leg needed (the Sept 22 exit) instead of two, and the route DNT itself would recommend rather than one improvised around dead bus schedules alone.
 
@@ -242,9 +247,9 @@ Route: [From Fjord to Mountain in Breheimen](https://www.solofemalewanderer.com/
 - Whether the Otta-Vågåmo-Gjendesheim bus for Sep 9 is real or also dead (see note above).
 - Confirm the bridge removal genuinely doesn't affect the Leirvassbu-Skogadalsbøen-Vettismorki-Svalheim corridor -- DNT proposed this route themselves so it should be fine, but worth a direct confirmation given how wrong the aggregator-sourced assumptions turned out to be earlier in this process.
 
-### After Sep 21 -- Odda / Trolltunga block (not yet locked)
+### After Sep 22 -- Odda / Trolltunga block (not yet locked, shifted +1 day)
 
-Sep 22 -- ~Oct 5 (14 calendar days / ~13 usable, since ~Oct 5 itself is likely a travel/transition day toward London -- date is still an estimate, not booked).
+Sep 23 -- ~Oct 6 (14 calendar days / ~13 usable, since ~Oct 6 itself is likely a travel/transition day toward London -- date is still an estimate, not booked).
 
 **Transport in:** exit point is back to Sota Sæter/Lom (see above), so the original **Lom/Bismo → Odda, ~9h45m by bus (via Sogndal and Voss)** estimate applies again -- the brief detour through Sogndal/Høyheimsvik as an exit point is no longer the plan.
 
