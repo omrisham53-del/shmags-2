@@ -79,7 +79,7 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 - ~~Reversed-route trade-offs, Fivla's status~~ -- **MOOT 2026-09-04.** DNT's reply replaced the whole route these questions were about; see "CONFIRMED PLAN" in the Norway Route section below.
 - **Luster Fjordhytter booking -- NOT moot, caught by the 2026-09-04 weekly review after I wrongly filed it as resolved.** It's still needed, just in a different role: arrival-night accommodation at Høyheimsvik on Sep 16 (after the Svalheim bus), the night before Day 1 of Breheimen starts Sep 17 -- not the exit-night accommodation the superseded Slæom route needed it for. It's a private cabin, not a DNT hut, so it likely needs advance booking. Book before departure.
 - **RESOLVED via DNT's 2026-09-04 email reply:** the summer river bridges near Gjendebu/Spiterstulen/Glitterheim/Gjendesheim are removed ~Sept 13 -- the original 6-hut loop (either direction) is genuinely unsafe that late, not just inconvenient. DNT proposed the route now in "CONFIRMED PLAN" instead.
-- **New, from the DNT reply:** confirm whether the Otta-Vågåmo-Gjendesheim bus for the existing Sep 9 arrival plan is real in September, or dead like the Lom-Gjendesheim route -- DNT's wording implies a bus exists but arrives too late for same-day hiking, which doesn't fully square with the earlier finding that Line 204 ends Aug 16.
+- ~~confirm whether the Otta-Vågåmo-Gjendesheim bus is real in September~~ -- **RESOLVED 2026-09-08: Omri verified directly with the bus operator, real, departs 08:30 (Sep 10, since the departure day itself shifted).**
 - **New:** Nørdstedalseter → Sota Sæter distance/time, for planning the Sept 22 exit day.
 - Current snow/weather conditions for early-mid September 2026 -- DNT's reply pointed to senorge.no directly, and said snow "can be a concern... although often not significant that early in the autumn."
 - How much the current cloud cover actually degrades the hiking experience -- DNT's reply didn't address this directly, worth a follow-up if it matters to the go/no-go call.
@@ -141,7 +141,7 @@ Bergen dropped entirely (2026-07-18) -- decided to focus on hiking the best loca
 
 1. **Sep 8:** Land Oslo, one night in Oslo.
 2. **Sep 9:** Full day in Oslo. DNT center opens 10:00 -- do the errands there: collect the DNT key (100 NOK refundable deposit, bring membership card/app/confirmation), confirm membership is active, buy a gas canister (DNT shop or XXL, check the valve matches). No train today.
-3. **Sep 10 (Thu):** Only one daily train+bus connection reaches Gjendesheim: train Oslo→Otta (08:02–11:33), bus Otta→Vågåmo (11:50–12:20), bus Vågåmo→Gjendesheim (12:25–13:40). ~5.5h total, arriving **early afternoon**. Confirm this exact connection still runs on a Thursday before boarding -- times above were sourced for a general "daily" service, not verified day-of-week.
+3. **Sep 10 (Thu):** **Verified by Omri directly with the bus operator -- real, departs 08:30** (not the previously sourced 08:02, which was an unverified aggregator time). Connection confirmed running on a Thursday. Onward legs (Otta→Vågåmo→Gjendesheim, previously estimated 11:50–13:40) not independently re-verified against the corrected departure -- check the exact connection times at Oslo S before boarding.
 
 ### Jotunheimen -- 6 days, Sep 10-15
 
@@ -244,7 +244,7 @@ Route: [From Fjord to Mountain in Breheimen](https://www.solofemalewanderer.com/
 
 **Still open, worth a follow-up to DNT or a check via ut.no:**
 - Nørdstedalseter → Sota Sæter distance/time, to know how much of the exit day is walking versus waiting for a taxi.
-- Whether the Otta-Vågåmo-Gjendesheim bus for Sep 9 is real or also dead (see note above).
+- ~~Whether the Otta-Vågåmo-Gjendesheim bus for Sep 9 is real or also dead~~ -- **RESOLVED 2026-09-08**, see "Travel to Jotunheimen" above.
 - Confirm the bridge removal genuinely doesn't affect the Leirvassbu-Skogadalsbøen-Vettismorki-Svalheim corridor -- DNT proposed this route themselves so it should be fine, but worth a direct confirmation given how wrong the aggregator-sourced assumptions turned out to be earlier in this process.
 
 ### After Sep 22 -- Odda / Trolltunga block (not yet locked, shifted +1 day)
