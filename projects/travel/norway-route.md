@@ -45,7 +45,6 @@ At the Oslo DNT center Omri was told to change the route: transport in the area 
 ## Still open
 
 - Fast → Skjolden distance/time.
-- Skjolden → Oslo transport option and timing.
-- Whether to actually return straight to Oslo from Skjolden or still work in the Odda/Trolltunga block -- the "After Sep 22" Odda plan below assumed exiting via Lom, which no longer applies; needs rework if Odda is still wanted.
+- Skjolden → Odda transport: still wanted (Trolltunga), weather-dependent -- aggregator estimate ~8h via Sogndal/Voss, not yet verified against a real operator (Entur). Skjolden → Oslo direct is the fallback if weather rules it out. Full detail in `tracker.md`.
 - Confirm the bridge removal (the thing that killed the original 6-hut loop) doesn't touch the Leirvassbu-Skogadalsbøen-Vettismorki-Svalheim corridor -- DNT proposed this route themselves, so should be fine, but not independently confirmed.
 - Whether Breheimen's self-service cabins stock a provision store (cuts food weight if so).
