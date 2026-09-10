@@ -44,7 +44,7 @@ Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trai
 
 | Leg | Dates | Duration | Notes |
 |---|---|---|---|
-| Norway | Sept 8 – ~Oct 6 | 4 weeks | Bergen dropped entirely -- straight to trekking. Jotunheimen (6 days) then Breheimen (5 days), back to back, done as fast as the season allows (see Norway Route below). Departure to Gjendesheim slipped one day to Sept 10 (2026-09-08, DNT center opens 10:00, conflicts with the 08:02 train) -- everything downstream shifted +1 day. ~13 days open after Sept 22 for whatever's next before Oct 6. |
+| Norway | Sept 8 – ~Oct 6 | 4 weeks | Bergen dropped entirely -- straight to trekking. Jotunheimen (6 days) then Breheimen (now 4 days, shortened 2026-09-09 at the Oslo DNT center due to closing-down transport -- exits at Skjolden, not Lom), back to back, done as fast as the season allows (see `norway-route.md`). Departure to Gjendesheim slipped one day to Sept 10 (2026-09-08, DNT center opens 10:00, conflicts with the 08:02 train) -- everything downstream shifted +1 day. Post-Breheimen block now needs rework given the Skjolden exit -- see below. |
 | London | ~Oct 5 – Oct 19 | 1.5 weeks | Friends meetup ~Oct 8, Premier League football |
 | Scotland | ~Oct 19 – Nov 2 | 2 weeks | West Highland Way, Edinburgh/Glasgow |
 | Ireland | ~Nov 2 – Nov 16 | 2 weeks | Galway/Connemara, west coast surf (Bundoran, Lahinch) |
@@ -128,17 +128,19 @@ Full research writeup with sources: artifact `Norway or South` (https://claude.a
 
 ## Norway Route: Oslo → Jotunheimen → Breheimen
 
-Bergen dropped entirely (2026-07-18). **Full final route (Jotunheimen + Breheimen, day-by-day) now lives in `norway-route.md`** -- kept as a short standalone file so it's easy to check on the trail. The route went through several supersessions before landing (Memurubu's Sept 13 closure, a dead Lom-side bus corridor, DNT's own reply flagging the summer river bridges near Gjendebu/Spiterstulen/Glitterheim as removed ~Sept 13) -- that history is preserved in git and in `decisions/log.md` (2026-09-03/04 entries) rather than repeated here.
+Bergen dropped entirely (2026-07-18). **Full final route (Jotunheimen + Breheimen, day-by-day) now lives in `norway-route.md`** -- kept as a short standalone file so it's easy to check on the trail. The route went through several supersessions before landing (Memurubu's Sept 13 closure, a dead Lom-side bus corridor, DNT's own reply flagging the summer river bridges near Gjendebu/Spiterstulen/Glitterheim as removed ~Sept 13, and a further shortening of Breheimen given in person at the Oslo DNT center on 2026-09-09) -- that history is preserved in git and in `decisions/log.md` (2026-09-03/04/09 entries) rather than repeated here.
 
 **Still open, worth a follow-up to DNT or a check via ut.no:**
 - Nørdstedalseter → Sota Sæter distance/time, to know how much of the exit day is walking versus waiting for a taxi.
 - Confirm the bridge removal genuinely doesn't affect the Leirvassbu-Skogadalsbøen-Vettismorki-Svalheim corridor -- DNT proposed this route themselves so it should be fine, but worth a direct confirmation given how wrong the aggregator-sourced assumptions turned out to be earlier in this process.
 
-### After Sep 22 -- Odda / Trolltunga block (not yet locked, shifted +1 day)
+### After Sep 21 -- Odda / Trolltunga block (NEEDS REWORK, 2026-09-09) or straight back to Oslo
 
-Sep 23 -- ~Oct 6 (14 calendar days / ~13 usable, since ~Oct 6 itself is likely a travel/transition day toward London -- date is still an estimate, not booked).
+**Breheimen shortened at the Oslo DNT center (2026-09-09, area transport closing down for the season) -- exit is now Skjolden, not Lom/Sota Sæter.** See `norway-route.md`. Skjolden has transport back to Oslo directly, which Omri may just take. The Odda/Trolltunga plan below assumed a Lom exit and hasn't been re-derived against a Skjolden start -- flagged as open, not decided.
 
-**Transport in:** exit point is back to Sota Sæter/Lom (see above), so the original **Lom/Bismo → Odda, ~9h45m by bus (via Sogndal and Voss)** estimate applies again -- the brief detour through Sogndal/Høyheimsvik as an exit point is no longer the plan.
+Sep 22 -- ~Oct 6 (estimate, not booked).
+
+**Transport in (STALE -- assumed the old Lom exit):** ~~exit point is back to Sota Sæter/Lom (see above), so the original **Lom/Bismo → Odda, ~9h45m by bus (via Sogndal and Voss)** estimate applies again.~~ No longer the plan -- needs a fresh transport check from Skjolden if Odda is still wanted.
 
 **Trolltunga itself:** 7-15h round trip depending on parking start point, black-graded. Needs a night in/near Odda before and after -- not a same-day hike.
 
