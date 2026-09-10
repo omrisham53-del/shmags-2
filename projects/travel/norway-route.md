@@ -25,28 +25,27 @@ Bus, ~3.5h, several transfers (confirmed via transit app). Full travel day, noth
 
 **Overnight at Luster Fjordhytter** (private cabin, not a DNT hut -- book ahead).
 
-## Breheimen -- Sep 18-22 (5 days)
+## Breheimen -- Sep 18-21 (4 days) -- SHORTENED per in-person DNT visit (2026-09-09)
 
-Route: "From Fjord to Mountain in Breheimen," 61km, 3,000m+ elevation gain.
+At the Oslo DNT center Omri was told to change the route: transport in the area is starting to close down for the season. Same as before through Fast, then exit to **Skjolden** instead of continuing to Arentzbu/Nørdstedalseter -- one day shorter, and Skjolden has transport back to Oslo if wanted.
 
 | Day | Date | Leg | Distance | Hut |
 |---|---|---|---|---|
 | 1 | Sep 18 | Høyheimsvik → Navarsete | 7.5 km | Navarsete -- DNT self-service |
 | 2 | Sep 19 | Navarsete → Vigdalstøl | 20.4 km | Vigdalstøl -- DNT self-service |
 | 3 | Sep 20 | Vigdalstøl → Fast | 13.9 km | Fast -- DNT self-service |
-| 4 | Sep 21 | Fast → Arentzbu | 11.6 km | Arentzbu -- DNT self-service |
-| 5 | Sep 22 | Arentzbu → Nørdstedalseter | 15.5 km | Nørdstedalseter -- DNT staffed |
+| 4 | Sep 21 | Fast → Skjolden | TBC | Exit day -- Skjolden |
 
-## Exit -- ~Sep 23
+**Dropped from the route:** Arentzbu, Nørdstedalseter, the Sota Sæter trail, and the Sota Sæter → Lom taxi (Taxi 03650 Lom / Schøss Taxi Otta) -- no longer needed since the exit is now Skjolden, not Lom.
 
-Nørdstedalseter → Sota Sæter (marked trail, distance/time still unconfirmed) → **taxi Sota Sæter → Lom** (Sota Sæter itself is closed by these dates, road-end pickup only):
-- Taxi 03650 Lom: 909 03 014
-- Schøss Taxi Otta: 48 90 95 00
+## Exit -- ~Sep 21/22
 
-Book a day ahead -- remote pickup in shoulder season.
+**Skjolden → Oslo**, transport available directly from Skjolden. Exact bus/route and timing not yet checked.
 
 ## Still open
 
-- Nørdstedalseter → Sota Sæter distance/time.
+- Fast → Skjolden distance/time.
+- Skjolden → Oslo transport option and timing.
+- Whether to actually return straight to Oslo from Skjolden or still work in the Odda/Trolltunga block -- the "After Sep 22" Odda plan below assumed exiting via Lom, which no longer applies; needs rework if Odda is still wanted.
 - Confirm the bridge removal (the thing that killed the original 6-hut loop) doesn't touch the Leirvassbu-Skogadalsbøen-Vettismorki-Svalheim corridor -- DNT proposed this route themselves, so should be fine, but not independently confirmed.
 - Whether Breheimen's self-service cabins stock a provision store (cuts food weight if so).
