@@ -140,7 +140,7 @@ Bergen dropped entirely (2026-07-18). **Full final route (Jotunheimen + Breheime
 
 Sep 22 -- ~Oct 6 (estimate, not booked).
 
-**Transport in:** Skjolden → Odda, via Sogndal and Voss (aggregator estimate, ~8h incl. transfers) -- **not independently verified against a real operator yet**, same caution as every other aggregator-sourced leg on this trip that turned out wrong or stale (see the Lom-side bus corridor and the Otta bus, both resolved only by checking the operator/local source directly). Check Entur (entur.no, Norway's national journey planner) or a local source before relying on it, ideally while still at Fast/Vigdalstøl with signal.
+**Transport in: confirmed via Entur -- 3 buses, ~7 hours.** Real operator confirmation, not an aggregator estimate.
 
 **Trolltunga itself:** 7-15h round trip depending on parking start point, black-graded. Needs a night in/near Odda before and after -- not a same-day hike.
 
