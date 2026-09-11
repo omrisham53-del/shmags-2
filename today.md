@@ -1,7 +1,7 @@
-# Today - 2026-09-10
+# Today - 2026-09-11
 
-**Date:** 2026-09-10
-**Updated:** 2026-09-10
+**Date:** 2026-09-11
+**Updated:** 2026-09-11
 
 ---
 
@@ -22,6 +22,10 @@
 ---
 
 ## Today's Completed
+
+---
+
+## Recent Work (September 4)
 
 1. **Discovered and fixed a second, bigger transport problem: the whole Jotunheimen-Breheimen bus corridor is dead by September.** Checked Omri's plan to bus from Gjendesheim via Lom/Sognefjellsvegen to the Breheimen trailhead against innlandstrafikk.no directly (not trip aggregators, which gave conflicting answers) -- every relevant seasonal mountain route (Lom-Gjendesheim, Lom-Sogndal, Bismo-Sota Sæter) stops running by Aug 16-30, 2026, weeks before the Sept 9/16/21 dates that depend on them. This breaks getting to Gjendesheim, the Jotunheimen-Breheimen transition, and the planned Breheimen exit shuttle, all three.
 
