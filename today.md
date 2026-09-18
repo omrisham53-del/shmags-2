@@ -7,17 +7,12 @@
 
 ## Current Priority
 
-**Four days to departure (Sept 8).** Everything below is either "close it before the flight" or "decide it before the flight."
+**Back from Jotunheimen, mid-trip replanning.** Jotunheimen (Sept 11-16) went as planned; Breheimen got dropped after it (legs too worn for 4 more straight days) -- back in Oslo now. Flying to Alta tomorrow (Sept 19) for 5 nights chasing the northern lights. The open question is the gap between Alta (~Sept 24 return) and Scotland: West Highland Way with Dad has to move earlier in the route (not recommended after Oct 11), landing somewhere in the Sept 24-Oct 8 window instead of the original Oct 19-Nov 2 slot, and Trolltunga/Hardangervidda are both looking wet right now. Full detail in `projects/travel/tracker.md`; check-in scheduled Sept 23 to re-pull real forecasts once the gap dates are actually in range.
 
-- **Norway leg -- DNT's own reply rewrote the whole Jotunheimen-Breheimen route, for the better.** After two rounds of self-directed fixes (reversing Jotunheimen for the Memurubu closure, then reversing Breheimen for the dead bus corridor), DNT's email reply caught something neither Omri nor this file had: **the summer river bridges near Gjendebu/Spiterstulen/Glitterheim are removed ~Sept 13**, making the whole 6-hut loop genuinely unsafe that late, not just inconvenient. DNT proposed a different Jotunheimen route entirely (Gjendesheim → Memurubu → Gjendebu → Leirvassbu → Skogadalsbøen → Vettismorki → Svalheim) ending at a real bus to Høyheimsvik -- confirmed by Omri via the transit app (~3.5h, several transfers). That bus means Breheimen goes back to its original, shorter direction and route (61km vs. the superseded 83km), needing only one taxi leg at the very end instead of two. Full rebuilt plan in `projects/travel/tracker.md`. **What's still open is the weather call on Sept 5-6** -- hold until the forecast actually reaches the Sept 10-21 window, DNT conversation in Oslo Sept 9 as a backup channel for anything still unresolved.
-
-- **EcoTraders exit -- one item left.** The job is finished (last working day 2026-08-19, every deliverable shipped) and the exit is closed except for one thing. Confirmed 2026-09-03: the closing email to Daniel went out with the final two deliverables, the pension release letter was unnecessary, and the vacation payout was already settled. What remains is the **reference letter from Ron**: draft written for him to react to rather than write from scratch, at `projects/energy-program/reference-letter-draft.md`. Send it before the flight.
-
-- **LinkedIn post on the economics seminar presentation -- write before Sept 8.** The stray "LinkedIn post" line that had been drifting through this file for weeks turned out to be about the distinction-track economics seminar presentation with Tomer (data-center energy CBA, presented July 30), not EcoTraders. Confirmed plan: write and post it this week.
-
-- **University: DONE, degree complete.** Final Sustainability Project submitted 2026-08-12, both channels confirmed. All grades pending, nothing further to produce.
-
-- **Through the Gap / Window Winners: killed 2026-09-03.** No work and no future work planned. Folder archived, calendar blocks deleted. Not coming back as a suggestion.
+- **EcoTraders exit -- one item left.** The reference letter from Ron (`projects/energy-program/reference-letter-draft.md`) -- everything else closed out before departure. Chase this from the road if it hasn't moved.
+- **LinkedIn post on the economics seminar presentation** -- was planned for pre-departure; confirm whether it actually got written and posted, or if it's still open.
+- **University: DONE, degree complete.**
+- **Through the Gap / Window Winners: killed 2026-09-03.** Not coming back as a suggestion.
 
 ---
 

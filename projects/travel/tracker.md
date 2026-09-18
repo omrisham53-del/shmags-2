@@ -44,13 +44,17 @@ Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trai
 
 | Leg | Dates | Duration | Notes |
 |---|---|---|---|
-| Norway | Sept 8 – ~Oct 6 | 4 weeks | Bergen dropped entirely -- straight to trekking. Jotunheimen (6 days) then Breheimen (now 4 days, shortened 2026-09-09 at the Oslo DNT center due to closing-down transport -- exits at Skjolden, not Lom), back to back, done as fast as the season allows (see `norway-route.md`). Departure to Gjendesheim slipped one day to Sept 10 (2026-09-08, DNT center opens 10:00, conflicts with the 08:02 train) -- everything downstream shifted +1 day. After Skjolden: Odda/Trolltunga still the plan, weather-dependent -- see below. |
-| London | ~Oct 5 – Oct 19 | 1.5 weeks | Friends meetup ~Oct 8, Premier League football |
-| Scotland | ~Oct 19 – Nov 2 | 2 weeks | West Highland Way, Edinburgh/Glasgow |
-| Ireland | ~Nov 2 – Nov 16 | 2 weeks | Galway/Connemara, west coast surf (Bundoran, Lahinch) |
-| Portugal | ~Nov 16 – Dec 9 | 3 weeks | Porto/Lisbon, Peniche/Ericeira surf, Rota Vicentina trail, closes at Sagres |
+| Norway (Jotunheimen) | Sept 8 – Sept 16 | ~9 days | Done. Full 6-day route hiked as planned (see `norway-route.md`). |
+| Norway (Breheimen) | ~~Sept 18-21~~ **DROPPED 2026-09-18** | -- | Jotunheimen left Omri's legs too worn for 4 more days straight after. Returned to Oslo instead of continuing to Høyheimsvik/Breheimen. |
+| Norway (Alta) | Sept 19 – ~Sept 24 | 5 nights | Booked. Chasing the northern lights -- aurora season just opened, Sept-Nov is peak. Doesn't depend on leg condition. |
+| Norway (gap) | ~Sept 24 – Scotland departure | TBD | Weather-watch window -- Trolltunga/Hardangervidda both looking wet as of Sept 18, real call to be made once back from Alta (see Weather Watch section below). |
+| Scotland (with Dad) | Before Oct 8 | 4-7 days hiking + possible solo time before/after | **Moved earlier in the route 2026-09-18** -- West Highland Way isn't recommended after Oct 11, so this bracket has to land in the Sept 24-Oct 8 window, not the original Oct 19-Nov 2 slot. Dad flies out, hikes the WHW with Omri, then leaves; Omri continues solo into England for the Oct 8 London meetup. |
+| London | ~Oct 8 onward | 1.5 weeks (was) | Friends meetup ~Oct 8, Premier League football. Now follows Scotland instead of preceding it. |
+| Scotland (solo remainder, if any) | TBD | -- | Any Scotland time not used in the Dad bracket (e.g. Edinburgh/Glasgow) -- not yet placed; could sit before/after the Dad week or get folded into a later UK pass. |
+| Ireland | TBD | 2 weeks (was) | Galway/Connemara, west coast surf (Bundoran, Lahinch) -- dates now depend on the whole Norway-gap/Scotland/London resequencing above. |
+| Portugal | TBD | 3 weeks (was) | Porto/Lisbon, Peniche/Ericeira surf, Rota Vicentina trail, closes at Sagres -- dates now depend on the resequencing above. |
 
-Dates from London onward are estimates that shift with the actual Norway end date -- not booked yet except where noted below.
+**Route order changed 2026-09-18**, from Norway → London → Scotland → Ireland → Portugal to Norway → Scotland (with Dad) → London → Ireland → Portugal. See `decisions/log.md` (2026-09-18 entries) for why. Ireland/Portugal dates are now unanchored until the Norway-gap and Scotland-with-Dad windows firm up.
 
 ---
 
@@ -134,11 +138,19 @@ Bergen dropped entirely (2026-07-18). **Full final route (Jotunheimen + Breheime
 - Nørdstedalseter → Sota Sæter distance/time, to know how much of the exit day is walking versus waiting for a taxi.
 - Confirm the bridge removal genuinely doesn't affect the Leirvassbu-Skogadalsbøen-Vettismorki-Svalheim corridor -- DNT proposed this route themselves so it should be fine, but worth a direct confirmation given how wrong the aggregator-sourced assumptions turned out to be earlier in this process.
 
-### After Sep 21 -- Odda / Trolltunga block, still wanted but weather-dependent (confirmed 2026-09-09)
+### Superseded 2026-09-18: Breheimen dropped, gap plan open
 
-**Breheimen shortened at the Oslo DNT center (2026-09-09, area transport closing down for the season) -- exit is now Skjolden, not Lom/Sota Sæter.** See `norway-route.md`. Omri confirmed he's still chasing Odda/Trolltunga from here, but is flexible on it depending on weather -- Skjolden → Oslo direct is the fallback if conditions don't cooperate.
+Breheimen (Sep 18-21, ending Skjolden) never happened -- dropped after Jotunheimen left Omri's legs too worn for 4 more straight days (see `decisions/log.md`). Omri is in Oslo now, flies to Alta Sept 19 for 5 nights (aurora chasing), back ~Sept 24. The Odda/Trolltunga/Hardangervidda block below was planned as the post-Breheimen leg via Skjolden → Odda transport -- that transport confirmation is now moot since there's no Breheimen exit to connect from, but the destinations themselves are still live options for the Sept 24 → Scotland gap if the weather cooperates, reachable directly from Oslo instead.
 
-Sep 22 -- ~Oct 6 (estimate, not booked).
+**Weather read as of 2026-09-18 (climatology, not a real forecast yet -- gap starts Sept 24, still >5 days out):**
+- **Odda/Trolltunga:** wet and cooling, rain most days in the available forecast window. Consistent with the fjord region's usual autumn pattern.
+- **Hardangervidda:** already near freezing at altitude, September climatologically wet (~13 rain days/month). Combined with the already-known thin hut staffing this late (see below), a multi-day crossing is looking marginal, not just uncomfortable.
+- **Rondane/Dovre (interior):** the one genuinely different option -- climatologically drier than the fjord/mountain west (same logic that made Jotunheimen the right September choice), but also near-freezing at altitude with real snow risk this late in the season.
+- yr.no (the source used for every prior weather call on this trip) is blocked again in this environment (same network-egress limitation logged 2026-06-02/07-06/07-14) -- the above is aggregator/meteoblue-derived, weaker than usual. **Re-check via yr.no directly once reachable, and again once the gap dates are inside the real 7-10 day forecast window.**
+
+**Scheduled a check-in for Sept 23** to re-pull real forecasts for Odda/Trolltunga, Hardangervidda, and Rondane/Dovre now that they'll be close to in-range, and lay out concrete gap-day options (multi-day trek if a window opens, day-hikes/city time in Oslo/Bergen if not, or an early jump toward Scotland if Norway stays wet).
+
+Sep 22 -- ~Oct 6 (estimate, not booked; now bounded on the far end by the Scotland-with-Dad bracket needing to start before Oct 8, not Oct 6 as previously assumed).
 
 **Transport in: confirmed via Entur -- 3 buses, ~7 hours.** Real operator confirmation, not an aggregator estimate.
 
@@ -165,4 +177,5 @@ Sep 22 -- ~Oct 6 (estimate, not booked).
 
 | Who | Where | When | Notes |
 |---|---|---|---|
-| Friends | London | ~Oct 8 | Drove the 2026-07-12 route reorder (Scotland and London swapped) |
+| Friends | London | ~Oct 8 | Drove the 2026-07-12 route reorder (Scotland and London swapped). Now the tail end of the route resequencing again (2026-09-18) -- Scotland-with-Dad moved to sit before this instead of after. |
+| Dad | Scotland | Before Oct 8 (exact dates TBD) | West Highland Way, 4-7 days. Not recommended after Oct 11, and Dad's own bracket has to close before Omri needs to be in England for the Oct 8 meetup, so this is now the binding constraint on Scotland timing (added 2026-09-18). |
