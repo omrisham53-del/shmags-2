@@ -191,5 +191,7 @@ Once both batches for a month are done, the routine compares the two batch picks
 
 ## Open Goals
 
-- Close the Tactics (1871) vs. Rapid (1223) gap -- the core improvement focus
+- **Ultimate goal: 1600 rapid (10-minute) on chess.com.** Set 2026-10-19. Currently 1193, so +407 to go. This is the number the whole project is pointed at.
+- Close the Tactics (1871) vs. Rapid (1193) gap -- the mechanism blocking the above; tactical vision isn't the bottleneck, converting under clock pressure is
+- Build a real learning routine: see `learning-system-plan.md` for the full sequenced build (M0 clock analyzer first, since it can redirect the endgame workstream before it's built). Routine locked at 4 sessions/week, ~12 rapid games. Working through Levy Rozman's *How to Win at Chess: Intermediate* (bought 2026-10-19), in order, one concept per session
 - Keep submitting to Improvers Club monthly when a good game/hook comes up

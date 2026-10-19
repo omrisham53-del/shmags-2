@@ -7,15 +7,27 @@
 
 ---
 
+## The Goal
+
+**1600 rapid (10+0) on chess.com.** Set 2026-10-19 as the explicit long-term target. Everything else in this project -- study routine, engine analysis, puzzles, the Levy Rozman book -- is in service of that number. Current gap: **+407 points** from 1193. Realistically a 6-12 month climb, so it's a 2027 target; by December the things that should move are blunder rate and conversion rate, not the rating.
+
+**The system being built to get there:** `learning-system-plan.md` (sequenced build plan, 7 milestones). Discovery session behind it: `brainstorms/2026-10-19_chess-learning-routine.md`.
+
+---
+
 ## Current Ratings
 
 | Format | Rating | Notes |
 |---|---|---|
-| Rapid | 1223 | Personal best, hit July 2026 |
-| Tactics | 1871 | Puzzle Rush best: 22 |
-| Blitz | 852 | Best: 1146 |
+| Rapid | 1193 | As of 2026-10-19. Personal best 1223 (July 2026). **Target: 1600** |
+| Tactics | 1871 | Puzzle Rush best: 22. Unchanged since July 2026 |
+| Blitz | 804 | As of 2026-10-19. Best: 1146 |
 
-**The defining gap:** ~648 points between Tactics (1871) and Rapid (1223). Omri can find combinations but struggles to convert winning positions under real-game conditions -- this is the thing he's actively working on, not raw tactical vision.
+**The defining gap:** ~678 points between Tactics (1871) and Rapid (1193). Omri can find combinations but struggles to convert winning positions under real-game conditions -- this is the thing he's actively working on, not raw tactical vision.
+
+## Study Resources
+
+- **How to Win at Chess: Intermediate** (Levy Rozman / GothamChess) -- bought 2026-10-19, the current primary study text
 
 ## Openings
 

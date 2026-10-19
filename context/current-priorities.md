@@ -49,7 +49,7 @@ Surfaced 2026-10-07 while drafting the LinkedIn post: Omri wants to use trip tim
 
 ## Hobbies
 
-**Chess** -- Active hobby, not a career/work priority. shamgi on chess.com. Member of the Improvers Club (monthly Annotated Game / Post / Video competitions). Core improvement focus: closing the gap between tactics and rapid ratings. Ratings and submission cycle tracked live in `projects/chess/tracker.md`, updated automatically by the scheduled routines.
+**Chess** -- Active hobby, not a career/work priority. shamgi on chess.com. Member of the Improvers Club (monthly Annotated Game / Post / Video competitions). **Ultimate goal set 2026-10-19: 1600 rapid (10-minute)**, currently 1193. Core improvement focus: closing the gap between tactics (1871) and rapid, which is a conversion problem, not a vision problem. Studying Levy Rozman's *How to Win at Chess: Intermediate* and building out a real learning routine (engine analysis + puzzles, no paid membership). Ratings and submission cycle tracked live in `projects/chess/tracker.md`, updated automatically by the scheduled routines.
 
 ---
 
