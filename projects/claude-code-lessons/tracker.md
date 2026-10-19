@@ -22,6 +22,22 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 </thead>
 <tbody>
 
+<tr style="background-color:#eaeaea;">
+<td>2026-10-19</td>
+<td>Scheduled cloud routine prompts live ONLY in the claude.ai routines UI and exist nowhere in the repo, so their logic can't be audited, diffed, or recovered -- deleting a routine destroys its behaviour permanently</td>
+<td>Repo convention + mirror the prompts</td>
+<td><strong>Not Started</strong></td>
+<td>Surfaced while auditing the two chess routines: Omri asked what they actually did and the repo couldn't answer. Grep found only the trigger IDs (in <code>decisions/log.md</code> and <code>projects/chess/README.md</code>), no prompt text. Had to reconstruct behaviour from the README description plus <code>git log</code> of the commits they made. Affects every routine, not just chess -- the Friday <code>/weekly-review</code> routine has the same exposure. Suggested fix: a <code>.claude/routines/</code> folder holding one markdown file per routine (prompt + cron + trigger ID), updated whenever a routine changes. Omri is handling this in a separate session; it blocks retiring the bi-weekly chess routine (see <code>projects/chess/learning-system-plan.md</code> M6).</td>
+</tr>
+
+<tr style="background-color:#eaeaea;">
+<td>2026-10-19</td>
+<td><code>CronList</code> only lists cron jobs created via <code>CronCreate</code> in the current session -- it does NOT list scheduled cloud routines, so it returns "No scheduled jobs" even when routines are actively running and committing</td>
+<td>Gotcha to remember</td>
+<td><strong>Not Started</strong></td>
+<td>Hit this directly: called <code>CronList</code> to audit the two chess routines (both demonstrably alive, both had committed within the last 3 days) and got an empty result. The honest way to audit an existing cloud routine from a fresh session is <code>git log</code> on the files it writes, plus whatever description exists in the repo. Compounds the row above -- with no prompt mirroring and no listing tool, a running routine is effectively a black box from inside Claude Code.</td>
+</tr>
+
 <tr style="background-color:#d4f4dd;">
 <td>2026-07-14</td>
 <td>save-context should also capture Claude Code meta-lessons (not just project decisions) and feed them here automatically at the end of every session</td>

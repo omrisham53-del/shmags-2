@@ -7,10 +7,12 @@
 
 ## Current Priority
 
-**London leg, heading toward the Oct 25 Ericeira surf camp.** Jotunheimen, Alta, Scotland-with-Dad (WHW + Ben Nevis), and the LinkedIn post are all closed out. Ireland is dropped; Portugal has two real anchors -- Ericeira surf camp (Oct 25, signed up) and a Worldpackers placement in Sagres (Nov 3, pending host confirmation). Two new projects to discuss and shape, starting in a new chat.
+**In Portugal, Ericeira surf camp Oct 25, and the two trip projects are now live.** Left London early (exact date not captured). Jotunheimen, Alta, Scotland-with-Dad (WHW + Ben Nevis), and the LinkedIn post are all closed out. Ireland dropped.
 
-- **EcoTraders exit -- one item left.** Reminder sent to Ron 2026-10-07. Still awaiting his reply.
-- **Building independent projects during the trip** -- Omri wants to use the trip to pick up new skills and build something concrete. Intent only so far; two specific projects to be discussed next.
+- **Chess learning system -- the first trip project, now specified.** Goal set at 1600 rapid (from 1193), full build plan at `projects/chess/learning-system-plan.md`, 7 milestones. Starts with the clock analyzer. Routine locked at 4 sessions/week, ~12 rapid games.
+- **Hackathon project -- the second trip project**, being worked in a parallel session. Its brainstorm (`brainstorms/2026-10-19_plms-hackathon-project.md`) is **untracked in git** -- that session needs to commit it or it won't reach other machines.
+- **Worldpackers Sagres placement is dead, not pending.** No host ever replied. **November is genuinely open and unplanned** -- only the Oct 25 Ericeira camp is fixed between now and the ~Dec 8 end. Worth deciding whether to re-apply or fill it another way.
+- **EcoTraders exit -- one item left.** Reminder sent to Ron 2026-10-07. Still awaiting his reply (now 12 days).
 - **University: DONE, degree complete.**
 - **Through the Gap / Window Winners: killed 2026-09-03.** Not coming back as a suggestion.
 
@@ -19,6 +21,12 @@
 ## Today's Completed
 
 1. **Read and analyzed the final posted LinkedIn post** (lnkd.in/p/ej8SauVz, Hebrew, 40 reactions/6 comments) -- confirmed it matches the v4 draft (narrative over stats, grateful/curious tone) plus one real addition Omri wrote in himself: naming the paper's distinction-track selection plainly. Locked in as a durable voice preference (`feedback_linkedin_voice.md`) for future personal-brand posts.
+
+2. **Chess goal set at 1600 rapid and a full learning system designed** via a 9-question grill-me session (`brainstorms/2026-10-19_chess-learning-routine.md`). The session reframed the problem three times rather than building what was asked for: the five-week rapid stall turned out to be an access problem (no laptop time, won't play rapid on a phone), "more puzzles" is the wrong main lever since Tactics 1871 means vision isn't the bottleneck, and "improve my endgames" is the same problem as blowing leads slowly, not a third item. Omri's own objection about hint-dependency became four hard design rules. Build plan at `projects/chess/learning-system-plan.md`, 7 milestones, clock analyzer first because it can invalidate the endgame workstream before it's built.
+
+3. **Audited the two chess cloud routines** before deciding their fate, at Omri's insistence. Found two things that mattered more than the consolidation: the Rating Log tracks ratings but never games played, so eight rows of "Rapid unchanged" hid a five-week rapid blackout that a games-played column would have caught in mid-September; and the routine prompts exist only in the claude.ai UI, nowhere in the repo, so they can't be audited or recovered. Both logged, the second as a Claude Code lesson affecting every routine including the weekly review.
+
+4. **Travel tracker reconciled.** It still had Omri in London through Oct 24 and the Worldpackers placement as "pending confirmation" -- both wrong. Fixed, and the three fully-historical Norway sections (Oslo DNT questions, Weather Watch, the Odda/Hardangervidda planning block) marked historical so they stop reading as live open items in every future session.
 
 ---
 

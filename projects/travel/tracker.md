@@ -2,9 +2,11 @@
 
 Solo backpacking trip through Northern/Western Europe, Sept 8 - ~Dec 8 2026 (~13 weeks). Doubles as the mechanism for [Career Direction Exploration](../job-search/tracker.md) -- alumni/professor conversations along the way, not a fixed job search.
 
-**Status:** Active -- Norway leg starts Sept 8
+**Status:** Active -- **in Portugal as of 2026-10-19**, Ericeira surf camp starts Oct 25. Norway, Scotland and London legs all complete.
 **Travel style:** Solo, backpacking budget
 **Equipment:** full packing checklist in `equipment-list.md`
+
+> **Note on this file (2026-10-19):** the Norway sections below (Oslo DNT open questions, Weather Watch, the Odda/Trolltunga/Hardangervidda planning block) are **historical** -- they were live planning surfaces in September and are kept for the record, not as open items. Marked inline where they start. Only the Route & Dates table and the Portugal sections describe anything still live.
 
 ---
 
@@ -51,15 +53,20 @@ Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trai
 | Norway (Alta) | Sept 19 – ~Sept 24 | 5 nights | Booked. Chasing the northern lights -- aurora season just opened, Sept-Nov is peak. Doesn't depend on leg condition. |
 | Norway (gap) | ~Sept 24 – Scotland departure | **Status unknown** | Weather-watch window -- Trolltunga/Hardangervidda both looking wet as of Sept 18. Unclear whether this happened (and if so, what was done) or was skipped straight into Scotland -- worth confirming for the record. |
 | Scotland (with Dad) | **start date unconfirmed** – Oct 6 | West Highland Way + Ben Nevis | **Done.** Completed Oct 6. |
-| London | Oct 7 – ~Oct 24 | ~2.5 weeks (draft) | Flying in tonight (Oct 7). Friends meetup, Premier League football. End bounded by the Ericeira surf camp start. |
+| London | Oct 7 – **departed early, exact date unknown** | shorter than the ~2.5 weeks planned | **Done.** Friends meetup, Premier League football. Left for Portugal ahead of the planned ~Oct 24 end -- Omri confirmed 2026-10-19 he's already in Portugal. Actual departure date not captured. |
 | Ireland | ~~2 weeks~~ **DROPPED 2026-10-07** | -- | Decided in a separate (online) session that never made it into this repo -- see note below. |
-| Portugal (Ericeira surf camp) | **Oct 25 –** (duration TBD) | Booked/signed up | Real anchor date. Surf camp in Ericeira, confirmed signup. |
-| Portugal (Sagres, Worldpackers) | **Nov 3 –** (duration TBD) | **Candidacy submitted, not yet confirmed** | Volunteering in exchange for accommodation via Worldpackers. Host hasn't accepted yet -- treat as pending, not locked, until confirmed. |
-| Portugal (rest -- Porto/Lisbon, Rota Vicentina) | TBD | -- | Needs to fit around the two anchors above (Ericeira Oct 25, Sagres Nov 3) -- order/timing not yet worked out. |
+| **Portugal (current location)** | **arrived before 2026-10-19** – ongoing | open-ended | **Where he is now.** No fixed departure date from Portugal. Specific town not captured. |
+| Portugal (Ericeira surf camp) | **Oct 25 –** (duration TBD) | Booked/signed up | Real anchor date, still on. Focus shifts toward surfing and socializing that week, though laptop work continues through it. |
+| Portugal (Sagres, Worldpackers) | ~~Nov 3~~ **NOT CONFIRMED -- no host replies (as of 2026-10-19)** | -- | Volunteering in exchange for accommodation. Omri applied to multiple hosts on Worldpackers and **has had no answers from any of them**. Stronger than "pending": there is no placement. **November is genuinely open and unplanned**, not waiting on a confirmation. If a placement is still wanted, this needs fresh applications, not patience. |
+| Portugal (rest -- Porto/Lisbon, Rota Vicentina) | TBD | -- | Needs to fit around the Ericeira Oct 25 anchor. Now has more room than before, since Nov 3 is no longer a commitment. |
 
 **Route order changed 2026-09-18**, from Norway → London → Scotland → Ireland → Portugal to Norway → Scotland (with Dad) → London → Ireland → Portugal. See `decisions/log.md` (2026-09-18 entries) for why.
 
-**Ireland dropped, Portugal re-anchored (2026-10-07):** Omri dropped Ireland and locked two real Portugal dates in a separate online Claude Code session -- a surf camp in Ericeira starting Oct 25 (signed up) and a Worldpackers volunteering placement in Sagres starting Nov 3 (candidacy submitted, awaiting host confirmation). That session's work was never committed to this repo, so none of it existed here until Omri mentioned it in this conversation -- worth being deliberate about keeping the online and local sessions in sync going forward (see `decisions/log.md`). London now runs Oct 7 to roughly Oct 24, bounded by the Ericeira start date. Still open: exact surf camp duration, how Porto/Lisbon and the Rota Vicentina trail fit around the two anchor dates, and whether the Worldpackers placement gets confirmed.
+**Ireland dropped, Portugal re-anchored (2026-10-07):** Omri dropped Ireland and locked two real Portugal dates in a separate online Claude Code session -- a surf camp in Ericeira starting Oct 25 (signed up) and a Worldpackers volunteering placement in Sagres starting Nov 3 (candidacy submitted, awaiting host confirmation). That session's work was never committed to this repo, so none of it existed here until Omri mentioned it in this conversation -- worth being deliberate about keeping the online and local sessions in sync going forward (see `decisions/log.md`).
+
+**Reconciled 2026-10-19:** two corrections to the above. Omri **left London early** and is already in Portugal, so the "London through ~Oct 24" plan did not hold (exact departure date not captured). And the **Worldpackers placement never materialised** -- no host he applied to ever replied, so Nov 3 is not a soft commitment awaiting confirmation, it is simply not happening unless he applies again. That makes **November the most open stretch of the trip**, with only the Oct 25 Ericeira surf camp fixed between now and the ~Dec 8 end.
+
+Still open: Ericeira surf camp duration, how Porto/Lisbon and the Rota Vicentina trail fit around it, whether to re-apply on Worldpackers or fill November another way, and when he actually leaves Portugal.
 
 ---
 
@@ -71,7 +78,9 @@ Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trai
 
 ---
 
-## Open Questions -- to confirm in person at the Oslo DNT center (Sep 9 morning)
+## HISTORICAL -- Open Questions for the Oslo DNT center (Sep 9 morning)
+
+> **Closed 2026-10-19.** The Oslo DNT visit happened Sept 9, Jotunheimen was hiked Sept 11-16, and Breheimen was dropped entirely on Sept 18. Nothing in this section is actionable. Kept for the record of how the Norway leg was planned.
 
 Omri's plan: use the one free morning in Oslo to consult DNT staff directly rather than guess from web research. This visit is now also an errand, not just a consultation: the DNT key is collected here and Breheimen is locked without it.
 
@@ -92,7 +101,9 @@ Omri's plan: use the one free morning in Oslo to consult DNT staff directly rath
 
 ---
 
-## Weather Watch -- decision gate Sept 5-6 (added 2026-09-01)
+## HISTORICAL -- Weather Watch, decision gate Sept 5-6 (added 2026-09-01)
+
+> **Closed 2026-10-19.** The gate was passed, Jotunheimen went ahead and was completed Sept 16. Kept because the reasoning is a good reference for future weather calls (why a Lofoten anecdote was the wrong proxy, why forecasts past ~10 days are climatology rather than skill), not because anything here is open.
 
 A family member currently in Lofoten reported persistent cloud and rain, and inferred from a wet summer that the rest of the season will stay that way. Researched it; the conclusion is **hold the plan and decide on Sept 5-6**, not now.
 
@@ -135,7 +146,9 @@ Full research writeup with sources: artifact `Norway or South` (https://claude.a
 
 ---
 
-## Norway Route: Oslo → Jotunheimen → Breheimen
+## HISTORICAL -- Norway Route: Oslo → Jotunheimen → Breheimen
+
+> **Closed 2026-10-19.** Jotunheimen completed Sept 11-16, Breheimen dropped Sept 18, Alta done Sept 19-24. The Odda/Trolltunga/Hardangervidda block below was never actioned -- the Sept 24-to-Scotland gap resolved some other way (see the "Status unknown" row in Route & Dates; still worth capturing for the record if Omri remembers what he did). The two "still open" DNT follow-ups below are moot.
 
 Bergen dropped entirely (2026-07-18). **Full final route (Jotunheimen + Breheimen, day-by-day) now lives in `norway-route.md`** -- kept as a short standalone file so it's easy to check on the trail. The route went through several supersessions before landing (Memurubu's Sept 13 closure, a dead Lom-side bus corridor, DNT's own reply flagging the summer river bridges near Gjendebu/Spiterstulen/Glitterheim as removed ~Sept 13, and a further shortening of Breheimen given in person at the Oslo DNT center on 2026-09-09) -- that history is preserved in git and in `decisions/log.md` (2026-09-03/04/09 entries) rather than repeated here.
 
