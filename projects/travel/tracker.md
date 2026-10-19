@@ -38,6 +38,8 @@ Reordered 2026-07-12 from the original Norway → Scotland → London → Irelan
 
 Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trail ends at Sagres (a surf hub) -- trekking and surfing converge naturally at the close of the trip. Porto/Lisbon for cities, Peniche/Ericeira for surf.
 
+**Two real anchors locked 2026-10-07:** an Ericeira surf camp (signed up, starts Oct 25) and a Worldpackers volunteering placement in Sagres (candidacy submitted, starts Nov 3 if confirmed). See Route & Dates below.
+
 ---
 
 ## Route & Dates
@@ -47,14 +49,17 @@ Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trai
 | Norway (Jotunheimen) | Sept 8 – Sept 16 | ~9 days | Done. Full 6-day route hiked as planned (see `norway-route.md`). |
 | Norway (Breheimen) | ~~Sept 18-21~~ **DROPPED 2026-09-18** | -- | Jotunheimen left Omri's legs too worn for 4 more days straight after. Returned to Oslo instead of continuing to Høyheimsvik/Breheimen. |
 | Norway (Alta) | Sept 19 – ~Sept 24 | 5 nights | Booked. Chasing the northern lights -- aurora season just opened, Sept-Nov is peak. Doesn't depend on leg condition. |
-| Norway (gap) | ~Sept 24 – Scotland departure | TBD | Weather-watch window -- Trolltunga/Hardangervidda both looking wet as of Sept 18, real call to be made once back from Alta (see Weather Watch section below). |
-| Scotland (with Dad) | Before Oct 8 | 4-7 days hiking + possible solo time before/after | **Moved earlier in the route 2026-09-18** -- West Highland Way isn't recommended after Oct 11, so this bracket has to land in the Sept 24-Oct 8 window, not the original Oct 19-Nov 2 slot. Dad flies out, hikes the WHW with Omri, then leaves; Omri continues solo into England for the Oct 8 London meetup. |
-| London | ~Oct 8 onward | 1.5 weeks (was) | Friends meetup ~Oct 8, Premier League football. Now follows Scotland instead of preceding it. |
-| Scotland (solo remainder, if any) | TBD | -- | Any Scotland time not used in the Dad bracket (e.g. Edinburgh/Glasgow) -- not yet placed; could sit before/after the Dad week or get folded into a later UK pass. |
-| Ireland | TBD | 2 weeks (was) | Galway/Connemara, west coast surf (Bundoran, Lahinch) -- dates now depend on the whole Norway-gap/Scotland/London resequencing above. |
-| Portugal | TBD | 3 weeks (was) | Porto/Lisbon, Peniche/Ericeira surf, Rota Vicentina trail, closes at Sagres -- dates now depend on the resequencing above. |
+| Norway (gap) | ~Sept 24 – Scotland departure | **Status unknown** | Weather-watch window -- Trolltunga/Hardangervidda both looking wet as of Sept 18. Unclear whether this happened (and if so, what was done) or was skipped straight into Scotland -- worth confirming for the record. |
+| Scotland (with Dad) | **start date unconfirmed** – Oct 6 | West Highland Way + Ben Nevis | **Done.** Completed Oct 6. |
+| London | Oct 7 – ~Oct 24 | ~2.5 weeks (draft) | Flying in tonight (Oct 7). Friends meetup, Premier League football. End bounded by the Ericeira surf camp start. |
+| Ireland | ~~2 weeks~~ **DROPPED 2026-10-07** | -- | Decided in a separate (online) session that never made it into this repo -- see note below. |
+| Portugal (Ericeira surf camp) | **Oct 25 –** (duration TBD) | Booked/signed up | Real anchor date. Surf camp in Ericeira, confirmed signup. |
+| Portugal (Sagres, Worldpackers) | **Nov 3 –** (duration TBD) | **Candidacy submitted, not yet confirmed** | Volunteering in exchange for accommodation via Worldpackers. Host hasn't accepted yet -- treat as pending, not locked, until confirmed. |
+| Portugal (rest -- Porto/Lisbon, Rota Vicentina) | TBD | -- | Needs to fit around the two anchors above (Ericeira Oct 25, Sagres Nov 3) -- order/timing not yet worked out. |
 
-**Route order changed 2026-09-18**, from Norway → London → Scotland → Ireland → Portugal to Norway → Scotland (with Dad) → London → Ireland → Portugal. See `decisions/log.md` (2026-09-18 entries) for why. Ireland/Portugal dates are now unanchored until the Norway-gap and Scotland-with-Dad windows firm up.
+**Route order changed 2026-09-18**, from Norway → London → Scotland → Ireland → Portugal to Norway → Scotland (with Dad) → London → Ireland → Portugal. See `decisions/log.md` (2026-09-18 entries) for why.
+
+**Ireland dropped, Portugal re-anchored (2026-10-07):** Omri dropped Ireland and locked two real Portugal dates in a separate online Claude Code session -- a surf camp in Ericeira starting Oct 25 (signed up) and a Worldpackers volunteering placement in Sagres starting Nov 3 (candidacy submitted, awaiting host confirmation). That session's work was never committed to this repo, so none of it existed here until Omri mentioned it in this conversation -- worth being deliberate about keeping the online and local sessions in sync going forward (see `decisions/log.md`). London now runs Oct 7 to roughly Oct 24, bounded by the Ericeira start date. Still open: exact surf camp duration, how Porto/Lisbon and the Rota Vicentina trail fit around the two anchor dates, and whether the Worldpackers placement gets confirmed.
 
 ---
 
@@ -178,4 +183,4 @@ Sep 22 -- ~Oct 6 (estimate, not booked; now bounded on the far end by the Scotla
 | Who | Where | When | Notes |
 |---|---|---|---|
 | Friends | London | ~Oct 8 | Drove the 2026-07-12 route reorder (Scotland and London swapped). Now the tail end of the route resequencing again (2026-09-18) -- Scotland-with-Dad moved to sit before this instead of after. |
-| Dad | Scotland | Before Oct 8 (exact dates TBD) | West Highland Way, 4-7 days. Not recommended after Oct 11, and Dad's own bracket has to close before Omri needs to be in England for the Oct 8 meetup, so this is now the binding constraint on Scotland timing (added 2026-09-18). |
+| Dad | Scotland | **Done**, completed Oct 6 | West Highland Way + Ben Nevis. |

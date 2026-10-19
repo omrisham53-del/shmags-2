@@ -310,6 +310,14 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Omri noticed and asked directly. I had updated <code>decisions/log.md</code>, <code>today.md</code> and pushed, plus project trackers the command doesn't even specify -- but skipped the memory-file update and this very lessons tracker, and produced no structured report. The command's value is that it is a checklist that does not forget. Rule: when a skill exists for the task, invoke it rather than reproducing it from memory, even when the work feels already done.</td>
 </tr>
 
+<tr style="background-color:#eaeaea;">
+<td>2026-10-19</td>
+<td>A Claude Code session running elsewhere (Omri called it "the online version," likely claude.ai mobile/web) made a real decision (drop Ireland, book two Portugal anchors) and left zero trace in this repo -- no commit, no branch, nothing to pull. It only surfaced because Omri mentioned it out loud days later.</td>
+<td>Harness-quirk</td>
+<td><strong>Not Started</strong></td>
+<td>Different from the known desktop/work-PC sync gap (fixed 2026-05-31 by always pushing at end-of-session) -- that one at least leaves a branch to merge. A session with no repo-write access or that never pushes leaves this repo with no trace at all, and there's no way to detect the gap from this side until it's mentioned. No fix built yet. Worth deciding whether "online version" sessions should end with the same commit+push discipline, or whether this needs a different mechanism (e.g. always asking "anything decided in another session I should know about?" when picking work back up after a gap).</td>
+</tr>
+
 </tbody>
 </table>
 

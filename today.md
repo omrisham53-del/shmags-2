@@ -1,22 +1,33 @@
-# Today - 2026-10-07
+# Today - 2026-10-19
 
-**Date:** 2026-10-07
-**Updated:** 2026-10-07
+**Date:** 2026-10-19
+**Updated:** 2026-10-19
 
 ---
 
 ## Current Priority
 
-**Back from Jotunheimen, mid-trip replanning.** Jotunheimen (Sept 11-16) went as planned; Breheimen got dropped after it (legs too worn for 4 more straight days) -- back in Oslo now. Flying to Alta tomorrow (Sept 19) for 5 nights chasing the northern lights. The open question is the gap between Alta (~Sept 24 return) and Scotland: West Highland Way with Dad has to move earlier in the route (not recommended after Oct 11), landing somewhere in the Sept 24-Oct 8 window instead of the original Oct 19-Nov 2 slot, and Trolltunga/Hardangervidda are both looking wet right now. Full detail in `projects/travel/tracker.md`; check-in scheduled Sept 23 to re-pull real forecasts once the gap dates are actually in range.
+**London leg, heading toward the Oct 25 Ericeira surf camp.** Jotunheimen, Alta, Scotland-with-Dad (WHW + Ben Nevis), and the LinkedIn post are all closed out. Ireland is dropped; Portugal has two real anchors -- Ericeira surf camp (Oct 25, signed up) and a Worldpackers placement in Sagres (Nov 3, pending host confirmation). Two new projects to discuss and shape, starting in a new chat.
 
-- **EcoTraders exit -- one item left.** The reference letter from Ron (`projects/energy-program/reference-letter-draft.md`) -- everything else closed out before departure. Chase this from the road if it hasn't moved.
-- **LinkedIn post on the economics seminar presentation** -- was planned for pre-departure; confirm whether it actually got written and posted, or if it's still open.
+- **EcoTraders exit -- one item left.** Reminder sent to Ron 2026-10-07. Still awaiting his reply.
+- **Building independent projects during the trip** -- Omri wants to use the trip to pick up new skills and build something concrete. Intent only so far; two specific projects to be discussed next.
 - **University: DONE, degree complete.**
 - **Through the Gap / Window Winners: killed 2026-09-03.** Not coming back as a suggestion.
 
 ---
 
 ## Today's Completed
+
+1. **Read and analyzed the final posted LinkedIn post** (lnkd.in/p/ej8SauVz, Hebrew, 40 reactions/6 comments) -- confirmed it matches the v4 draft (narrative over stats, grateful/curious tone) plus one real addition Omri wrote in himself: naming the paper's distinction-track selection plainly. Locked in as a durable voice preference (`feedback_linkedin_voice.md`) for future personal-brand posts.
+
+---
+
+## Recent Work (October 7)
+
+1. **Caught up on ~5 weeks of trip history** after a gap in sessions (last here Sept 4) -- git pull, reconciled today.md and the energy-program exit-logistics table against what actually happened: Jotunheimen, Alta, Breheimen dropped, Scotland-with-Dad moved earlier, West Highland Way + Ben Nevis completed Oct 6.
+2. **Confirmed Ron's reference letter was actually sent** (2026-09-09, found via Gmail search) and sent a reminder (2026-10-07) -- both self-written by Omri, closing out a "status unknown" flag the weekly review had been carrying for weeks.
+3. **LinkedIn post written and posted**, four drafts -- pivoted from a stats-heavy paper recap to a grateful/curious reflection built around the IDCA Annual Summit, the trip's purpose, and connecting with nature. Full iteration logged in `decisions/log.md`.
+4. **Ireland dropped, Portugal re-anchored** around a signed-up Ericeira surf camp (Oct 25) and a submitted Worldpackers candidacy in Sagres (Nov 3) -- decided in a separate online session that never synced to this repo; flagged as a cross-session gap worth fixing (`projects/claude-code-lessons/tracker.md`).
 
 ---
 
@@ -76,14 +87,12 @@
 
 ---
 
-## This Week's Focus (Sept 4-8, pre-departure)
+## This Week's Focus (Oct 19 onward)
 
-1. **Send Ron the reference letter draft.** The last open EcoTraders item. Fill the three placeholders first (Ron's title, start date, whether to name the Ministry).
-2. **Write and post the LinkedIn piece on the economics seminar presentation.**
-3. **Sept 5-6: the Jotunheimen weather call** -- forecast finally reaches the front half of the trek window then. Route itself is now DNT's own recommended one; this is purely the go/no-go on the trek as a whole. Keep it reversible.
-4. **Book Luster Fjordhytter for the night of Sept 16** (Høyheimsvik, arrival night before Day 1 of Breheimen) -- private cabin, not a DNT hut, likely needs advance booking. Caught by the weekly review after being wrongly marked resolved; genuinely still open.
-5. **Sept 9 in Oslo:** collect the DNT key, gas canister, confirm membership. Follow up with DNT in person on the two remaining open items (Otta-Vågåmo-Gjendesheim bus status for Sep 9, Nørdstedalseter→Sota Sæter exit distance) if no further reply by then.
-6. **Final gear sweep** -- everything except the DNT key and gas canister has to be sourced before boarding. `projects/travel/equipment-list.md`.
+1. **London**, through ~Oct 24 -- friends meetup, Premier League football.
+2. **Fill the London-to-Ericeira gap** -- Porto/Lisbon and/or Rota Vicentina trail time, fit between London and the Oct 25 Ericeira surf camp. Status unconfirmed as of this session.
+3. **Watch for Worldpackers host confirmation** on the Sagres placement (candidacy submitted, starts Nov 3 if accepted).
+4. **Shape the two new independent projects** Omri wants to discuss -- next chat.
 
 ---
 
