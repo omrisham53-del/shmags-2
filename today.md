@@ -10,7 +10,7 @@
 **In Portugal, Ericeira surf camp Oct 25, and the two trip projects are now live.** Left London early (exact date not captured). Jotunheimen, Alta, Scotland-with-Dad (WHW + Ben Nevis), and the LinkedIn post are all closed out. Ireland dropped.
 
 - **Chess learning system -- the first trip project, now specified.** Goal set at 1600 rapid (from 1193), full build plan at `projects/chess/learning-system-plan.md`, 7 milestones. Starts with the clock analyzer. Routine locked at 4 sessions/week, ~12 rapid games.
-- **Hackathon project -- the second trip project**, being worked in a parallel session. Its brainstorm (`brainstorms/2026-10-19_plms-hackathon-project.md`) is **untracked in git** -- that session needs to commit it or it won't reach other machines.
+- **HoTake -- the second trip project, now fully specified.** Solo entry to the Microsoft x Premier League hackathon. An AI football pundit called **Clive** (CRT monitor for a head) who watches a synthetic match with you, provokes you into a take, makes his own falsifiable calls, and grades both against the evidence. **Code freeze Oct 24**, submission closes Oct 27 23:59 PT. Plan at `projects/plms-hackathon/tracker.md`. Portfolio-and-skills first; winning is explicitly not the goal.
 - **Worldpackers Sagres placement is dead, not pending.** No host ever replied. **November is genuinely open and unplanned** -- only the Oct 25 Ericeira camp is fixed between now and the ~Dec 8 end. Worth deciding whether to re-apply or fill it another way.
 - **EcoTraders exit -- one item left.** Reminder sent to Ron 2026-10-07. Still awaiting his reply (now 12 days).
 - **University: DONE, degree complete.**
@@ -27,6 +27,8 @@
 3. **Audited the two chess cloud routines** before deciding their fate, at Omri's insistence. Found two things that mattered more than the consolidation: the Rating Log tracks ratings but never games played, so eight rows of "Rapid unchanged" hid a five-week rapid blackout that a games-played column would have caught in mid-September; and the routine prompts exist only in the claude.ai UI, nowhere in the repo, so they can't be audited or recovered. Both logged, the second as a Claude Code lesson affecting every routine including the weekly review.
 
 4. **Travel tracker reconciled.** It still had Omri in London through Oct 24 and the Worldpackers placement as "pending confirmation" -- both wrong. Fixed, and the three fully-historical Norway sections (Oslo DNT questions, Weather Watch, the Odda/Hardangervidda planning block) marked historical so they stop reading as live open items in every future session.
+
+5. **HoTake specified end to end** via a 19-question grill-me session (`brainstorms/2026-10-19_plms-hackathon-project.md`) for the Microsoft x Premier League hackathon. Researched the event first (rules, judging weights, entrant repos) rather than asking blind, which surfaced that the crowded lane is broadcast commentary and that two explicitly-judged items were missing from the design: "recover from failures" in the Multi-Agent criteria, and Personalize as a named pipeline stage. Omri improved on the concept twice himself: the pundit framing (neither analysis companion nor prediction referee, but a stat-based pundit that creates conversations), and splitting the analyst into three narrow specialists for control over what gets assessed. The real deadline was reset from Oct 27 to **Oct 24** once the surf camp's 2h/day was priced in honestly, and the videos split into two (functional for judges, AI-generated comedy for LinkedIn) because one video cannot serve both without risking the eligibility gate.
 
 ---
 
@@ -97,10 +99,11 @@
 
 ## This Week's Focus (Oct 19 onward)
 
-1. **London**, through ~Oct 24 -- friends meetup, Premier League football.
-2. **Fill the London-to-Ericeira gap** -- Porto/Lisbon and/or Rota Vicentina trail time, fit between London and the Oct 25 Ericeira surf camp. Status unconfirmed as of this session.
-3. **Watch for Worldpackers host confirmation** on the Sagres placement (candidacy submitted, starts Nov 3 if accepted).
-4. **Shape the two new independent projects** Omri wants to discuss -- next chat.
+1. **HoTake build, Oct 20-24.** The hard one. Code freeze Oct 24, because the surf camp from Oct 25 drops available time to ~2h/day. Oct 20 is the heavy day: check Azure credits in Innovation Studio, set up the `c:\עמרי\HoTake` public repo, then get the generator + ledger + one specialist + Clive running in the terminal. Safety submission Oct 23.
+2. **Chess learning system** -- start with the clock analyzer, since it can invalidate the endgame workstream before it gets built. Routine: 4 sessions/week, ~12 rapid games.
+3. **Ericeira surf camp from Oct 25.** Fixed. After this the HoTake work is video + LinkedIn post only, no code.
+4. **Decide what November is.** Genuinely open and unplanned -- the Worldpackers Sagres placement is dead, not pending. Re-apply, or fill it another way.
+5. **Ron's reference letter** -- still no reply, 12 days after the reminder. Decide whether to chase again or let it go.
 
 ---
 
@@ -112,6 +115,7 @@
 - [Job Search](projects/job-search/)
 - [University](projects/university/)
 - [Chess](projects/chess/)
+- [HoTake / PLMS Hackathon](projects/plms-hackathon/)
 - [Claude Code Lessons](projects/claude-code-lessons/)
 
 **Workflows & References:**

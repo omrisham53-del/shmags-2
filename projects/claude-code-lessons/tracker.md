@@ -1,6 +1,6 @@
 # Claude Code Lessons Tracker
 
-**Last Updated:** August 3, 2026
+**Last Updated:** October 19, 2026
 
 Backlog of lessons/ideas from the 6-hour Claude Code manual, plus meta-lessons that surface organically during regular work sessions (auto-fed by `/save-context`). Add new rows as lessons come up; work them in any order across sessions.
 
@@ -332,6 +332,30 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <td>Harness-quirk</td>
 <td><strong>Done</strong></td>
 <td>Root cause found in <code>.claude/hooks/merge-to-master.sh</code> (the Stop hook that auto-merges remote-session branches into master): it only merges commits that are already ahead on <strong>origin's</strong> copy of the session branch. A remote session that edits a file but never runs <code>git commit</code> -- or commits locally but the commit never reaches origin before the ephemeral sandbox is torn down -- produces an "ahead=0" read with no warning at all. Fixed by making the hook autosave: every Stop event now commits any uncommitted changes itself (<code>git add -A</code> + commit if the tree is dirty) and explicitly pushes the current branch before checking what's ahead, so a forgotten commit can no longer be the failure point. Residual risk: this still can't save work if the sandbox dies mid-turn before Stop fires, and it does nothing for a plain claude.ai chat with no repo connection at all -- Omri wasn't sure which surface he'd used, so can't rule that out for these two incidents. Logged in <code>decisions/log.md</code> 2026-10-19 and noted in CLAUDE.md.</td>
+</tr>
+
+<tr style="background-color:#eaeaea;"> <!-- Not Started -->
+<td>2026-10-19</td>
+<td>A skill only registers if it is a FOLDER containing SKILL.md. A flat <code>.claude/skills/foo.md</code> does not register even with valid YAML frontmatter -- confirmed this session: assignment/, dnd-session-prep/ and skill-creator/ (all with SKILL.md) were available, while grill-me.md and job-tracker.md (flat, both with correct frontmatter) were not. Refines the 2026-05-26 lesson: frontmatter is necessary but not sufficient, the layout is the real requirement.</td>
+<td>Skill (new or edit)</td>
+<td><strong>Not Started</strong></td>
+<td>Fix is trivial: <code>grill-me.md</code> -> <code>grill-me/SKILL.md</code>, same for job-tracker. Cost of not fixing it: /grill-me cannot be invoked via the Skill tool, it has to be read and followed by hand (which is what happened this session).</td>
+</tr>
+
+<tr style="background-color:#eaeaea;"> <!-- Not Started -->
+<td>2026-10-19</td>
+<td>Genuinely global preferences (the AI Kill List, communication style, who Omri is) are trapped in SHMAGS 2's project CLAUDE.md, so they silently do not apply in any other repo. They belong in user-level <code>~/.claude/CLAUDE.md</code> so every project inherits them.</td>
+<td>CLAUDE.md rule</td>
+<td><strong>Not Started</strong></td>
+<td>Surfaced while planning the HoTake hackathon repo, which has to live outside SHMAGS 2 as a public repo. Same logic applies to any skill worth having everywhere (<code>~/.claude/skills/</code>).</td>
+</tr>
+
+<tr style="background-color:#eaeaea;"> <!-- Not Started -->
+<td>2026-10-19</td>
+<td>Memory is keyed per project directory path (<code>~/.claude/projects/&lt;slug&gt;/memory/</code>), so opening a new project folder starts with empty memory. Mitigation: run Claude Code from the new repo with SHMAGS 2 added as an additional working directory, rather than copying memories around.</td>
+<td>Habit-workflow</td>
+<td><strong>Not Started</strong></td>
+<td>Relevant to every future out-of-repo project (HoTake, portfolio, Economics Final).</td>
 </tr>
 
 </tbody>
