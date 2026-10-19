@@ -1,39 +1,37 @@
 # Current Priorities
 
-*Last updated: 2026-09-03 (full re-derivation -- Window Winners killed, EcoTraders and University retired as delivery priorities, trip promoted to #1 with departure 5 days out)*
-*Previous full re-derivation: 2026-07-24 -- see decisions/log.md for reasoning behind each reorder.*
+*Last updated: 2026-10-19 (full re-derivation -- trip is 6 weeks in, not 5 days out; EcoTraders exit down to one item awaiting reply; LinkedIn post done and retired; new "independent projects" thread opened, two to be shaped next*
+*Previous full re-derivation: 2026-09-03 -- see decisions/log.md for reasoning behind each reorder.*
 
-## Priority 1: Norway leg / departure -- Sept 8, five days out
-The Sept 8 - ~Dec 8 Europe trip is now the main event, not a background project. Norway is the first leg: Oslo (1 night) -> Jotunheimen (6 days) -> Breheimen (5 days). Gear list is largely closed out (`projects/travel/equipment-list.md`); the live questions are route and logistics, not kit.
+## Priority 1: Europe trip -- six weeks in, London leg, heading to two real Portugal anchors
+The Sept 8 - ~Dec 8 trip remains the main event. Norway (Jotunheimen, Alta) and Scotland (West Highland Way + Ben Nevis with Dad) are both complete. Ireland was dropped entirely (decided in a separate session, reconciled here 2026-10-19). Portugal is no longer an open shape -- it now has two real anchors: an Ericeira surf camp (signed up, starts Oct 25) and a Worldpackers volunteering placement in Sagres (candidacy submitted, starts Nov 3 if the host confirms). Currently in London (through ~Oct 24) ahead of the surf camp. Full detail in `projects/travel/tracker.md`.
 
-**Two open decisions, both with real dates:**
-- **Whether to trek Jotunheimen at all.** Omri has seen a cloudy forecast over the trek dates and is genuinely reconsidering. The plan of record (`projects/travel/tracker.md`, weather-watch section added 2026-09-01) is to hold and decide on **Sept 5-6**, once the forecast actually covers the Sept 10-21 window. He will also put the question to DNT staff in person in Oslo. Both inputs land before anything is committed.
-- **The Sept 13 DNT hut closure**, which remains the harder constraint than the weather. The planned Memurubu night on Sept 14 falls one day past the confirmed DNT-wide staffed-season cutoff. Top question for the Oslo DNT visit on Sept 9, alongside collecting the DNT key (blocking for Breheimen), the gas canister, and membership.
+**Open:**
+- How Porto/Lisbon and the Rota Vicentina trail fit around the Oct 25/Nov 3 anchors.
+- Whether the Worldpackers host confirms the Sagres placement.
 
-**Status:** Active, highest priority until departure.
+**Status:** Active, ongoing through ~Dec 2026.
 
-## Priority 2: EcoTraders exit -- one item left, close it before Sept 8
-The job is finished (last working day 2026-08-19, every deliverable in the locked scope shipped) and the exit is nearly closed too. Confirmed 2026-09-03: the closing email to Daniel went out with the final two deliverables attached, the pension release letter turned out to be unnecessary, and the unused vacation payout was already settled.
+## Priority 2: EcoTraders exit -- one item left, awaiting Ron's reply
+The job and its exit logistics are otherwise fully closed (closing email to Daniel sent, pension letter unnecessary, vacation payout settled -- all confirmed 2026-09-03). The reference letter from Ron is the only open item: Omri sent his own draft 2026-09-09 and a reminder 2026-10-07 after a month of silence. No reply yet.
 
-**The one remaining item is the reference letter from Ron.** Omri is sending him a draft to react to, so Ron only has to edit and sign rather than write from scratch. Draft at `projects/energy-program/reference-letter-draft.md`. Three placeholders need filling: Ron's title, Omri's EcoTraders start date, and whether to name the Ministry of Energy as the client.
-
-**Status:** Send before departure. Known limitations left unresolved at handoff are documented in `projects/energy-program/tracker.md`.
+**Status:** Low-effort background item -- nothing more to do until Ron responds.
 
 ## Priority 3: Career Direction Exploration -- the actual purpose of the trip
-Not a paused job search waiting for logistics to clear. Omri is deliberately using the Sept-Dec trip to reconsider direction: what interests him, what other paths exist, and where to start once he is back. Mechanism is conversations with alumni and professors met in Europe, plus fellow travelers. Formal applications resume only after that reflection, not on a fixed date (~Dec 2026 earliest). All prior applications closed out as declined (2026-07-10).
+Ongoing via conversations with alumni, professors, and fellow travelers met along the way. Formal job applications resume only after this reflection, not on a fixed date (~Dec 2026 earliest). All prior applications closed out as declined (2026-07-10).
 
-**Status:** Begins at departure. Nothing to action before then.
+**Status:** Active, no fixed action items -- the trip itself is the mechanism.
 
-## Priority 4: LinkedIn post on the economics seminar presentation -- write before Sept 8
-Source identified 2026-09-03: Omri's best guess is this was always about the distinction-track economics seminar presentation with Tomer (data-center energy sourcing CBA, presented July 30, went great), not the EcoTraders work -- the wording in today.md had just drifted into "once EcoTraders wraps up" over several rewrites with nothing anchoring it. Confirmed plan: write and post it before the Sept 8 flight.
+## Priority 4: Independent projects during the trip -- new thread, not yet shaped
+Surfaced 2026-10-07 while drafting the LinkedIn post: Omri wants to use trip time to learn new skills and build something concrete, to come back with more experience and sharper tools. Intent only so far -- no project defined yet. Omri has two specific project ideas to discuss and shape in an upcoming session.
 
-**Status:** Active, do it this week.
+**Status:** Active -- next concrete step is that discussion.
 
 ---
 
 ## Dead / Shelved
 
-**Through the Gap / Window Winners** -- Killed 2026-09-03 at Omri's explicit instruction: no work on it and no future work planned. The Aug 21 launch target passed with the build never started, and it had been flagged as stalled in three consecutive weekly reviews. The whole project folder moved to `archives/through-the-gap/`; both recurring build blocks (Tue 19:00, Fri 10:00) deleted from Google Calendar. This closes out the football side project entirely, newsletter and prediction game alike. Do not resurface it as a suggestion.
+**Through the Gap / Window Winners** -- Killed 2026-09-03 at Omri's explicit instruction: no work on it and no future work planned. The whole project folder moved to `archives/through-the-gap/`; both recurring build blocks deleted from Google Calendar. Do not resurface it as a suggestion.
 
 **D&D Campaign** -- Confirmed dead 2026-07-24 (was "on hold" since 2026-07-10). Session 2 ("Chains") has been fully prepped since 2026-06-09 and was never played. The `.claude/skills/dnd-session-prep/` skill and campaign files are left in place in case it revives. See `projects/dnd-campaign/README.md`.
 
@@ -44,6 +42,8 @@ Source identified 2026-09-03: Omri's best guess is this was always about the dis
 **EcoTraders delivery work** -- Closed 2026-08-19. Grants chapter and loan fund position paper to the Ministry (2026-07-12), tax incentive model and chapter to Daniel (2026-08-17), both model documentation files, and the full loan fund chapter. The tax incentive model was the part Omri genuinely enjoyed, a real modeling problem worked through end to end, and the skill-building from it is what carries forward rather than the job. Exit logistics live on as Priority 2.
 
 **University** -- Degree complete. Final Sustainability Project submitted 2026-08-12, both channels confirmed, ahead of the real Aug 13 deadline. All grades pending, nothing further to produce.
+
+**LinkedIn post on the economics seminar presentation** -- Posted 2026-10-07 (final link lnkd.in/p/ej8SauVz), four drafts, built around the IDCA Annual Summit rather than the seminar presentation alone. 40 reactions, 6 comments. Voice locked in as a durable preference (`feedback_linkedin_voice.md`): narrative over stats, grateful/curious tone, credentials stated plainly, no targeted CTA.
 
 ---
 
