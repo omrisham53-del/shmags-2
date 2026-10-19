@@ -36,6 +36,12 @@ Make student life more efficient while building a strong personal brand and anal
 
 @decisions/log.md — Append-only record of important decisions. When something meaningful is decided, log it with reasoning and context.
 
+## Cross-Session Sync (remote/claude.ai-code sessions)
+
+Desktop sessions pull and push git manually (end of session). Remote sessions (`CLAUDE_CODE_REMOTE=true`, e.g. claude.ai/code) are synced automatically by `.claude/hooks/session-start.sh` (pulls master at start) and `.claude/hooks/merge-to-master.sh` (runs after every response: autosaves any uncommitted changes, pushes the branch, and merges it into master once there's something to merge). This means a remote session never needs to remember to `git commit` — but it still only persists what actually got **written to a file**. A decision only discussed in chat and never edited into a tracker/decisions-log file has nothing for the hook to save, no matter how good the sync mechanism is. If a decision matters, write it down in the same turn. See `decisions/log.md` (2026-10-19) and `projects/claude-code-lessons/tracker.md` for the incident that prompted this.
+
+A plain claude.ai chat (not Claude Code / no repo connected) has no hooks and no git access at all — nothing said there can sync here regardless. If unsure which surface is in use, claude.ai/code shows this repo's file tree in the sidebar; a plain chat does not.
+
 ## Memory System
 
 Claude Code maintains persistent memory across conversations. As work continues:
