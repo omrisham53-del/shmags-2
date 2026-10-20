@@ -1,7 +1,7 @@
-# Today - 2026-10-19
+# Today - 2026-10-20
 
-**Date:** 2026-10-19
-**Updated:** 2026-10-19
+**Date:** 2026-10-20
+**Updated:** 2026-10-20
 
 ---
 
@@ -9,6 +9,7 @@
 
 **In Portugal, Ericeira surf camp Oct 25, and the two trip projects are now live.** Left London early (exact date not captured). Jotunheimen, Alta, Scotland-with-Dad (WHW + Ben Nevis), and the LinkedIn post are all closed out. Ireland dropped.
 
+- **Oct 20: travelling to Peniche for the WSL event, arriving ~13:00-13:30.** HoTake heavy day starts after arrival, so ~5-6 usable hours instead of a full day. Where he stays in Peniche, and for how long, not captured yet.
 - **Chess learning system -- the first trip project, now specified.** Goal set at 1600 rapid (from 1193), full build plan at `projects/chess/learning-system-plan.md`, 7 milestones. Starts with the clock analyzer. Routine locked at 4 sessions/week, ~12 rapid games.
 - **HoTake -- the second trip project, now fully specified.** Solo entry to the Microsoft x Premier League hackathon. An AI football pundit called **Clive** (CRT monitor for a head) who watches a synthetic match with you, provokes you into a take, makes his own falsifiable calls, and grades both against the evidence. **Code freeze Oct 24**, submission closes Oct 27 23:59 PT. Plan at `projects/plms-hackathon/tracker.md`. Portfolio-and-skills first; winning is explicitly not the goal.
 - **Worldpackers Sagres placement is dead, not pending.** No host ever replied. **November is genuinely open and unplanned** -- only the Oct 25 Ericeira camp is fixed between now and the ~Dec 8 end. Worth deciding whether to re-apply or fill it another way.
