@@ -1,7 +1,7 @@
 # HoTake Tracker
 
-**Last Updated:** 2026-10-19
-**Status:** Planned, not started. Build begins Oct 20.
+**Last Updated:** 2026-10-21
+**Status:** Lost all of Oct 20 to travel (surf-camp transit took far longer than planned). Scope cut to a smaller v1 to fit Oct 24; the cut full version becomes a no-deadline side project after submission. Terminal pipeline working end to end as of Oct 21.
 
 ---
 
@@ -22,16 +22,23 @@
 
 | When | What | Done |
 |---|---|---|
-| **Oct 20** | Check Azure credits in Innovation Studio. Set up `c:\עמרי\HoTake` (repo, CLAUDE.md, provider interface stub). Generator (one event family) + claim ledger + ONE specialist + Clive, running in the terminal. No UI. **Heavy day.** | [ ] |
-| **Oct 21** | Other two specialists + adjudicator + supervisor event-type routing | [ ] |
-| **Oct 22** | Thin UI, match clock, replay | [ ] |
-| **Oct 23** | Azure slice (Foundry + Container Apps) + public deploy + **safety submission** | [ ] |
+| **Oct 20** | Lost to travel. | [x] (skipped) |
+| **Oct 21** | Compressed Oct 20+21: repo set up at `c:\עמרי\HoTake`, match generator (tactical-state driven, seeded demo match scripted for the arc below), claim ledger, LLM provider seam with timeout+fallback, 2 specialists (set-piece, box-numbers), Clive, adjudicator, supervisor routing -- all running end to end in the terminal, verified both with and without a live API key. **Third specialist (duels) cut per the standing cut order**, now a post-submission addition. | [x] |
+| **Oct 22** | Thin polling-based web UI (scoreboard, live feed, ledger panel, take box). No SSE -- swapped for 1s polling to fit the timeline; cut from scope, not from the eventual full version. | [ ] |
+| **Oct 23** | Azure Foundry + Container Apps + public deploy + **safety submission** | [ ] |
 | **Oct 24** | Demo match tuning, record judge video, write pitch. **Code freeze** | [ ] |
 | **Oct 25-27** | 2h/day: AI comedy video, LinkedIn post, resubmit if improved | [ ] |
 
 Editing a submission during the submission period is permitted (rules section 5 only restricts changes after it closes), so the Oct 23 safety submission is free insurance.
 
 ---
+
+## Smaller-v1 scope cut (2026-10-21, after losing Oct 20 to travel)
+
+To fit the remaining 3 build days, v1 additionally drops (beyond the
+pre-planned cut order below): SSE streaming (polling instead), replay/match
+history, multi-match support. These come back after submission -- no
+deadline on that follow-on work.
 
 ## Cut order, decided in advance
 
