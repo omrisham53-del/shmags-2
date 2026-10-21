@@ -108,13 +108,13 @@ Replays his own blown winning positions against live local Stockfish, from his s
 - `scripts/chess/patterns.py` -- back-searches the whole archive for positions matching a concept's structural conditions, then shows what he actually did. "Here are 7 of your games where both kings castled opposite; in 5 you never started a pawn storm."
 - Chapter first, then the games. The concept provides the lens he re-reads his own play through.
 
-### M6: Routine consolidation
+### M6: Routine consolidation -- DONE 2026-10-21
 
-- **Keep Routine A (`trig_01BaX2JcLCMbWYVAHh792kSd`), fixed:** split its two jobs apart, and **add a games-played-per-format column** to the Rating Log. Eight rows since Sept 13 read "Rapid unchanged" and hid a five-week rapid blackout, because a flat rating looks identical to inactivity. This column would have surfaced the laptop-access problem in mid-September.
-- **Retire the metadata flagger.** About 100 flagged rows, almost all "decisive finish (checkmate)", because at 1200 nearly every game ends in mate. It flags nearly everything so it discriminates nearly nothing.
-- **Retire Routine B (`trig_01JFSQUYQf78TzhRxQmxuHoQ`).** Superseded by the local pipeline on depth, on not reinstalling Stockfish into a fresh sandbox every run, and on having a coaching objective instead of a storytelling one.
-- **Blocked:** both routine prompts live only in the claude.ai routines UI and exist nowhere in this repo, so their logic cannot be audited or recovered. Mirror them into the repo first. Omri is handling that in a separate session, so **Routine B must not be retired until that lands.**
-- Improvers Club candidate selection becomes a query against the local store rather than its own scheduled routine.
+- **Mirrored both routine prompts into the repo first** (`routine-prompts.md`), via direct `RemoteTrigger` API access rather than the claude.ai UI -- unblocked in one step rather than needing a separate manual-transcription session.
+- **Fixed Routine A (`trig_01BaX2JcLCMbWYVAHh792kSd`):** now always appends a Rating Log row every 3-day run (not only when ratings change), with a **games-played-per-format column**. Backfilled retroactively against the real chess.com archive for Jul-Oct 2026, which confirmed the hypothesis exactly: **zero rapid games played in every single window from Sept 4 through Oct 19** -- 8 straight rows, ~6.5 weeks, that "Rapid unchanged" never made visible on its own.
+- **Retired the metadata flagger** (was Part 3 of Routine A). ~100 flagged rows, almost all "decisive finish (checkmate)", because at 1200 nearly every game ends in mate -- it flagged nearly everything so it discriminated nearly nothing.
+- **Retired Routine B (`trig_01JFSQUYQf78TzhRxQmxuHoQ`)**, disabled not deleted. Its input (the flagger) is gone, and it's superseded by M1's local pipeline once built. The one lesson worth carrying forward -- long engine-best streaks are frequently hollow and must not be scored as skill -- is preserved in `routine-prompts.md` and the tracker's retired tables.
+- Improvers Club candidate selection becomes a query against the local store once M1/M2 exist, rather than its own scheduled routine -- still pending on M1/M2, not yet built.
 
 ---
 

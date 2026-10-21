@@ -6,31 +6,35 @@ Rating progress and Improvers Club submission log.
 
 ## Rating Log
 
-| Date | Rapid | Tactics | Blitz | Notes |
-|---|---|---|---|---|
-| 2026-07-06 | 1223 (PB) | 1871 | 852 (best 1146) | Snapshot taken when the local Stockfish toolchain was set up |
-| 2026-07-13 | 1154 | 1871 | 828 | Rapid -69, Blitz -24 since July 6 -- heavy volume week (80+ games in July), auto-update routine failed silently since July 10 (see decision log), this row backfilled manually |
-| 2026-07-16 | 1148 | 1871 | 828 | Rapid -6, Tactics/Blitz unchanged |
-| 2026-07-19 | 1157 | 1871 | 836 | Rapid +9, Blitz +8 since July 16, Tactics unchanged |
-| 2026-07-25 | 1182 | 1871 | 821 | Rapid +25, Blitz -15 since July 19, Tactics unchanged |
-| 2026-07-28 | 1199 | 1871 | 827 | Rapid +17, Blitz +6 since July 25, Tactics unchanged |
-| 2026-07-31 | 1174 | 1871 | 820 | Rapid -25, Blitz -7 since July 28, Tactics unchanged |
-| 2026-08-01 | 1166 | 1871 | 820 | Rapid -8 since July 31, Tactics/Blitz unchanged |
-| 2026-08-04 | 1175 | 1871 | 788 | Rapid +9, Blitz -32 since Aug 1, Tactics unchanged |
-| 2026-08-07 | 1152 | 1871 | 788 | Rapid -23 since Aug 4, Tactics/Blitz unchanged |
-| 2026-08-10 | 1177 | 1871 | 820 | Rapid +25, Blitz +32 since Aug 7, Tactics unchanged |
-| 2026-08-16 | 1153 | 1871 | 820 | Rapid -24 since Aug 10, Blitz/Tactics unchanged |
-| 2026-08-19 | 1154 | 1871 | 822 | Rapid +1, Blitz +2 since Aug 16, Tactics unchanged |
-| 2026-08-28 | 1161 | 1871 | 822 | Rapid +7 since Aug 19, Blitz/Tactics unchanged |
-| 2026-08-31 | 1185 | 1871 | 822 | Rapid +24 since Aug 28, Blitz/Tactics unchanged |
-| 2026-09-04 | 1185 | 1871 | 806 | Blitz -16 since Aug 31, Rapid/Tactics unchanged |
-| 2026-09-13 | 1193 | 1871 | 821 | Rapid +8, Blitz +15 since Sept 4, Tactics unchanged |
-| 2026-09-22 | 1193 | 1871 | 813 | Blitz -8 since Sept 13, Rapid/Tactics unchanged |
-| 2026-09-25 | 1193 | 1871 | 812 | Blitz -1 since Sept 22, Rapid/Tactics unchanged |
-| 2026-10-01 | 1193 | 1871 | 795 | Blitz -17 since Sept 25, Rapid/Tactics unchanged |
-| 2026-10-07 | 1193 | 1871 | 787 | Blitz -8 since Oct 1, Rapid/Tactics unchanged |
-| 2026-10-16 | 1193 | 1871 | 796 | Blitz +9 since Oct 7, Rapid/Tactics unchanged |
-| 2026-10-19 | 1193 | 1871 | 804 | Blitz +8 since Oct 16, Rapid/Tactics unchanged |
+**Rapid Games / Blitz Games = games played since the previous row**, not cumulative. Added 2026-10-21 (see M6 routine consolidation, decision log) specifically so a flat rating can't hide zero play the way it did for eight straight rows below.
+
+| Date | Rapid | Tactics | Blitz | Rapid Games | Blitz Games | Notes |
+|---|---|---|---|---|---|---|
+| 2026-07-06 | 1223 (PB) | 1871 | 852 (best 1146) | -- | -- | Snapshot taken when the local Stockfish toolchain was set up |
+| 2026-07-13 | 1154 | 1871 | 828 | 24 | 16 | Rapid -69, Blitz -24 since July 6 -- heavy volume week (80+ games in July), auto-update routine failed silently since July 10 (see decision log), this row backfilled manually |
+| 2026-07-16 | 1148 | 1871 | 828 | 8 | 3 | Rapid -6, Tactics/Blitz unchanged |
+| 2026-07-19 | 1157 | 1871 | 836 | 5 | 1 | Rapid +9, Blitz +8 since July 16, Tactics unchanged |
+| 2026-07-25 | 1182 | 1871 | 821 | 27 | 4 | Rapid +25, Blitz -15 since July 19, Tactics unchanged |
+| 2026-07-28 | 1199 | 1871 | 827 | 16 | 10 | Rapid +17, Blitz +6 since July 25, Tactics unchanged |
+| 2026-07-31 | 1174 | 1871 | 820 | 8 | 1 | Rapid -25, Blitz -7 since July 28, Tactics unchanged |
+| 2026-08-01 | 1166 | 1871 | 820 | 6 | 0 | Rapid -8 since July 31, Tactics/Blitz unchanged |
+| 2026-08-04 | 1175 | 1871 | 788 | 11 | 4 | Rapid +9, Blitz -32 since Aug 1, Tactics unchanged |
+| 2026-08-07 | 1152 | 1871 | 788 | 19 | 0 | Rapid -23 since Aug 4, Tactics/Blitz unchanged |
+| 2026-08-10 | 1177 | 1871 | 820 | 11 | 8 | Rapid +25, Blitz +32 since Aug 7, Tactics unchanged |
+| 2026-08-16 | 1153 | 1871 | 820 | 14 | 12 | Rapid -24 since Aug 10, Blitz/Tactics unchanged |
+| 2026-08-19 | 1154 | 1871 | 822 | 6 | 12 | Rapid +1, Blitz +2 since Aug 16, Tactics unchanged |
+| 2026-08-28 | 1161 | 1871 | 822 | 5 | 4 | Rapid +7 since Aug 19, Blitz/Tactics unchanged |
+| 2026-08-31 | 1185 | 1871 | 822 | 3 | 0 | Rapid +24 since Aug 28, Blitz/Tactics unchanged |
+| 2026-09-04 | 1185 | 1871 | 806 | 0 | 2 | Blitz -16 since Aug 31, Rapid/Tactics unchanged -- **first zero-rapid-games row** |
+| 2026-09-13 | 1193 | 1871 | 821 | 1 | 2 | Rapid +8, Blitz +15 since Sept 4, Tactics unchanged -- the +8 came from a single game, not real volume |
+| 2026-09-22 | 1193 | 1871 | 813 | 0 | 2 | Blitz -8 since Sept 13, Rapid/Tactics unchanged |
+| 2026-09-25 | 1193 | 1871 | 812 | 0 | 2 | Blitz -1 since Sept 22, Rapid/Tactics unchanged |
+| 2026-10-01 | 1193 | 1871 | 795 | 0 | 4 | Blitz -17 since Sept 25, Rapid/Tactics unchanged |
+| 2026-10-07 | 1193 | 1871 | 787 | 0 | 1 | Blitz -8 since Oct 1, Rapid/Tactics unchanged |
+| 2026-10-16 | 1193 | 1871 | 796 | 0 | 1 | Blitz +9 since Oct 7, Rapid/Tactics unchanged |
+| 2026-10-19 | 1193 | 1871 | 804 | 0 | 4 | Blitz +8 since Oct 16, Rapid/Tactics unchanged |
+
+**Backfilled 2026-10-21** via direct chess.com archive query (Jul-Oct 2026), the same method the fixed routine now uses automatically. Confirms the laptop-access diagnosis from the 2026-10-19 decision in hard numbers: **zero rapid games played in every single window from Sept 4 through Oct 19** -- eight consecutive rows, about 6.5 weeks, with "Rapid unchanged" the only signal the old table carried. The lone rapid point gained Sept 13 (+8) came from exactly one game, not a return to volume. Blitz kept a low trickle (1-4 games per window) the whole time, which is why blitz numbers moved while rapid sat dead flat -- a pattern the old table had no way to distinguish from "playing rapid steadily and holding rating."
 
 ---
 
@@ -45,9 +49,9 @@ Rating progress and Improvers Club submission log.
 
 ---
 
-## Flagged Game Opportunities (auto)
+## Flagged Game Opportunities (auto) -- RETIRED 2026-10-21
 
-Candidates surfaced by the 3-day chess tracker routine, from game metadata only (upset win, checkmate finish, short decisive game). Status moves to "Analyzed" once the twice-monthly Stockfish pass processes it.
+No longer fed by the routine. At ~1200 rating nearly every decisive game ends in checkmate, so this table flagged almost everything (~100 rows) and discriminated almost nothing. Kept below as historical record; see `learning-system-plan.md` M6 and `routine-prompts.md` for the retirement decision. The real replacement (M1's cliff/decay detectors) runs locally once built, not as a cloud routine.
 
 | Date | Opponent (rating) | Result | Why flagged | Link | Status |
 |---|---|---|---|---|---|
@@ -154,9 +158,9 @@ Candidates surfaced by the 3-day chess tracker routine, from game metadata only 
 
 ---
 
-## Bi-Weekly Stockfish Analysis (auto)
+## Bi-Weekly Stockfish Analysis (auto) -- RETIRED 2026-10-21
 
-Twice a month, all pending flagged games get run through Stockfish (depth 18) in the cloud routine's own sandbox. Each row is one batch's best candidate.
+Routine disabled (`trig_01JFSQUYQf78TzhRxQmxuHoQ`), not deleted. Its input (the flagger above) is retired in the same change, so it had nothing left to process. Superseded by M1's local pipeline once built -- see `learning-system-plan.md` M6. One lesson from this routine carries forward and must not be lost: long engine-best streaks are frequently hollow (king shuffles in lost endgames, opening-book moves, trivial promotions) and must not be scored as skill, confirmed across the 6 batches below. Kept as historical record.
 
 | Date Run | Games Analyzed | Batch Pick | Engine Reasoning |
 |---|---|---|---|
@@ -170,9 +174,9 @@ Twice a month, all pending flagged games get run through Stockfish (depth 18) in
 
 ---
 
-## Monthly Submission Candidate (auto)
+## Monthly Submission Candidate (auto) -- RETIRED 2026-10-21
 
-Once both batches for a month are done, the routine compares the two batch picks and recommends one. Omri still writes the actual hook/annotation and submits it himself -- this is a recommendation, not a finished submission.
+Fed by the two routines above, both now retired. October 2026's recommendation below is the last one this mechanism will produce. Per `learning-system-plan.md` M6, Improvers Club candidate selection becomes a query against the local store once M1/M2 exist, rather than its own scheduled routine.
 
 | Month | Recommended Game | Reasoning | Status |
 |---|---|---|---|

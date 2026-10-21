@@ -60,11 +60,12 @@ Monthly club competition with three categories: **Annotated Game of the Month**,
 - A personal narrative the whole club can relate to
 - Engine-verified key moments add weight
 
-## Automated Candidate-Finding Workflow
+## Automated Workflow (consolidated 2026-10-21)
 
-Two scheduled cloud routines feed `tracker.md` so good games don't slip by between Omri's own reviews:
+One scheduled cloud routine now feeds `tracker.md`:
 
-1. **Chess tracker auto-update** (every 3 days, `trig_01BaX2JcLCMbWYVAHh792kSd`) -- checks the public chess.com API for rating changes and flags recent games matching simple heuristics (upset win, checkmate finish, short decisive game) into "Flagged Game Opportunities (auto)". Metadata only, no engine.
-2. **Chess bi-weekly Stockfish analysis** (1st and 16th of each month, `trig_01JFSQUYQf78TzhRxQmxuHoQ`) -- installs Stockfish + python-chess in its own cloud sandbox, runs real depth-18 analysis on every game flagged since the last pass, and picks that batch's strongest candidate. Once two batches exist in the same calendar month, it compares both picks and recommends one for that month's submission in "Monthly Submission Candidate (auto)".
+1. **Chess tracker auto-update** (every 3 days, `trig_01BaX2JcLCMbWYVAHh792kSd`) -- checks the public chess.com API and always appends a Rating Log row (rapid/tactics/blitz ratings, plus games-played-per-format since the last row), even when ratings are flat. The games-played column exists specifically because a flat rating looked identical to zero play -- it hid a 6.5-week rapid blackout (Sept 4-Oct 19) that only a direct archive query caught. Also flags a new Improvers Club monthly submission cycle when one opens.
 
-Omri still writes the actual hook and annotation and submits it manually -- the routines only narrow down which game is worth that effort. Manage both at https://claude.ai/code/routines.
+**Retired the same day:** the metadata-only game flagger (flagged almost everything at this rating level, discriminated almost nothing) and the bi-weekly cloud Stockfish analysis routine (`trig_01JFSQUYQf78TzhRxQmxuHoQ`, disabled not deleted) that fed on it. Both prompts are mirrored in full at `routine-prompts.md`, including the lesson worth carrying into the real replacement: long engine-best streaks are frequently hollow (king shuffles in lost endgames, book moves, trivial promotions) and must not be scored as skill.
+
+The real replacement is `learning-system-plan.md` M1 (local cliff/decay detectors) and M2 (`/chess-review`), not yet built. Improvers Club candidate selection becomes a query against that local store once it exists. Manage the live routine at https://claude.ai/code/routines.
