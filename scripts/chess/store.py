@@ -152,6 +152,22 @@ def replace_moves(conn, game_id: int, moves: list):
     conn.commit()
 
 
+def games_needing_evaluation(conn, time_class="rapid", time_control="600", since_date=None):
+    """Games with no evaluations rows yet, newest first. since_date is an
+    inclusive 'YYYY-MM-DD' floor on games.end_date."""
+    q = """
+        SELECT g.* FROM games g
+        WHERE g.time_class = ? AND g.time_control = ?
+          AND NOT EXISTS (SELECT 1 FROM evaluations e WHERE e.game_id = g.id)
+    """
+    params = [time_class, time_control]
+    if since_date:
+        q += " AND g.end_date >= ?"
+        params.append(since_date)
+    q += " ORDER BY g.end_date DESC, g.end_time DESC"
+    return conn.execute(q, params).fetchall()
+
+
 def get_games(conn, time_class=None, time_control=None):
     q = "SELECT * FROM games"
     params = []

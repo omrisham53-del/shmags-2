@@ -62,7 +62,12 @@ Monthly club competition with three categories: **Annotated Game of the Month**,
 
 ## Local Learning System (build in progress)
 
-Full plan: `learning-system-plan.md`. **M0 (foundation + clock analyzer) done 2026-10-21** -- see `clock-analysis-report.md` for the verdict (clock is not the bottleneck behind slow-dissolve losses; M4 proceeds as scoped). Scripts at `scripts/chess/` (`fetch.py`, `store.py`, `clock.py`), documented in `scripts/README.md`.
+Full plan: `learning-system-plan.md`.
+
+- **M0 (foundation + clock analyzer) done 2026-10-21** -- see `clock-analysis-report.md` for the verdict (clock is not the bottleneck behind slow-dissolve losses; M4 proceeds as scoped).
+- **M1 (engine layer + cliff/decay detectors) code done 2026-10-21, batch analysis running unattended in the background** -- Stockfish depth-18 analysis of all 670 rapid games from 2026 (~12 hours of engine time, resumable, checkpointed per-game). Report refreshes via `python scripts/chess/detect.py --write` at `engine-analysis-report.md` as coverage grows.
+
+Scripts at `scripts/chess/`, documented in `scripts/README.md`.
 
 ## Automated Workflow (consolidated 2026-10-21)
 

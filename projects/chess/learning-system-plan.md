@@ -64,16 +64,17 @@ Sequenced so the cheapest thing that could invalidate later work runs first.
 
 **Verdict: hypothesis does NOT hold.** Full report at `clock-analysis-report.md`. Entering the endgame phase he averages ~381s (6.4 min) remaining in games he eventually wins, ~327s even in games he loses -- only 4-5% of games see him under 60s by that point. True across the full 2020-2026 archive and when restricted to 2026 alone (ruling out old habits diluting a real recent pattern). **M4 proceeds as originally scoped, not reshaped** -- failure mode 2 looks like a genuine conversion/technique gap, not a clock-management one. Caveat flagged in the report: this doesn't yet confirm these are genuinely winning positions at endgame entry, since that needs M1's real evaluations -- worth a finer-grained re-check (clock at the exact moment an advantage starts eroding) once M1 exists.
 
-### M1: Engine layer and the two detectors
+### M1: Engine layer and the two detectors -- CODE DONE 2026-10-21, BATCH ANALYSIS RUNNING
 
-- `scripts/chess/engine.py` -- Stockfish wrapper (`C:\Users\User\OneDrive\Documents\stockfish\stockfish-windows-x86-64-avx2.exe`), full-game analysis at depth 18, evaluations cached in the store so no position is ever analyzed twice.
-- `scripts/chess/detect.py` -- two detectors:
-  - **Cliff detector.** Single-move evaluation collapses. The known-good one; existing tracker output is full of its findings.
-  - **Decay detector.** Sustained winning evaluation eroding across many moves with no single large swing. This does not exist anywhere yet and is the only thing that can see failure mode 2.
-- **Carry forward from the retiring bi-weekly routine:** long engine-best streaks are frequently hollow (king shuffles inside lost endgames, opening-book moves, trivial pawn promotions) and must not be scored as skill. This was learned across six real batches and is the one piece of that routine worth keeping.
-- Join against M0's clock data to answer the direct question: do his blunders come from fast moves?
+- `scripts/chess/engine.py` -- Stockfish wrapper (`C:\Users\User\OneDrive\Documents\stockfish\stockfish-windows-x86-64-avx2.exe`), full-game analysis at depth 18, evaluations cached in the store (`scripts/chess/chess.db`) so no position is ever analyzed twice. One eval per ply, White-POV centipawns; cp_loss and is_best_move computed against the engine's top choice from the position before each move.
+- `scripts/chess/analyze_batch.py` -- resumable driver, newest-first, checkpoints to the DB after every single game so it's safe to interrupt and resume anytime. Launched as a detached background process (`nohup ... &`, not tied to any one Claude Code session) against all 670 rapid 10+0 games from 2026 -- **~48,500 positions total, ~0.9s/position measured, roughly 12 hours of engine time.** Safe to re-run (`python scripts/chess/analyze_batch.py`) anytime to pick up wherever it left off; extend to full history with `--since 2020-01-01` once the 2026 set is done.
+- `scripts/chess/detect.py` -- two detectors, runnable against whatever's analyzed so far (prints coverage N/670):
+  - **Cliff detector.** Single-move cp_loss >= 200 on my own moves. The known-good one; existing tracker output is full of its findings.
+  - **Decay detector.** My-perspective eval peaking >= 150cp then eroding to <= 0cp over >= 10 plies with no single qualifying cliff inside. This does not exist anywhere else and is the only thing that can see failure mode 2.
+  - `is_hollow_streak()` -- carried forward from the retired bi-weekly routine: long engine-best streaks are frequently hollow (book moves, king shuffles in decided positions) and must not be scored as skill. Reusable filter for whenever M3/M6 build highlight selection.
+  - Clock join built in: every cliff and every decay-window move carries its `time_spent`, directly answering "do blunders come from fast moves?" (report section: "Direct answer").
 
-**Deliverable:** per-game annotated analysis, plus a recurring-pattern report that says what he keeps getting wrong rather than which game tells the best story.
+**Deliverable:** `python scripts/chess/detect.py --write` → `projects/chess/engine-analysis-report.md`, a recurring-pattern report (not "best game of the batch") that refreshes as coverage grows. Re-run once the background batch has made real progress -- with 1 game in, the pipeline is confirmed working end to end but has nothing statistically meaningful to say yet.
 
 ### M2: `/chess-review` slash command
 

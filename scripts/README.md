@@ -11,15 +11,20 @@ Moved here 2026-07-24 from `.claude/skills/` (skills are .md trigger files; this
 Built 2026-10-21 for `projects/chess/learning-system-plan.md` M0. Replaces paid chess.com membership + the retired cloud routines with local Stockfish and a SQLite store.
 
 ```bash
-python scripts/chess/fetch.py      # pull new games from chess.com's public API, filter to rapid 10+0
-python scripts/chess/clock.py      # parse [%clk] annotations, bucket by phase, print the clock-pattern report
+python scripts/chess/fetch.py          # pull new games from chess.com's public API, filter to rapid 10+0
+python scripts/chess/clock.py          # parse [%clk] annotations, bucket by phase, print the clock-pattern report
+python scripts/chess/analyze_batch.py  # Stockfish depth-18 analysis, resumable, newest-first (slow: ~1s/position)
+python scripts/chess/detect.py --write # cliff + decay detectors over whatever's analyzed so far
 ```
 
-- `store.py` -- SQLite store at `scripts/chess/chess.db` (gitignored, rebuildable from chess.com's API). Schema covers games/moves now, plus evaluations/annotations/drills tables for M1/M2/M3.
+- `store.py` -- SQLite store at `scripts/chess/chess.db` (gitignored, rebuildable from chess.com's API + local Stockfish). Schema covers games/moves/evaluations now, plus annotations/drills tables for M2/M3.
 - `fetch.py` -- idempotent, safe to re-run; only inserts games not already stored.
 - `clock.py` -- parses unparsed games then reports. `--report-only` skips parsing.
+- `engine.py` -- Stockfish wrapper (depth 18, 3 threads), one eval per ply, never re-analyzes a cached position.
+- `analyze_batch.py` -- checkpoints after every game, so it's always safe to kill and re-run. Meant to run for hours unattended (`nohup python scripts/chess/analyze_batch.py > scripts/chess/analysis_log.txt 2>&1 &` on this machine) -- heavy on CPU (3 engine threads) for as long as it runs.
+- `detect.py` -- cliff detector (single-move collapses) + decay detector (slow-bleed losses, joined against clock data to check if blunders come from fast moves).
 
-Full M0 writeup and verdict: `projects/chess/clock-analysis-report.md`.
+Full writeups: `projects/chess/clock-analysis-report.md` (M0), `projects/chess/engine-analysis-report.md` (M1, refresh with `detect.py --write` as analysis coverage grows).
 
 ## sync_jobs.py - Bidirectional sync with the "Job Applications" Notion DB
 
