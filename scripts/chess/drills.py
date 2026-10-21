@@ -39,6 +39,11 @@ from detect import _game_trajectory, find_cliffs, CLIFF_THRESHOLD  # noqa: E402
 PUZZLES_PATH = Path(__file__).parent / "puzzles_filtered.csv"
 NULL_CP_LOSS_MAX = 20     # my move's cp_loss had to be this small to count as "fine"
 NULL_EVAL_BAND = 250      # |my-perspective eval| had to be under this -- not already decided
+MIN_PLY = 10              # below this, a position is probably still book -- not a real decision
+                           # point. A "null" drill is supposed to be a quiet moment mid-game, not
+                           # move 1 of some game, which trivially satisfies cp_loss/eval filters
+                           # without representing anything to actually navigate. Same cutoff
+                           # concept as detect.py's BOOK_PLY_CUTOFF.
 
 
 def _best_move_uci(fen: str, best_move_san: str):
@@ -52,7 +57,7 @@ def _best_move_uci(fen: str, best_move_san: str):
         return None
 
 
-def own_blunder_drills(conn, limit: int) -> list:
+def own_blunder_drills(conn, limit: int, rng: random.Random) -> list:
     """His own blunder positions, one move before the mistake."""
     games = [g for g in store.get_games(conn, "rapid", "600")
              if conn.execute("SELECT 1 FROM evaluations WHERE game_id=? LIMIT 1", (g["id"],)).fetchone()]
@@ -60,6 +65,8 @@ def own_blunder_drills(conn, limit: int) -> list:
     for g in games:
         traj = _game_trajectory(conn, g)
         for c in find_cliffs(traj):
+            if c["ply"] < MIN_PLY:
+                continue
             fen = fen_before_ply(g["pgn"], c["ply"])
             if not fen:
                 continue
@@ -75,11 +82,11 @@ def own_blunder_drills(conn, limit: int) -> list:
                 "ply": c["ply"],
                 "explanation": None,
             })
-    random.shuffle(candidates)
+    rng.shuffle(candidates)
     return candidates[:limit]
 
 
-def own_null_drills(conn, limit: int) -> list:
+def own_null_drills(conn, limit: int, rng: random.Random) -> list:
     """Quiet positions from his own games -- the right answer is just not losing."""
     games = [g for g in store.get_games(conn, "rapid", "600")
              if conn.execute("SELECT 1 FROM evaluations WHERE game_id=? LIMIT 1", (g["id"],)).fetchone()]
@@ -88,6 +95,8 @@ def own_null_drills(conn, limit: int) -> list:
         traj = _game_trajectory(conn, g)
         for row in traj:
             if not row["is_mine"] or row["cp_loss"] is None:
+                continue
+            if row["ply"] < MIN_PLY:
                 continue
             if row["cp_loss"] > NULL_CP_LOSS_MAX:
                 continue
@@ -108,17 +117,17 @@ def own_null_drills(conn, limit: int) -> list:
                 "ply": row["ply"],
                 "explanation": None,
             })
-    random.shuffle(candidates)
+    rng.shuffle(candidates)
     return candidates[:limit]
 
 
-def lichess_puzzle_drills(limit: int) -> list:
+def lichess_puzzle_drills(limit: int, rng: random.Random) -> list:
     if not PUZZLES_PATH.exists():
         print(f"WARNING: {PUZZLES_PATH} not found -- run sync_puzzles.py first. Skipping this source.")
         return []
     with open(PUZZLES_PATH, encoding="utf-8") as f:
         rows = list(csv.DictReader(f))
-    random.shuffle(rows)
+    rng.shuffle(rows)
 
     candidates = []
     for row in rows:
@@ -146,13 +155,16 @@ def lichess_puzzle_drills(limit: int) -> list:
 
 
 def build_drill_set(conn, n_blunder=8, n_null=7, n_puzzle=5, seed=7) -> list:
-    random.seed(seed)
+    # Independent RNGs per source, not one shared global sequence -- otherwise a filter
+    # change in one source (different number of rng.shuffle() calls consumed) silently
+    # reshuffles the OTHER sources too, orphaning every hand-written explanation at once.
+    # Learned this the hard way: a one-line fix to own_null's ply floor changed all 20 drills.
     drills = (
-        own_blunder_drills(conn, n_blunder)
-        + own_null_drills(conn, n_null)
-        + lichess_puzzle_drills(n_puzzle)
+        own_blunder_drills(conn, n_blunder, random.Random(seed))
+        + own_null_drills(conn, n_null, random.Random(seed + 1000))
+        + lichess_puzzle_drills(n_puzzle, random.Random(seed + 2000))
     )
-    random.shuffle(drills)
+    random.Random(seed + 3000).shuffle(drills)
     for i, d in enumerate(drills):
         d["id"] = i
     return drills
