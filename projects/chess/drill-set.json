@@ -37,7 +37,7 @@
     "correct_move_san": "Qe7",
     "source_game_id": 1450,
     "ply": 64,
-    "explanation": "Qe7 keeps the full advantage (+455), eyeing ...Bc5 next. You played Qc7 instead, and while it's not a disaster (+196), you gave back a big chunk of the edge for no real reason.",
+    "explanation": "Qe7 keeps the full advantage (+455), eyeing ...Bc5 next. In the real game this position is drawn from, Qc7 was played instead, giving back a big chunk of the edge (+196) for no real reason.",
     "id": 3
   },
   {
@@ -57,7 +57,7 @@
     "correct_move_san": "Qa5+",
     "source_game_id": 1487,
     "ply": 18,
-    "explanation": "Qa5+ keeps real pressure (forking the king and threatening ...Qxe5+ next); e6, what you played, ignores the bishop you have hanging on g4 completely, and White's Nxg4 just won it outright. Worth flagging the move that LOOKS best and isn't: Bxd1 grabs the queen for a bishop, but it allows Bf7# -- immediate mate. Your king on e8 has no escape once that lands: d7 and f7 are both covered by the knight on e5, and e7, f8, d8 are all blocked by your own pawn, bishop, and queen. Qa5+ is check first, which takes that whole idea off the table.",
+    "explanation": "Qa5+ keeps real pressure (forking the king and threatening ...Qxe5+ next). In the real game this is drawn from, e6 was played instead, ignoring the bishop hanging on g4 -- White's Nxg4 won it outright. Worth flagging the move that LOOKS best here and isn't: Bxd1 grabs the queen for a bishop, but it allows Bf7# -- immediate mate. Your king on e8 has no escape once that lands: d7 and f7 are both covered by the knight on e5, and e7, f8, d8 are all blocked by your own pawn, bishop, and queen. Qa5+ wins specifically because it's check, which takes that whole idea off the table for White.",
     "id": 5
   },
   {
@@ -67,7 +67,7 @@
     "correct_move_san": "d2",
     "source_game_id": 1449,
     "ply": 58,
-    "explanation": "Your d-pawn is two squares from queening with real threats behind it (+256). Rb8 doesn't address that at all, and the chance to press it evaporates -- the position drops to roughly equal instead of a clear advantage.",
+    "explanation": "Your d-pawn is two squares from queening with real threats behind it (+256). In the real game, Rb8 was played instead, which doesn't address that at all -- the chance to press it evaporated, and the position dropped to roughly equal instead of a clear advantage.",
     "id": 6
   },
   {
@@ -88,7 +88,7 @@
     "correct_move_san": "fxg4",
     "source_game_id": 1479,
     "ply": 60,
-    "explanation": "fxg4 just wins the piece sitting there (+329). Rd1+ is a check but doesn't grab any material, and the follow-up (Kg2, then White's Rxe7) hands back most of the advantage for the privilege of checking first.",
+    "explanation": "fxg4 just wins the piece sitting there (+329). In the real game, Rd1+ was played instead -- a check, but it doesn't grab any material, and the follow-up (Kg2, then White's Rxe7) handed back most of the advantage for the privilege of checking first.",
     "id": 8
   },
   {
@@ -108,7 +108,7 @@
     "correct_move_san": "f3",
     "source_game_id": 1502,
     "ply": 80,
-    "explanation": "f3 pushes your passed pawn with the game essentially decided (+1194, close to a forced win). Rgg2, what you played, is still winning but gives back real ground (+664) by not pressing the pawn. You won by checkmate anyway, but the cleaner path was sitting right there.",
+    "explanation": "f3 pushes your passed pawn with the game essentially decided (+1194, close to a forced win). In the real game, Rgg2 was played instead -- still winning (+664) but giving back real ground by not pressing the pawn. The game was won by checkmate anyway, but the cleaner path was sitting right there.",
     "id": 10
   },
   {
@@ -118,7 +118,7 @@
     "correct_move_san": "Kg1",
     "source_game_id": 1475,
     "ply": 109,
-    "explanation": "Kg1 stops the g-pawn from ever promoting. You played Rb1 instead, and g1=Q+ just promotes right through it, giving back almost the entire advantage for one move of carelessness.",
+    "explanation": "Kg1 stops the g-pawn from ever promoting. In the real game, Rb1 was played instead, and g1=Q+ just promoted right through it, giving back almost the entire advantage for one move of carelessness.",
     "id": 11
   },
   {
@@ -128,7 +128,7 @@
     "correct_move_san": "Qf3",
     "source_game_id": 1489,
     "ply": 39,
-    "explanation": "Already in real trouble here -- even Qf3, the best try available, leaves you worse (-508). Rd1, what you played, gives up more ground still (-768), but there wasn't a clean save on the table either way.",
+    "explanation": "Already in real trouble here -- even Qf3, the best try available, leaves you worse (-508). In the real game, Rd1 was played instead, giving up more ground still (-768), though there wasn't a clean save on the table either way.",
     "id": 12
   },
   {
@@ -149,7 +149,7 @@
     "correct_move_san": "e3+",
     "source_game_id": 1458,
     "ply": 80,
-    "explanation": "White's a7 and b7 pawns are both one step from queening and your king can't stop both at once -- this position was already lost before this move, regardless of what you played. Kc7 just speeds up the inevitable; even the best try here barely changes the outcome.",
+    "explanation": "White's a7 and b7 pawns are both one step from queening and your king can't stop both at once -- this position was already lost regardless of what gets played here. In the real game, Kc7 was played, which just speeds up the inevitable; even the best try barely changes the outcome.",
     "id": 14
   },
   {

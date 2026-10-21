@@ -18,6 +18,17 @@ Sampling is seeded (not re-randomized on every run) so a given drill set's
 hand-written explanations (see explain_drills.py) stay valid across
 rebuilds. Pass --seed to deliberately get a fresh set.
 
+Explanation-writing rule, learned the hard way (2026-10-21): for
+own_blunder drills, NEVER phrase the historical mistake as "X, what you
+played" -- that reads as live feedback on the current drill attempt, which
+the explanation has no way to know (it's baked in at build time, long
+before anyone clicks anything). The drill mechanics already give live,
+accurate feedback ("Right"/"Not quite", the actual move the user made).
+The explanation text is baked-in color about the REAL GAME this position
+came from, which may have nothing to do with whatever the user does in
+any given drill session. Always frame it explicitly as "in the real game,
+X was played" -- never as present-tense feedback on "you".
+
 Usage:
     python scripts/chess/drills.py --write    # writes projects/chess/drill-set.json
 """
