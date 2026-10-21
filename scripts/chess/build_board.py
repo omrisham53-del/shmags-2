@@ -48,24 +48,35 @@ HTML_TEMPLATE = """<!doctype html>
 body { background: var(--bg); color: var(--text); font-family: -apple-system, Segoe UI, Roboto, sans-serif;
        display: flex; flex-direction: column; align-items: center; padding: 24px 12px; margin: 0; }
 h1 { font-size: 1.1rem; font-weight: 600; margin: 0 0 4px; }
-.sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 18px; text-align: center; }
+.sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 18px; text-align: center; max-width: 520px; }
 .panel { background: var(--panel); border: 1px solid var(--border); border-radius: 12px; padding: 16px;
-         max-width: 480px; width: 100%; }
+         max-width: 640px; width: 100%; }
 .status-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px;
               font-size: 0.85rem; color: var(--muted); }
+#turnIndicator { font-weight: 700; font-size: 0.95rem; color: var(--text); display: flex; align-items: center; gap: 6px; }
+#turnIndicator .dot { width: 11px; height: 11px; border-radius: 50%; display: inline-block;
+                       border: 1.5px solid var(--text); }
+#turnIndicator .dot.white { background: #f5f5f0; }
+#turnIndicator .dot.black { background: #2a2a2a; }
 #clock { font-weight: 700; font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
 #clock.low { color: var(--wrong); }
+.play-area { display: flex; gap: 16px; align-items: flex-start; }
+.board-col { flex: 1; min-width: 0; }
 #board { display: grid; grid-template-columns: repeat(8, 1fr); width: 100%; aspect-ratio: 1;
          border: 2px solid var(--border); border-radius: 6px; overflow: hidden; }
-.sq { display: flex; align-items: center; justify-content: center; font-size: clamp(20px, 7vw, 40px);
-      cursor: pointer; user-select: none; position: relative; aspect-ratio: 1; }
+.sq { display: flex; align-items: center; justify-content: center; font-size: clamp(20px, 6vw, 40px);
+      cursor: pointer; user-select: none; position: relative; aspect-ratio: 1; line-height: 1; }
 .sq.light { background: var(--board-light); }
 .sq.dark { background: var(--board-dark); }
 .sq.selected { outline: 3px solid var(--accent); outline-offset: -3px; z-index: 1; }
-.controls { display: flex; justify-content: space-between; margin-top: 14px; gap: 8px; }
-button { background: var(--accent); color: white; border: none; border-radius: 8px; padding: 10px 16px;
-         font-size: 0.9rem; cursor: pointer; flex: 1; }
+.piece-white { color: #f7f5ef; -webkit-text-stroke: 1.3px #26251f; text-stroke: 1.3px #26251f;
+               paint-order: stroke fill; }
+.piece-black { color: #1b1a17; -webkit-text-stroke: 0.6px #1b1a17; text-stroke: 0.6px #1b1a17; }
+.button-col { display: flex; flex-direction: column; gap: 8px; width: 150px; flex-shrink: 0; }
+button { background: var(--accent); color: white; border: none; border-radius: 8px; padding: 12px 10px;
+         font-size: 0.85rem; cursor: pointer; width: 100%; }
 button.secondary { background: transparent; color: var(--muted); border: 1px solid var(--border); }
+button:disabled { opacity: 0.4; cursor: default; }
 #feedback { margin-top: 12px; padding: 10px; border-radius: 8px; font-size: 0.9rem; display: none; }
 #feedback.correct { background: color-mix(in srgb, var(--correct) 15%, transparent); color: var(--correct); display: block; }
 #feedback.wrong { background: color-mix(in srgb, var(--wrong) 15%, transparent); color: var(--wrong); display: block; }
@@ -73,6 +84,10 @@ button.secondary { background: transparent; color: var(--muted); border: 1px sol
 #summary table { width: 100%; margin: 12px 0; font-size: 0.9rem; }
 #summary td { padding: 4px 0; }
 #summary td:last-child { text-align: right; font-weight: 600; }
+@media (max-width: 560px) {
+  .play-area { flex-direction: column; }
+  .button-col { flex-direction: row; width: 100%; }
+}
 </style>
 
 <h1>Chess Drills</h1>
@@ -83,15 +98,18 @@ button.secondary { background: transparent; color: var(--muted); border: 1px sol
   <div id="quiz">
     <div class="status-row">
       <span id="counter">Drill 1 / N</span>
+      <span id="turnIndicator"></span>
       <span id="clock">8</span>
     </div>
-    <div id="board"></div>
-    <div class="controls">
-      <button class="secondary" id="skipBtn">Don't know / skip</button>
-    </div>
-    <div id="feedback"></div>
-    <div class="controls" id="nextRow" style="display:none">
-      <button id="nextBtn">Next drill</button>
+    <div class="play-area">
+      <div class="board-col">
+        <div id="board"></div>
+        <div id="feedback"></div>
+      </div>
+      <div class="button-col">
+        <button class="secondary" id="skipBtn">Don't know / skip</button>
+        <button id="nextBtn" disabled>Next drill</button>
+      </div>
     </div>
   </div>
   <div id="summary">
@@ -154,11 +172,21 @@ function renderGrid(grid) {
       div.className = "sq " + (isLight ? "light" : "dark");
       div.dataset.sq = sq;
       const piece = grid[sq];
-      if (piece) div.textContent = PIECE_UNICODE[piece] || "";
+      if (piece) {
+        div.textContent = PIECE_UNICODE[piece] || "";
+        div.classList.add(piece === piece.toUpperCase() ? "piece-white" : "piece-black");
+      }
       div.addEventListener("click", onSquareClick);
       boardEl.appendChild(div);
     }
   }
+}
+
+function updateTurnIndicator(active) {
+  const el = document.getElementById("turnIndicator");
+  const label = active === "w" ? "White to move" : "Black to move";
+  const dotClass = active === "w" ? "white" : "black";
+  el.innerHTML = `<span class="dot ${dotClass}"></span>${label}`;
 }
 
 function renderBoard(fen) {
@@ -166,6 +194,7 @@ function renderBoard(fen) {
   currentGrid = grid;
   boardOrientation = active; // orient so the side to move is at the bottom
   renderGrid(currentGrid);
+  updateTurnIndicator(active);
   return active;
 }
 
@@ -243,7 +272,7 @@ function showFeedback(isRight, drill, skipped) {
   fb.textContent = skipped
     ? `Skipped. The move was ${correctSan}.`
     : (isRight ? `Right -- ${correctSan}.` : `Not quite. The move was ${correctSan}.`);
-  document.getElementById("nextRow").style.display = "flex";
+  document.getElementById("nextBtn").disabled = false;
 }
 
 function startTimer() {
@@ -270,7 +299,7 @@ function loadDrill() {
   selected = null;
   document.getElementById("feedback").className = "";
   document.getElementById("feedback").textContent = "";
-  document.getElementById("nextRow").style.display = "none";
+  document.getElementById("nextBtn").disabled = true;
   document.getElementById("counter").textContent = `Drill ${idx + 1} / ${order.length}`;
   const drill = DRILLS[order[idx]];
   renderBoard(drill.fen);
