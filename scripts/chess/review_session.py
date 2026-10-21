@@ -64,8 +64,8 @@ def review_pending(conn) -> list:
             "termination": fresh["termination"],
             "ply_count": len(traj),
             "cliffs": [
-                {"ply": c["ply"], "move_san": c["move_san"], "cp_loss": c["cp_loss"],
-                 "time_spent": c["time_spent"], "phase": c["phase"]}
+                {"ply": c["ply"], "move_san": c["move_san"], "best_move_san": c["best_move_san"],
+                 "cp_loss": c["cp_loss"], "time_spent": c["time_spent"], "phase": c["phase"]}
                 for c in cliffs
             ],
             "decays": [

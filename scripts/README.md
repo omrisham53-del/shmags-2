@@ -16,6 +16,9 @@ python scripts/chess/clock.py          # parse [%clk] annotations, bucket by pha
 python scripts/chess/analyze_batch.py  # Stockfish depth-18 analysis, resumable, newest-first (slow: ~1s/position)
 python scripts/chess/detect.py --write # cliff + decay detectors over whatever's analyzed so far
 python scripts/chess/review_session.py # M2 support: finds games played since the last /chess-review, analyzes if needed, prints findings as JSON
+python scripts/chess/sync_puzzles.py   # one-time: Lichess CC0 puzzle DB -> rating-matched local pool
+python scripts/chess/drills.py --write # M3: builds drill-set.json from own blunders + own null positions + puzzle pool
+python scripts/chess/build_board.py    # bakes drill-set.json into the self-contained drill-board.html
 ```
 
 Day-to-day use is the `/chess-review` slash command (`.claude/commands/chess-review.md`), not these scripts directly -- run it at the end of a chess session.
@@ -27,8 +30,11 @@ Day-to-day use is the `/chess-review` slash command (`.claude/commands/chess-rev
 - `analyze_batch.py` -- checkpoints after every game, so it's always safe to kill and re-run. Meant to run for a while unattended (`nohup python scripts/chess/analyze_batch.py --limit N > scripts/chess/analysis_log.txt 2>&1 &` on this machine) -- heavy on CPU (3 engine threads) for as long as it runs. Use `--limit` -- real per-game pace varies 4x+, so size the batch deliberately rather than assuming a quick benchmark holds.
 - `detect.py` -- cliff detector (single-move collapses) + decay detector (slow-bleed losses, joined against clock data to check if blunders come from fast moves).
 - `review_session.py` -- M2's engine: games with `reviewed_at IS NULL`, oldest first. Outputs JSON only, no prose -- the slash command does the explaining.
+- `sync_puzzles.py` -- one-time Lichess CC0 puzzle DB sync (~307MB compressed download, reservoir-sampled to a 3,000-puzzle local pool, ~380KB). Downloads via curl rather than Python's urllib -- the bundled CA store had a stale intermediate for Lichess's cert chain in this environment (confirmed the leaf cert was fine via openssl; curl/schannel validates against Windows's own live trust store instead).
+- `drills.py` -- M3 data layer: own-blunder + own-null + puzzle-pool drills, shuffled together, written to `projects/chess/drill-set.json`.
+- `build_board.py` -- M3 presentation layer: bakes the drill set into `projects/chess/drill-board.html`, a single offline-capable file with no external dependencies.
 
-Full writeups: `projects/chess/clock-analysis-report.md` (M0), `projects/chess/engine-analysis-report.md` (M1, refresh with `detect.py --write` as analysis coverage grows), `projects/chess/study-log.md` (M2, one dated entry per `/chess-review` run).
+Full writeups: `projects/chess/clock-analysis-report.md` (M0), `projects/chess/engine-analysis-report.md` (M1, refresh with `detect.py --write` as analysis coverage grows), `projects/chess/study-log.md` (M2, one dated entry per `/chess-review` run), `projects/chess/drill-board.html` (M3, the drill board itself -- just open it in a browser).
 
 ## sync_jobs.py - Bidirectional sync with the "Job Applications" Notion DB
 

@@ -107,6 +107,26 @@ class Engine:
         return results
 
 
+def fen_before_ply(pgn_text: str, ply: int) -> str | None:
+    """FEN of the position immediately before the move at `ply` was played --
+    i.e. what the mover was actually looking at. ply is 1-indexed, matching
+    the moves/evaluations tables (ply 1 = White's first move)."""
+    game = chess.pgn.read_game(io.StringIO(pgn_text))
+    if game is None:
+        return None
+    board = game.board()
+    node = game
+    current = 0
+    while node.variations:
+        if current == ply - 1:
+            return board.fen()
+        next_node = node.variations[0]
+        board.push(next_node.move)
+        current += 1
+        node = next_node
+    return None
+
+
 def analyze_and_store(engine: Engine, conn, game_row) -> int:
     """Analyze one game and write its evaluations. Returns ply count analyzed."""
     results = engine.analyse_game(game_row["pgn"])

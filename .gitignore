@@ -6,5 +6,7 @@ __pycache__/
 *.pyc
 scripts/chess/chess.db
 scripts/chess/analysis_log.txt
+scripts/chess/lichess_db_puzzle.csv.zst
+scripts/chess/puzzles_filtered.csv
 ~$*
 __pycache__/

@@ -74,6 +74,7 @@ def _game_trajectory(conn, game_row):
             "move_san": m["move_san"] if m else None,
             "my_eval": my_eval,
             "cp_loss": cp_loss,
+            "best_move_san": e["best_move_san"],
             "clock_seconds": m["clock_seconds"] if m else None,
             "time_spent": m["time_spent"] if m else None,
             "phase": m["phase"] if m else None,
