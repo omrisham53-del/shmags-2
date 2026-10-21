@@ -25,6 +25,9 @@ STOCKFISH_PATH = r"C:\Users\User\OneDrive\Documents\stockfish\stockfish-windows-
 DEPTH = 18
 THREADS = 3
 MATE_SCORE = 100000  # finite stand-in for mate scores, same convention as the retired bi-weekly routine
+CP_LOSS_CAP = 1000  # eval magnitudes are clipped to this before diffing for cp_loss, so a move that
+# crosses into/out of mate territory doesn't produce a deceptive ~100000 "centipawn loss" -- the full
+# eval_cp is still stored uncapped for other uses (is_mate flagging etc.), only cp_loss is affected
 
 
 def pov(eval_white: int, color: str) -> int:
@@ -81,7 +84,9 @@ class Engine:
             new_info = self.engine.analyse(board, chess.engine.Limit(depth=DEPTH))
             eval_white_after = new_info["score"].white().score(mate_score=MATE_SCORE)
 
-            cp_loss = max(0, pov(eval_white_prev, color) - pov(eval_white_after, color))
+            capped_prev = max(-CP_LOSS_CAP, min(CP_LOSS_CAP, pov(eval_white_prev, color)))
+            capped_after = max(-CP_LOSS_CAP, min(CP_LOSS_CAP, pov(eval_white_after, color)))
+            cp_loss = max(0, capped_prev - capped_after)
 
             results.append({
                 "ply": ply,

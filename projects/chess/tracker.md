@@ -191,6 +191,8 @@ Fed by the two routines above, both now retired. October 2026's recommendation b
 - June 2026: First online lesson with NM Dane Mattson (Improvers Club)
 - Ongoing: Nimzowitsch's *My System* (Hebrew), GothamChess YouTube
 
+**Per-session dated entries** (self-review guess vs. engine findings, from `/chess-review`) now live in `study-log.md`, not here -- this section stays for resources/habits only.
+
 ---
 
 ## Open Goals

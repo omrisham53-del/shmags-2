@@ -66,6 +66,7 @@ Full plan: `learning-system-plan.md`.
 
 - **M0 (foundation + clock analyzer) done 2026-10-21** -- see `clock-analysis-report.md` for the verdict (clock is not the bottleneck behind slow-dissolve losses; M4 proceeds as scoped).
 - **M1 (engine layer + cliff/decay detectors) code done 2026-10-21, batch analysis running unattended in the background** -- Stockfish depth-18 analysis, resumable, checkpointed per-game. Scoped to the 60 most recent rapid games (real per-game pace came in slower and more variable than first estimated, and that's roughly the sample size that already produced the diagnosis -- see `learning-system-plan.md` M1). Report refreshes via `python scripts/chess/detect.py --write` at `engine-analysis-report.md` as coverage grows.
+- **M2 (`/chess-review` slash command) done 2026-10-21** -- run it at the end of a session. Self-review guess first, then engine findings, then the gap between them, logged to `study-log.md`. All 1,506 pre-existing games bulk-marked reviewed on rollout, so it only ever surfaces genuinely new games.
 
 Scripts at `scripts/chess/`, documented in `scripts/README.md`.
 

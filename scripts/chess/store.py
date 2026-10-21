@@ -88,11 +88,42 @@ def get_conn():
     return conn
 
 
+def _migrate(conn):
+    """Add columns that postdate the original schema, without disturbing existing data."""
+    cols = {row["name"] for row in conn.execute("PRAGMA table_info(games)")}
+    if "reviewed_at" not in cols:
+        conn.execute("ALTER TABLE games ADD COLUMN reviewed_at TEXT")
+        conn.commit()
+
+
 def init_db():
     conn = get_conn()
     conn.executescript(SCHEMA)
     conn.commit()
+    _migrate(conn)
     return conn
+
+
+def games_needing_review(conn, time_class="rapid", time_control="600"):
+    """Games never through /chess-review, oldest first (review them in the order played)."""
+    return conn.execute(
+        """
+        SELECT * FROM games
+        WHERE time_class = ? AND time_control = ? AND reviewed_at IS NULL
+        ORDER BY end_date ASC, end_time ASC
+        """,
+        (time_class, time_control),
+    ).fetchall()
+
+
+def mark_reviewed(conn, game_ids):
+    import datetime
+    now = datetime.datetime.utcnow().isoformat()
+    conn.executemany(
+        "UPDATE games SET reviewed_at = ? WHERE id = ?",
+        [(now, gid) for gid in game_ids],
+    )
+    conn.commit()
 
 
 def known_urls(conn):

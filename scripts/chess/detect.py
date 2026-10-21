@@ -63,12 +63,17 @@ def _game_trajectory(conn, game_row):
             100000 if pov(e["eval_cp"], game_row["my_color"]) > 0 else -100000
         )
         is_mine = (m is not None and m["color"] == game_row["my_color"])
+        # Defensive cap: games analyzed before the 2026-10-21 engine.py fix can carry
+        # mate-score-artifact cp_loss values (observed: 99986 on a single move). Clip
+        # anything absurd rather than let it through as a deceptive magnitude.
+        raw_cp_loss = e["cp_loss"] if is_mine else None
+        cp_loss = min(raw_cp_loss, 2000) if raw_cp_loss is not None else None
         traj.append({
             "ply": ply,
             "color": m["color"] if m else None,
             "move_san": m["move_san"] if m else None,
             "my_eval": my_eval,
-            "cp_loss": e["cp_loss"] if is_mine else None,
+            "cp_loss": cp_loss,
             "clock_seconds": m["clock_seconds"] if m else None,
             "time_spent": m["time_spent"] if m else None,
             "phase": m["phase"] if m else None,

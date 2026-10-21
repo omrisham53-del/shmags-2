@@ -76,14 +76,13 @@ Sequenced so the cheapest thing that could invalidate later work runs first.
 
 **Deliverable:** `python scripts/chess/detect.py --write` → `projects/chess/engine-analysis-report.md`, a recurring-pattern report (not "best game of the batch") that refreshes as coverage grows. Re-run once the background batch has made real progress -- with 1 game in, the pipeline is confirmed working end to end but has nothing statistically meaningful to say yet.
 
-### M2: `/chess-review` slash command
+### M2: `/chess-review` slash command -- DONE 2026-10-21
 
 The daily driver. One command at the end of a session.
 
-- Fetches new games, runs M0 and M1 over them.
-- **Claude writes the natural-language explanations.** This is the division of labour that makes the system work: Stockfish supplies the number, the model supplies the reason the move loses. That translation is the thing Omri actually asked for.
-- Reads his self-review note and sets his guess beside the engine's answer.
-- Appends to a study log and updates the tracker.
+- `scripts/chess/review_session.py` -- finds games played since the last review (new `games.reviewed_at` column; all 1,506 pre-existing games bulk-marked reviewed on rollout so this starts clean, not with a backlog), ensures each has clock + engine data (running inline if the M1 batch hasn't reached it yet), runs the cliff/decay detectors, and prints structured findings as JSON -- no prose, that's Claude's job.
+- `.claude/commands/chess-review.md` -- the command itself. Asks for his self-review guess BEFORE showing any engine output (rule 1), **Claude writes the natural-language explanations** (Stockfish supplies the number, the model supplies the reason the move loses -- the division of labour that makes the system work and the thing Omri actually asked for), states the guess-vs-engine gap plainly, appends a dated entry to the new `study-log.md`, then marks the games reviewed.
+- **Bug caught building this, fixed before it could compound:** a cliff's cp_loss showed 99986 -- a mate-score arithmetic artifact (eval_white_prev to eval_white_after differenced straight through a mate-score conversion), the exact failure class the retired routine's "hollow streak" lesson warned about, just manifesting differently. Fixed at the source in `engine.py` (cap eval magnitudes to +/-1000 before diffing, going forward) and at read-time in `detect.py` (clip anything already stored above 2000, for the games M1's batch had already analyzed before the fix landed).
 
 ### M3: Drill generator and HTML board
 

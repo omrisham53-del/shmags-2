@@ -15,16 +15,20 @@ python scripts/chess/fetch.py          # pull new games from chess.com's public 
 python scripts/chess/clock.py          # parse [%clk] annotations, bucket by phase, print the clock-pattern report
 python scripts/chess/analyze_batch.py  # Stockfish depth-18 analysis, resumable, newest-first (slow: ~1s/position)
 python scripts/chess/detect.py --write # cliff + decay detectors over whatever's analyzed so far
+python scripts/chess/review_session.py # M2 support: finds games played since the last /chess-review, analyzes if needed, prints findings as JSON
 ```
 
-- `store.py` -- SQLite store at `scripts/chess/chess.db` (gitignored, rebuildable from chess.com's API + local Stockfish). Schema covers games/moves/evaluations now, plus annotations/drills tables for M2/M3.
+Day-to-day use is the `/chess-review` slash command (`.claude/commands/chess-review.md`), not these scripts directly -- run it at the end of a chess session.
+
+- `store.py` -- SQLite store at `scripts/chess/chess.db` (gitignored, rebuildable from chess.com's API + local Stockfish). Schema covers games/moves/evaluations/`reviewed_at` now, plus an annotations/drills tables for M3.
 - `fetch.py` -- idempotent, safe to re-run; only inserts games not already stored.
 - `clock.py` -- parses unparsed games then reports. `--report-only` skips parsing.
-- `engine.py` -- Stockfish wrapper (depth 18, 3 threads), one eval per ply, never re-analyzes a cached position.
-- `analyze_batch.py` -- checkpoints after every game, so it's always safe to kill and re-run. Meant to run for hours unattended (`nohup python scripts/chess/analyze_batch.py > scripts/chess/analysis_log.txt 2>&1 &` on this machine) -- heavy on CPU (3 engine threads) for as long as it runs.
+- `engine.py` -- Stockfish wrapper (depth 18, 3 threads), one eval per ply, never re-analyzes a cached position. Eval magnitudes capped to +/-1000 before computing cp_loss, so a move crossing into/out of a forced mate doesn't produce a deceptive ~100000 "centipawn loss" (a real bug caught building M2).
+- `analyze_batch.py` -- checkpoints after every game, so it's always safe to kill and re-run. Meant to run for a while unattended (`nohup python scripts/chess/analyze_batch.py --limit N > scripts/chess/analysis_log.txt 2>&1 &` on this machine) -- heavy on CPU (3 engine threads) for as long as it runs. Use `--limit` -- real per-game pace varies 4x+, so size the batch deliberately rather than assuming a quick benchmark holds.
 - `detect.py` -- cliff detector (single-move collapses) + decay detector (slow-bleed losses, joined against clock data to check if blunders come from fast moves).
+- `review_session.py` -- M2's engine: games with `reviewed_at IS NULL`, oldest first. Outputs JSON only, no prose -- the slash command does the explaining.
 
-Full writeups: `projects/chess/clock-analysis-report.md` (M0), `projects/chess/engine-analysis-report.md` (M1, refresh with `detect.py --write` as analysis coverage grows).
+Full writeups: `projects/chess/clock-analysis-report.md` (M0), `projects/chess/engine-analysis-report.md` (M1, refresh with `detect.py --write` as analysis coverage grows), `projects/chess/study-log.md` (M2, one dated entry per `/chess-review` run).
 
 ## sync_jobs.py - Bidirectional sync with the "Job Applications" Notion DB
 
