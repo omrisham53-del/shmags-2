@@ -1,7 +1,7 @@
 # HoTake Tracker
 
 **Last Updated:** 2026-10-21
-**Status:** Lost all of Oct 20 to travel (surf-camp transit took far longer than planned). Scope cut to a smaller v1 to fit Oct 24; the cut full version becomes a no-deadline side project after submission. Terminal pipeline working end to end as of Oct 21.
+**Status:** Lost all of Oct 20 to travel (surf-camp transit took far longer than planned). Scope cut to a smaller v1 to fit Oct 24; the cut full version becomes a no-deadline side project after submission. Terminal pipeline AND polling web UI both working end to end as of Oct 21 -- effectively 2 of the 4 remaining build days done in one session. Not yet tested with a live LLM key; all verification so far is on the fallback path.
 
 ---
 
@@ -24,7 +24,7 @@
 |---|---|---|
 | **Oct 20** | Lost to travel. | [x] (skipped) |
 | **Oct 21** | Compressed Oct 20+21: repo set up at `c:\עמרי\HoTake`, match generator (tactical-state driven, seeded demo match scripted for the arc below), claim ledger, LLM provider seam with timeout+fallback, 2 specialists (set-piece, box-numbers), Clive, adjudicator, supervisor routing -- all running end to end in the terminal, verified both with and without a live API key. **Third specialist (duels) cut per the standing cut order**, now a post-submission addition. | [x] |
-| **Oct 22** | Thin polling-based web UI (scoreboard, live feed, ledger panel, take box). No SSE -- swapped for 1s polling to fit the timeline; cut from scope, not from the eventual full version. | [ ] |
+| **Oct 22** | Thin polling-based web UI (scoreboard, live feed, ledger panel, take box). No SSE -- swapped for 1s polling to fit the timeline; cut from scope, not from the eventual full version. Done same session as Oct 21 (full 90-minute match verified end to end over real HTTP, no crashes). | [x] |
 | **Oct 23** | Azure Foundry + Container Apps + public deploy + **safety submission** | [ ] |
 | **Oct 24** | Demo match tuning, record judge video, write pitch. **Code freeze** | [ ] |
 | **Oct 25-27** | 2h/day: AI comedy video, LinkedIn post, resubmit if improved | [ ] |
