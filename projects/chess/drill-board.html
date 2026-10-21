@@ -83,6 +83,7 @@ button:disabled { opacity: 0.4; cursor: default; }
         <div id="feedback"></div>
       </div>
       <div class="button-col">
+        <button id="readyBtn">Ready -- start clock</button>
         <button class="secondary" id="skipBtn">Don't know / skip</button>
         <button id="nextBtn" disabled>Next drill</button>
       </div>
@@ -105,6 +106,7 @@ let selected = null;
 let timer = null;
 let timeLeft = DRILL_SECONDS;
 let committed = false;
+let studying = true; // unclocked phase: reading a never-seen-before position takes real time
 let results = []; // {source, correct}
 
 function shuffledOrder(n) {
@@ -204,7 +206,7 @@ function applyMove(grid, uci) {
 const PIECE_UNICODE = {"P": "\u2659", "N": "\u2658", "B": "\u2657", "R": "\u2656", "Q": "\u2655", "K": "\u2654", "p": "\u265f", "n": "\u265e", "b": "\u265d", "r": "\u265c", "q": "\u265b", "k": "\u265a"};
 
 function onSquareClick(e) {
-  if (committed) return;
+  if (committed || studying) return;
   const sq = e.currentTarget.dataset.sq;
   if (!selected) {
     if (!e.currentTarget.textContent) return; // clicked an empty square first
@@ -219,10 +221,17 @@ function onSquareClick(e) {
   commitMove(from + to);
 }
 
+function startDeciding() {
+  if (!studying || committed) return;
+  studying = false;
+  document.getElementById("readyBtn").disabled = true;
+  startTimer();
+}
+
 function commitMove(uci) {
   if (committed) return;
   committed = true;
-  clearInterval(timer);
+  if (timer) clearInterval(timer);
   const drill = DRILLS[order[idx]];
   const correct = drill.correct_move_uci.slice(0, 4);
   const isRight = uci === correct;
@@ -234,7 +243,8 @@ function commitMove(uci) {
 function skip() {
   if (committed) return;
   committed = true;
-  clearInterval(timer);
+  studying = false;
+  if (timer) clearInterval(timer);
   const drill = DRILLS[order[idx]];
   renderGrid(applyMove(currentGrid, drill.correct_move_uci));
   showFeedback(false, drill, true);
@@ -253,6 +263,8 @@ function showFeedback(isRight, drill, skipped) {
     : "";
   fb.innerHTML = `<span id="feedbackMove">${headline}</span>${explanationHtml}`;
   document.getElementById("nextBtn").disabled = false;
+  document.getElementById("skipBtn").disabled = true;
+  document.getElementById("readyBtn").disabled = true;
 }
 
 function startTimer() {
@@ -276,14 +288,20 @@ function updateClock() {
 
 function loadDrill() {
   committed = false;
+  studying = true;
   selected = null;
+  if (timer) clearInterval(timer);
   document.getElementById("feedback").className = "";
   document.getElementById("feedback").textContent = "";
   document.getElementById("nextBtn").disabled = true;
+  document.getElementById("skipBtn").disabled = false;
+  document.getElementById("readyBtn").disabled = false;
+  const clockEl = document.getElementById("clock");
+  clockEl.textContent = "study";
+  clockEl.classList.remove("low");
   document.getElementById("counter").textContent = `Drill ${idx + 1} / ${order.length}`;
   const drill = DRILLS[order[idx]];
   renderBoard(drill.fen);
-  startTimer();
 }
 
 function nextDrill() {
@@ -324,6 +342,7 @@ function start() {
   loadDrill();
 }
 
+document.getElementById("readyBtn").addEventListener("click", startDeciding);
 document.getElementById("skipBtn").addEventListener("click", skip);
 document.getElementById("nextBtn").addEventListener("click", nextDrill);
 document.getElementById("restartBtn").addEventListener("click", start);

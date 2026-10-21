@@ -3,10 +3,16 @@ Bakes drill-set.json into a single self-contained HTML page: no live engine,
 no external libraries, no network calls at runtime. Works offline, on bad
 wifi, from any device. See projects/chess/learning-system-plan.md M3.
 
-Drill clock: 8 seconds. His own measured per-move time (M0 report) runs
-roughly 8-14s/move depending on phase; per rule 4 ("training should be
-harder than the game, not easier") this sits at the tight end of that
-range deliberately, not at his comfortable average.
+Drill clock: two phases, not one. An unclocked "study" phase lets him
+actually read a position he's never seen before -- a real game never asks
+him to do that cold, since by the time it's his move he's been building
+context on that exact position for several moves already. Only once he
+clicks "Ready" does the 8-second decision clock start, which is where
+rule 4 ("training should be harder than the game, not easier") actually
+applies: his own measured per-move time (M0 report) runs 8-14s/move, so 8s
+sits at the tight end deliberately -- but that's a statement about decision
+pressure once oriented, not about recognition speed, and the original
+single-timer design was conflating the two.
 
 Usage:
     python scripts/chess/build_board.py
@@ -110,6 +116,7 @@ button:disabled { opacity: 0.4; cursor: default; }
         <div id="feedback"></div>
       </div>
       <div class="button-col">
+        <button id="readyBtn">Ready -- start clock</button>
         <button class="secondary" id="skipBtn">Don't know / skip</button>
         <button id="nextBtn" disabled>Next drill</button>
       </div>
@@ -132,6 +139,7 @@ let selected = null;
 let timer = null;
 let timeLeft = DRILL_SECONDS;
 let committed = false;
+let studying = true; // unclocked phase: reading a never-seen-before position takes real time
 let results = []; // {source, correct}
 
 function shuffledOrder(n) {
@@ -231,7 +239,7 @@ function applyMove(grid, uci) {
 const PIECE_UNICODE = __PIECE_UNICODE_JSON__;
 
 function onSquareClick(e) {
-  if (committed) return;
+  if (committed || studying) return;
   const sq = e.currentTarget.dataset.sq;
   if (!selected) {
     if (!e.currentTarget.textContent) return; // clicked an empty square first
@@ -246,10 +254,17 @@ function onSquareClick(e) {
   commitMove(from + to);
 }
 
+function startDeciding() {
+  if (!studying || committed) return;
+  studying = false;
+  document.getElementById("readyBtn").disabled = true;
+  startTimer();
+}
+
 function commitMove(uci) {
   if (committed) return;
   committed = true;
-  clearInterval(timer);
+  if (timer) clearInterval(timer);
   const drill = DRILLS[order[idx]];
   const correct = drill.correct_move_uci.slice(0, 4);
   const isRight = uci === correct;
@@ -261,7 +276,8 @@ function commitMove(uci) {
 function skip() {
   if (committed) return;
   committed = true;
-  clearInterval(timer);
+  studying = false;
+  if (timer) clearInterval(timer);
   const drill = DRILLS[order[idx]];
   renderGrid(applyMove(currentGrid, drill.correct_move_uci));
   showFeedback(false, drill, true);
@@ -280,6 +296,8 @@ function showFeedback(isRight, drill, skipped) {
     : "";
   fb.innerHTML = `<span id="feedbackMove">${headline}</span>${explanationHtml}`;
   document.getElementById("nextBtn").disabled = false;
+  document.getElementById("skipBtn").disabled = true;
+  document.getElementById("readyBtn").disabled = true;
 }
 
 function startTimer() {
@@ -303,14 +321,20 @@ function updateClock() {
 
 function loadDrill() {
   committed = false;
+  studying = true;
   selected = null;
+  if (timer) clearInterval(timer);
   document.getElementById("feedback").className = "";
   document.getElementById("feedback").textContent = "";
   document.getElementById("nextBtn").disabled = true;
+  document.getElementById("skipBtn").disabled = false;
+  document.getElementById("readyBtn").disabled = false;
+  const clockEl = document.getElementById("clock");
+  clockEl.textContent = "study";
+  clockEl.classList.remove("low");
   document.getElementById("counter").textContent = `Drill ${idx + 1} / ${order.length}`;
   const drill = DRILLS[order[idx]];
   renderBoard(drill.fen);
-  startTimer();
 }
 
 function nextDrill() {
@@ -351,6 +375,7 @@ function start() {
   loadDrill();
 }
 
+document.getElementById("readyBtn").addEventListener("click", startDeciding);
 document.getElementById("skipBtn").addEventListener("click", skip);
 document.getElementById("nextBtn").addEventListener("click", nextDrill);
 document.getElementById("restartBtn").addEventListener("click", start);
