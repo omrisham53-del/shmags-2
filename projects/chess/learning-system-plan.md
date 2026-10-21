@@ -52,17 +52,17 @@ Applied to game review as well: **he writes his own guess at what went wrong bef
 
 Sequenced so the cheapest thing that could invalidate later work runs first.
 
-### M0: Foundation and clock analyzer
+### M0: Foundation and clock analyzer -- DONE 2026-10-21
 
 **Why first:** it is cheap, it shares all its plumbing with everything downstream, and it can redirect a whole workstream before that workstream is built.
 
-- `scripts/chess/fetch.py` -- pull games from the chess.com public API, filter to rapid 10+0, store raw PGNs. Public endpoint, no auth, no membership. Already proven to work from the existing routines.
-- `scripts/chess/store.py` -- local SQLite store: games, moves, evaluations, annotations, drill history. Everything else reads and writes through this.
-- `scripts/chess/clock.py` -- parse the `[%clk ]` annotations already present in chess.com PGNs, derive per-move time spent, bucket by game phase.
+- `scripts/chess/fetch.py` -- pull games from the chess.com public API, filter to rapid 10+0, store raw PGNs. Public endpoint, no auth, no membership. Idempotent, re-runnable. Pulled the full archive: 1,506 rapid 10+0 games, 2020-2026.
+- `scripts/chess/store.py` -- local SQLite store (`scripts/chess/chess.db`, gitignored): games, moves, evaluations, annotations, drill history. Everything else reads and writes through this. Evaluations/annotations/drills tables created now (empty) for M1/M2/M3.
+- `scripts/chess/clock.py` -- parses the `[%clk ]` annotations already present in chess.com PGNs, derives per-move time spent, buckets by game phase (opening/middlegame/endgame, with a short-game fallback to even thirds).
 
-**The hypothesis M0 exists to test:** if Omri burns most of his clock in the opening and early middlegame and reaches won endgames with a minute left, then failure mode 2 is a **time-allocation problem, not an endgame-knowledge problem**, and the fix is pacing rather than technique study. This is checkable retroactively against his entire existing archive, before any training is built. If it comes back true, M4 changes shape or disappears.
+**The hypothesis M0 exists to test:** if Omri burns most of his clock in the opening and early middlegame and reaches won endgames with a minute left, then failure mode 2 is a **time-allocation problem, not an endgame-knowledge problem**, and the fix is pacing rather than technique study.
 
-**Deliverable:** a report on his real clock patterns, and a verdict on that hypothesis.
+**Verdict: hypothesis does NOT hold.** Full report at `clock-analysis-report.md`. Entering the endgame phase he averages ~381s (6.4 min) remaining in games he eventually wins, ~327s even in games he loses -- only 4-5% of games see him under 60s by that point. True across the full 2020-2026 archive and when restricted to 2026 alone (ruling out old habits diluting a real recent pattern). **M4 proceeds as originally scoped, not reshaped** -- failure mode 2 looks like a genuine conversion/technique gap, not a clock-management one. Caveat flagged in the report: this doesn't yet confirm these are genuinely winning positions at endgame entry, since that needs M1's real evaluations -- worth a finer-grained re-check (clock at the exact moment an advantage starts eroding) once M1 exists.
 
 ### M1: Engine layer and the two detectors
 

@@ -4,5 +4,6 @@ CLAUDE.local.md
 node_modules/
 __pycache__/
 *.pyc
+scripts/chess/chess.db
 ~$*
 __pycache__/

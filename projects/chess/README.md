@@ -60,6 +60,10 @@ Monthly club competition with three categories: **Annotated Game of the Month**,
 - A personal narrative the whole club can relate to
 - Engine-verified key moments add weight
 
+## Local Learning System (build in progress)
+
+Full plan: `learning-system-plan.md`. **M0 (foundation + clock analyzer) done 2026-10-21** -- see `clock-analysis-report.md` for the verdict (clock is not the bottleneck behind slow-dissolve losses; M4 proceeds as scoped). Scripts at `scripts/chess/` (`fetch.py`, `store.py`, `clock.py`), documented in `scripts/README.md`.
+
 ## Automated Workflow (consolidated 2026-10-21)
 
 One scheduled cloud routine now feeds `tracker.md`:

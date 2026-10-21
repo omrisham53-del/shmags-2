@@ -6,6 +6,21 @@ Standalone scripts that run from the command line (no MCP / no Claude needed).
 
 Moved here 2026-07-24 from `.claude/skills/` (skills are .md trigger files; this is the actual automation code). Job search is paused for the Sept-Dec trip -- dormant until active search resumes. See `job_tracker_skill.md` memory for the framework this supports.
 
+## chess/ - Local chess learning system (fetch, store, clock analysis)
+
+Built 2026-10-21 for `projects/chess/learning-system-plan.md` M0. Replaces paid chess.com membership + the retired cloud routines with local Stockfish and a SQLite store.
+
+```bash
+python scripts/chess/fetch.py      # pull new games from chess.com's public API, filter to rapid 10+0
+python scripts/chess/clock.py      # parse [%clk] annotations, bucket by phase, print the clock-pattern report
+```
+
+- `store.py` -- SQLite store at `scripts/chess/chess.db` (gitignored, rebuildable from chess.com's API). Schema covers games/moves now, plus evaluations/annotations/drills tables for M1/M2/M3.
+- `fetch.py` -- idempotent, safe to re-run; only inserts games not already stored.
+- `clock.py` -- parses unparsed games then reports. `--report-only` skips parsing.
+
+Full M0 writeup and verdict: `projects/chess/clock-analysis-report.md`.
+
 ## sync_jobs.py - Bidirectional sync with the "Job Applications" Notion DB
 
 One-time setup:
