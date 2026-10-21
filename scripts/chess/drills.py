@@ -41,20 +41,52 @@ import sys
 from pathlib import Path
 
 import chess
+import chess.engine
 
 sys.path.insert(0, str(Path(__file__).parent))
 import store  # noqa: E402
-from engine import fen_before_ply  # noqa: E402
+from engine import fen_before_ply, Engine  # noqa: E402
 from detect import _game_trajectory, find_cliffs, CLIFF_THRESHOLD  # noqa: E402
 
 PUZZLES_PATH = Path(__file__).parent / "puzzles_filtered.csv"
 NULL_CP_LOSS_MAX = 20     # my move's cp_loss had to be this small to count as "fine"
 NULL_EVAL_BAND = 250      # |my-perspective eval| had to be under this -- not already decided
+ACCEPT_CP_TOLERANCE = 30  # own_blunder/own_null: moves within this many cp of the best are
+                           # also accepted as correct, not just the single top move. Fixes a
+                           # real v1 gap (flagged below, then actually hit in practice 2026-10-21):
+                           # a null drill telling someone "Not quite" when their move scored
+                           # within 20cp of the stored answer undermines the whole category's
+                           # point, which is that several moves are genuinely fine here. Lichess
+                           # puzzles stay single-answer on purpose -- a puzzle's solution being
+                           # unique is what makes it a puzzle, not a quiet position.
 MIN_PLY = 10              # below this, a position is probably still book -- not a real decision
                            # point. A "null" drill is supposed to be a quiet moment mid-game, not
                            # move 1 of some game, which trivially satisfies cp_loss/eval filters
                            # without representing anything to actually navigate. Same cutoff
                            # concept as detect.py's BOOK_PLY_CUTOFF.
+
+
+def _acceptable_moves_uci(eng: Engine, fen: str, primary_uci: str,
+                           cp_tolerance: int = ACCEPT_CP_TOLERANCE) -> list:
+    """All moves within cp_tolerance of the best move's eval, from the mover's perspective.
+    primary_uci is always included even if the multipv scan doesn't surface it for some reason
+    (defensive -- the stored 'correct' answer must never stop being accepted)."""
+    board = chess.Board(fen)
+    color = board.turn
+    info = eng.engine.analyse(board, chess.engine.Limit(depth=16), multipv=6)
+    accepted = []
+    best_eval = None
+    for line in info:
+        score = line["score"].pov(color).score(mate_score=100000)
+        if score is None:
+            continue
+        if best_eval is None:
+            best_eval = score
+        if best_eval - score <= cp_tolerance:
+            accepted.append(line["pv"][0].uci())
+    if primary_uci not in accepted:
+        accepted.append(primary_uci)
+    return accepted
 
 
 def _best_move_uci(fen: str, best_move_san: str):
@@ -178,6 +210,16 @@ def build_drill_set(conn, n_blunder=8, n_null=7, n_puzzle=5, seed=7) -> list:
     random.Random(seed + 3000).shuffle(drills)
     for i, d in enumerate(drills):
         d["id"] = i
+
+    # Acceptable-move tolerance: computed only for the final 20 (not the whole candidate
+    # pool) to keep engine calls bounded -- one multipv query per drill, not per candidate.
+    with Engine() as eng:
+        for d in drills:
+            if d["source"] in ("own_blunder", "own_null"):
+                d["acceptable_moves_uci"] = _acceptable_moves_uci(eng, d["fen"], d["correct_move_uci"])
+            else:
+                d["acceptable_moves_uci"] = [d["correct_move_uci"]]
+
     return drills
 
 
@@ -202,8 +244,28 @@ def main():
 
     if args.write:
         out = Path(__file__).parent.parent.parent / "projects" / "chess" / "drill-set.json"
+        # Carry over hand-written explanations from the existing file, keyed by
+        # (fen, correct_move_uci) -- not by id, since id is just array position and
+        # shifts on every rebuild. Explanations are a manual, out-of-band patch step
+        # (see decisions/log.md 2026-10-21); without this merge, every `--write` run
+        # silently resets all of them to null, which has already happened twice in one
+        # session. This makes that a non-issue going forward: same content -> keeps its
+        # explanation automatically, only genuinely new drills need a fresh one.
+        carried = 0
+        if out.exists():
+            old = json.loads(out.read_text(encoding="utf-8"))
+            old_explanations = {
+                (d["fen"], d["correct_move_uci"]): d.get("explanation")
+                for d in old if d.get("explanation")
+            }
+            for d in drills:
+                key = (d["fen"], d["correct_move_uci"])
+                if key in old_explanations:
+                    d["explanation"] = old_explanations[key]
+                    carried += 1
         out.write_text(json.dumps(drills, indent=2), encoding="utf-8")
-        print(f"Written to {out}")
+        missing = sum(1 for d in drills if not d.get("explanation"))
+        print(f"Written to {out} ({carried} explanations carried over, {missing} still need one)")
 
 
 if __name__ == "__main__":

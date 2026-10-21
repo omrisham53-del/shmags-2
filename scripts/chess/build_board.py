@@ -261,10 +261,11 @@ function commitMove(uci) {
   committed = true;
   if (timer) clearInterval(timer);
   const drill = DRILLS[order[idx]];
-  const correct = drill.correct_move_uci.slice(0, 4);
-  const isRight = uci === correct;
+  const accepted = drill.acceptable_moves_uci || [drill.correct_move_uci];
+  const isPrimary = uci === drill.correct_move_uci.slice(0, 4);
+  const isRight = isPrimary || accepted.some(m => m.slice(0, 4) === uci);
   renderGrid(applyMove(currentGrid, drill.correct_move_uci));
-  showFeedback(isRight, drill);
+  showFeedback(isRight, drill, false, isPrimary);
   results.push({ source: drill.source, correct: isRight, elapsed });
 }
 
@@ -278,13 +279,20 @@ function skip() {
   results.push({ source: drill.source, correct: false, elapsed });
 }
 
-function showFeedback(isRight, drill, skipped) {
+function showFeedback(isRight, drill, skipped, isPrimary) {
   const fb = document.getElementById("feedback");
   fb.className = isRight ? "correct" : "wrong";
   const correctSan = drill.correct_move_san ? drill.correct_move_san : drill.correct_move_uci;
-  const headline = skipped
-    ? `Skipped. The move was ${correctSan}.`
-    : (isRight ? `Right -- ${correctSan}.` : `Not quite. The move was ${correctSan}.`);
+  let headline;
+  if (skipped) {
+    headline = `Skipped. The move was ${correctSan}.`;
+  } else if (isPrimary) {
+    headline = `Right -- ${correctSan}.`;
+  } else if (isRight) {
+    headline = `Right -- that works too (within a few points of ${correctSan}, the engine's top pick).`;
+  } else {
+    headline = `Not quite. The move was ${correctSan}.`;
+  }
   const withinTarget = elapsed <= DRILL_SECONDS;
   const timeTag = `<div class="time-tag">${elapsed}s -- ${withinTarget ? "within" : "over"} your ${DRILL_SECONDS}s target</div>`;
   const explanationHtml = drill.explanation
