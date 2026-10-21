@@ -57,7 +57,7 @@
     "correct_move_san": "Qa5+",
     "source_game_id": 1487,
     "ply": 18,
-    "explanation": "Qa5+ keeps real pressure (forking the king and threatening ...Qxe5+ next); e6, what you played, ignores the bishop you have hanging on g4 completely, and White's Nxg4 just won it outright.",
+    "explanation": "Qa5+ keeps real pressure (forking the king and threatening ...Qxe5+ next); e6, what you played, ignores the bishop you have hanging on g4 completely, and White's Nxg4 just won it outright. Worth flagging the move that LOOKS best and isn't: Bxd1 grabs the queen for a bishop, but it allows Bf7# -- immediate mate. Your king on e8 has no escape once that lands: d7 and f7 are both covered by the knight on e5, and e7, f8, d8 are all blocked by your own pawn, bishop, and queen. Qa5+ is check first, which takes that whole idea off the table.",
     "id": 5
   },
   {
