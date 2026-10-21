@@ -32,8 +32,11 @@ h1 { font-size: 1.1rem; font-weight: 600; margin: 0 0 4px; }
                        border: 1.5px solid var(--text); }
 #turnIndicator .dot.white { background: #f5f5f0; }
 #turnIndicator .dot.black { background: #2a2a2a; }
+.stopwatch { display: flex; align-items: baseline; gap: 5px; }
 #clock { font-weight: 700; font-size: 1rem; color: var(--text); font-variant-numeric: tabular-nums; }
-#clock.low { color: var(--wrong); }
+#clock.over-target { color: var(--wrong); }
+#targetLabel { font-size: 0.78rem; color: var(--muted); }
+.time-tag { font-size: 0.82rem; margin-top: 2px; opacity: 0.85; }
 .play-area { display: flex; gap: 16px; align-items: flex-start; }
 .board-col { flex: 1; min-width: 0; }
 #board { display: grid; grid-template-columns: repeat(8, 1fr); width: 100%; aspect-ratio: 1;
@@ -75,7 +78,7 @@ button:disabled { opacity: 0.4; cursor: default; }
     <div class="status-row">
       <span id="counter">Drill 1 / N</span>
       <span id="turnIndicator"></span>
-      <span id="clock">8</span>
+      <span class="stopwatch"><span id="clock">0</span><span id="targetLabel"></span></span>
     </div>
     <div class="play-area">
       <div class="board-col">
@@ -83,7 +86,6 @@ button:disabled { opacity: 0.4; cursor: default; }
         <div id="feedback"></div>
       </div>
       <div class="button-col">
-        <button id="readyBtn">Ready -- start clock</button>
         <button class="secondary" id="skipBtn">Don't know / skip</button>
         <button id="nextBtn" disabled>Next drill</button>
       </div>
@@ -104,10 +106,9 @@ let order = [];
 let idx = 0;
 let selected = null;
 let timer = null;
-let timeLeft = DRILL_SECONDS;
+let elapsed = 0; // seconds, counts up, never forces anything
 let committed = false;
-let studying = true; // unclocked phase: reading a never-seen-before position takes real time
-let results = []; // {source, correct}
+let results = []; // {source, correct, elapsed}
 
 function shuffledOrder(n) {
   const a = Array.from({length: n}, (_, i) => i);
@@ -206,7 +207,7 @@ function applyMove(grid, uci) {
 const PIECE_UNICODE = {"P": "\u2659", "N": "\u2658", "B": "\u2657", "R": "\u2656", "Q": "\u2655", "K": "\u2654", "p": "\u265f", "n": "\u265e", "b": "\u265d", "r": "\u265c", "q": "\u265b", "k": "\u265a"};
 
 function onSquareClick(e) {
-  if (committed || studying) return;
+  if (committed) return;
   const sq = e.currentTarget.dataset.sq;
   if (!selected) {
     if (!e.currentTarget.textContent) return; // clicked an empty square first
@@ -221,13 +222,6 @@ function onSquareClick(e) {
   commitMove(from + to);
 }
 
-function startDeciding() {
-  if (!studying || committed) return;
-  studying = false;
-  document.getElementById("readyBtn").disabled = true;
-  startTimer();
-}
-
 function commitMove(uci) {
   if (committed) return;
   committed = true;
@@ -237,18 +231,17 @@ function commitMove(uci) {
   const isRight = uci === correct;
   renderGrid(applyMove(currentGrid, drill.correct_move_uci));
   showFeedback(isRight, drill);
-  results.push({ source: drill.source, correct: isRight });
+  results.push({ source: drill.source, correct: isRight, elapsed });
 }
 
 function skip() {
   if (committed) return;
   committed = true;
-  studying = false;
   if (timer) clearInterval(timer);
   const drill = DRILLS[order[idx]];
   renderGrid(applyMove(currentGrid, drill.correct_move_uci));
   showFeedback(false, drill, true);
-  results.push({ source: drill.source, correct: false });
+  results.push({ source: drill.source, correct: false, elapsed });
 }
 
 function showFeedback(isRight, drill, skipped) {
@@ -258,50 +251,44 @@ function showFeedback(isRight, drill, skipped) {
   const headline = skipped
     ? `Skipped. The move was ${correctSan}.`
     : (isRight ? `Right -- ${correctSan}.` : `Not quite. The move was ${correctSan}.`);
+  const withinTarget = elapsed <= DRILL_SECONDS;
+  const timeTag = `<div class="time-tag">${elapsed}s -- ${withinTarget ? "within" : "over"} your ${DRILL_SECONDS}s target</div>`;
   const explanationHtml = drill.explanation
     ? `<div id="explanation">${drill.explanation}</div>`
     : "";
-  fb.innerHTML = `<span id="feedbackMove">${headline}</span>${explanationHtml}`;
+  fb.innerHTML = `<span id="feedbackMove">${headline}</span>${timeTag}${explanationHtml}`;
   document.getElementById("nextBtn").disabled = false;
   document.getElementById("skipBtn").disabled = true;
-  document.getElementById("readyBtn").disabled = true;
 }
 
-function startTimer() {
-  timeLeft = DRILL_SECONDS;
+function startStopwatch() {
+  elapsed = 0;
   updateClock();
   timer = setInterval(() => {
-    timeLeft -= 1;
+    elapsed += 1;
     updateClock();
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      if (!committed) skip();
-    }
   }, 1000);
 }
 
 function updateClock() {
   const el = document.getElementById("clock");
-  el.textContent = timeLeft;
-  el.classList.toggle("low", timeLeft <= 3);
+  el.textContent = elapsed;
+  el.classList.toggle("over-target", elapsed > DRILL_SECONDS);
 }
 
 function loadDrill() {
   committed = false;
-  studying = true;
   selected = null;
   if (timer) clearInterval(timer);
   document.getElementById("feedback").className = "";
   document.getElementById("feedback").textContent = "";
   document.getElementById("nextBtn").disabled = true;
   document.getElementById("skipBtn").disabled = false;
-  document.getElementById("readyBtn").disabled = false;
-  const clockEl = document.getElementById("clock");
-  clockEl.textContent = "study";
-  clockEl.classList.remove("low");
+  document.getElementById("targetLabel").textContent = `target ${DRILL_SECONDS}s`;
   document.getElementById("counter").textContent = `Drill ${idx + 1} / ${order.length}`;
   const drill = DRILLS[order[idx]];
   renderBoard(drill.fen);
+  startStopwatch();
 }
 
 function nextDrill() {
@@ -326,10 +313,12 @@ function showSummary() {
   const labels = { own_blunder: "Your past blunders", own_null: "Your quiet positions", lichess_puzzle: "Puzzle pool" };
   const total = results.length;
   const totalCorrect = results.filter(r => r.correct).length;
+  const withinTarget = results.filter(r => r.elapsed <= DRILL_SECONDS).length;
   let rows = `<tr><td><strong>Overall</strong></td><td>${totalCorrect} / ${total}</td></tr>`;
   for (const [src, v] of Object.entries(bySource)) {
     rows += `<tr><td>${labels[src] || src}</td><td>${v.correct} / ${v.total}</td></tr>`;
   }
+  rows += `<tr><td>Within ${DRILL_SECONDS}s target</td><td>${withinTarget} / ${total}</td></tr>`;
   document.getElementById("summaryTable").innerHTML = rows;
 }
 
@@ -342,7 +331,6 @@ function start() {
   loadDrill();
 }
 
-document.getElementById("readyBtn").addEventListener("click", startDeciding);
 document.getElementById("skipBtn").addEventListener("click", skip);
 document.getElementById("nextBtn").addEventListener("click", nextDrill);
 document.getElementById("restartBtn").addEventListener("click", start);
