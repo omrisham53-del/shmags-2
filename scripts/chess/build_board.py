@@ -80,6 +80,9 @@ button:disabled { opacity: 0.4; cursor: default; }
 #feedback { margin-top: 12px; padding: 10px; border-radius: 8px; font-size: 0.9rem; display: none; }
 #feedback.correct { background: color-mix(in srgb, var(--correct) 15%, transparent); color: var(--correct); display: block; }
 #feedback.wrong { background: color-mix(in srgb, var(--wrong) 15%, transparent); color: var(--wrong); display: block; }
+#feedbackMove { font-weight: 600; }
+#explanation { margin-top: 8px; padding-top: 8px; border-top: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+               color: var(--text); font-size: 0.88rem; line-height: 1.45; }
 #summary { display: none; text-align: center; }
 #summary table { width: 100%; margin: 12px 0; font-size: 0.9rem; }
 #summary td { padding: 4px 0; }
@@ -269,9 +272,13 @@ function showFeedback(isRight, drill, skipped) {
   const fb = document.getElementById("feedback");
   fb.className = isRight ? "correct" : "wrong";
   const correctSan = drill.correct_move_san ? drill.correct_move_san : drill.correct_move_uci;
-  fb.textContent = skipped
+  const headline = skipped
     ? `Skipped. The move was ${correctSan}.`
     : (isRight ? `Right -- ${correctSan}.` : `Not quite. The move was ${correctSan}.`);
+  const explanationHtml = drill.explanation
+    ? `<div id="explanation">${drill.explanation}</div>`
+    : "";
+  fb.innerHTML = `<span id="feedbackMove">${headline}</span>${explanationHtml}`;
   document.getElementById("nextBtn").disabled = false;
 }
 

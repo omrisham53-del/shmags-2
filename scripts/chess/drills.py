@@ -14,6 +14,10 @@ position often has several equally fine moves. Flagged honestly rather than
 building MultiPV tolerance now -- a real v1 scoping decision, not an
 oversight.
 
+Sampling is seeded (not re-randomized on every run) so a given drill set's
+hand-written explanations (see explain_drills.py) stay valid across
+rebuilds. Pass --seed to deliberately get a fresh set.
+
 Usage:
     python scripts/chess/drills.py --write    # writes projects/chess/drill-set.json
 """
@@ -69,6 +73,7 @@ def own_blunder_drills(conn, limit: int) -> list:
                 "correct_move_san": c["best_move_san"],
                 "source_game_id": g["id"],
                 "ply": c["ply"],
+                "explanation": None,
             })
     random.shuffle(candidates)
     return candidates[:limit]
@@ -101,6 +106,7 @@ def own_null_drills(conn, limit: int) -> list:
                 "correct_move_san": row["best_move_san"],
                 "source_game_id": g["id"],
                 "ply": row["ply"],
+                "explanation": None,
             })
     random.shuffle(candidates)
     return candidates[:limit]
@@ -134,11 +140,13 @@ def lichess_puzzle_drills(limit: int) -> list:
             "puzzle_id": row["PuzzleId"],
             "rating": row["Rating"],
             "themes": row["Themes"],
+            "explanation": None,
         })
     return candidates
 
 
-def build_drill_set(conn, n_blunder=20, n_null=20, n_puzzle=20) -> list:
+def build_drill_set(conn, n_blunder=8, n_null=7, n_puzzle=5, seed=7) -> list:
+    random.seed(seed)
     drills = (
         own_blunder_drills(conn, n_blunder)
         + own_null_drills(conn, n_null)
@@ -152,14 +160,17 @@ def build_drill_set(conn, n_blunder=20, n_null=20, n_puzzle=20) -> list:
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--n-blunder", type=int, default=20)
-    parser.add_argument("--n-null", type=int, default=20)
-    parser.add_argument("--n-puzzle", type=int, default=20)
+    parser.add_argument("--n-blunder", type=int, default=8)
+    parser.add_argument("--n-null", type=int, default=7)
+    parser.add_argument("--n-puzzle", type=int, default=5)
+    parser.add_argument("--seed", type=int, default=7,
+                         help="Fixed by default so hand-written explanations survive a rebuild; "
+                              "pass a different value for a genuinely fresh set.")
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
 
     conn = store.init_db()
-    drills = build_drill_set(conn, args.n_blunder, args.n_null, args.n_puzzle)
+    drills = build_drill_set(conn, args.n_blunder, args.n_null, args.n_puzzle, args.seed)
 
     by_source = {}
     for d in drills:
