@@ -1,7 +1,7 @@
-# Today - 2026-10-22
+# Today - 2026-10-23
 
-**Date:** 2026-10-22
-**Updated:** 2026-10-22
+**Date:** 2026-10-23
+**Updated:** 2026-10-23
 
 ---
 
@@ -20,6 +20,10 @@
 ---
 
 ## Today's Completed
+
+---
+
+## Recent Work (October 19)
 
 1. **Read and analyzed the final posted LinkedIn post** (lnkd.in/p/ej8SauVz, Hebrew, 40 reactions/6 comments) -- confirmed it matches the v4 draft (narrative over stats, grateful/curious tone) plus one real addition Omri wrote in himself: naming the paper's distinction-track selection plainly. Locked in as a durable voice preference (`feedback_linkedin_voice.md`) for future personal-brand posts.
 
@@ -65,36 +69,6 @@
 10. **Omri confirmed the bus directly via the transit app** -- real, ~3.5 hours with several transfers. This resolved the open question and let the whole plan simplify: Breheimen reverts to its original, shorter direction (61km vs. the superseded 83km Slæom detour), needing only one taxi leg (the Sept 22 exit past the dead Sota Sæter shuttle) instead of two.
 
 11. **Full Norway route section rebuilt a third time**, all three prior route iterations marked superseded in place rather than deleted, matching the file's running pattern. New open items flagged rather than assumed: whether the existing Sep 9 Otta-Vågåmo-Gjendesheim bus plan is actually still running (DNT's wording implies yes, oddly, given the Lom-side bus is confirmed dead), and the Nørdstedalseter→Sota Sæter exit-day distance.
-
----
-
-## Recent Work (September 3)
-
-1. **Pulled ~105 commits of work from remote** (Aug 5 to Sept 2) after a long gap. Local `today.md` change was a stale duplicate of a date bump remote had already made, so it was discarded; the uncommitted `Travel_Budget_Tracker.xlsx` edits were untouched by the merge and preserved.
-
-2. **Window Winners removed completely.** Project folder moved to `archives/through-the-gap/` (newsletter articles kept with it), both recurring Google Calendar build blocks deleted (Tue 19:00-21:00 and Fri 10:00-12:00, which had been set to run indefinitely and would have fired all through the trip), and every live reference cleared out of `today.md` and `context/current-priorities.md`.
-
-3. **Full priorities re-derivation.** The file still described the trip as "under 7 weeks out" and carried EcoTraders and University as active delivery priorities. Rewritten around what is actually live: trip and departure at #1, exit logistics at #2, career exploration at #3, LinkedIn as an explicit decide-or-defer item.
-
-4. **Reference letter draft written for Ron** -- English, all-round emphasis, at `projects/energy-program/reference-letter-draft.md`. Draft revised to drop the pension/vacation mention once Omri confirmed both were already handled.
-
-5. **EcoTraders exit closed to one item.** Omri confirmed the closing email to Daniel was sent with the final two deliverables, the pension release letter is unnecessary, and the vacation payout was already settled. Tracker, priorities and today.md all updated -- the reference letter is now the only open item.
-
-6. **Jotunheimen route reversed and verified.** Omri confirmed Memurubu (the private lodge, not a DNT cabin) closes Sept 13 -- the same date as the DNT staffed network -- which breaks the original plan's Day 5 night there outright, not just as a risk. Checked the two other borderline huts directly against dnt.no and spiterstulen.no rather than assume: Glitterheim's self-service quarter runs Feb 15-Oct 15 (closed only while staffed, so a Sept 14 night is fine), Spiterstulen runs to ~Oct 15. Built the reversed 6-day itinerary (same legs, same total distance, opposite direction) -- every hut now lands inside its season. Flagged the real cost of reversing rather than presenting it as free: Besseggen swaps from its easier climbing direction (Memurubu to Gjendesheim) to its harder descending direction (Gjendesheim to Memurubu) on Day 1, with no acclimatization day beforehand, and the single longest day (21km) moves from first to last.
-
-7. **LinkedIn post source identified.** Omri's best guess: it was always about the economics seminar presentation with Tomer, not EcoTraders -- the wording had just drifted over several today.md rewrites. Confirmed plan: write and post before the flight.
-
----
-
-## Recent Work (August 19)
-
-1. **EcoTraders closed out -- last working day.** All deliverables shipped. The final one, the full loan fund chapter, turned out to be a trim rather than a drafting job: the appendix version already had every section, so the work was cutting ~6 pages toward ~3. Planned it in two phases with a decision gate, lossless cuts (redundant explanation, narrative around examples, prose-to-table compression, background tightening) made first, and anything that would cost real substance escalated as a ranked list for Omri to decide rather than cut on the model's own judgment.
-
-2. **Status swept across the whole project.** The tracker had ~30 unchecked boxes that would have read as outstanding work to anyone opening it later; restructured into a final status table plus an honest "Unresolved at handoff" section (Rafi data that never arrived, the heat pump COP tension, cohort-discounting convention, sensitivity tables never rebuilt, market sizing paused not solved). README, current-priorities, goals and today.md all updated to match.
-
-3. **Status confirmed across every open item.** Model bugs all fixed, sensitivity tables rebuilt, lifespans equalized, all five flagged tax-chapter content issues closed. The tax chapter shipped as a ~10-page appendix version rather than being trimmed to the 4-page in-body ceiling. Loan fund landed at ~4 pages on the lossless pass alone. Yaniv's import data never came, Rafi never responded further, PRTR turned out not to be relevant, so market sizing stays a documented placeholder. Only genuinely open item: the cohort-discounting convention, now low-stakes since the cross-chapter cost-effectiveness comparison was dropped.
-
-*(August 8 and August 5 blocks moved to `archives/today-log-2026.md`.)*
 
 ---
 
