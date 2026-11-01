@@ -37,6 +37,7 @@ Rating progress and Improvers Club submission log.
 | 2026-10-25 | 1193 | 1871 | 812 | 0 | 0 | All three unchanged -- 0 games of either format since Oct 22, no play at all this window |
 | 2026-10-28 | 1193 | 1871 | 812 | 0 | 0 | All three unchanged -- 0 games of either format since Oct 25, no play at all this window -- now third consecutive zero-games row, per today.md this falls in the HoTake build/Ericeira window |
 | 2026-10-31 | 1193 | 1871 | 814 | 0 | 4 | Blitz +2 since Oct 28, Rapid/Tactics unchanged -- 0 rapid games played since last row -- no play, not just no rating change -- now fourth consecutive zero-rapid-games row |
+| 2026-11-01 | 1193 | 1871 | 814 | 0 | 0 | All three unchanged -- 0 games of either format since Oct 31, no play at all this window -- now fifth consecutive zero-rapid-games row |
 
 **Backfilled 2026-10-21** via direct chess.com archive query (Jul-Oct 2026), the same method the fixed routine now uses automatically. Confirms the laptop-access diagnosis from the 2026-10-19 decision in hard numbers: **zero rapid games played in every single window from Sept 4 through Oct 19** -- eight consecutive rows, about 6.5 weeks, with "Rapid unchanged" the only signal the old table carried. The lone rapid point gained Sept 13 (+8) came from exactly one game, not a return to volume. Blitz kept a low trickle (1-4 games per window) the whole time, which is why blitz numbers moved while rapid sat dead flat -- a pattern the old table had no way to distinguish from "playing rapid steadily and holding rating."
 
@@ -50,6 +51,7 @@ Rating progress and Improvers Club submission log.
 | August 2026 | Annotated Game of the Month | -- | Cycle open, no submission yet |
 | September 2026 | Annotated Game of the Month | -- | Cycle open, no submission yet |
 | October 2026 | Annotated Game of the Month | -- | Cycle open, no submission yet |
+| November 2026 | Annotated Game of the Month | -- | Cycle open, no submission yet |
 
 ---
 
