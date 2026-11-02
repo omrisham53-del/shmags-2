@@ -100,7 +100,25 @@ def _best_move_uci(fen: str, best_move_san: str):
         return None
 
 
-def own_blunder_drills(conn, limit: int, rng: random.Random) -> list:
+def _split_priority(candidates, priority_game_ids, rng):
+    """Shuffle candidates, then pull any from priority_game_ids to the front.
+
+    Random draw against the whole archive gives a just-played game no better
+    odds than a four-month-old one, so a session's own positions can lose the
+    draw entirely -- confirmed 2026-11-02, when today's own_blunder candidates
+    existed in the pool and a plain reshuffle still didn't pick any of them.
+    Priority games are not guaranteed a slot (there may be more of them than
+    `limit`), but they get first claim on it rather than an equal chance.
+    """
+    rng.shuffle(candidates)
+    if not priority_game_ids:
+        return candidates
+    priority = [c for c in candidates if c["source_game_id"] in priority_game_ids]
+    rest = [c for c in candidates if c["source_game_id"] not in priority_game_ids]
+    return priority + rest
+
+
+def own_blunder_drills(conn, limit: int, rng: random.Random, priority_game_ids=None) -> list:
     """His own blunder positions, one move before the mistake."""
     games = [g for g in store.get_games(conn, "rapid", "600")
              if conn.execute("SELECT 1 FROM evaluations WHERE game_id=? LIMIT 1", (g["id"],)).fetchone()]
@@ -125,11 +143,11 @@ def own_blunder_drills(conn, limit: int, rng: random.Random) -> list:
                 "ply": c["ply"],
                 "explanation": None,
             })
-    rng.shuffle(candidates)
+    candidates = _split_priority(candidates, priority_game_ids, rng)
     return candidates[:limit]
 
 
-def own_null_drills(conn, limit: int, rng: random.Random) -> list:
+def own_null_drills(conn, limit: int, rng: random.Random, priority_game_ids=None) -> list:
     """Quiet positions from his own games -- the right answer is just not losing."""
     games = [g for g in store.get_games(conn, "rapid", "600")
              if conn.execute("SELECT 1 FROM evaluations WHERE game_id=? LIMIT 1", (g["id"],)).fetchone()]
@@ -160,7 +178,7 @@ def own_null_drills(conn, limit: int, rng: random.Random) -> list:
                 "ply": row["ply"],
                 "explanation": None,
             })
-    rng.shuffle(candidates)
+    candidates = _split_priority(candidates, priority_game_ids, rng)
     return candidates[:limit]
 
 
@@ -197,14 +215,14 @@ def lichess_puzzle_drills(limit: int, rng: random.Random) -> list:
     return candidates
 
 
-def build_drill_set(conn, n_blunder=8, n_null=7, n_puzzle=5, seed=7) -> list:
+def build_drill_set(conn, n_blunder=8, n_null=7, n_puzzle=5, seed=7, priority_game_ids=None) -> list:
     # Independent RNGs per source, not one shared global sequence -- otherwise a filter
     # change in one source (different number of rng.shuffle() calls consumed) silently
     # reshuffles the OTHER sources too, orphaning every hand-written explanation at once.
     # Learned this the hard way: a one-line fix to own_null's ply floor changed all 20 drills.
     drills = (
-        own_blunder_drills(conn, n_blunder, random.Random(seed))
-        + own_null_drills(conn, n_null, random.Random(seed + 1000))
+        own_blunder_drills(conn, n_blunder, random.Random(seed), priority_game_ids)
+        + own_null_drills(conn, n_null, random.Random(seed + 1000), priority_game_ids)
         + lichess_puzzle_drills(n_puzzle, random.Random(seed + 2000))
     )
     random.Random(seed + 3000).shuffle(drills)
@@ -231,11 +249,20 @@ def main():
     parser.add_argument("--seed", type=int, default=7,
                          help="Fixed by default so hand-written explanations survive a rebuild; "
                               "pass a different value for a genuinely fresh set.")
+    parser.add_argument("--priority-game-ids", type=str, default=None,
+                         help="Comma-separated game ids (e.g. from review_session.py's output) "
+                              "that should win the draw against the rest of the archive, rather "
+                              "than face equal odds against every game ever played. Use this "
+                              "after a session so its own positions actually show up.")
     parser.add_argument("--write", action="store_true")
     args = parser.parse_args()
 
+    priority_ids = None
+    if args.priority_game_ids:
+        priority_ids = {int(x) for x in args.priority_game_ids.split(",") if x.strip()}
+
     conn = store.init_db()
-    drills = build_drill_set(conn, args.n_blunder, args.n_null, args.n_puzzle, args.seed)
+    drills = build_drill_set(conn, args.n_blunder, args.n_null, args.n_puzzle, args.seed, priority_ids)
 
     by_source = {}
     for d in drills:
