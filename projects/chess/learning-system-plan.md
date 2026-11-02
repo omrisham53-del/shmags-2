@@ -115,11 +115,25 @@ The showable piece. Portfolio value is an explicit requirement, so it got a real
 
 This substantially reframes failure mode 2 from the 2026-10-19 diagnosis. "Slow failure to capitalize on a lead over many moves" is real in the sense that leads do erode over many moves, 359 times across 63 games, but the mechanism is **repeated discrete blunders**, not gradual technical drift. M4 still earns its place, and arguably more than before: M3 shows one position and asks for one move, whereas M4 requires staying clean across a whole conversion against resistance, and the data says the blunder usually arrives several moves after the peak. But the plan should stop describing M4 as a remedy for technical dissolution, and the "improve my endgames is the same problem" reframe is weaker than it looked.
 
-### M5: Book loop and position-pattern matcher
+### M5: Book loop and position-pattern matcher -- DONE 2026-11-02
 
-- Concept log: one entry per studied chapter, in his own words. Read the book in order, since Rozman built a sequenced curriculum and skipping around breaks dependencies.
-- `scripts/chess/patterns.py` -- back-searches the whole archive for positions matching a concept's structural conditions, then shows what he actually did. "Here are 7 of your games where both kings castled opposite; in 5 you never started a pawn storm."
-- Chapter first, then the games. The concept provides the lens he re-reads his own play through.
+- **Concept log** at `projects/chess/concept-log.md`, one entry per studied chapter in his own words, appended via `patterns.py --log "..." --pattern <name>`. Read the book in order, since Rozman built a sequenced curriculum and skipping around breaks dependencies.
+- **`scripts/chess/patterns.py`** back-searches the whole archive for positions matching a concept's structural conditions, then shows what he actually did. Five patterns: `opposite_castling`, `open_file_unclaimed`, `their_isolated_pawn`, `my_passed_pawn`, `their_king_uncastled`.
+- Every pattern answers two questions, and the second is the one that matters: did the condition hold, and what did he do about it over the next 12 plies. A matcher that only answered the first would report "this came up 40 times" and teach nothing.
+- **Blunder overlay,** added because of M4's finding: each match also reports whether a real cliff landed inside the window where the concept was live. "The concept applied and you blundered right there" is sharper than either fact on its own.
+- Reports lead with the games he got **wrong**, since that is where the reading pays off.
+
+**First run across the archive:**
+
+| Pattern | Games | Played it | Missed | Blundered in-window |
+|---|---|---|---|---|
+| opposite_castling | 15 | 2 | 13 | 12 |
+| open_file_unclaimed | 51 | 20 | 31 | 25 |
+| their_isolated_pawn | 50 | 23 | 27 | 20 |
+| my_passed_pawn | 36 | 10 | 26 | 19 |
+| their_king_uncastled | 34 | 25 | 9 | 16 |
+
+`opposite_castling` is the standout: 13 of 15 times he did not start the pawn storm, and 12 of those 15 games carried a real blunder inside the same window. Treat these as a first read rather than a verdict, since each pattern is a crude structural proxy for a concept rather than the concept itself.
 
 ### M6: Routine consolidation -- DONE 2026-10-21
 
