@@ -80,3 +80,36 @@ One scheduled cloud routine now feeds `tracker.md`:
 **Retired the same day:** the metadata-only game flagger (flagged almost everything at this rating level, discriminated almost nothing) and the bi-weekly cloud Stockfish analysis routine (`trig_01JFSQUYQf78TzhRxQmxuHoQ`, disabled not deleted) that fed on it. Both prompts are mirrored in full at `routine-prompts.md`, including the lesson worth carrying into the real replacement: long engine-best streaks are frequently hollow (king shuffles in lost endgames, book moves, trivial promotions) and must not be scored as skill.
 
 The real replacement is `learning-system-plan.md` M1 (local cliff/decay detectors) and M2 (`/chess-review`), not yet built. Improvers Club candidate selection becomes a query against that local store once it exists. Manage the live routine at https://claude.ai/code/routines.
+
+---
+
+## Running a session
+
+The whole system in order. Takes about 80 minutes; the first three steps are
+the non-negotiable core, the last two are the training load.
+
+| # | Block | Time | What you do |
+|---|---|---|---|
+| 1 | Play | ~40 min | 2-3 rapid games, 10+0, on chess.com. Nothing to run. |
+| 2 | Self-review | 5 min | Write your own guess at what went wrong, **before** any engine output. |
+| 3 | Engine pass | auto | `/chess-review` in Claude Code. It fetches, analyses, asks for your guess first, then explains each finding and logs the session. |
+| 4 | Drill | 15 min | Open `projects/chess/drill-board.html`, or run `python scripts/chess/convert.py --count 5` for conversion drills against a live engine. |
+| 5 | Book | 20 min | One Rozman chapter, then log it and back-search it against your own games. |
+
+**Step 5 in full:**
+
+```
+python scripts/chess/patterns.py --log "what the chapter actually said, in your words" --pattern opposite_castling
+python scripts/chess/patterns.py --pattern opposite_castling
+```
+
+`--list` shows the available patterns. `--all` gives a one-line summary of
+every pattern across the archive.
+
+**If you only have 20 minutes:** steps 1 to 3. The self-review guess is the
+measurement the whole system is built around, so it is the last thing to cut.
+
+The four hard rules are enforced by the tools, not by willpower: nothing shows
+you an evaluation before you have committed to a move, nothing tells you a win
+exists, level positions are mixed into every drill set, and the clocks are
+stopwatches that never cut you off.
