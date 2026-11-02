@@ -12,9 +12,26 @@ python scripts/chess/review_session.py
 ```
 If it returns `{"status": "no_new_games", ...}`, tell him there's nothing new since the last review and stop here -- don't fabricate a session that didn't happen.
 
-## 2. Ask for his self-review guess BEFORE showing anything
+## 2. Ask his five self-review questions BEFORE showing anything
 
-This is rule 1 of the four hard training rules (`learning-system-plan.md`): commit before explain. Before you reveal any engine finding, ask him something like: "What's your gut read on what went wrong (or right) in today's games?" Wait for his answer. Do not hint, do not reference the engine data you already have, do not ask a leading question that gives away the finding.
+This is rule 1 of the four hard training rules (`learning-system-plan.md`): commit before explain. At this point you are holding `review_session.py`'s output, which already names his blunders. Say none of it. Do not hint, do not reference the data, do not ask a leading question that gives the finding away.
+
+**Ask exactly these five, as one block, and let him answer in a line each.** They are fixed rather than improvised so the gap between his read and the engine's is comparable across sessions, which is the whole metric. "What's your gut read?" on its own is too open-ended to answer cold right after playing, which is why this list exists (added 2026-11-02 at his request).
+
+```
+1. Result of each game, and how it felt: comfortable, messy, or never in it?
+2. Is there one move you would take back? Which, and what do you think you missed?
+3. Did you reach a position you thought was winning? If so, what happened to it?
+4. Where did you burn the most time, and where did you move fastest?
+5. One thing you would do differently next game.
+```
+
+Rules for asking them:
+
+- **Question 3 asks what HE thought, never what was true.** Do not confirm, deny or soften it, even if the engine disagrees flatly. His perception versus the engine's answer is the measurement.
+- Short answers are correct. Bullets, not prose. If he does not know, "no idea" is a real answer worth logging.
+- If he skips the block entirely, note that explicitly in the log rather than inventing answers for him.
+- Never reorder or add questions mid-session to fish for something you already know from the engine output.
 
 If he skips this or says he doesn't have a guess, note that explicitly in the log rather than inventing one for him.
 
@@ -29,6 +46,18 @@ cp_loss values are capped at 2000 -- a move showing exactly 2000 crossed into a 
 ## 4. Compare his guess to the engine's answer
 
 State the gap plainly: did his guess land on the same moment the engine flagged, a different one, or nothing at all? This comparison is the actual metric this system tracks over time (`learning-system-plan.md` measurement table: "gap between his self-review guess and the engine" -- down is the goal). Don't soften it and don't oversell it either way.
+
+Three of the five questions map onto something the engine measured, so score those specifically rather than giving one vague overall verdict:
+
+| Question | Compare against | A hit looks like |
+|---|---|---|
+| Q2, the move he would take back | the largest cliff in the game | same move, or within a move or two of it |
+| Q3, whether he thought he was winning | peak my-perspective eval | he believed he was winning and the engine agrees it was +300 or better, or he correctly sensed he never was |
+| Q4, where he moved fastest | `time_spent` on the flagged cliffs | the cliff actually did come on one of his fast moves |
+
+Q1 and Q5 are not scored. They are there to anchor him and to catch his own read of what to change, which is worth logging even though no engine number corresponds to it.
+
+Call out the interesting failure explicitly when it happens: naming a move he would take back that the engine thinks was *fine*, while missing the one that actually cost 300cp, is a more useful finding than a clean miss, because it says the board-reading is active but mis-aimed.
 
 ## 5. Write the study log entry
 
