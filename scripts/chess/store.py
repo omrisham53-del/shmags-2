@@ -66,6 +66,24 @@ CREATE TABLE IF NOT EXISTS annotations (
     created_at TEXT DEFAULT CURRENT_TIMESTAMP
 );
 
+-- M4: conversion drill attempts, one row per attempt at one position
+CREATE TABLE IF NOT EXISTS conversion_attempts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fen TEXT NOT NULL,
+    source_game_id INTEGER REFERENCES games(id),
+    source TEXT,               -- 'decay_peak' / 'cliff_peak' / 'control_level'
+    start_eval INTEGER,        -- my-perspective cp at the starting position
+    final_eval INTEGER,        -- my-perspective cp when the attempt ended
+    verdict TEXT,              -- 'converted' / 'held' / 'slipped' / 'lost'
+    my_moves INTEGER,          -- how many of my own moves I played
+    worst_move_san TEXT,       -- my biggest single cp_loss this attempt
+    worst_move_cp_loss INTEGER,
+    opp_elo INTEGER,           -- engine strength the attempt was played against
+    seconds_per_move REAL,     -- my mean seconds per move this attempt
+    attempt_index INTEGER,     -- 1 for first try at this position, 2 for the replay
+    played_at TEXT DEFAULT CURRENT_TIMESTAMP
+);
+
 -- M3: drill history
 CREATE TABLE IF NOT EXISTS drills (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
