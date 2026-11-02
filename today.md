@@ -7,13 +7,12 @@
 
 ## Current Priority
 
-**In Portugal, Ericeira surf camp Oct 25, and the two trip projects are now live.** Left London early (exact date not captured). Jotunheimen, Alta, Scotland-with-Dad (WHW + Ben Nevis), and the LinkedIn post are all closed out. Ireland dropped.
+**In Portugal, Ericeira surf camp started Oct 25. The hackathon window closed unsubmitted; chess and HoTake are now both no-deadline projects.** Jotunheimen, Alta, Scotland-with-Dad (WHW + Ben Nevis), and the LinkedIn post are all closed out. Ireland dropped.
 
-- **Oct 20: travelling to Peniche for the WSL event, arriving ~13:00-13:30.** HoTake heavy day starts after arrival, so ~5-6 usable hours instead of a full day. Where he stays in Peniche, and for how long, not captured yet.
-- **Chess learning system -- the first trip project, now specified.** Goal set at 1600 rapid (from 1193), full build plan at `projects/chess/learning-system-plan.md`, 7 milestones. Starts with the clock analyzer. Routine locked at 4 sessions/week, ~12 rapid games.
-- **HoTake -- the second trip project, now fully specified.** Solo entry to the Microsoft x Premier League hackathon. An AI football pundit called **Clive** (CRT monitor for a head) who watches a synthetic match with you, provokes you into a take, makes his own falsifiable calls, and grades both against the evidence. **Code freeze Oct 24**, submission closes Oct 27 23:59 PT. Plan at `projects/plms-hackathon/tracker.md`. Portfolio-and-skills first; winning is explicitly not the goal.
-- **Worldpackers Sagres placement is dead, not pending.** No host ever replied. **November is genuinely open and unplanned** -- only the Oct 25 Ericeira camp is fixed between now and the ~Dec 8 end. Worth deciding whether to re-apply or fill it another way.
-- **EcoTraders exit -- one item left.** Reminder sent to Ron 2026-10-07. Still awaiting his reply (now 12 days).
+- **HoTake was not submitted.** No work happened after Oct 21 -- the Oct 22-24 build days, the Oct 23 safety submission, the Oct 24 freeze, the videos and the pitch all passed untouched, and the Oct 27 23:59 PT deadline closed with nothing entered. Confirmed by Omri 2026-11-02. The code that exists (match engine, ledger, 2 specialists, Clive, adjudicator, supervisor, polling web UI, full fallback path) is real and working locally. Per the Oct 19/21 decisions the full version was always framed as a no-deadline follow-on, so this is a reframe, not a loss: it continues as a **portfolio project with no external deadline**.
+- **Chess learning system -- built and waiting on fuel.** M0, M1, M2, M3 and M6 all done. M4 (conversion drills) and M5 (book loop + position-pattern matcher) remain. The blocker is not code: **zero rapid games played since Sept 13**, now five consecutive zero-rapid rows in the Rating Log on top of the earlier 6.5-week blackout. The routine needs ~12 rapid games/week to feed the diagnostic, and has had none.
+- **November is open and unplanned, and it has started.** The Worldpackers Sagres placement is dead, not pending -- no host ever replied. Only the Ericeira camp is fixed between now and the ~Dec 8 end. Still undecided since Oct 19.
+- **EcoTraders exit -- one item left.** Reminder sent to Ron 2026-10-07. Still no reply, now 26 days.
 - **University: DONE, degree complete.**
 - **Through the Gap / Window Winners: killed 2026-09-03.** Not coming back as a suggestion.
 
@@ -72,13 +71,12 @@
 
 ---
 
-## This Week's Focus (Oct 19 onward)
+## This Week's Focus (Nov 2 onward)
 
-1. **HoTake build, Oct 20-24.** The hard one. Code freeze Oct 24, because the surf camp from Oct 25 drops available time to ~2h/day. Oct 20 is the heavy day: check Azure credits in Innovation Studio, set up the `c:\עמרי\HoTake` public repo, then get the generator + ledger + one specialist + Clive running in the terminal. Safety submission Oct 23.
-2. **Chess learning system** -- start with the clock analyzer, since it can invalidate the endgame workstream before it gets built. Routine: 4 sessions/week, ~12 rapid games.
-3. **Ericeira surf camp from Oct 25.** Fixed. After this the HoTake work is video + LinkedIn post only, no code.
-4. **Decide what November is.** Genuinely open and unplanned -- the Worldpackers Sagres placement is dead, not pending. Re-apply, or fill it another way.
-5. **Ron's reference letter** -- still no reply, 12 days after the reminder. Decide whether to chase again or let it go.
+1. **Chess: run the full session routine for the first time.** Everything built is waiting on rapid games. Play -> self-review -> engine pass -> drill -> book, per `projects/chess/learning-system-plan.md`.
+2. **HoTake as a portfolio project.** No deadline. Decide what "done" means now that the judging criteria are gone.
+3. **Decide what November is.** Open since Oct 19, and November is now underway.
+4. **Ron's reference letter** -- 26 days since the reminder. Chase again or let it go.
 
 ---
 

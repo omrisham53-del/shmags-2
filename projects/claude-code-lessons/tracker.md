@@ -22,6 +22,14 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 </thead>
 <tbody>
 
+<tr style="background-color:#d4f4dd;"> <!-- Done -->
+<td>2026-11-02</td>
+<td><code>git log origin/&lt;branch&gt;</code> reads a <strong>local cached remote-tracking ref, not the remote</strong> -- so without a <code>git fetch</code> first it can report "in sync" while the branch is many commits behind, and that false reading turned a working automation into a bogus bug report</td>
+<td>Always <code>git fetch</code> before any claim about sync state</td>
+<td><strong>Done</strong></td>
+<td>Omri opened the session asking whether context had been saved for work he'd left ~12 days earlier. Checked <code>git status</code> (clean) and <code>git log --oneline -1 origin/master</code>, which returned the Oct 21 commit, and reported master as "in sync with origin" plus a flag that the chess Rating Log had stopped updating -- framed as the same silent-failure pattern debugged on 2026-07-13/07-14. Both conclusions were wrong from one root cause: no <code>git fetch</code> had run, so <code>origin/master</code> was this machine's stale Oct 21 cache and local master was actually <strong>17 commits behind</strong>. Querying the live trigger (<code>RemoteTrigger action:"get"</code> then <code>get_run_log</code>) showed the routine had fired Oct 22, 25, 28, 31 and Nov 1, succeeded every run, and appended a row each time including the all-zero ones -- the M6 "always append" fix working exactly as intended. Two automated weekly-review reports (Oct 23, Oct 30) had also been committed and never read; both correctly flagged the HoTake outcome gap. Cost: one wrong diagnosis delivered to Omri with confidence, nearly sending a healthy routine for repair. The fix is mechanical and worth making reflexive -- <code>git fetch</code> first, then compare with <code>git rev-list --left-right --count master...origin/master</code>, and only then say anything about what is or isn't saved. Also note the automation-silently-dead hypothesis was cheap to disprove directly via the trigger API, which is the right first move rather than reasoning from absent commits.</td>
+</tr>
+
 <tr style="background-color:#eaeaea;">
 <td>2026-10-19</td>
 <td>Scheduled cloud routine prompts live ONLY in the claude.ai routines UI and exist nowhere in the repo, so their logic can't be audited, diffed, or recovered -- deleting a routine destroys its behaviour permanently</td>
