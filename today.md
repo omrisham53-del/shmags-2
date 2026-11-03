@@ -11,7 +11,7 @@
 
 - **HoTake was not submitted.** No work happened after Oct 21 -- the Oct 22-24 build days, the Oct 23 safety submission, the Oct 24 freeze, the videos and the pitch all passed untouched, and the Oct 27 23:59 PT deadline closed with nothing entered. Confirmed by Omri 2026-11-02. The code that exists (match engine, ledger, 2 specialists, Clive, adjudicator, supervisor, polling web UI, full fallback path) is real and working locally. Per the Oct 19/21 decisions the full version was always framed as a no-deadline follow-on, so this is a reframe, not a loss: it continues as a **portfolio project with no external deadline**.
 - **Chess learning system -- built and waiting on fuel.** M0, M1, M2, M3 and M6 all done. M4 (conversion drills) and M5 (book loop + position-pattern matcher) remain. The blocker is not code: **zero rapid games played since Sept 13**, now five consecutive zero-rapid rows in the Rating Log on top of the earlier 6.5-week blackout. The routine needs ~12 rapid games/week to feed the diagnostic, and has had none.
-- **November is open and unplanned, and it has started.** The Worldpackers Sagres placement is dead, not pending -- no host ever replied. Only the Ericeira camp is fixed between now and the ~Dec 8 end. Still undecided since Oct 19.
+- **November is now planned (2026-11-03).** Ericeira camp is over. Omri is going to volunteer on an Israeli-run farm near Lagos, 2 weeks minimum, ideally a month or more. The ~Dec 8 trip end is flexible since there is no job waiting. Paid barista work in the Algarve is being considered as an add-on (see `decisions/log.md` 2026-11-03).
 - **EcoTraders exit -- one item left.** Reminder sent to Ron 2026-10-07. Still no reply, now 26 days.
 - **University: DONE, degree complete.**
 - **Through the Gap / Window Winners: killed 2026-09-03.** Not coming back as a suggestion.
@@ -75,7 +75,7 @@
 
 1. **Chess: run the full session routine for the first time.** Everything built is waiting on rapid games. Play -> self-review -> engine pass -> drill -> book, per `projects/chess/learning-system-plan.md`.
 2. **HoTake as a portfolio project.** No deadline. Decide what "done" means now that the judging criteria are gone.
-3. **Decide what November is.** Open since Oct 19, and November is now underway.
+3. **Farm volunteering near Lagos.** Confirm exact start date, length and what the farm covers (bed, meals). Decide whether to add paid barista work after.
 4. **Ron's reference letter** -- 26 days since the reminder. Chase again or let it go.
 
 ---

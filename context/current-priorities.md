@@ -4,7 +4,7 @@
 *Previous full re-derivation: 2026-09-03 -- see decisions/log.md for reasoning behind each reorder.*
 
 ## Priority 1: Europe trip -- six weeks in, London leg, heading to two real Portugal anchors
-The Sept 8 - ~Dec 8 trip remains the main event. Norway (Jotunheimen, Alta) and Scotland (West Highland Way + Ben Nevis with Dad) are both complete. Ireland was dropped entirely (decided in a separate session, reconciled here 2026-10-19). Portugal is no longer an open shape -- it now has two real anchors: an Ericeira surf camp (signed up, starts Oct 25) and a Worldpackers volunteering placement in Sagres (candidacy submitted, starts Nov 3 if the host confirms). Currently in London (through ~Oct 24) ahead of the surf camp. Full detail in `projects/travel/tracker.md`.
+The Sept 8 - ~Dec 8 trip remains the main event. Norway (Jotunheimen, Alta) and Scotland (West Highland Way + Ben Nevis with Dad) are both complete. Ireland was dropped entirely (decided in a separate session, reconciled here 2026-10-19). Portugal is no longer an open shape -- it now has two real anchors: an Ericeira surf camp (signed up, starts Oct 25) and a Worldpackers volunteering placement in Sagres (candidacy submitted, starts Nov 3 if the host confirms). Update 2026-11-03: the Ericeira camp is over and Omri is going to volunteer on an Israeli-run farm near Lagos for 2+ weeks (ideally a month or more); the Dec 8 end is flexible. Full detail in `projects/travel/tracker.md`.
 
 **Open:**
 - How Porto/Lisbon and the Rota Vicentina trail fit around the Oct 25/Nov 3 anchors.

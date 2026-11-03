@@ -2,7 +2,7 @@
 
 Solo backpacking trip through Northern/Western Europe, Sept 8 - ~Dec 8 2026 (~13 weeks). Doubles as the mechanism for [Career Direction Exploration](../job-search/tracker.md) -- alumni/professor conversations along the way, not a fixed job search.
 
-**Status:** Active -- **in Portugal as of 2026-10-19**, Ericeira surf camp starts Oct 25. Norway, Scotland and London legs all complete.
+**Status:** Active -- **in Portugal as of 2026-10-19**. Ericeira surf camp done; as of 2026-11-03 heading to volunteer on a farm near Lagos (2+ weeks, ideally a month+). End date ~Dec 8 is now flexible. Norway, Scotland and London legs all complete.
 **Travel style:** Solo, backpacking budget
 **Equipment:** full packing checklist in `equipment-list.md`
 
@@ -58,6 +58,7 @@ Surfing season (Nov-Dec) is peak Atlantic swell. Rota Vicentina Fishermen's Trai
 | **Portugal (current location)** | **arrived before 2026-10-19** – ongoing | open-ended | **Where he is now.** No fixed departure date from Portugal. Specific town not captured. |
 | Portugal (Ericeira surf camp) | **Oct 25 –** (duration TBD) | Booked/signed up | Real anchor date, still on. Focus shifts toward surfing and socializing that week, though laptop work continues through it. |
 | Portugal (Sagres, Worldpackers) | ~~Nov 3~~ **NOT CONFIRMED -- no host replies (as of 2026-10-19)** | -- | Volunteering in exchange for accommodation. Omri applied to multiple hosts on Worldpackers and **has had no answers from any of them**. Stronger than "pending": there is no placement. **November is genuinely open and unplanned**, not waiting on a confirmation. If a placement is still wanted, this needs fresh applications, not patience. |
+| **Portugal (Algarve farm volunteering, near Lagos)** | **from ~2026-11-03** | min 2 weeks, ideally 1+ month | **Decided 2026-11-03.** Ericeira camp has ended. Volunteering on an Israeli-run farm close to Lagos. Replaces the dead Sagres Worldpackers plan and gives housing, which is the main blocker for any paid Algarve work. Trip end date is now flexible (no job waiting). Possible add-on: paid barista work in Lagos after or alongside (EU citizen via Polish passport, needs NIF + NISS + contract; winter hiring is thin). |
 | Portugal (rest -- Porto/Lisbon, Rota Vicentina) | TBD | -- | Needs to fit around the Ericeira Oct 25 anchor. Now has more room than before, since Nov 3 is no longer a commitment. |
 
 **Route order changed 2026-09-18**, from Norway → London → Scotland → Ireland → Portugal to Norway → Scotland (with Dad) → London → Ireland → Portugal. See `decisions/log.md` (2026-09-18 entries) for why.
