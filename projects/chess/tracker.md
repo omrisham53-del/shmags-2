@@ -40,6 +40,7 @@ Rating progress and Improvers Club submission log.
 | 2026-11-01 | 1193 | 1871 | 814 | 0 | 0 | All three unchanged -- 0 games of either format since Oct 31, no play at all this window -- now fifth consecutive zero-rapid-games row |
 | 2026-11-04 | 1203 | 1871 | 806 | 3 | 1 | Rapid +10, Blitz -8 since Nov 1, Tactics unchanged -- first rapid games played since Oct 13 (per the backfilled log), ending the five-row zero-rapid streak |
 | 2026-11-07 | 1203 | 1871 | 805 | 0 | 3 | Blitz -9 since Nov 4, Rapid/Tactics unchanged -- 0 rapid games played since last row -- no play, not just no rating change |
+| 2026-11-10 | 1203 | 1871 | 789 | 0 | 2 | Blitz -16 since Nov 7, Rapid/Tactics unchanged -- 0 rapid games played since last row -- no play, not just no rating change |
 
 **Backfilled 2026-10-21** via direct chess.com archive query (Jul-Oct 2026), the same method the fixed routine now uses automatically. Confirms the laptop-access diagnosis from the 2026-10-19 decision in hard numbers: **zero rapid games played in every single window from Sept 4 through Oct 19** -- eight consecutive rows, about 6.5 weeks, with "Rapid unchanged" the only signal the old table carried. The lone rapid point gained Sept 13 (+8) came from exactly one game, not a return to volume. Blitz kept a low trickle (1-4 games per window) the whole time, which is why blitz numbers moved while rapid sat dead flat -- a pattern the old table had no way to distinguish from "playing rapid steadily and holding rating."
 
