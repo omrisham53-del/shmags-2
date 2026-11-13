@@ -2,7 +2,7 @@
 
 **Q4 2026 (set 2026-11-13)**
 
-Whether Omri returns to Israel during Q4 is undecided, and no decision date will be set. The job search can start without knowing the return date, but only after the Q4 goal below is completed. The goals below hold either way.
+Whether Omri returns to Israel during Q4 is undecided, and no decision date will be set. The job search can start without knowing the return date, but only after Q4 Goal 1 (career direction clarity) is completed. The goals below hold either way.
 
 ## Q4 Goal 1: Career direction clarity
 - Decide which job roles to apply to
@@ -10,7 +10,7 @@ Whether Omri returns to Israel during Q4 is undecided, and no decision date will
 - Job search starts after this goal is done (not tied to the return date), on a light schedule with no pressure while abroad
 
 ## Q4 Goal 2: Chess conclusions
-- Run enough chess routines to draw real conclusions that highlight key features of his games
+- Run enough chess routines to draw real conclusions that highlight key features of his games. "Enough" = 36 rapid games analyzed (about 3 weeks at 4 sessions/week), locked 2026-11-13
 - Parked until laptop time
 
 ## Q4 Goal 3: HoTake finished and shown
@@ -18,7 +18,7 @@ Whether Omri returns to Israel during Q4 is undecided, and no decision date will
 - LinkedIn post about HoTake and a LinkedIn post about the chess routine
 - Parked until laptop time
 
-**Open:** how many chess routines count as "enough" (the plan says the diagnostic needs about 3 weeks at 4 sessions/week, roughly 12 sessions or 36 games; no other figure is documented); whether the job search starts after Goal 1 specifically or after all three goals. No decision date for returning to Israel, by choice.
+**Open:** nothing blocking. No decision date for returning to Israel, by choice.
 
 ---
 
