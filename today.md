@@ -20,6 +20,8 @@
 
 ## Today's Completed
 
+1. **Weekly review run live and sorted** (2026-11-13): Ron's reference letter closed (received by email), HoTake and chess explicitly parked until laptop time, D&D campaign and world-cup-party archived, `current-priorities.md` fully re-derived, Q4 goals set in `context/goals.md` (career clarity, 36 chess games, HoTake demo + LinkedIn posts), grill-me / save-context / job-tracker skills moved into the folder layout so they register, HoTake API key expiry (2026-11-20) recorded, to be rotated at laptop time.
+
 ---
 
 ## Recent Work (October 19)
