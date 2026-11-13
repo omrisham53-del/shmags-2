@@ -1,6 +1,28 @@
 # Goals & Milestones
 
-**Q2-Q3 2026**
+**Q4 2026 (set 2026-11-13)**
+
+Whether Omri returns to Israel during Q4 is undecided, and it shapes the job-search timing. The goals below hold either way.
+
+## Q4 Goal 1: Career direction clarity
+- Decide which job roles to apply to
+- Build a deeper understanding of the field and career path he wants
+- Job search restarts on a light schedule once laptop time exists, with no pressure while abroad
+
+## Q4 Goal 2: Chess conclusions
+- Run enough chess routines to draw real conclusions that highlight key features of his games
+- Parked until laptop time
+
+## Q4 Goal 3: HoTake finished and shown
+- Working demo of HoTake
+- LinkedIn post about HoTake and a LinkedIn post about the chess routine
+- Parked until laptop time
+
+**Open:** return-to-Israel decision and date; how many chess routines count as "enough"; what "working demo" must include.
+
+---
+
+**Q2-Q3 2026 (superseded for Goals 1, 2, 3 by the above and by achievements already logged)**
 
 *Update this file at the start of each quarter.*
 
