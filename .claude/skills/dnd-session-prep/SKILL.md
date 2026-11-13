@@ -22,7 +22,7 @@ The single biggest way to fail is to rush to Stage 4, reading the files and hand
 
 ## Stage 1 — Orient
 
-Do the homework, then check in. Read these (all under `projects/dnd-campaign/`):
+Do the homework, then check in. Read these (all under `archives/dnd-campaign-2026/dnd-campaign/`):
 
 1. The latest session notes — `sessions/session_N_notes.md` with the highest number. This is where the party actually is. (If the most recent file is a `_plan.md` that may not have been played, or there are no notes yet, just ask him what happened last game — don't assume.)
 2. `campaign-arc.md` — the central conflict (Ashar / the enslaved dragon), the truth of the Fall, and the **level-progression gates** that govern pacing.
@@ -60,7 +60,7 @@ This is loose and conversational. Follow Omri's energy: go deep where he's excit
 
 ## Stage 3 — Build assets
 
-Once the session is designed, make the tangible things it needs at the table. Don't over-produce — ask him what's actually worth printing, then build only that. Save assets alongside the existing ones in `projects/dnd-campaign/sessions/`.
+Once the session is designed, make the tangible things it needs at the table. Don't over-produce — ask him what's actually worth printing, then build only that. Save assets alongside the existing ones in `archives/dnd-campaign-2026/dnd-campaign/sessions/`.
 
 **Magic-item cards.** If the party might find an item, build a printable card in his established parchment/gold style. Don't hand-write the ~250-line HTML; use the bundled generator with a small JSON spec (one card per file):
 
@@ -90,7 +90,7 @@ Tell him each file path as you create it; the plan in Stage 4 will reference the
 
 ## Stage 4 — Write it up
 
-Only once the session is built and the assets exist. The thinking is done, so this is mechanical: capture the session you both designed. Write to `projects/dnd-campaign/sessions/session_N_plan.md` (N = the upcoming session number) and match the structure and voice of his existing `session_2_plan.md`. Reference the assets you made. Tell him the path when done.
+Only once the session is built and the assets exist. The thinking is done, so this is mechanical: capture the session you both designed. Write to `archives/dnd-campaign-2026/dnd-campaign/sessions/session_N_plan.md` (N = the upcoming session number) and match the structure and voice of his existing `session_2_plan.md`. Reference the assets you made. Tell him the path when done.
 
 ```markdown
 # [Evocative one-or-two-word Title]
@@ -152,7 +152,7 @@ Pull standard 5e blocks where a monster fits (Kobolds, Darklings) and adapt; bui
 After the `.md`, offer a formatted Word doc (he prints these — every past session has a `.docx`). Don't hand-write a per-session script like the old `create_docx.py` ones; use the bundled converter:
 
 ```
-python .claude/skills/dnd-session-prep/scripts/plan_to_docx.py "projects/dnd-campaign/sessions/session_N_plan.md"
+python .claude/skills/dnd-session-prep/scripts/plan_to_docx.py "archives/dnd-campaign-2026/dnd-campaign/sessions/session_N_plan.md"
 ```
 
 It writes `session_N_plan.docx` beside the markdown. Only run it if he wants it.

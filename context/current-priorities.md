@@ -12,10 +12,10 @@ The Sept 8 - ~Dec 8 trip remains the main event. Norway (Jotunheimen, Alta) and 
 
 **Status:** Active, ongoing through ~Dec 2026.
 
-## Priority 2: EcoTraders exit -- one item left, awaiting Ron's reply
+## Priority 2: EcoTraders exit -- CLOSED 2026-11-13 (Ron's reference letter received)
 The job and its exit logistics are otherwise fully closed (closing email to Daniel sent, pension letter unnecessary, vacation payout settled -- all confirmed 2026-09-03). The reference letter from Ron is the only open item: Omri sent his own draft 2026-09-09 and a reminder 2026-10-07 after a month of silence. No reply yet.
 
-**Status:** Low-effort background item -- nothing more to do until Ron responds.
+**Status:** Closed. Remove at the next re-derivation.
 
 ## Priority 3: Career Direction Exploration -- the actual purpose of the trip
 Ongoing via conversations with alumni, professors, and fellow travelers met along the way. Formal job applications resume only after this reflection, not on a fixed date (~Dec 2026 earliest). All prior applications closed out as declined (2026-07-10).
