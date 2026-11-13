@@ -1,56 +1,51 @@
 # Current Priorities
 
-*Last updated: 2026-10-19 (full re-derivation -- trip is 6 weeks in, not 5 days out; EcoTraders exit down to one item awaiting reply; LinkedIn post done and retired; new "independent projects" thread opened, two to be shaped next*
-*Previous full re-derivation: 2026-09-03 -- see decisions/log.md for reasoning behind each reorder.*
+*Last updated: 2026-11-13 (full re-derivation after the weekly review: EcoTraders exit closed, Q4 goals set, HoTake and chess parked until laptop time, D&D and world-cup-party archived)*
+*Previous full re-derivation: 2026-10-19. Q4 goals live in `context/goals.md`.*
 
-## Priority 1: Europe trip -- six weeks in, London leg, heading to two real Portugal anchors
-The Sept 8 - ~Dec 8 trip remains the main event. Norway (Jotunheimen, Alta) and Scotland (West Highland Way + Ben Nevis with Dad) are both complete. Ireland was dropped entirely (decided in a separate session, reconciled here 2026-10-19). Portugal is no longer an open shape -- it now has two real anchors: an Ericeira surf camp (signed up, starts Oct 25) and a Worldpackers volunteering placement in Sagres (candidacy submitted, starts Nov 3 if the host confirms). Update 2026-11-03: the Ericeira camp is over and Omri is going to volunteer on an Israeli-run farm near Lagos for 2+ weeks (ideally a month or more); the Dec 8 end is flexible. Full detail in `projects/travel/tracker.md`.
+## Priority 1: Europe trip, Portugal leg (farm volunteering near Lagos)
+The Sept 8 - ~Dec 8 trip is the main event, and the Dec 8 end date is flexible. Norway, Alta and Scotland (West Highland Way + Ben Nevis with Dad) are done, Ireland was dropped, and the Ericeira surf camp is over. Since ~2026-11-03 Omri has been volunteering on an Israeli-run farm near Lagos (bed + 2 meals a day, days off in Lagos, 2 weeks minimum, ideally a month or more). Full detail in `projects/travel/tracker.md`.
 
 **Open:**
-- How Porto/Lisbon and the Rota Vicentina trail fit around the Oct 25/Nov 3 anchors.
-- Whether the Worldpackers host confirms the Sagres placement.
+- Whether to extend past Dec 8, and for how long.
+- Whether to add paid barista work in Lagos after or alongside the farm (needs NIF + NISS + contract; winter hiring is thin).
+- Whether to return to Israel during Q4. No decision date, by choice.
 
-**Status:** Active, ongoing through ~Dec 2026.
+**Status:** Active, ongoing.
 
-## Priority 2: EcoTraders exit -- CLOSED 2026-11-13 (Ron's reference letter received)
-The job and its exit logistics are otherwise fully closed (closing email to Daniel sent, pension letter unnecessary, vacation payout settled -- all confirmed 2026-09-03). The reference letter from Ron is the only open item: Omri sent his own draft 2026-09-09 and a reminder 2026-10-07 after a month of silence. No reply yet.
+## Priority 2: Career direction clarity (Q4 Goal 1)
+The actual purpose of the trip. Decide which job roles to apply to and build a deeper understanding of the field and career path. The job search starts only after this goal is done, on a light schedule with no pressure while abroad. Prior applications are all closed (2026-07-10). The `job-tracker` skill still targets junior data analyst roles and needs a rewrite before the search restarts.
 
-**Status:** Closed. Remove at the next re-derivation.
+**Status:** Active. No fixed action items, the trip and conversations are the mechanism.
 
-## Priority 3: Career Direction Exploration -- the actual purpose of the trip
-Ongoing via conversations with alumni, professors, and fellow travelers met along the way. Formal job applications resume only after this reflection, not on a fixed date (~Dec 2026 earliest). All prior applications closed out as declined (2026-07-10).
+## Parked until laptop time
 
-**Status:** Active, no fixed action items -- the trip itself is the mechanism.
+**HoTake** (Q4 Goal 3). Portfolio project, no deadline. Goal: working demo per the Oct 19 spec (`brainstorms/2026-10-19_plms-hackathon-project.md`), plus LinkedIn posts for HoTake and for the chess routine. Existing code is working locally at `c:\עמרי\HoTake`. Hackathon closed unsubmitted. `projects/plms-hackathon/tracker.md` still reads as a live entry and needs a close-out edit when Omri has laptop time.
 
-## Priority 4: Independent projects during the trip -- new thread, not yet shaped
-Surfaced 2026-10-07 while drafting the LinkedIn post: Omri wants to use trip time to learn new skills and build something concrete, to come back with more experience and sharper tools. Intent only so far -- no project defined yet. Omri has two specific project ideas to discuss and shape in an upcoming session.
-
-**Status:** Active -- next concrete step is that discussion.
-
----
+**Chess** (Q4 Goal 2). Learning system fully built (M0-M6 all done as of 2026-11-02). Goal: 36 rapid games analyzed, then draw conclusions about key features of his games. Long-term target stays 1600 rapid (currently 1193), a 2027 number. Parked because rapid play needs laptop time.
 
 ## Dead / Shelved
 
-**Through the Gap / Window Winners** -- Killed 2026-09-03 at Omri's explicit instruction: no work on it and no future work planned. The whole project folder moved to `archives/through-the-gap/`; both recurring build blocks deleted from Google Calendar. Do not resurface it as a suggestion.
+**Through the Gap / Window Winners:** killed 2026-09-03. Do not resurface it as a suggestion. See `archives/through-the-gap/`.
 
-**D&D Campaign** -- Confirmed dead 2026-07-24 (was "on hold" since 2026-07-10). Session 2 ("Chains") has been fully prepped since 2026-06-09 and was never played. The `.claude/skills/dnd-session-prep/` skill and campaign files are left in place in case it revives. See `projects/dnd-campaign/README.md`.
-
----
+**D&D Campaign:** dead since 2026-07-24. Folder archived 2026-11-13 to `archives/dnd-campaign-2026/`. The `dnd-session-prep` skill is kept in case it revives.
 
 ## Retired (completed, kept for the record)
 
-**EcoTraders delivery work** -- Closed 2026-08-19. Grants chapter and loan fund position paper to the Ministry (2026-07-12), tax incentive model and chapter to Daniel (2026-08-17), both model documentation files, and the full loan fund chapter. The tax incentive model was the part Omri genuinely enjoyed, a real modeling problem worked through end to end, and the skill-building from it is what carries forward rather than the job. Exit logistics live on as Priority 2.
+**EcoTraders:** all delivery work closed 2026-08-19. Exit fully closed 2026-11-13 when Ron's reference letter arrived by email.
 
-**University** -- Degree complete. Final Sustainability Project submitted 2026-08-12, both channels confirmed, ahead of the real Aug 13 deadline. All grades pending, nothing further to produce.
+**University:** degree complete. Final Sustainability Project submitted 2026-08-12. Grades pending, nothing further to produce.
 
-**LinkedIn post on the economics seminar presentation** -- Posted 2026-10-07 (final link lnkd.in/p/ej8SauVz), four drafts, built around the IDCA Annual Summit rather than the seminar presentation alone. 40 reactions, 6 comments. Voice locked in as a durable preference (`feedback_linkedin_voice.md`): narrative over stats, grateful/curious tone, credentials stated plainly, no targeted CTA.
+**LinkedIn post on the economics seminar:** posted 2026-10-07 (lnkd.in/p/ej8SauVz). Voice locked in as a durable preference: narrative over stats, grateful/curious tone, credentials stated plainly, no targeted CTA.
+
+**World Cup party quiz:** one-off, archived 2026-11-13 to `archives/world-cup-party/`.
 
 ---
 
 ## Hobbies
 
-**Chess** -- Active hobby, not a career/work priority. shamgi on chess.com. Member of the Improvers Club (monthly Annotated Game / Post / Video competitions). **Ultimate goal set 2026-10-19: 1600 rapid (10-minute)**, currently 1193. Core improvement focus: closing the gap between tactics (1871) and rapid, which is a conversion problem, not a vision problem. Studying Levy Rozman's *How to Win at Chess: Intermediate* and building out a real learning routine (engine analysis + puzzles, no paid membership). Ratings and submission cycle tracked live in `projects/chess/tracker.md`, updated automatically by the scheduled routines.
+**Chess:** shamgi on chess.com, member of the Improvers Club. See Parked above for the goal. Ratings and the routine log live in `projects/chess/tracker.md`, updated by the scheduled routine.
 
 ---
 
-**Update this file when focus shifts or new priorities emerge.** Do a full re-derivation (not just a status patch) periodically -- don't wait for a large context dump to prompt it.
+**Update this file when focus shifts or new priorities emerge.** Do a full re-derivation (not just a status patch) periodically.
