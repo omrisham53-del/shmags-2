@@ -91,6 +91,7 @@ The 2-minute video rests entirely on this, so the match is designed, not random.
 | Clive's personality specifics (voice, verbal tics, how rude) | Omri | 10-minute call on build day, better made with the thing in front of him |
 | LinkedIn post text | Omri | Deliberately deferred to Oct 25-27, after the build |
 | Lift global rules (AI Kill List, comms style, identity) to user-level CLAUDE.md | Omri + Claude | Not started. Logged in `projects/claude-code-lessons/tracker.md` |
+| Anthropic API key `hotake` expires **2026-11-20 (UTC)** | Omri | Confirmed from the Console email 2026-11-13. After expiry every request with that key gets an authentication error. Fix: create a new key in the Anthropic Console, update HoTake's local env var, delete the old key. Only the live-LLM path is affected, the fallback path needs no key. Not urgent while HoTake is parked, but rotate before the first live test. |
 
 ---
 
