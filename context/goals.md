@@ -2,23 +2,23 @@
 
 **Q4 2026 (set 2026-11-13)**
 
-Whether Omri returns to Israel during Q4 is undecided, and it shapes the job-search timing. The goals below hold either way.
+Whether Omri returns to Israel during Q4 is undecided, and no decision date will be set. The job search can start without knowing the return date, but only after the Q4 goal below is completed. The goals below hold either way.
 
 ## Q4 Goal 1: Career direction clarity
 - Decide which job roles to apply to
 - Build a deeper understanding of the field and career path he wants
-- Job search restarts on a light schedule once laptop time exists, with no pressure while abroad
+- Job search starts after this goal is done (not tied to the return date), on a light schedule with no pressure while abroad
 
 ## Q4 Goal 2: Chess conclusions
 - Run enough chess routines to draw real conclusions that highlight key features of his games
 - Parked until laptop time
 
 ## Q4 Goal 3: HoTake finished and shown
-- Working demo of HoTake
+- Working demo of HoTake, as specified in `brainstorms/2026-10-19_plms-hackathon-project.md`: the provoke -> user take -> match unfolds -> evidence -> verdict loop, played through the seeded demo match arc (pre-kickoff call, ~35' call from the box-numbers analyst, ~50' hit, ~70' visible miss, full-time ledger), specialists + Clive + adjudicator routed by event type, depth toggle (analyst vs mate on the sofa), timeout + fallback visible in the UI, public live URL. Cut items stay optional: TTS, third specialist (duels), richer adjudicator
 - LinkedIn post about HoTake and a LinkedIn post about the chess routine
 - Parked until laptop time
 
-**Open:** return-to-Israel decision and date; how many chess routines count as "enough"; what "working demo" must include.
+**Open:** how many chess routines count as "enough" (the plan says the diagnostic needs about 3 weeks at 4 sessions/week, roughly 12 sessions or 36 games; no other figure is documented); whether the job search starts after Goal 1 specifically or after all three goals. No decision date for returning to Israel, by choice.
 
 ---
 
