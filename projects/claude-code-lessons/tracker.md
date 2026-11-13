@@ -379,6 +379,30 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 <tr style="background-color:#fff3cd;"><td><strong>In Progress</strong></td><td>actively being implemented this session</td></tr>
 <tr style="background-color:#d4f4dd;"><td><strong>Done</strong></td><td>implemented and verified</td></tr>
 <tr style="background-color:#e0e0e0;"><td><strong><em>Skipped</em></strong></td><td>considered, decided not to apply here (reason in Notes)</td></tr>
+<tr style="background-color:#d4f4dd;"> <!-- Done -->
+<td>2026-11-13</td>
+<td>A skill file placed flat in <code>.claude/skills/&lt;name&gt;.md</code> does not register as a skill even with valid YAML frontmatter. The working layout is <code>.claude/skills/&lt;name&gt;/SKILL.md</code>. The 2026-05-26 lesson ("skills need frontmatter") was true but incomplete.</td>
+<td>Skill/config pattern</td>
+<td><strong>Done</strong></td>
+<td>Moved grill-me, save-context and job-tracker into folders; all three then appeared in the available-skills list. Also a reminder to check a file's actual contents before reporting it as broken: the weekly review wrongly flagged grill-me as having no frontmatter.</td>
+</tr>
+
+<tr style="background-color:#d4f4dd;"> <!-- Done -->
+<td>2026-11-13</td>
+<td>The Gmail connector has two gotchas: (1) <code>category:primary</code> is ignored, and the Primary tab is the label <code>CATEGORY_PERSONAL</code>, so use <code>in:inbox -category:updates -category:promotions -category:social -category:forums</code>; (2) the tool silently drops messages Gmail flags as spam, suspicious, confidential or encrypted, with no count, so a security or key-expiry notice can be invisible to Claude while visible to the user.</td>
+<td>Harness quirk</td>
+<td><strong>Done</strong></td>
+<td>Cost several rounds of searching for the Anthropic Console key-expiry email; resolved by Omri pasting the text. Also: ask before searching a user's mailbox for something they only mentioned in passing.</td>
+</tr>
+
+<tr style="background-color:#eaeaea;"> <!-- Not Started -->
+<td>2026-11-13</td>
+<td>Cloud sessions cannot reach the Windows memory folder (<code>C:\Users\User\.claude\projects\...\memory\</code>), so memory updates and the MEMORY.md cross-check in /weekly-review and /save-context are skipped from the cloud. Memory-worthy items from cloud sessions should go into repo files instead.</td>
+<td>Harness quirk</td>
+<td><strong>Not Started</strong></td>
+<td>Decide whether the memory step should be removed from the cloud path of both commands or mirrored into a repo folder.</td>
+</tr>
+
 </tbody>
 </table>
 
