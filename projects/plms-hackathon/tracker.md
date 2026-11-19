@@ -1,7 +1,7 @@
 # HoTake Tracker
 
-**Last Updated:** 2026-10-21
-**Status:** Lost all of Oct 20 to travel (surf-camp transit took far longer than planned). Scope cut to a smaller v1 to fit Oct 24; the cut full version becomes a no-deadline side project after submission. Terminal pipeline AND polling web UI both working end to end as of Oct 21 -- effectively 2 of the 4 remaining build days done in one session. Not yet tested with a live LLM key; all verification so far is on the fallback path.
+**Last Updated:** 2026-11-19
+**Status:** NOT SUBMITTED, parked as a no-deadline portfolio project (see decisions/log.md 2026-11-02). Winners announced 2026-11-19, comparison at the bottom of this file. Everything below the status line is the pre-deadline plan and is historical. Old status: Lost all of Oct 20 to travel (surf-camp transit took far longer than planned). Scope cut to a smaller v1 to fit Oct 24; the cut full version becomes a no-deadline side project after submission. Terminal pipeline AND polling web UI both working end to end as of Oct 21 -- effectively 2 of the 4 remaining build days done in one session. Not yet tested with a live LLM key; all verification so far is on the fallback path.
 
 ---
 
@@ -107,3 +107,33 @@ The 2-minute video rests entirely on this, so the match is designed, not random.
 - Two videos, neither filmed: functional screen recording for judges, AI-generated comedy for LinkedIn
 - Failure recovery (timeout + fallback to a pre-baked transcript) is in scope because the Best Multi-Agent criteria explicitly judge it
 - Not using: Fabric, Event Hubs, AKS, Functions, Logic Apps, Cosmos, auto-eventing from video
+
+---
+
+## Post-hackathon: the six winners vs HoTake (2026-11-19)
+
+Winners announced Nov 19 at Ignite (source: Microsoft Tech Community post, pasted by Omri). HoTake was not submitted. All six repos are public.
+
+| Prize | Project | Builder | Core idea |
+|---|---|---|---|
+| Grand Prize, 1st | Pitch Ledger | Philippines | Deterministic engine computes every stat, 5 agents write stories, an Auditor recalculates each figure and blocks anything beyond the evidence. Ledger with audit trail. Match Lab plants known scenarios in ~125k events per match. ~$0.07 model cost per match. |
+| Grand Prize, 2nd | Footballytics | Pakistan | Personal Director agent follows your club and fantasy squad across 10 matches. Verifier rejects inflated stats live in the UI. Template fallback if models go down. 7 languages. |
+| Best Foundry | Matchcut | Nigeria | Per-fan voiced highlight films, 7 languages, audio description, QA agent that watches the output. 42 films in ~3 min at ~2 cents each. |
+| Best Enterprise | Absolute Scenes | India | AI pundit that draws on the pitch as it speaks. Every number links to a tool call. Tactician plus simulator replays alternatives. Producer approval console. |
+| Best Multi-Agent | MatchCast | India | Broadcast crew with a separate Verifier that recounts from the raw log. Failures route back to the responsible agent. Up to 5 parallel specialists, A2A, audit chain, Content Safety, 10 languages. |
+| Best Azure Cloud Native | Talkback | Poland | Editorial gallery: Spotter ranks moments, Lab agent replays a moment 120 times to test causal wording, clears lines per territory. |
+
+Shared pattern: facts computed in code, language models only write, an independent verifier sits before the audience, multilingual and accessible personalization treated as core, production-style Azure (Event Hubs, Container Apps, keyless managed identities).
+
+**Matched:** facts in code and judgment in agents, claim ledger, adjudicator, timeout plus fallback, declared tactical-state generator with a scripted demo arc.
+
+**Thinner:** no independent check of the numbers Clive quotes (adjudicator grades predictions, not stats); 2 specialists with event-type routing vs MatchCast's typed graph; depth toggle vs 7 to 18 variants; no production framing; never deployed, never run on a live LLM, no measured numbers.
+
+**Different (the lane to keep):** no winner built a take-versus-take game where the pundit is graded in the same ledger as the user. Closest is Absolute Scenes, but it is broadcaster-facing and never scored against the viewer.
+
+**Carry-forwards for the portfolio version:**
+1. Add a verifier for Clive's quoted numbers (the ledger already exists).
+2. Add a visible "plant a false stat, watch it get caught" demo.
+3. Report measured cost per match and latency per call.
+4. Keep the accountable-pundit game as the differentiator.
+5. Read the Pitch Ledger and MatchCast repos (links need to come from the post page itself).
