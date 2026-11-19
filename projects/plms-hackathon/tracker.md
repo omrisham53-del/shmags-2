@@ -1,7 +1,7 @@
 # HoTake Tracker
 
 **Last Updated:** 2026-11-19
-**Status:** Lost all of Oct 20 to travel (surf-camp transit took far longer than planned). Scope cut to a smaller v1 to fit Oct 24; the cut full version becomes a no-deadline side project after submission. Terminal pipeline AND polling web UI both working end to end as of Oct 21 -- effectively 2 of the 4 remaining build days done in one session. Not yet tested with a live LLM key; all verification so far is on the fallback path.
+**Status:** NOT SUBMITTED, parked as a no-deadline portfolio project (see decisions/log.md 2026-11-02). Winners announced 2026-11-19, comparison at the bottom of this file. Everything below the status line is the pre-deadline plan and is historical. Old status: Lost all of Oct 20 to travel (surf-camp transit took far longer than planned). Scope cut to a smaller v1 to fit Oct 24; the cut full version becomes a no-deadline side project after submission. Terminal pipeline AND polling web UI both working end to end as of Oct 21 -- effectively 2 of the 4 remaining build days done in one session. Not yet tested with a live LLM key; all verification so far is on the fallback path.
 
 ---
 
