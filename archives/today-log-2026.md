@@ -4,6 +4,32 @@ Sections moved from today.md when "Recent Work" exceeded 3 dates. Append-only.
 
 ---
 
+## Recent Work (September 4)
+
+1. **Discovered and fixed a second, bigger transport problem: the whole Jotunheimen-Breheimen bus corridor is dead by September.** Checked Omri's plan to bus from Gjendesheim via Lom/Sognefjellsvegen to the Breheimen trailhead against innlandstrafikk.no directly (not trip aggregators, which gave conflicting answers) -- every relevant seasonal mountain route (Lom-Gjendesheim, Lom-Sogndal, Bismo-Sota Sæter) stops running by Aug 16-30, 2026, weeks before the Sept 9/16/21 dates that depend on them. This breaks getting to Gjendesheim, the Jotunheimen-Breheimen transition, and the planned Breheimen exit shuttle, all three.
+
+2. **Fixed by reversing Breheimen the same way Jotunheimen was reversed.** Entered from the mountain side by taxi (Gjendesheim -> Lom -> Sota Saeter, real road confirmed, ~$16-24 for the Lom leg alone), exit at the fjord side (Hoeyheimsvik), which has a genuine year-round Norled express boat to Bergen. Found two real local taxi numbers (Taxi 03650 Lom, Schoss Taxi Otta) and confirmed Gjendesheim's own staff can arrange the booking, since Omri has no Norwegian number.
+
+3. **Confirmed Sota Saeter itself is closed by these dates** (staffed season ends Sept 6, no self-service option at all -- checked directly against dnt.no) and that the real first night is at Slaom, a genuine self-service hut, via a DNT-confirmed 5-hour walk. Omri independently found this by checking the hut schedule himself.
+
+4. **Built the full Slaom-to-Hoeyheimsvik route from real DNT map data**, not aggregator guesses -- Omri pulled the route IDs and distances directly from ut.no via a browser extension after my own attempts (WebFetch, then a headless-Chrome screenshot) both failed to read the interactive map. 83.0km across 7 waymarked sections, saved as `projects/travel/slaeomtohoyheimsvikroute.json`. Flagged two things this uncovers rather than just handing over the numbers: it's a materially longer, harder route than the one originally scoped (83km + a 5h approach walk vs. the original 61km), and the endpoint (Luster Fjordhytter) is a private cabin, not a DNT hut, so it likely needs advance booking unlike everything else on this trip.
+
+5. **Full Norway route section of the tracker rebuilt** around both reversals, old plans marked superseded rather than deleted, and three concrete DNT questions queued (Day 1/5 real difficulty, Fivla's actual status, Luster Fjordhytter booking) for Sept 9 or an earlier email.
+
+6. **Checked whether direct API access to Omri's UT.no account was possible** -- no, that's a consumer account with no personal API/OAuth exposure. But the underlying data is a genuinely public API (Nasjonal Turbase, `developer.nasjonalturbase.no`), the same one referenced in the JSON Omri pulled -- flagged as worth a future signup so route-checking doesn't need manual browser extraction each time, not urgent before the trip.
+
+7. **Drafted the DNT email** (`projects/travel/dnt-questions-email-draft.md`) covering four open questions (Besseggen's harder direction with no warm-up, the Gjendesheim taxi plan, Day 1/5 Breheimen difficulty, Fivla's status, Luster Fjordhytter booking) plus a conditions check, addressed to DNT Oslo og Omegn since they run the Breheimen huts and likely the Oslo center too. Sent ahead of Sept 9 specifically so there's still time to react if the answer changes anything.
+
+8. **DNT's reply landed the same day and it was worth the send** -- their answer surfaced a real problem the whole plan had missed twice over: the summer river bridges near Gjendebu/Spiterstulen/Glitterheim are removed around Sept 13, the same week the nearby huts close, making the entire 6-hut loop (reversed or original) genuinely unsafe that late, not just inconvenient. DNT does not recommend it and proposed an alternative route entirely.
+
+9. **Verified the pieces of DNT's alternative that could be reached.** Skogadalsboen: staffed, open Apr 6-Oct 15, comfortably in season. Vettismorki: self-service, exists to split a long stage. Pulled real distances for the new legs (Leirvassbu to Skogadalsboen ~19.5km/6-6.5h "Hard", Skogadalsboen to Vettismorki 10.6km/3.5h, Vettismorki to Svalheim ~9-10km/4h, the last one backed into from a combined figure rather than independently confirmed). Could not verify the one fact the whole plan hinged on -- the actual Svalheim to Hoeyheimsvik bus schedule -- because skyss.no is blocked at the network level in this environment (confirmed via curl: general internet resolves fine, that one host doesn't).
+
+10. **Omri confirmed the bus directly via the transit app** -- real, ~3.5 hours with several transfers. This resolved the open question and let the whole plan simplify: Breheimen reverts to its original, shorter direction (61km vs. the superseded 83km Slaom detour), needing only one taxi leg (the Sept 22 exit past the dead Sota Saeter shuttle) instead of two.
+
+11. **Full Norway route section rebuilt a third time**, all three prior route iterations marked superseded in place rather than deleted, matching the file's running pattern. New open items flagged rather than assumed: whether the existing Sep 9 Otta-Vagamo-Gjendesheim bus plan is actually still running (DNT's wording implies yes, oddly, given the Lom-side bus is confirmed dead), and the Nordstedalseter to Sota Saeter exit-day distance.
+
+---
+
 ## Recent Work (May 31 - June 1)
 
 **May 31 (work PC):**
