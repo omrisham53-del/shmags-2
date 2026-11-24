@@ -4,8 +4,10 @@ Running log of active applications. Found/unactioned jobs are in [tracker-archiv
 
 **Search paused (2026-07-10):** Active outreach is on hold during the Sept-Dec Northern Europe trip. Trip is being used for exploration (alumni conversations) rather than active applications. The rows below are frozen from before the pause -- no new responses expected until Omri is back (~Dec 2026). See `context/current-priorities.md` and `context/goals.md`.
 
+**One-off exception (2026-11-24):** Applying to two MoonActive roles (Product Economy Manager, Business Data Analyst) opportunistically despite the pause -- Omri's call, not a resumption of the broader search. CVs tailored in `C:\Users\User\Downloads\` (Product Economy Manager version primary, Business Data Analyst version secondary).
+
 ## Summary
-- Applied: 0
+- Applied: 0 (+2 pending today)
 - In review: 0
 - Rejected: 7
 - Paused: 1
@@ -18,6 +20,8 @@ Running log of active applications. Found/unactioned jobs are in [tracker-archiv
 
 | Date Found | Job Title | Company | Location | Link | Fit | Status | Notes |
 |------------|-----------|---------|----------|------|-----|--------|-------|
+| 2026-11-24 | Product Economy Manager | MoonActive | Tel Aviv | | High | Applying | Primary target. Same family as the Game Economy Manager role rejected here in May ("looking for more experienced candidate") -- worth another shot under a different title. CV: `Omri Shamgar CV - MoonActive Product Economy Manager.pdf`. |
+| 2026-11-24 | Business Data Analyst | MoonActive | Tel Aviv | | Medium | Applying | Posting asks for 2+ years analytical experience with strong SQL on large datasets -- Omri's EcoTraders stint is part-time/student and SQL is a basic skill, so this is the harder sell of the two. Applying anyway alongside the Economy Manager role. CV: `Omri Shamgar CV - MoonActive Business Data Analyst.pdf`. |
 | 2026-06-08 | Economic Analyst (referral) | Avishai's consulting firm | TBD | | High | Lead | Friend Avishai (from university) offered to bring Omri into his workplace, a small economics-consulting firm doing economic projects with kibbutzim. CV repositioned for the role 2026-06-08 (economics-forward, "אנליסט כלכלי" subtitle). Next: send CV / set up conversation with Avishai. |
 | 2026-05-31 | Global Share Plans Analyst | Mobileye | Jerusalem | | High | Rejected | Applied 2026-05-31. No response after 40+ days -- treated as declined by default. |
 | 2026-05-28 | Business Strategy Analyst | Realplay | Tel Aviv | | High | Rejected | Applied 2026-05-28. No response after 40+ days -- treated as declined by default. |

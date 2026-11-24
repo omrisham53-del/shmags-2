@@ -1,7 +1,7 @@
-# Today - 2026-11-22
+# Today - 2026-11-24
 
-**Date:** 2026-11-22
-**Updated:** 2026-11-22
+**Date:** 2026-11-24
+**Updated:** 2026-11-24
 
 ---
 
@@ -20,7 +20,7 @@
 
 ## Today's Completed
 
-*Nothing yet today.*
+1. **One-off job-search exception: applied to two MoonActive roles** (Product Economy Manager primary, Business Data Analyst secondary). CV was 6 months stale (still read as an ongoing student with EcoTraders current) so it was rebuilt from scratch as two tailored one-page PDFs, plus a LinkedIn headline/About draft -- all saved to `C:\Users\User\Downloads\`. `projects/job-search/tracker.md` and `decisions/log.md` updated. Submission itself (actually applying on MoonActive's portal) is still on Omri.
 
 ---
 
