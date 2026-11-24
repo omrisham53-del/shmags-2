@@ -1,6 +1,6 @@
 # Claude Code Lessons Tracker
 
-**Last Updated:** October 19, 2026
+**Last Updated:** November 24, 2026
 
 Backlog of lessons/ideas from the 6-hour Claude Code manual, plus meta-lessons that surface organically during regular work sessions (auto-fed by `/save-context`). Add new rows as lessons come up; work them in any order across sessions.
 
@@ -21,6 +21,14 @@ Row colors are HTML, so they only render as color in **VS Code Markdown Preview*
 </tr>
 </thead>
 <tbody>
+
+<tr style="background-color:#d4f4dd;"> <!-- Done -->
+<td>2026-11-24</td>
+<td>A Claude Artifact exported as a single self-hosted HTML file (downloaded and uploaded to GitHub by hand, e.g. for a Vercel deploy) is not plain HTML -- it's a bundler wrapper around three script tags (<code>__bundler/manifest</code>: every resource as gzip+base64 keyed by UUID; <code>__bundler/ext_resources</code>: a small friendly-id-to-UUID map that becomes <code>window.__resources</code>; <code>__bundler/template</code>: the static shell, rarely needs touching). It can be decoded, edited, and re-packed programmatically without a browser or the original Artifact session</td>
+<td>Reusable technique</td>
+<td><strong>Done</strong></td>
+<td>Surfaced while fixing Omri's real portfolio (portfolio-2.0), which turned out to be exactly this kind of export, uploaded with a literal <code>index.html.html</code> filename bug that likely broke Vercel's homepage detection entirely. Decoded all 25 manifest resources, found the two actual content files (a 10KB <code>shared.jsx</code> content object and a 23KB <code>portfolio-b.jsx</code> page component, sitting alongside 100KB-3MB framework bundles), edited them directly, then re-gzipped/re-encoded only the changed manifest entries -- verified line-by-line that nothing else in the file moved. Used the same mechanism to add a brand-new downloadable resource (a reference-letter PDF) by adding one new UUID + one new ext_resources entry. Full method saved as <code>artifact_bundle_editing</code> memory.</td>
+</tr>
 
 <tr style="background-color:#d4f4dd;"> <!-- Done -->
 <td>2026-11-02</td>

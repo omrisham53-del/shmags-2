@@ -20,7 +20,8 @@
 
 ## Today's Completed
 
-1. **One-off job-search exception: applied to two MoonActive roles** (Product Economy Manager primary, Business Data Analyst secondary). CV was 6 months stale (still read as an ongoing student with EcoTraders current) so it was rebuilt from scratch as two tailored one-page PDFs, plus a LinkedIn headline/About draft -- all saved to `C:\Users\User\Downloads\`. `projects/job-search/tracker.md` and `decisions/log.md` updated. Submission itself (actually applying on MoonActive's portal) is still on Omri.
+1. **Applied to two MoonActive roles** (Product Economy Manager, Business Data Analyst) -- confirmed submitted. CV fixed via a plain list of text edits against Omri's real Canva-built CV (not a rebuild -- first pass wrongly rebuilt it from scratch and was rejected): Reichmann->Reichman typo, Techincal/willingnes typos, mixed British/American spelling, EcoTraders dates/past tense, distinction-track seminar paper added to the profile and Projects section. `projects/job-search/tracker.md` marked Applied.
+2. **Refreshed both of Omri's portfolios** -- portfolio-1.0 (`c:\עמרי\portfolio`, the wrong one at first) and portfolio-2.0 (the real one, a self-hosted Claude Artifact export, discovered only after Omri flagged the mix-up). Both: Student->Graduate, EcoTraders no longer reads as a current job, broken/stale links fixed, current CV swapped in. Portfolio-2.0 additionally: fixed a literal `index.html.html` filename bug that likely meant Vercel had no homepage to serve, added Ron's real signed reference letter (pulled from Gmail) as a download next to the CV, fixed two dead "Read full sheet" project links into in-page expansions, rewrote both project write-ups in plain language after Omri called the first version "gibberish" for anyone but him, and fixed a real factual error (data-center capacity: 100 MW -> 20 MW) plus an inconsistent LinkedIn URL caught proactively.
 
 ---
 
