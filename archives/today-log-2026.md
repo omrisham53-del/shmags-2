@@ -361,3 +361,12 @@ Sections moved from today.md when "Recent Work" exceeded 3 dates. Append-only.
 
 7. **LinkedIn post source identified.** Omri's best guess: it was always about the economics seminar presentation with Tomer, not EcoTraders -- the wording had just drifted over several today.md rewrites. Confirmed plan: write and post before the flight.
 
+
+## Recent Work (October 7)
+
+1. **Caught up on ~5 weeks of trip history** after a gap in sessions (last here Sept 4) -- git pull, reconciled today.md and the energy-program exit-logistics table against what actually happened: Jotunheimen, Alta, Breheimen dropped, Scotland-with-Dad moved earlier, West Highland Way + Ben Nevis completed Oct 6.
+2. **Confirmed Ron's reference letter was actually sent** (2026-09-09, found via Gmail search) and sent a reminder (2026-10-07) -- both self-written by Omri, closing out a "status unknown" flag the weekly review had been carrying for weeks.
+3. **LinkedIn post written and posted**, four drafts -- pivoted from a stats-heavy paper recap to a grateful/curious reflection built around the IDCA Annual Summit, the trip's purpose, and connecting with nature. Full iteration logged in `decisions/log.md`.
+4. **Ireland dropped, Portugal re-anchored** around a signed-up Ericeira surf camp (Oct 25) and a submitted Worldpackers candidacy in Sagres (Nov 3) -- decided in a separate online session that never synced to this repo; flagged as a cross-session gap worth fixing (`projects/claude-code-lessons/tracker.md`).
+
+---

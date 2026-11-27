@@ -1,7 +1,7 @@
-# Today - 2026-11-25
+# Today - 2026-11-27
 
-**Date:** 2026-11-25
-**Updated:** 2026-11-25
+**Date:** 2026-11-27
+**Updated:** 2026-11-27
 
 ---
 
@@ -20,6 +20,10 @@
 ---
 
 ## Today's Completed
+
+---
+
+## Recent Work (November 24)
 
 1. **Applied to two MoonActive roles** (Product Economy Manager, Business Data Analyst) -- confirmed submitted. CV fixed via a plain list of text edits against Omri's real Canva-built CV (not a rebuild -- first pass wrongly rebuilt it from scratch and was rejected): Reichmann->Reichman typo, Techincal/willingnes typos, mixed British/American spelling, EcoTraders dates/past tense, distinction-track seminar paper added to the profile and Projects section. `projects/job-search/tracker.md` marked Applied.
 2. **Refreshed both of Omri's portfolios** -- portfolio-1.0 (`c:\עמרי\portfolio`, the wrong one at first) and portfolio-2.0 (the real one, a self-hosted Claude Artifact export, discovered only after Omri flagged the mix-up). Both: Student->Graduate, EcoTraders no longer reads as a current job, broken/stale links fixed, current CV swapped in. Portfolio-2.0 additionally: fixed a literal `index.html.html` filename bug that likely meant Vercel had no homepage to serve, added Ron's real signed reference letter (pulled from Gmail) as a download next to the CV, fixed two dead "Read full sheet" project links into in-page expansions, rewrote both project write-ups in plain language after Omri called the first version "gibberish" for anyone but him, and fixed a real factual error (data-center capacity: 100 MW -> 20 MW) plus an inconsistent LinkedIn URL caught proactively.
@@ -43,15 +47,6 @@
 4. **Travel tracker reconciled.** It still had Omri in London through Oct 24 and the Worldpackers placement as "pending confirmation" -- both wrong. Fixed, and the three fully-historical Norway sections (Oslo DNT questions, Weather Watch, the Odda/Hardangervidda planning block) marked historical so they stop reading as live open items in every future session.
 
 5. **HoTake specified end to end** via a 19-question grill-me session (`brainstorms/2026-10-19_plms-hackathon-project.md`) for the Microsoft x Premier League hackathon. Researched the event first (rules, judging weights, entrant repos) rather than asking blind, which surfaced that the crowded lane is broadcast commentary and that two explicitly-judged items were missing from the design: "recover from failures" in the Multi-Agent criteria, and Personalize as a named pipeline stage. Omri improved on the concept twice himself: the pundit framing (neither analysis companion nor prediction referee, but a stat-based pundit that creates conversations), and splitting the analyst into three narrow specialists for control over what gets assessed. The real deadline was reset from Oct 27 to **Oct 24** once the surf camp's 2h/day was priced in honestly, and the videos split into two (functional for judges, AI-generated comedy for LinkedIn) because one video cannot serve both without risking the eligibility gate.
-
----
-
-## Recent Work (October 7)
-
-1. **Caught up on ~5 weeks of trip history** after a gap in sessions (last here Sept 4) -- git pull, reconciled today.md and the energy-program exit-logistics table against what actually happened: Jotunheimen, Alta, Breheimen dropped, Scotland-with-Dad moved earlier, West Highland Way + Ben Nevis completed Oct 6.
-2. **Confirmed Ron's reference letter was actually sent** (2026-09-09, found via Gmail search) and sent a reminder (2026-10-07) -- both self-written by Omri, closing out a "status unknown" flag the weekly review had been carrying for weeks.
-3. **LinkedIn post written and posted**, four drafts -- pivoted from a stats-heavy paper recap to a grateful/curious reflection built around the IDCA Annual Summit, the trip's purpose, and connecting with nature. Full iteration logged in `decisions/log.md`.
-4. **Ireland dropped, Portugal re-anchored** around a signed-up Ericeira surf camp (Oct 25) and a submitted Worldpackers candidacy in Sagres (Nov 3) -- decided in a separate online session that never synced to this repo; flagged as a cross-session gap worth fixing (`projects/claude-code-lessons/tracker.md`).
 
 ---
 
